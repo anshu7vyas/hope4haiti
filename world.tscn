@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=12 format=1]
 
-[ext_resource path="res://tilesets/smallTiles.res" type="TileSet" id=1]
+[ext_resource path="res://tilesets/objectsTilemap.res" type="TileSet" id=1]
 [ext_resource path="res://solids.xml" type="TileSet" id=2]
-[ext_resource path="res://Scripts/hero.gd" type="Script" id=3]
-[ext_resource path="res://images/Sprites/hero.png" type="Texture" id=4]
+[ext_resource path="res://tilesets/objectsSprite.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/hero.gd" type="Script" id=4]
+[ext_resource path="res://images/Sprites/hero.png" type="Texture" id=5]
+[ext_resource path="res://dialogue_box.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
 
 [sub_resource type="Animation" id=1]
 
@@ -77,7 +84,6 @@ tracks/0/keys = {
 
 [node name="bottom" type="TileMap" parent="."]
 
-visibility/visible = false
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 16, 16 )
@@ -92,29 +98,12 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -327688, 5, -327687, 5, -327686, 5, -327685, 5, -327684, 5, -327683, 5, -327682, 5, -327681, 5, -393216, 5, -393215, 5, -393214, 5, -393213, 5, -393212, 5, -393211, 5, -393210, 5, -393209, 5, -262152, 5, -262151, 5, -262150, 5, -262149, 5, -262148, 5, -262147, 5, -262146, 5, -262145, 5, -327680, 5, -327679, 5, -327678, 5, -327677, 5, -327676, 5, -327675, 5, -327674, 5, -327673, 5, -196616, 5, -196615, 5, -196614, 5, -196613, 5, -196612, 5, -196611, 5, -196610, 5, -196609, 5, -262144, 5, -262143, 5, -262142, 5, -262141, 5, -262140, 5, -262139, 5, -262138, 5, -262137, 5, -131080, 5, -131079, 5, -131078, 5, -131077, 5, -131076, 5, -131075, 5, -131074, 5, -131073, 5, -196608, 5, -196607, 5, -196606, 5, -196605, 5, -196604, 5, -196603, 5, -196602, 5, -196601, 5, -65544, 5, -65543, 5, -65542, 5, -65541, 5, -65540, 5, -65539, 5, -65538, 5, -65537, 5, -131072, 5, -131071, 5, -131070, 5, -131069, 5, -131068, 5, -131067, 5, -131066, 5, -131065, 5, -8, 5, -7, 5, -6, 5, -5, 5, -4, 5, -3, 5, -2, 5, -1, 5, -65536, 5, -65535, 5, -65534, 5, -65533, 5, -65532, 5, -65531, 5, -65530, 5, -65529, 5, 65528, 5, 65529, 5, 65530, 5, 65531, 5, 65532, 5, 65533, 5, 65534, 5, 65535, 5, 0, 5, 1, 5, 2, 5, 3, 5, 4, 5, 5, 5, 6, 5, 7, 5, 131064, 5, 131065, 5, 131066, 5, 131067, 5, 131068, 5, 131069, 5, 131070, 5, 131071, 5, 65536, 5, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 5, 65543, 5, 196600, 5, 196601, 5, 196602, 5, 196603, 5, 196604, 5, 196605, 5, 196606, 5, 196607, 5, 131072, 5, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 5, 131079, 5, 262137, 5, 262138, 5, 262139, 5, 262140, 5, 262141, 5, 262142, 5, 262143, 5, 196608, 5, 196609, 5, 196610, 5, 196611, 5, 196612, 5, 196613, 5, 196614, 5, 196615, 5, 327673, 5, 327674, 5, 327675, 5, 327676, 5, 327677, 5, 327678, 5, 327679, 5, 262144, 5, 262145, 5, 262146, 5, 262147, 5, 262148, 5, 262149, 5, 262150, 5, 262151, 5 )
+tile_data = IntArray(  )
 
-[node name="top" type="TileMap" parent="."]
-
-mode = 0
-tile_set = ExtResource( 1 )
-cell/size = Vector2( 16, 16 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( -131076, 26, -131075, 37, -131074, 37, -131073, 37, -196608, 37, -196607, 37, -196606, 27, -65540, 32, -131070, 29, -131069, 37, -131068, 37, -131067, 38, -65531, 34, 65530, 23, 65531, 27, 5, 34, 131067, 34, 65541, 34, 196603, 24, 196604, 23, 196605, 23, 196606, 23, 196607, 23, 131072, 23, 131073, 23, 131074, 23, 131075, 23, 131076, 23, 131077, 33 )
-
-[node name="collisions" type="TileMap" parent="."]
+[node name="boundry" type="TileMap" parent="."]
 
 visibility/visible = false
+transform/pos = Vector2( 0, 16 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
@@ -129,24 +118,52 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -131076, 0, -131075, 0, -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -65540, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -65531, 0, 65530, 0, 65531, 0, 5, 0, 131067, 0, 65541, 0, 196603, 0, 196604, 0, 196605, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
+tile_data = IntArray( -4, 0 )
+
+[node name="sign" type="Sprite" parent="."]
+
+transform/pos = Vector2( -40, 8 )
+texture = ExtResource( 3 )
+vframes = 50
+hframes = 64
+frame = 179
+
+[node name="StaticBody2D" type="StaticBody2D" parent="sign"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sign/StaticBody2D"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Interact" type="Node2D" parent="sign/StaticBody2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 
 transform/pos = Vector2( -0.942429, -12.602 )
 transform/scale = Vector2( 1.86512, 1.86512 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 vframes = 4
 hframes = 3
 frame = 1
@@ -165,8 +182,10 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 
+transform/pos = Vector2( -96, -32 )
+transform/scale = Vector2( 4, 4 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -179,9 +198,44 @@ drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = false
 smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
+
+[node name="dialogue_box" parent="KinematicBody2D/Camera2D" instance=ExtResource( 6 )]
+
+visibility/visible = false
+margin/left = -102.0
+margin/top = 28.0
+margin/right = 102.0
+margin/bottom = 60.0
+
+[node name="RichTextLabel" parent="KinematicBody2D/Camera2D/dialogue_box"]
+
+margin/left = 11.0
+margin/top = 5.0
+margin/right = 921.0
+margin/bottom = 115.0
+
+[node name="top" type="TileMap" parent="."]
+
+transform/pos = Vector2( 0, 16 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
 
 
+[editable path="KinematicBody2D/Camera2D/dialogue_box"]
