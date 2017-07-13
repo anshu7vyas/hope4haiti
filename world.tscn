@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://tilesets/objectsTilemap.res" type="TileSet" id=1]
 [ext_resource path="res://solids.xml" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/hero.gd" type="Script" id=5]
 [ext_resource path="res://images/Sprites/hero.png" type="Texture" id=6]
 [ext_resource path="res://dialogue_box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -166,7 +167,7 @@ _update_shape_index = 0
 [node name="Interact" type="Node2D" parent="sign/StaticBody2D"]
 
 script/script = ExtResource( 4 )
-text = [ "yoooo", "y u no workl tho" ]
+text = [ "I want to make a super long label and test it out so lets see how that works yea know?", "Now you pressed space so it should add another super long bit of text. But the text is really small so it might look weird and have to scroll idk tho. Actually it wasnt that long so I have to add evern more so that you have to scroll ugh. Adding more here" ]
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
@@ -238,6 +239,14 @@ margin/left = 11.0
 margin/top = 4.0
 margin/right = 681.0
 margin/bottom = 149.0
+
+[node name="menu" parent="Player/Camera2D" instance=ExtResource( 8 )]
+
+visibility/visible = false
+margin/left = 24.0
+margin/top = -59.0
+margin/right = 79.0
+margin/bottom = -9.0
 
 [node name="top" type="TileMap" parent="."]
 
