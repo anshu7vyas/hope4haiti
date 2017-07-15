@@ -14,7 +14,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 55.0
-margin/bottom = 50.0
+margin/bottom = 57.0
 texture = ExtResource( 1 )
 patch_margin/left = 8
 patch_margin/top = 8
@@ -71,7 +71,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Save" type="Label" parent="Labels"]
+[node name="Difficulty" type="Label" parent="Labels"]
 
 rect/scale = Vector2( 0.2, 0.2 )
 focus/ignore_mouse = true
@@ -80,8 +80,27 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -20.0
 margin/top = -16.0
-margin/right = 94.0
+margin/right = 170.0
 margin/bottom = 14.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.628906, 0.628906, 0.628906, 1 )
+custom_colors/font_color_shadow = Color( 0.3125, 0.3125, 0.3125, 1 )
+text = "Difficulty"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Save" type="Label" parent="Labels"]
+
+rect/scale = Vector2( 0.2, 0.2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -20.0
+margin/top = -10.0
+margin/right = 94.0
+margin/bottom = 20.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.628906, 0.628906, 0.628906, 1 )
 custom_colors/font_color_shadow = Color( 0.3125, 0.3125, 0.3125, 1 )
@@ -98,9 +117,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -20.0
-margin/top = -10.0
-margin/right = 94.0
-margin/bottom = 20.0
+margin/top = -4.0
+margin/right = 114.0
+margin/bottom = 26.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.628906, 0.628906, 0.628906, 1 )
 custom_colors/font_color_shadow = Color( 0.3125, 0.3125, 0.3125, 1 )
@@ -117,9 +136,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -20.0
-margin/top = -4.0
+margin/top = 2.0
 margin/right = 114.0
-margin/bottom = 26.0
+margin/bottom = 32.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.628906, 0.628906, 0.628906, 1 )
 custom_colors/font_color_shadow = Color( 0.3125, 0.3125, 0.3125, 1 )

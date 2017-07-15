@@ -231,22 +231,23 @@ visibility/visible = false
 margin/left = -78.0
 margin/top = 24.0
 margin/right = 79.0
-margin/bottom = 60.0
+margin/bottom = 56.0
 
 [node name="RichTextLabel" parent="Player/Camera2D/dialogue_box"]
 
 margin/left = 11.0
 margin/top = 4.0
 margin/right = 681.0
-margin/bottom = 149.0
+margin/bottom = 129.0
 
 [node name="menu" parent="Player/Camera2D" instance=ExtResource( 8 )]
 
+process/pause_mode = 2
 visibility/visible = false
 margin/left = 24.0
-margin/top = -59.0
+margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -9.0
+margin/bottom = 4.0
 
 [node name="top" type="TileMap" parent="."]
 

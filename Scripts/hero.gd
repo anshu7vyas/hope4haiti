@@ -34,6 +34,7 @@ func _input(event):
 		menu = false
 
 func _fixed_process(delta):
+	#print(str(singleton.foo)) #access singleton info
 	if !moving and canMove:
 		var resultUp = world.intersect_point(get_pos() + Vector2(0, -GRID))
 		var resultDown = world.intersect_point(get_pos() + Vector2(0, GRID))
