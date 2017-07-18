@@ -20,15 +20,18 @@ func _ready():
 	pointer_update()
 
 func _handle_interaction():
-	if currentLabel == 0:
+	if currentLabel == 0: #Items label
 		open = false
 		var node = preload("res://Inventory.tscn").instance()
 		get_node("/root/world").add_child(node)
+	elif currentLabel == 5: #Exit Label
+		OS.get_main_loop().quit()
 
 func _fixed_process(delta):
 	if open:
 		if Input.is_action_pressed("ui_interact"):
 			_handle_interaction()
+		
 		if menu:
 			set_hidden(true)
 			get_tree().set_pause(false)
