@@ -17,7 +17,6 @@ func _input(event):
 	elif event.is_action_released("ui_interact"):
 		interact = false
 
-
 func _fixed_process(delta):
 	if interact:
 		self.get_ok()

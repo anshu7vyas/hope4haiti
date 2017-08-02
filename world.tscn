@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://tilesets2/insideSC1.res" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://tilesets/objectsSprite.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/interact_script.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/control_Alert.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/destinationObject.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/direction_arrow.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -78,7 +80,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 26.6667, 10 )
 
 [node name="world" type="Node2D"]
 
@@ -182,6 +184,7 @@ autoplay = ""
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+editor/display_folded = true
 transform/scale = Vector2( 4, 4 )
 anchor_mode = 1
 rotating = false
@@ -324,6 +327,7 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="intoObj" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
 vframes = 50
@@ -347,6 +351,7 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="startup_dialoge" parent="." instance=ExtResource( 5 )]
 
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -373,6 +378,18 @@ popup/exclusive = true
 window/title = "Controls"
 dialog/hide_on_ok = true
 script/script = ExtResource( 10 )
+
+[node name="destinationObj" type="Node2D" parent="."]
+
+transform/pos = Vector2( -56, 338 )
+transform/scale = Vector2( 0.28125, 0.265625 )
+script/script = ExtResource( 11 )
+
+[node name="direction_arrow" type="Node2D" parent="."]
+
+transform/pos = Vector2( 25, 21 )
+transform/scale = Vector2( 0.9375, 0.875 )
+script/script = ExtResource( 12 )
 
 
 [editable path="Player/Camera2D/dialogue_box"]
