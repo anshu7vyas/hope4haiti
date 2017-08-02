@@ -3,6 +3,8 @@ extends Node2D
 var interact  = false
 var intro_dialogue_complete = false
 onready var alert_box = get_node("control_alerts")
+onready var directionNode = get_node("direction_arrow")
+onready var compassNode = get_node("compassBG")
 var time_seconds = 0
 var dialogue_wait_secs = 1
 var alert_wait_secs = 2
@@ -13,6 +15,8 @@ var alert2_done = false
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
+	directionNode.hide()
+	compassNode.hide()
 	if singleton.isNewGame == true: #will be used when saving user data
 		#get_node("control_alerts").show()
 		pass
@@ -28,6 +32,9 @@ func _fixed_process(delta): #running process
 	time_seconds += delta	#count how long the scene has been running
 	if interact and alert_box.is_visible(): #dismiss alertbox
 		alert_box.hide()
+		if alert2_done:
+			directionNode.show()
+			compassNode.show()
 	if time_seconds > dialogue_wait_secs and !timer_done: #pause for 1s then start intro dialogue
 		intro_dialogue()
 		timer_done = true #dont run this block again
@@ -36,12 +43,15 @@ func _fixed_process(delta): #running process
 		alert_box.show() #show alert box
 		alert_done = true #dont run this block again
 	if singleton.message_done and !alert2_done: #show 2nd alert box after dialoge is complete
-		singleton.message_done = false #set the message bool back to false
+		#singleton.message_done = false #set the message bool back to false
 		alert_box._print_alert(1) 
 		alert_box.show() 
 		interact = false #bug fix so alert box is not immediatly dismssed
 		OS.delay_msec(50) #allow "interact = false" to register
 		alert2_done = true 
+	if !singleton.message_done: #dont allopw walking during dialogue or alerts
+		get_node("Player").canMove = false
+
 
 func intro_dialogue():
 	var player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box

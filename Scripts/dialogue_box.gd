@@ -31,7 +31,6 @@ func _fixed_process(delta):
 				timer = 0
 				get_node("RichTextLabel").set_bbcode(get_node("RichTextLabel").get_bbcode() + textToPrint[currentText][currentChar])
 				currentChar += 1
-			
 			if currentChar >= textToPrint[currentText].length():
 				currentChar = 0
 				timer = 0
@@ -47,7 +46,6 @@ func _fixed_process(delta):
 				set_hidden(true)
 				singleton.message_done = true
 				get_node("/root/world/Player").canMove = true
-	
 	pressed = false
 
 

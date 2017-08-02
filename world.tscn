@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://tilesets2/insideSC1.res" type="TileSet" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://Scripts/interact_script.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/control_Alert.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/destinationObject.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/direction_arrow.gd" type="Script" id=12]
+[ext_resource path="res://images/compass.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/direction_arrow.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 
@@ -80,7 +81,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.6667, 10 )
+extents = Vector2( 26.5439, 10 )
 
 [node name="world" type="Node2D"]
 
@@ -148,6 +149,7 @@ tile_data = IntArray( 1310746, 399, 1310747, 400, 1310748, 385, 1310749, 386, 13
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -305,7 +307,7 @@ frame = 181
 
 input/pickable = false
 shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 0.341573, 0, 0, 1.11538, -2.26498e-06, 1.5 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -316,6 +318,8 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactObj/StaticBody2D"]
 
+transform/pos = Vector2( -2.26498e-06, 1.5 )
+transform/scale = Vector2( 0.341573, 1.11538 )
 shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
@@ -385,11 +389,17 @@ transform/pos = Vector2( -56, 338 )
 transform/scale = Vector2( 0.28125, 0.265625 )
 script/script = ExtResource( 11 )
 
+[node name="compassBG" type="Sprite" parent="."]
+
+transform/pos = Vector2( 25, 21 )
+transform/scale = Vector2( 0.0375, 0.035 )
+texture = ExtResource( 12 )
+
 [node name="direction_arrow" type="Node2D" parent="."]
 
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 12 )
+script/script = ExtResource( 13 )
 
 
 [editable path="Player/Camera2D/dialogue_box"]
