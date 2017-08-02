@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=16 format=1]
 
-[ext_resource path="res://tilesets2/insideSC1.res" type="TileSet" id=1]
-[ext_resource path="res://Scripts/hero.gd" type="Script" id=2]
-[ext_resource path="res://images/Sprites/hero.png" type="Texture" id=3]
-[ext_resource path="res://dialogue_box.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://solids.xml" type="TileSet" id=6]
-[ext_resource path="res://tilesets/objectsSprite.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/interact_script.gd" type="Script" id=8]
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://tilesets2/insideSC1.res" type="TileSet" id=2]
+[ext_resource path="res://Scripts/hero.gd" type="Script" id=3]
+[ext_resource path="res://images/Sprites/hero.png" type="Texture" id=4]
+[ext_resource path="res://dialogue_box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://solids.xml" type="TileSet" id=7]
+[ext_resource path="res://tilesets/objectsSprite.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/interact_script.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/control_Alert.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -22,7 +24,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 1, 0, 6 ]
+"values": [ 2, 1, 0, 1 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -80,11 +82,16 @@ extents = Vector2( 10, 10 )
 
 [node name="world" type="Node2D"]
 
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="bottom" type="TileMap" parent="."]
 
 transform/pos = Vector2( -384, -432 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -103,7 +110,7 @@ tile_data = IntArray( 0, 98, 1, 98, 2, 98, 3, 98, 4, 98, 5, 98, 6, 98, 7, 98, 8,
 
 transform/pos = Vector2( -384, -432 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -122,7 +129,7 @@ tile_data = IntArray( 1245206, 1093, 1245207, 1094, 1245208, 1120, 1245209, 1120
 
 transform/pos = Vector2( -384, -432 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -145,13 +152,16 @@ input/pickable = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 2 )
+script/script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Player"]
 
 transform/pos = Vector2( -0.424341, -23.9151 )
 transform/scale = Vector2( 2.05163, 2.33149 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 4
 hframes = 3
 frame = 1
@@ -190,7 +200,7 @@ drag_margin/top = 0.0
 drag_margin/right = 0.0
 drag_margin/bottom = 0.0
 
-[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 4 )]
+[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 5 )]
 
 visibility/visible = false
 margin/left = -78.0
@@ -202,10 +212,10 @@ margin/bottom = 59.0
 
 margin/left = 13.0
 margin/top = 7.0
-margin/right = 537.0
-margin/bottom = 99.0
+margin/right = 429.0
+margin/bottom = 76.0
 
-[node name="menu" parent="Player/Camera2D" instance=ExtResource( 5 )]
+[node name="menu" parent="Player/Camera2D" instance=ExtResource( 6 )]
 
 process/pause_mode = 2
 visibility/visible = false
@@ -218,7 +228,7 @@ margin/bottom = 4.0
 
 transform/pos = Vector2( -384, -432 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -232,12 +242,15 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 1638422, 203, 1638423, 204, 1638428, 29, 1638429, 30, 1835015, 1588, 1835018, 1591, 1835019, 1592, 2097168, 25, 2097169, 26, 2949145, 203, 2949146, 204, 3014685, 155, 3014686, 156, 3080224, 27, 3080225, 28 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="smallObjsTop" type="TileMap" parent="."]
 
 transform/pos = Vector2( -384, -432 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -251,12 +264,15 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 1835018, 271, 1835019, 272 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="collision" type="TileMap" parent="."]
 
 visibility/visible = false
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 7 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -274,9 +290,10 @@ tile_data = IntArray( -262147, 1, -262146, 1, -262145, 1, -327680, 1, -327679, 1
 [node name="interactObj" type="Sprite" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( -8.5, -9 )
 transform/scale = Vector2( 0.9375, 0.875 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 50
 hframes = 64
 frame = 181
@@ -302,8 +319,61 @@ _update_shape_index = 0
 
 [node name="Interact" type="Node2D" parent="interactObj/StaticBody2D"]
 
-script/script = ExtResource( 8 )
-text = [ "This is a sample of interacting with an object", "Maybe we can challenge them by using pop ups?" ]
+script/script = ExtResource( 9 )
+text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !" ]
+
+[node name="intoObj" type="Sprite" parent="."]
+
+transform/pos = Vector2( 25, 23 )
+transform/scale = Vector2( 0.9375, 0.875 )
+vframes = 50
+hframes = 64
+frame = 181
+
+[node name="StaticBody2D" type="StaticBody2D" parent="intoObj"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="introduction_dialogue" type="Node2D" parent="intoObj/StaticBody2D"]
+
+script/script = ExtResource( 9 )
+text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !", "Let's take a walk to school! Follow the arrow" ]
+
+[node name="startup_dialoge" parent="." instance=ExtResource( 5 )]
+
+visibility/visible = false
+margin/left = -52.0
+margin/top = 39.0
+margin/right = 105.0
+margin/bottom = 74.0
+
+[node name="RichTextLabel" parent="startup_dialoge"]
+
+margin/right = 438.0
+
+[node name="control_alerts" type="AcceptDialog" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -48.0
+margin/top = -30.0
+margin/right = 240.0
+margin/bottom = 60.0
+popup/exclusive = true
+window/title = "Controls"
+dialog/hide_on_ok = true
+script/script = ExtResource( 10 )
 
 
 [editable path="Player/Camera2D/dialogue_box"]
+[editable path="startup_dialoge"]

@@ -80,13 +80,13 @@ func _fixed_process(delta):
 				interact(resultRight)
 		if menu and !interact:
 			get_node("Camera2D/menu")._open_menu()
+			#get_node("Camera2D/menu").set_as_toplevel(true) #keeps the menu in place
 	elif canMove:
 		move_to(get_pos() + direction * SPEED)
 		if get_pos() == startPos + Vector2(GRID * direction.x, GRID * direction.y):
 			moving = false
 	interact = false
 	menu = false
-
 
 func interact(result):
 	for dictionary in result:

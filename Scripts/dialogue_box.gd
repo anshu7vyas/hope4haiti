@@ -11,7 +11,7 @@ var textToPrint = []
 var currentChar = 0
 var currentText = 0
 
-const SPEED = 0.01
+const SPEED = 0.007 #Lower prints words faster
 
 func _ready():
 	set_fixed_process(true)
@@ -45,6 +45,7 @@ func _fixed_process(delta):
 				textToPrint = []
 				printing = false
 				set_hidden(true)
+				singleton.message_done = true
 				get_node("/root/world/Player").canMove = true
 	
 	pressed = false

@@ -5,6 +5,9 @@ extends Node
 
 var item = [createItemData("Push", "Verb"), createItemData("Brick", "Noun"), createItemData("Beautiful", "Adjective"), createItemData("Wall", "Noun")]
 
+var isNewGame = true
+var message_done = false
+
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}
 
