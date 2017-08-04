@@ -8,27 +8,16 @@ var canMove = true
 var interact = false
 var menu = false
 
-const SPEED = 1
-const GRID = 16
-
 var world
 var sprite
 var animationPlayer
 
-const DETECT_RADIUS = 200
-const FOV = 80
+const SPEED = 2
+const GRID = 16
+
 var angle = 0
 var direction = Vector2()
 onready var directionNode = get_tree().get_root().get_node("./world/destinationObj")
-
-#const GREEN = Color(0, 1.0, 0, 0.4)
-#var draw_color = GREEN
-#func _draw():
-	#draw_circle_arc_poly(Vector2(), DETECT_RADIUS,  angle - FOV/2, angle + FOV/2, draw_color)
-
-#func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
-
-
 
 func _ready():
 	world = get_world_2d().get_direct_space_state()
@@ -36,7 +25,6 @@ func _ready():
 	set_process_input(true)
 	sprite = get_node("Sprite")
 	animationPlayer = get_node("AnimationPlayer")
-
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"):
@@ -48,22 +36,20 @@ func _input(event):
 	elif event.is_action_released("ui_menu"):
 		menu = false
 
+var hasCollided = false
+
 func _fixed_process(delta):
-	#print(str(singleton.foo)) #access singleton info
+	if is_colliding() and !hasCollided:
+		print("Collided!")
+		singleton.collision_finished = true
+		hasCollided = true
+		get_tree().change_scene("res://Scenes/scene_1_outside.tscn")
 	var pos = get_pos()
 	#use for debugging compass/direction arrow
 	#direction = (get_global_mouse_pos() - pos).normalized()
 	direction = (directionNode.get_pos() - pos).normalized()
 	angle = 90 - rad2deg(direction.angle())
-	#draw_color = GREEN
 	update()
-	var detect_count = 0
-	for node in get_tree().get_nodes_in_group('detectable'):
-		if pos.distance_to(node.pos) < DETECT_RADIUS:
-			var angle_to_node = rad2deg(direction.angle_to(node.direction_from_player))
-			if abs(angle_to_node) < FOV/2:
-				detect_count += 1
-	
 	
 	if !moving and canMove:
 		var resultUp = world.intersect_point(get_pos() + Vector2(0, -GRID))

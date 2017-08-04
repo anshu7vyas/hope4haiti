@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://tilesets2/insideSC1.res" type="TileSet" id=2]
@@ -14,7 +14,12 @@
 [ext_resource path="res://images/compass.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/direction_arrow.gd" type="Script" id=13]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=2]
 
 length = 0.3
 loop = false
@@ -30,7 +35,7 @@ tracks/0/keys = {
 "values": [ 2, 1, 0, 1 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 1.0
 loop = false
@@ -46,7 +51,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5, 4 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
@@ -62,7 +67,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 7 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 length = 0.3
 loop = false
@@ -78,10 +83,15 @@ tracks/0/keys = {
 "values": [ 11, 10, 9, 10 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 26.5439, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23, 10 )
 
 [node name="world" type="Node2D"]
 
@@ -149,10 +159,12 @@ tile_data = IntArray( 1310746, 399, 1310747, 400, 1310748, 385, 1310749, 386, 13
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -175,18 +187,23 @@ frame = 1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/walk_down = SubResource( 1 )
-anims/walk_left = SubResource( 2 )
-anims/walk_right = SubResource( 3 )
-anims/walk_up = SubResource( 4 )
+anims/walk_down = SubResource( 2 )
+anims/walk_left = SubResource( 3 )
+anims/walk_right = SubResource( 4 )
+anims/walk_up = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-editor/display_folded = true
 transform/scale = Vector2( 4, 4 )
 anchor_mode = 1
 rotating = false
@@ -290,12 +307,10 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -262147, 1, -262146, 1, -262145, 1, -327680, 1, -327679, 1, -327678, 1, -327677, 1, -327676, 1, -327675, 1, -327674, 1, -196611, 1, -262140, 1, -262139, 1, -262138, 1, -131075, 1, -196602, 1, -65539, 1, -131066, 1, -18, 0, -17, 1, -16, 1, -15, 1, -14, 1, -13, 1, -12, 1, -11, 1, -10, 1, -9, 1, -8, 1, -7, 1, -6, 1, -5, 1, -3, 1, -2, 1, -1, 1, -65532, 1, -65531, 1, -65530, 1, 65518, 0, 65531, 1, 65533, 1, 65534, 1, 65535, 1, 4, 1, 5, 1, 6, 1, 131054, 0, 131067, 1, 131069, 1, 65540, 1, 65541, 1, 65542, 1, 196590, 0, 196591, 1, 196593, 1, 196594, 1, 196595, 1, 196596, 1, 196603, 1, 196605, 1, 131076, 1, 131077, 1, 131078, 1, 262126, 0, 262139, 1, 262140, 1, 262141, 1, 196614, 1, 327662, 1, 327663, 1, 327664, 1, 327665, 1, 327666, 1, 327667, 1, 327668, 1, 327669, 1, 327670, 1, 327671, 1, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 393207, 1, 327681, 1, 458743, 1, 458744, 1, 458745, 1, 393217, 1, 524279, 1, 524280, 1, 524281, 1, 458753, 1, 589815, 1, 589816, 1, 589817, 1, 589818, 1, 589822, 1, 589823, 1, 524288, 1, 524289, 1, 655354, 1, 655358, 1, 720890, 1, 720894, 1, 786426, 1, 786430, 1, 851962, 1, 851966, 1, 917498, 1, 917502, 1, 983034, 1, 983038, 1, 917514, 0, 1048570, 1, 1048574, 0, 1048575, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 1, 983046, 0, 983047, 0, 983048, 0, 983049, 0, 983050, 1, 1114106, 1, 1048586, 0, 1179642, 1, 1114122, 0, 1245178, 1, 1245182, 1, 1245183, 1, 1179648, 1, 1179658, 0, 1310714, 1, 1310718, 1, 1245184, 1, 1245185, 1, 1245186, 1, 1245194, 0, 1376250, 1, 1376251, 1, 1376252, 1, 1376253, 1, 1376254, 1, 1310720, 0, 1310721, 0, 1310722, 0, 1310725, 0, 1310726, 0, 1310730, 0, 1376256, 0, 1376257, 0, 1376258, 0, 1376264, 0, 1376265, 0, 1376266, 0, 1441792, 0, 1441793, 0, 1441794, 0, 1441800, 0, 1441801, 0, 1441802, 0, 1507328, 0, 1507338, 0, 1572864, 0, 1572865, 0, 1572866, 0, 1572867, 0, 1572868, 0, 1572869, 0, 1572870, 0, 1572871, 0, 1572872, 0, 1572873, 0, 1572874, 0 )
+tile_data = IntArray( -262147, 1, -262146, 1, -262145, 1, -327680, 1, -327679, 1, -327678, 1, -327677, 1, -327676, 1, -327675, 1, -327674, 1, -196611, 1, -262140, 1, -262139, 1, -262138, 1, -131075, 1, -196602, 1, -65539, 1, -131066, 1, -18, 0, -17, 1, -16, 1, -15, 1, -14, 1, -13, 1, -12, 1, -11, 1, -10, 1, -9, 1, -8, 1, -7, 1, -6, 1, -5, 1, -3, 1, -2, 1, -1, 1, -65532, 1, -65531, 1, -65530, 1, 65518, 0, 65531, 1, 65533, 1, 65534, 1, 65535, 1, 4, 1, 5, 1, 6, 1, 131054, 0, 131067, 1, 131069, 1, 65540, 1, 65541, 1, 65542, 1, 196590, 0, 196591, 1, 196593, 1, 196594, 1, 196595, 1, 196596, 1, 196603, 1, 196605, 1, 131076, 1, 131077, 1, 131078, 1, 262126, 0, 262139, 1, 262140, 1, 262141, 1, 196614, 1, 327662, 1, 327663, 1, 327664, 1, 327665, 1, 327666, 1, 327667, 1, 327668, 1, 327669, 1, 327670, 1, 327671, 1, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 393207, 1, 327681, 1, 458743, 1, 458744, 1, 458745, 1, 393217, 1, 524279, 1, 524280, 1, 524281, 1, 458753, 1, 589815, 1, 589816, 1, 589817, 1, 589818, 1, 589822, 1, 589823, 1, 524288, 1, 524289, 1, 655354, 1, 655358, 1, 720890, 1, 720894, 1, 786426, 1, 786430, 1, 851962, 1, 851966, 1, 917498, 1, 917502, 1, 983034, 1, 983038, 1, 917514, 0, 1048570, 1, 1048574, 0, 1048575, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 1, 983046, 0, 983047, 0, 983048, 0, 983049, 0, 983050, 1, 1114106, 1, 1048586, 0, 1179642, 1, 1114122, 0, 1245178, 1, 1245182, 1, 1245183, 1, 1179648, 1, 1179658, 0, 1310714, 1, 1310718, 1, 1245184, 1, 1245185, 1, 1245186, 1, 1245194, 0, 1376250, 0, 1376254, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310725, 0, 1310726, 0, 1310730, 0, 1441786, 0, 1441787, 0, 1441788, 0, 1441789, 0, 1441790, 0, 1376256, 0, 1376257, 0, 1376258, 0, 1376264, 0, 1376265, 0, 1376266, 0, 1441792, 0, 1441793, 0, 1441794, 0, 1441800, 0, 1441801, 0, 1441802, 0, 1507328, 0, 1507338, 0, 1572864, 0, 1572865, 0, 1572866, 0, 1572867, 0, 1572868, 0, 1572869, 0, 1572870, 0, 1572871, 0, 1572872, 0, 1572873, 0, 1572874, 0 )
 
 [node name="interactObj" type="Sprite" parent="."]
 
-editor/display_folded = true
-visibility/visible = false
 transform/pos = Vector2( -8.5, -9 )
 transform/scale = Vector2( 0.9375, 0.875 )
 texture = ExtResource( 8 )
@@ -306,7 +321,7 @@ frame = 181
 [node name="StaticBody2D" type="StaticBody2D" parent="interactObj"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 0.341573, 0, 0, 1.11538, -2.26498e-06, 1.5 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -320,7 +335,7 @@ bounce = 0.0
 
 transform/pos = Vector2( -2.26498e-06, 1.5 )
 transform/scale = Vector2( 0.341573, 1.11538 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
@@ -355,7 +370,6 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="startup_dialoge" parent="." instance=ExtResource( 5 )]
 
-editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -391,6 +405,7 @@ script/script = ExtResource( 11 )
 
 [node name="compassBG" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
 texture = ExtResource( 12 )
@@ -400,6 +415,27 @@ texture = ExtResource( 12 )
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
 script/script = ExtResource( 13 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( -64, 324 )
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+transform/pos = Vector2( 8, 0 )
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
 
 
 [editable path="Player/Camera2D/dialogue_box"]

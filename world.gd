@@ -5,22 +5,24 @@ var intro_dialogue_complete = false
 onready var alert_box = get_node("control_alerts")
 onready var directionNode = get_node("direction_arrow")
 onready var compassNode = get_node("compassBG")
-var time_seconds = 0
+var time_seconds = 0 #skip for now
 var dialogue_wait_secs = 1
 var alert_wait_secs = 2
 var timer_done = false
 var alert_done = false
 var alert2_done = false
 
+
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
 	directionNode.hide()
 	compassNode.hide()
-	if singleton.isNewGame == true: #will be used when saving user data
-		#get_node("control_alerts").show()
-		pass
-		#_start_scene1()
+	
+	#skip intro for debugging
+	#singleton.isNewGame == false
+	#if !singleton.isNewGame: #will be used when saving user data
+
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -51,6 +53,7 @@ func _fixed_process(delta): #running process
 		alert2_done = true 
 	if !singleton.message_done: #dont allopw walking during dialogue or alerts
 		get_node("Player").canMove = false
+
 
 
 func intro_dialogue():
