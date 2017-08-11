@@ -9,6 +9,7 @@ var isNewGame = true
 var message_done = false
 var collision_finished = false
 
+
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}
 
