@@ -1,4 +1,5 @@
 extends Node2D
+# Main Menu Script
 var index = 0
 func _ready():
 	set_process_input(true)
@@ -8,7 +9,7 @@ func _ready():
 	#Set window title
 	OS.set_window_title("Hope4Haiti")
 	#Hide mouse.
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _input(event):
 	if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
@@ -25,10 +26,10 @@ func _input(event):
 			get_node("Selected").set_pos(Vector2(x,y))
 	if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 		if (index == 0):
-			get_tree().change_scene("res://world.tscn")
+			get_tree().change_scene("res://gamesrc/scenes/001_Intro_Scene/world.tscn")
 		if (index == 1):
 			print("New Game")
 		if (index == 2):
-			print("Options")	
+			print("Options")
 		if(index == 3):
 			OS.get_main_loop().quit()

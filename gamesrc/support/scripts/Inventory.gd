@@ -7,7 +7,7 @@ var menu = false
 var currentItem = 0
 
 func _ready():
-	var items = load("res://Item.tscn")
+	var items = load("res://gamesrc/support/Item.tscn")
 	itemsHolder = get_node("ItemsHolder")
 	var x = 0 
 	var y = 0

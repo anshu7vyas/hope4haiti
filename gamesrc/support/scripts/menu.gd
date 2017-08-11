@@ -22,7 +22,7 @@ func _ready():
 func _handle_interaction():
 	if currentLabel == 0: #Items label
 		open = false
-		var node = preload("res://Inventory.tscn").instance()
+		var node = preload("res://gamesrc/support/Inventory.tscn").instance()
 		get_node("/root/world").add_child(node)
 	elif currentLabel == 5: #Exit Label
 		OS.get_main_loop().quit()

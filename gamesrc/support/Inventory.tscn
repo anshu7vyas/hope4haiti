@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Inventory.gd" type="Script" id=1]
-[ext_resource path="res://images/white.png" type="Texture" id=2]
-[ext_resource path="res://font.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://gamesrc/support/scripts/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/colors/white.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/font.fnt" type="BitmapFont" id=3]
 
 [node name="Inventory" type="CanvasLayer"]
 

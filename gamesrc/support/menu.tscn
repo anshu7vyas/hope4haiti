@@ -1,9 +1,13 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://images/menu.png" type="Texture" id=1]
-[ext_resource path="res://menu.gd" type="Script" id=2]
-[ext_resource path="res://images/select.png" type="Texture" id=3]
-[ext_resource path="res://font2.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://assets/images/menu.png" type="Texture" id=1]
+[ext_resource path="res://gamesrc/support/scripts/menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/select.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/font2.fnt" type="BitmapFont" id=4]
+
+
+
+
 
 [node name="menu" type="Patch9Frame"]
 

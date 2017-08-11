@@ -11,7 +11,7 @@ var textToPrint = []
 var currentChar = 0
 var currentText = 0
 
-const SPEED = 0.01
+const SPEED = 0.007 #Lower prints words faster
 
 func _ready():
 	set_fixed_process(true)
@@ -31,7 +31,6 @@ func _fixed_process(delta):
 				timer = 0
 				get_node("RichTextLabel").set_bbcode(get_node("RichTextLabel").get_bbcode() + textToPrint[currentText][currentChar])
 				currentChar += 1
-			
 			if currentChar >= textToPrint[currentText].length():
 				currentChar = 0
 				timer = 0
@@ -45,12 +44,13 @@ func _fixed_process(delta):
 				textToPrint = []
 				printing = false
 				set_hidden(true)
+				singleton.message_done = true
 				get_node("/root/world/Player").canMove = true
-	
 	pressed = false
 
 
 func _print_dialogue(text):
+	singleton.message_done = false
 	textToPrint = text
 	printing = true
 	get_node("/root/world/Player").canMove = false
