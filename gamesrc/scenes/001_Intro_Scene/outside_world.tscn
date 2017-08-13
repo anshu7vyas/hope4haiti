@@ -1,24 +1,31 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=28 format=1]
 
 [ext_resource path="res://gamesrc/scenes/001_Intro_Scene/outside_scn_1.gd" type="Script" id=1]
 [ext_resource path="res://gamesrc/support/maps/tilesetsOutside/001_intro_scene2_outside.res" type="TileSet" id=2]
 [ext_resource path="res://gamesrc/support/scripts/area_interaction.gd" type="Script" id=3]
 [ext_resource path="res://assets/images/sprites/character1.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/sprites/character2.png" type="Texture" id=5]
-[ext_resource path="res://gamesrc/actors/hero.gd" type="Script" id=6]
-[ext_resource path="res://assets/images/sprites/hero.png" type="Texture" id=7]
-[ext_resource path="res://gamesrc/support/dialogue_box.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/fonts/french_neat.fnt" type="BitmapFont" id=9]
-[ext_resource path="res://gamesrc/support/menu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gamesrc/support/collision.xml" type="TileSet" id=11]
-[ext_resource path="res://gamesrc/support/scripts/interact_script.gd" type="Script" id=12]
-[ext_resource path="res://assets/images/compass.png" type="Texture" id=13]
-[ext_resource path="res://gamesrc/support/scripts/direction_arrow.gd" type="Script" id=14]
+[ext_resource path="res://gamesrc/scenes/001_Intro_Scene/area_interaction2.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/sprites/character2.png" type="Texture" id=6]
+[ext_resource path="res://gamesrc/scenes/001_Intro_Scene/area_interaction_school.gd" type="Script" id=7]
+[ext_resource path="res://gamesrc/actors/hero.gd" type="Script" id=8]
+[ext_resource path="res://assets/images/sprites/hero.png" type="Texture" id=9]
+[ext_resource path="res://gamesrc/support/dialogue_box.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/french_neat.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://gamesrc/support/menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gamesrc/support/collision.xml" type="TileSet" id=13]
+[ext_resource path="res://gamesrc/support/scripts/interact_script.gd" type="Script" id=14]
+[ext_resource path="res://assets/images/emotes/right/happyEmote.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/emotes/left/sadEmote.png" type="Texture" id=16]
+[ext_resource path="res://gamesrc/support/scripts/control_Alert.gd" type="Script" id=17]
+[ext_resource path="res://assets/images/compass.png" type="Texture" id=18]
+[ext_resource path="res://gamesrc/support/scripts/direction_arrow.gd" type="Script" id=19]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=20]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 9.92246, 6.34232 )
+extents = Vector2( 5.45735, 6.34232 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -136,15 +143,13 @@ tile_data = IntArray( 131087, 481, 131088, 482, 131105, 481, 131106, 482, 196616
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 140, 14 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.98449, -4.61261 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 1 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 62.0154, -4.6126 )
-shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
@@ -160,15 +165,6 @@ vframes = 4
 hframes = 3
 frame = 10
 
-[node name="neighbor2" type="Sprite" parent="Area2D"]
-
-transform/pos = Vector2( 62.0154, -8.07205 )
-transform/scale = Vector2( 0.586335, 0.586335 )
-texture = ExtResource( 5 )
-vframes = 4
-hframes = 3
-frame = 10
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/pos = Vector2( -1.98449, -4.61261 )
@@ -176,12 +172,67 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
+[node name="area_neighbor2" type="Area2D" parent="."]
 
-transform/pos = Vector2( 62.0154, -4.6126 )
+editor/display_folded = true
+transform/pos = Vector2( 140, 14 )
+transform/scale = Vector2( 2.01563, 1.73438 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 61.5192, -4.6126 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 5 )
+
+[node name="neighbor2" type="Sprite" parent="area_neighbor2"]
+
+transform/pos = Vector2( 62.0154, -8.07205 )
+transform/scale = Vector2( 0.586335, 0.586335 )
+texture = ExtResource( 6 )
+vframes = 4
+hframes = 3
+frame = 10
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="area_neighbor2"]
+
+transform/pos = Vector2( 61.5192, -4.6126 )
 shape = SubResource( 1 )
 trigger = false
-_update_shape_index = 1
+_update_shape_index = 0
+
+[node name="area_neighbor3" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 364, 205 )
+transform/scale = Vector2( 2.01563, 1.73438 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 61.5192, -4.6126 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 7 )
+
+[node name="neighbor2" type="Sprite" parent="area_neighbor3"]
+
+transform/pos = Vector2( 62.0154, -8.07205 )
+transform/scale = Vector2( 0.586335, 0.586335 )
+texture = ExtResource( 6 )
+vframes = 4
+hframes = 3
+frame = 10
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="area_neighbor3"]
+
+transform/pos = Vector2( 61.5192, -4.6126 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
@@ -195,7 +246,7 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 6 )
+script/script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -204,7 +255,7 @@ __meta__ = {
 
 transform/pos = Vector2( -0.424341, -23.9151 )
 transform/scale = Vector2( 2.05163, 2.33149 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 vframes = 4
 hframes = 3
 frame = 1
@@ -249,7 +300,7 @@ drag_margin/top = 0.0
 drag_margin/right = 0.0
 drag_margin/bottom = 0.0
 
-[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 8 )]
+[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 10 )]
 
 visibility/visible = false
 margin/left = -78.0
@@ -268,17 +319,17 @@ margin/left = 13.0
 margin/top = 7.0
 margin/right = 429.0
 margin/bottom = 76.0
-custom_fonts/mono_font = ExtResource( 9 )
-custom_fonts/bold_italics_font = ExtResource( 9 )
-custom_fonts/italics_font = ExtResource( 9 )
-custom_fonts/bold_font = ExtResource( 9 )
-custom_fonts/normal_font = ExtResource( 9 )
+custom_fonts/mono_font = ExtResource( 11 )
+custom_fonts/bold_italics_font = ExtResource( 11 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 11 )
+custom_fonts/normal_font = ExtResource( 11 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
 
-[node name="menu" parent="Player/Camera2D" instance=ExtResource( 10 )]
+[node name="menu" parent="Player/Camera2D" instance=ExtResource( 12 )]
 
 process/pause_mode = 2
 visibility/visible = false
@@ -329,7 +380,7 @@ tile_data = IntArray( 196640, 479, 196641, 480, 262159, 479, 262160, 480, 262176
 
 visibility/visible = false
 mode = 0
-tile_set = ExtResource( 11 )
+tile_set = ExtResource( 13 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -342,9 +393,9 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0, -393205, 0, -393204, 0, -393203, 0, -393202, 0, -393201, 0, -393200, 0, -393199, 0, -393198, 0, -393197, 0, -393196, 0, -393195, 0, -393194, 0, -393193, 0, -393192, 0, -393191, 0, -262147, 0, -327655, 0, -196611, 0, -262138, 0, -262137, 0, -262119, 0, -131075, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196600, 0, -196599, 0, -196598, 0, -196597, 0, -196592, 1, -196591, 1, -196590, 1, -196589, 1, -196583, 0, -65539, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131064, 0, -131063, 0, -131062, 0, -131061, 0, -131058, 0, -131057, 0, -131056, 0, -131055, 0, -131054, 0, -131053, 0, -131047, 0, -3, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65511, 0, 65533, 0, 8, 0, 16, 0, 25, 0, 131069, 0, 65561, 0, 196605, 0, 131097, 0, 262141, 0, 262142, 0, 262143, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 196627, 0, 196628, 0, 196629, 0, 196633, 0, 196634, 0, 196635, 0, 196636, 0, 196637, 0, 196638, 0, 196639, 0, 196640, 0, 196641, 0, 196642, 0, 196643, 0, 196644, 0, 262165, 0, 262180, 0, 327701, 0, 327707, 1, 327708, 1, 327716, 0, 393237, 0, 393252, 0, 458773, 0, 458776, 0, 458777, 0, 458783, 0, 458784, 0, 458788, 0, 524309, 0, 524324, 0, 589845, 0, 589850, 0, 589851, 0, 589852, 0, 589853, 0, 589854, 0, 589855, 0, 589856, 0, 589860, 0, 655381, 0, 655386, 0, 655387, 0, 655388, 0, 655389, 0, 655390, 0, 655391, 0, 655392, 0, 655396, 0, 720917, 0, 720921, 0, 720922, 0, 720923, 0, 720924, 0, 720925, 0, 720926, 0, 720927, 0, 720928, 0, 720930, 0, 720931, 0, 720932, 0, 786453, 0, 786468, 0, 851989, 0, 852004, 0, 917525, 0, 917540, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0, 983074, 0, 983075, 0, 983076, 0 )
+tile_data = IntArray( -393222, 0, -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0, -393205, 0, -393204, 0, -393203, 0, -393202, 0, -393201, 0, -393200, 0, -393199, 0, -393198, 0, -393197, 0, -393196, 0, -393195, 0, -393194, 0, -393193, 0, -393192, 0, -393191, 0, -262147, 0, -327655, 0, -196611, 0, -262138, 0, -262137, 0, -262119, 0, -131075, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196600, 0, -196599, 0, -196598, 0, -196597, 0, -196592, 1, -196591, 1, -196590, 1, -196589, 1, -196583, 0, -65539, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131064, 0, -131063, 0, -131062, 0, -131061, 0, -131058, 0, -131057, 0, -131056, 0, -131055, 0, -131054, 0, -131053, 0, -131047, 0, -3, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65511, 0, 65533, 0, 8, 0, 16, 0, 25, 0, 131069, 0, 65561, 0, 196605, 0, 131097, 0, 262141, 0, 262142, 0, 262143, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 196627, 0, 196628, 0, 196629, 0, 196633, 0, 196634, 0, 196635, 0, 196636, 0, 196637, 0, 196638, 0, 196639, 0, 196640, 0, 196641, 0, 196642, 0, 196643, 0, 196644, 0, 262165, 0, 262180, 0, 327701, 0, 327707, 1, 327708, 1, 327716, 0, 393237, 0, 393252, 0, 458773, 0, 458776, 0, 458777, 0, 458783, 0, 458784, 0, 458788, 0, 524309, 0, 524324, 0, 589845, 0, 589850, 0, 589851, 0, 589852, 0, 589853, 0, 589854, 0, 589855, 0, 589856, 0, 589860, 0, 655381, 0, 655386, 0, 655387, 0, 655388, 0, 655389, 0, 655390, 0, 655391, 0, 655392, 0, 655396, 0, 720917, 0, 720921, 0, 720922, 0, 720923, 0, 720924, 0, 720925, 0, 720926, 0, 720927, 0, 720928, 0, 720930, 0, 720931, 0, 720932, 0, 786453, 0, 786462, 0, 786468, 0, 851989, 0, 852004, 0, 917525, 0, 917540, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0, 983074, 0, 983075, 0, 983076, 0 )
 
-[node name="dialogeObj" type="Sprite" parent="."]
+[node name="dialogeObj1" type="Sprite" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
@@ -353,7 +404,7 @@ vframes = 50
 hframes = 64
 frame = 181
 
-[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj"]
+[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj1"]
 
 input/pickable = false
 collision/layers = 1
@@ -363,27 +414,112 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="dialogue1" type="Node2D" parent="dialogeObj/StaticBody2D"]
+[node name="dialogue" type="Node2D" parent="dialogeObj1/StaticBody2D"]
 
-script/script = ExtResource( 12 )
-text = [ "Salut, Hello, Rosemond!", "Hello Marie-Thérèse", "How are you?", "Bien, I am well, how are you?", "I am well.", "Goodbye!", "Goodbye." ]
+script/script = ExtResource( 14 )
+text = [ "Marie-Thérèse: Salut, Hello, Rosemond!", "Rosemond: Hello Marie-Thérèse", "Marie-Thérèse: How are you?", "Rosemond: Bien, I am well, how are you?", "Marie-Thérèse: I am well.", "Rosemond: Goodbye!", "Marie-Thérèse: Goodbye." ]
 
-[node name="dialogue2" type="Node2D" parent="dialogeObj/StaticBody2D"]
+[node name="dialogeObj2" type="Sprite" parent="."]
 
-script/script = ExtResource( 12 )
-text = [ "Bonjour, Good morning, Sidney", "Good morning Marie-Thérèse", "How are you?", "I am well, how are you?", "I am well. Let us walk to school. On y va.", "Yes, Let us walk to school." ]
+editor/display_folded = true
+transform/pos = Vector2( 25, 23 )
+transform/scale = Vector2( 0.9375, 0.875 )
+vframes = 50
+hframes = 64
+frame = 181
 
-[node name="neighbor1_dialoge" parent="." instance=ExtResource( 8 )]
+[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj2"]
 
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="dialogue" type="Node2D" parent="dialogeObj2/StaticBody2D"]
+
+script/script = ExtResource( 14 )
+text = [ "Marie-Thérèse: Bonjour, Good morning, Sidney", "Sidney: Good morning Marie-Thérèse", "Marie-Thérèse: How are you?", "Sidney: I am well, how are you?", "Marie-Thérèse: I am well. Let us walk to school. On y va.", "Sidney: Yes, Let us walk to school." ]
+
+[node name="dialogeObj3" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 25, 23 )
+transform/scale = Vector2( 0.9375, 0.875 )
+vframes = 50
+hframes = 64
+frame = 181
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj3"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="dialogue" type="Node2D" parent="dialogeObj3/StaticBody2D"]
+
+script/script = ExtResource( 14 )
+text = [ "Sidney: I am excited for school today.", "Marie-Thérèse: I am not excited for school today." ]
+
+[node name="happy_emote" type="Sprite" parent="dialogeObj3"]
+
+visibility/visible = false
+transform/pos = Vector2( 510.933, 168 )
+transform/scale = Vector2( 2.01932, 2.16355 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="sad_emote" type="Sprite" parent="dialogeObj3"]
+
+visibility/visible = false
+transform/pos = Vector2( 464, 168 )
+transform/scale = Vector2( 2.01932, 2.16355 )
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="dialogeObj4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 25, 23 )
+transform/scale = Vector2( 0.9375, 0.875 )
+vframes = 50
+hframes = 64
+frame = 181
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj4"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="dialogue" type="Node2D" parent="dialogeObj4/StaticBody2D"]
+
+script/script = ExtResource( 14 )
+text = [ "Sidney:Pourquoi? Why are you not excited for school?", "Marie-Thérèse: I do not like mathematics" ]
+
+[node name="dialogue_box" parent="." instance=ExtResource( 10 )]
+
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
 margin/right = 105.0
 margin/bottom = 74.0
 
-[node name="RichTextLabel" parent="neighbor1_dialoge"]
+[node name="RichTextLabel" parent="dialogue_box"]
 
-margin/right = 438.0
+margin/left = 12.0
+margin/top = 7.0
+margin/right = 425.0
 
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
@@ -398,8 +534,9 @@ margin/top = -30.0
 margin/right = 240.0
 margin/bottom = 60.0
 popup/exclusive = true
-window/title = "Controls"
+window/title = "Alerte"
 dialog/hide_on_ok = true
+script/script = ExtResource( 17 )
 
 [node name="destinationObj" type="Node2D" parent="."]
 
@@ -411,16 +548,138 @@ transform/scale = Vector2( 0.25, 0.25 )
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 13 )
+texture = ExtResource( 18 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 14 )
+script/script = ExtResource( 19 )
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -49.0
+margin/top = -30.0
+margin/right = 241.0
+margin/bottom = 150.0
+popup/exclusive = false
+
+[node name="TextInterfaceEngine" type="ReferenceFrame" parent="PopupDialog"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 14.0
+margin/right = 536.0
+margin/bottom = 326.0
+script/script = ExtResource( 20 )
+__meta__ = {
+"_editor_icon": ExtResource( 21 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = true
+SCROLL_SKIPPED_LINES = false
+FONT = ExtResource( 11 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
+
+[node name="emotion_challenge" type="PopupDialog" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -53.0
+margin/top = -24.0
+margin/right = 255.0
+margin/bottom = 40.0
+popup/exclusive = false
+
+[node name="TextInterfaceEngine" type="ReferenceFrame" parent="emotion_challenge"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 14.0
+margin/right = 580.0
+margin/bottom = 90.0
+script/script = ExtResource( 20 )
+__meta__ = {
+"_editor_icon": ExtResource( 21 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = true
+SCROLL_SKIPPED_LINES = false
+FONT = ExtResource( 11 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
+
+[node name="sentance_info" type="PopupDialog" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -53.0
+margin/top = -24.0
+margin/right = 255.0
+margin/bottom = 94.0
+popup/exclusive = false
+
+[node name="TextInterfaceEngine" type="ReferenceFrame" parent="sentance_info"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 14.0
+margin/right = 580.0
+margin/bottom = 198.0
+script/script = ExtResource( 20 )
+__meta__ = {
+"_editor_icon": ExtResource( 21 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = true
+SCROLL_SKIPPED_LINES = false
+FONT = ExtResource( 11 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
 
 [connection signal="body_enter" from="Area2D" to="Area2D" method="_on_Area2D_body_enter"]
 
+[connection signal="body_enter" from="area_neighbor2" to="area_neighbor2" method="_on_area_neighbor2_body_enter"]
+
+[connection signal="body_enter" from="area_neighbor3" to="area_neighbor3" method="_on_area_neighbor3_body_enter"]
+
 
 [editable path="Player/Camera2D/dialogue_box"]
-[editable path="neighbor1_dialoge"]
+[editable path="dialogue_box"]

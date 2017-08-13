@@ -3,6 +3,7 @@ extends AcceptDialog
 var interact = false
 var alerts = ["\nPress Space to continue reading dialogue",
 "\nUse the Arrow keys to direct the character",
+"\nMaintenant, on va intégrer un nom important.\nRegardez attentivement.",
 "To access the menu press the Tab key",
 "To interact with objects press the space bar"]
 
@@ -13,13 +14,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"):
-		interact = true
-	elif event.is_action_released("ui_interact"):
-		interact = false
+		self.hide()
 
 func _fixed_process(delta):
-	if interact:
-		self.get_ok()
 	if self.is_visible():
 		get_tree().get_root().get_node("./world/Player").canMove = false
 	else:
