@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://screens/main_menu/screen_main_menu.gd" type="Script" id=1]
+
+[node name="Root" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Title" type="Label" parent="Ui"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Menu" type="Panel" parent="Ui"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 21.0
+margin/right = 801.0
+margin/bottom = 621.0
+
+[node name="Continue" type="Button" parent="Ui/Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 397.0
+margin/top = 369.0
+margin/right = 466.0
+margin/bottom = 389.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Continue"
+flat = false
+
+[node name="NewGame" type="Button" parent="Ui/Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 390.0
+margin/top = 336.0
+margin/right = 472.0
+margin/bottom = 356.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "New Game"
+flat = false
+
+[node name="Options" type="Button" parent="Ui/Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 401.0
+margin/top = 406.0
+margin/right = 464.0
+margin/bottom = 426.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Options"
+flat = false
+
+[node name="Exit" type="Button" parent="Ui/Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 403.0
+margin/top = 443.0
+margin/right = 464.0
+margin/bottom = 463.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Exit"
+flat = false
+
+[connection signal="pressed" from="Ui/Menu/Continue" to="." method="_on_continue_pressed"]
+
+[connection signal="pressed" from="Ui/Menu/NewGame" to="." method="_on_new_game_pressed"]
+
+[connection signal="pressed" from="Ui/Menu/Options" to="." method="_on_options_pressed"]
+
+[connection signal="pressed" from="Ui/Menu/Exit" to="." method="_on_exit_pressed"]
+
+
