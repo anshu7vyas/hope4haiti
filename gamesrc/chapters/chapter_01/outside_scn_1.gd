@@ -3,6 +3,7 @@ extends Node2D
 
 onready var alert_box = get_node("control_alerts")
 onready var directionNode = get_node("direction_arrow")
+onready var destinationNode = get_node("destinationObj")
 onready var compassNode = get_node("compassBG")
 onready var tie = get_node("PopupDialog/TextInterfaceEngine")
 onready var school_text = get_node("emotion_challenge/TextInterfaceEngine")
@@ -26,6 +27,7 @@ var final_convo_started = false
 var final_alert_done = false
 var sentence_info_text_done = false
 var final_challenge_start = false
+var scene_complete = false
 var interact = false
 var time_delta = 0
 var player_pos
@@ -34,6 +36,7 @@ var name_challenge_text
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
+	destinationNode.set_pos(Vector2(136,8))
 	directionNode.show()
 	compassNode.show()
 	singleton.message_done = true
@@ -65,7 +68,7 @@ func _fixed_process(delta):
 			alert_box.hide()
 			multiple_choice_challenge()
 		if singleton.multiple_choice_complete:
-			print("scene complete")
+			scene_complete = true
 		if final_challenge_start:
 			multiple_choice_challenge()
 			final_challenge_start = false
@@ -212,12 +215,15 @@ func neighbor1_dialogue():
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj1/StaticBody2D/dialogue").text) 
 	neighbor1_alerted = true
+	if !neighbor2_alerted:
+		destinationNode.set_pos(Vector2(264,8))
 
 func neighbor2_dialogue():
 	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
 	get_node("dialogue_box").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj2/StaticBody2D/dialogue").text) 
+	destinationNode.set_pos(Vector2(488,200))
 	
 func school_dialogue():
 	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
@@ -232,3 +238,4 @@ func school_dialogue_part2():
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj4/StaticBody2D/dialogue").text) 
 	final_convo_started = true
+	destinationNode.set_pos(Vector2(472,184))

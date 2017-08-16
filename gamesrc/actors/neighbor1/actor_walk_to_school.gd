@@ -7,7 +7,7 @@ var moving = false
 var canMove = true
 var interact = false
 var start_walk_wait = false
-var at_teacher = false
+var walk_done = false
 var time_delta = 0
 var count = 0
 
@@ -26,42 +26,26 @@ func _ready():
 	set_fixed_process(true)
 	sprite = get_node("Sprite")
 	animationPlayer = get_node("AnimationPlayer")
-	sprite.set_frame(7)
-	worldNode.teacher_dialogue_done = false
+	sprite.set_frame(10)
 
 func _fixed_process(delta):
 	time_delta += delta
-	if time_delta > 0.5 and !start_walk_wait:
-		start_walk_wait = true
-		time_delta =0
-	
-	if time_delta > 0.3 and start_walk_wait and !worldNode.teacher_dialogue_done and !at_teacher:
+
+	if time_delta > 0.3 and worldNode.name_challenge_done and !worldNode.get_node("PopupDialog").is_visible() and !walk_done:
 		count += 1
-		if count < 5:
-			walk_left()
-		elif count < 11:
-			walk_up()
-		elif count < 16:
-			walk_left()
-		else:
-			sprite.set_frame(1)
-			OS.delay_msec(50)
-			at_teacher = true
-			count = 0
-		time_delta = 0
-	elif time_delta > 0.3 and worldNode.teacher_dialogue_done and singleton.message_done:
-		count += 1
-		if count < 4:
+		if count < 8:
+			walk_right()
+		elif count < 20:
 			walk_down()
-		elif count < 5:
+		elif count < 27:
 			walk_right()
 		else:
-			sprite.set_frame(1)
+			sprite.set_frame(10)
+			OS.delay_msec(50)
+			count = 0
+			walk_done = true
 		time_delta = 0
-	
-	#if get_pos() == Vector2(-126, -84): # classmate is at teacher
-		#sprite.set_frame(1)
-		#at_teacher = true
+
 
 
 func walk_left():

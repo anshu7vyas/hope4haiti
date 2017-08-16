@@ -8,10 +8,11 @@ func _ready():
 	# Initialization here
 	pass
 
-func _on_Area2D_body_enter( body ):
+
+func _on_area_transition_to_class_body_enter( body ):
 	area_count += 1
 	if area_count > 1:
-		worldNode.get_node("Player").canMove = false
-		worldNode.neighbor1_dialogue()
-		#self.queue_free() #deletes the Sprite
-
+		if worldNode.scene_complete:
+			get_tree().change_scene("res://chapters/chapter_01/scene_2_classroom/classroom.tscn")
+			OS.delay_msec(50)
+			
