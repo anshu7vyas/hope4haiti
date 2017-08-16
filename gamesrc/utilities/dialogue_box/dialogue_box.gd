@@ -10,6 +10,7 @@ var textToPrint = []
 
 var currentChar = 0
 var currentText = 0
+var line_count = 0
 
 const SPEED = 0.007 #Lower prints words faster
 

@@ -26,3 +26,6 @@ func _fixed_process(delta):
 
 func _print_alert(alert_index):
 	self.set_text(alerts[alert_index])
+
+func _print_alert_string(alert_text):
+	self.set_text(alert_text)

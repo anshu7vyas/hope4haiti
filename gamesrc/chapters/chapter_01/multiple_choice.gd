@@ -7,6 +7,7 @@ var correct_selected = false
 var index = 0
 var interact
 var player_pos
+var correctIndex = -1
 
 func _ready():
 	set_process_input(true)
@@ -30,18 +31,23 @@ func _input(event):
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			player_pos = worldNode.get_node("Player").get_pos()
 			worldNode.get_node("control_alerts").set_pos(Vector2(player_pos.x-76, player_pos.y-20))
-			if (index == 0):
+			if (index == correctIndex):
 				worldNode.get_node("control_alerts")._print_alert(4)
 				worldNode.get_node("control_alerts").show()
 				self.hide()
 				singleton.multiple_choice_complete = true
-			if (index == 1):
+			else:
 				worldNode.get_node("control_alerts")._print_alert(3)
 				worldNode.get_node("control_alerts").show()
 				self.hide()
 				singleton.wrong_choice = true
-			if (index == 2):
-				worldNode.get_node("control_alerts")._print_alert(3)
-				worldNode.get_node("control_alerts").show()
-				self.hide()
-				singleton.wrong_choice = true
+			#if (index == 1):
+			#	worldNode.get_node("control_alerts")._print_alert(3)
+			#	worldNode.get_node("control_alerts").show()
+			#	self.hide()
+			#	singleton.wrong_choice = true
+			#if (index == 2):
+			#	worldNode.get_node("control_alerts")._print_alert(3)
+			#	worldNode.get_node("control_alerts").show()
+			#	self.hide()
+			#	singleton.wrong_choice = true

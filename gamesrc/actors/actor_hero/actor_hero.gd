@@ -4,7 +4,7 @@ var direction3 = Vector2(0,0)
 var startPos = Vector2(0,0)
 var moving = false
 
-var canMove = true
+var canMove = false
 var interact = false
 var menu = false
 

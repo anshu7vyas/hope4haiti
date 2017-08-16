@@ -3,7 +3,7 @@
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/world_classroom.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/classroom_tilesets/classroom_map.res" type="TileSet" id=2]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_teacher_interaction.gd" type="Script" id=3]
-[ext_resource path="res://actors/teacher1/Fighter-F-02.png" type="Texture" id=4]
+[ext_resource path="res://actors/teacher1/Fighter-F-01.png" type="Texture" id=4]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_seat.gd" type="Script" id=5]
 [ext_resource path="res://chapters/chapter_01/area_transition.gd" type="Script" id=6]
 [ext_resource path="res://actors/neighbor1/hero_follow.gd" type="Script" id=7]
@@ -197,7 +197,6 @@ tile_data = IntArray( 1048598, 1332, 1048599, 1332, 1048600, 1332, 1048601, 1332
 
 [node name="area_teacher" type="Area2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -243, -99 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
@@ -228,6 +227,7 @@ _update_shape_index = 0
 
 [node name="area_seat" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -246, -96 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true

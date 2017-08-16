@@ -39,6 +39,7 @@ func _ready():
 	destinationNode.set_pos(Vector2(136,8))
 	directionNode.show()
 	compassNode.show()
+	get_node("multiple_choice").correctIndex = 0
 	singleton.message_done = true
 	singleton.wrong_choice = false
 	singleton.multiple_choice_complete = false
