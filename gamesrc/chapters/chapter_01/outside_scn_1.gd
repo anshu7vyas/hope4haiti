@@ -25,6 +25,7 @@ var emotion_challenge_printed = false
 var final_convo_started = false
 var final_alert_done = false
 var sentence_info_text_done = false
+var final_challenge_start = false
 var interact = false
 var time_delta = 0
 var player_pos
@@ -36,9 +37,8 @@ func _ready():
 	directionNode.show()
 	compassNode.show()
 	singleton.message_done = true
-	
-	#multipleChoiceBox.show()
-	
+	singleton.wrong_choice = false
+	singleton.multiple_choice_complete = false
 	
 	tie.connect("input_enter", self, "_on_input_enter")
 	tie.connect("buff_end", self, "_on_buff_end")
@@ -51,7 +51,6 @@ func _ready():
 	sentence_info_text.connect("buff_end", self, "_on_buff_end")
 	sentence_info_text.connect("enter_break", self, "_on_enter_break")
 
-	
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
 		interact = true
@@ -59,18 +58,36 @@ func _input(event):
 		interact = false
 	#if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 
-
 func _fixed_process(delta):
-	disable_movements()
 	time_delta += delta
+	if interact: # space bar pressed
+		if singleton.wrong_choice:
+			alert_box.hide()
+			multiple_choice_challenge()
+		if singleton.multiple_choice_complete:
+			print("scene complete")
+		if final_challenge_start:
+			multiple_choice_challenge()
+			final_challenge_start = false
+		if sentence_info_text_done and time_delta > 2: #allow hiding popup after 2 seconds
+			enable_movements()
+			sentenceInfoBox.hide()
+			sentence_info_text_done = false
+			final_challenge_start = true
+		if name_challenge_done:
+			nameChallengeBox.hide()
+			enable_movements()
+		if emotion_dialogue_done:
+			emotionChallengeBox.hide()
+			get_node("dialogeObj3/happy_emote").hide()
+			get_node("dialogeObj3/sad_emote").hide()
+			if !final_convo_started:
+				school_dialogue_part2()
+		
 	if final_convo_started and singleton.message_done and !final_alert_done:
 		show_sentence_structure_info()
 		final_alert_done = true
 		time_delta = 0
-	if interact and sentence_info_text_done and time_delta > 2: #allow hiding popup after 2 seconds
-		enable_movements()
-		sentenceInfoBox.hide()
-		sentence_info_text_done = false
 		
 	# Handle School Dialogue
 	if emotion_dialogue_started and !emotion_challenge_printed:
@@ -80,28 +97,17 @@ func _fixed_process(delta):
 				get_node("dialogeObj3/sad_emote").show()
 		if singleton.message_done and !emotion_dialogue_done:
 			disable_movements()
-			player_pos = get_node("Player").get_pos() #get position of the player to place the box
-			get_node("emotion_challenge").set_pos(Vector2(player_pos.x-76, player_pos.y+15)) #hardcoded distance to middle
+			player_pos = playerNode.get_pos() #get position of the player to place the box
+			emotionChallengeBox.set_pos(Vector2(player_pos.x-76, player_pos.y+15)) #hardcoded distance to middle
 			emotionChallengeBox.show()
 			if !emotion_challenge_printed:
 				emotion_challenge()
 				emotion_challenge_printed = true
-	
-	if emotion_dialogue_done and interact:
-		emotionChallengeBox.hide()
-		get_node("dialogeObj3/happy_emote").hide()
-		get_node("dialogeObj3/sad_emote").hide()
-		if !final_convo_started:
-			school_dialogue_part2()
 				
-	if name_challenge_done and interact:
-		nameChallengeBox.hide()
-		enable_movements()
-	
 	# Handle Second neighbor dialogue
 	if neighbor2_alerted:
 		if !alert_done:
-			player_pos = get_node("Player").get_pos()
+			player_pos = playerNode.get_pos()
 			alert_box._print_alert(2) #alert text stored at index 2 in control_alert.gd-> alerts[]
 			alert_box.set_pos(Vector2(player_pos.x-76, player_pos.y-20))
 			alert_box.show()
@@ -113,7 +119,7 @@ func _fixed_process(delta):
 	
 	# Block movements when an popup/dialogue box is open
 	if singleton.message_done:
-		if alert_box.is_visible() or nameChallengeBox.is_visible() or emotionChallengeBox.is_visible() or sentenceInfoBox.is_visible():
+		if alert_box.is_visible() or nameChallengeBox.is_visible() or emotionChallengeBox.is_visible() or sentenceInfoBox.is_visible() or multipleChoiceBox.is_visible():
 			disable_movements()
 		else:
 			enable_movements()
@@ -123,29 +129,31 @@ func _fixed_process(delta):
 	# Handle input challenge popup
 	if neighbor2_done and !name_challenge_start:
 		if singleton.message_done:
-			player_pos = get_node("Player").get_pos() #get position of the player to place the box
+			player_pos = playerNode.get_pos() #get position of the player to place the box
 			get_node("PopupDialog").set_pos(Vector2(player_pos.x-76, player_pos.y-50)) #hardcoded distance to middle
 			nameChallengeBox.show()
 			name_challenge()
-			get_node("Player").canMove = false
+			playerNode.canMove = false
 			name_challenge_start = true
 			
-	# Hide input popup challenege when complete
-	#if nameChallengeBox.is_visible() and name_challenge_done:
-		#name_challenge_text = tie.get_text()
-		#if interact and name_challenge_text[name_challenge_text.length()-1] == ".": #press space to disable popup when text is complete
-		#	nameChallengeBox.hide()
-		#	enable_movements()
+	
 
 func disable_movements():
 	directionNode.hide()
 	compassNode.hide()
-	get_node("Player").canMove = false
+	playerNode.canMove = false
 
 func enable_movements():
 	directionNode.show()
 	compassNode.show()
-	get_node("Player").canMove = true
+	playerNode.canMove = true
+
+func multiple_choice_challenge():
+	disable_movements()
+	player_pos = playerNode.get_pos()
+	multipleChoiceBox.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
+	multipleChoiceBox.show()
+	singleton.wrong_choice = false
 
 func show_sentence_structure_info():
 	disable_movements()
@@ -174,7 +182,6 @@ func name_challenge():
 	tie.set_state(tie.STATE_OUTPUT)
 
 func _on_input_enter(s):
-	print(s)
 	if playerNode.get_pos().x > 400: #position is close to school
 		school_text.add_newline()
 		if s == "ravie" or s == "heureux" or s == "content":
@@ -200,27 +207,27 @@ func _on_input_enter(s):
 	pass
 
 func neighbor1_dialogue():
-	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
+	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
 	get_node("dialogue_box").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj1/StaticBody2D/dialogue").text) 
 	neighbor1_alerted = true
 
 func neighbor2_dialogue():
-	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
+	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
 	get_node("dialogue_box").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj2/StaticBody2D/dialogue").text) 
 	
 func school_dialogue():
-	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
+	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
 	get_node("dialogue_box").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj3/StaticBody2D/dialogue").text) 
 	emotion_dialogue_started = true
 
 func school_dialogue_part2():
-	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
+	player_pos = playerNode.get_pos() #get position of the player to place the dialogue box
 	get_node("dialogue_box").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
 	get_node("dialogue_box").set_hidden(false)
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj4/StaticBody2D/dialogue").text) 

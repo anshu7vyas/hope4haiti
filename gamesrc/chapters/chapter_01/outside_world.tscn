@@ -22,12 +22,12 @@
 [ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=20]
 [ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=21]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=22]
-[ext_resource path="res://utilities/alerts/control_Alert.gd" type="Script" id=23]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.45735, 6.34232 )
+extents = Vector2( 5.95348, 13.8378 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -487,6 +487,7 @@ flip_h = true
 
 [node name="dialogeObj4" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
 vframes = 50
@@ -506,7 +507,7 @@ bounce = 0.0
 [node name="dialogue" type="Node2D" parent="dialogeObj4/StaticBody2D"]
 
 script/script = ExtResource( 14 )
-text = [ "Sidney:Pourquoi? Why are you not excited for school?", "Marie-Thérèse: I do not like mathematics" ]
+text = [ "Sidney: Pourquoi? Why are you not excited for school?", "Marie-Thérèse: I do not like mathematics" ]
 
 [node name="dialogue_box" parent="." instance=ExtResource( 10 )]
 
@@ -519,7 +520,6 @@ margin/bottom = 74.0
 
 [node name="RichTextLabel" parent="dialogue_box"]
 
-margin/left = 12.0
 margin/top = 7.0
 margin/right = 425.0
 
@@ -624,7 +624,6 @@ INPUT_CHARACTERS_LIMIT = -1
 
 [node name="sentance_info" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false

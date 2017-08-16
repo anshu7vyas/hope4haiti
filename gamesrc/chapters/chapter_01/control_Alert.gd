@@ -4,6 +4,8 @@ var interact = false
 var alerts = ["\nPress Space to continue reading dialogue",
 "\nUse the Arrow keys to direct the character",
 "\nMaintenant, on va intégrer un nom important.\nRegardez attentivement.",
+"\nNon, ce n'est pas le cas. Réessayer!",
+"\nTrès bien! A est correct",
 "To access the menu press the Tab key",
 "To interact with objects press the space bar"]
 

@@ -8,7 +8,10 @@ var item = [createItemData("Push", "Verb"), createItemData("Brick", "Noun"), cre
 var isNewGame = true
 var message_done = false
 var collision_finished = false
-var index_selected = 0
+var index_selected = -1
+var wrong_choice = false
+var multiple_choice_complete = false
+var multiple_choice_retry = false
 
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}
