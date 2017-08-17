@@ -20,7 +20,7 @@
 [ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=18]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=19]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15, 16.25 )
@@ -164,7 +164,7 @@ tile_data = IntArray( 1310746, 399, 1310747, 400, 1310748, 385, 1310749, 386, 13
 
 transform/pos = Vector2( -184, -18 )
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, 2, 12 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -186,7 +186,7 @@ frame = 1
 
 transform/pos = Vector2( 2, 12 )
 transform/scale = Vector2( 0.8, 0.8 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 

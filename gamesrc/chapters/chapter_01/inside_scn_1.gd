@@ -7,12 +7,15 @@ onready var compassNode = get_node("compassBG")
 onready var playerNode = get_node("Player")
 onready var dialogueBox = get_node("startup_dialoge")
 onready var playerDialogueBox = get_node("Player/Camera2D/dialogue_box")
+onready var dialogueBoxNode = get_node("dialogue_textbox")
+onready var dialogueText = get_node("dialogue_textbox/TextInterfaceEngine")
 
 var time_seconds = 0 #skip for now
 var dialogue_wait_secs = 1
 var alert_wait_secs = 2
 
 var interact  = false
+var dialgoue_next = false
 var intro_dialogue_complete = false
 var timer_done = false
 var alert_done = false
@@ -23,11 +26,13 @@ func _ready():
 	set_fixed_process(true)
 	directionNode.hide()
 	compassNode.hide()
-	
+	dialogueBoxNode.hide()
+
+	dialogueText.connect("input_enter", self, "_on_input_enter")
+	dialogueText.connect("buff_end", self, "_on_buff_end")
+	dialogueText.connect("enter_break", self, "_on_enter_break")
 	#skip intro for debugging
 	#skip_intro()
-	#singleton.isNewGame == false
-	#if !singleton.isNewGame: #will be used when saving user data
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -46,13 +51,10 @@ func _fixed_process(delta): #running process
 		intro_dialogue()
 		timer_done = true #dont run this block again
 	if time_seconds > alert_wait_secs and !alert_done: #show 1st alert box after 2s
-		alert_box._print_alert(0) #print text at index 0 of alerts[]
-		alert_box.show() #show alert box
+		intro_popup_spacebar()
 		alert_done = true #dont run this block again
 	if singleton.message_done and !alert2_done: #show 2nd alert box after dialoge is complete
-		#singleton.message_done = false #set the message bool back to false
-		alert_box._print_alert(1) 
-		alert_box.show() 
+		intro_popup_arrowkeys()
 		interact = false #bug fix so alert box is not immediatly dismssed
 		OS.delay_msec(50) #allow "interact = false" to register
 		alert2_done = true 
@@ -64,13 +66,52 @@ func _fixed_process(delta): #running process
 	else:
 		enable_movements()
 	
-	
 
 func intro_dialogue():
+	#dialogueBoxNode.show()	
+	#dialogueText.reset()
+	#dialogueText.set_color(Color(1,1,1))
+	#dialogueText.buff_text("Marie-Thérèse:\n", 0)
+	#dialogueText.buff_text("Bonjour ! Je m’appelle Marie-Thérèse, et je vais ", 0)
+	#OS.delay_msec(500)
+	#dialogueText.set_color(Color(1,1,0))
+	#dialogueText.buff_text("vous ", 0)
+	#OS.delay_msec(500)
+	#dialogueText.set_color(Color(1,1,1))
+	#dialogueText.buff_text("aider à apprendre l’anglais ! On y va, suivez-moi !", 0)
+	#tie.buff_silence(0.4)
+	#dialogueText.set_state(dialogueText.STATE_OUTPUT)
 	var player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
 	get_node("startup_dialoge").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
+	#get_node("startup_dialoge").has_color_change = true
+	#get_node("startup_dialoge").colorChangeStart = 12
+	#get_node("startup_dialoge").colorChangeEnd = 22
+	#get_node("startup_dialoge").colorChangeLine = 0
 	get_node("startup_dialoge").set_hidden(false)
 	get_node("startup_dialoge")._print_dialogue(get_node("intoObj/StaticBody2D/introduction_dialogue").text) 
+
+func delete_alert_box_text():
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("")
+	alert_box.get_node("Label3").set_text("")
+
+func intro_popup_arrowkeys():
+	delete_alert_box_text() #reset alert
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n\n\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("Utilisez les TOUCHES DE FLECHE\npour diriger le personnage")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
+
+func intro_popup_spacebar():
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n\n\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("Appuyez sur ESPACE\npour continuer à lire le dialogue")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
 
 func skip_intro():
 	singleton.message_done = true

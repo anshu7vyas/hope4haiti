@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=26 format=1]
 
 [ext_resource path="res://chapters/chapter_01/inside_scn_1.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
@@ -10,10 +10,14 @@
 [ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=8]
 [ext_resource path="res://chapters/chapter_01/objectstSprite-0.png" type="Texture" id=9]
 [ext_resource path="res://utilities/interaction/interact_script.gd" type="Script" id=10]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=11]
-[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=12]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=13]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=14]
+[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=11]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=12]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=13]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=14]
+[ext_resource path="res://utilities/dialogue_box/dialogue_textbox.gd" type="Script" id=15]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=16]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=17]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -97,6 +101,9 @@ extents = Vector2( 26.5439, 10 )
 [node name="world" type="Node2D"]
 
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bottom" type="TileMap" parent="."]
 
@@ -157,6 +164,7 @@ tile_data = IntArray( 1310746, 399, 1310747, 400, 1310748, 385, 1310749, 386, 13
 
 [node name="Area2D1" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -67, 302 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
@@ -339,7 +347,6 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="intoObj" type="Sprite" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
@@ -359,11 +366,13 @@ bounce = 0.0
 
 [node name="introduction_dialogue" type="Node2D" parent="intoObj/StaticBody2D"]
 
+visibility/visible = false
 script/script = ExtResource( 10 )
-text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !", "Let's take a walk to school! Follow the arrow" ]
+text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !", "Passons à l'école. Suivez la flèche!" ]
 
 [node name="startup_dialoge" parent="." instance=ExtResource( 6 )]
 
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -374,8 +383,28 @@ margin/bottom = 74.0
 
 margin/right = 438.0
 
+[node name="destinationObj" type="Node2D" parent="."]
+
+transform/pos = Vector2( -56, 338 )
+transform/scale = Vector2( 0.28125, 0.265625 )
+script/script = ExtResource( 11 )
+
+[node name="compassBG" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 25, 21 )
+transform/scale = Vector2( 0.0375, 0.035 )
+texture = ExtResource( 12 )
+
+[node name="direction_arrow" type="Node2D" parent="."]
+
+transform/pos = Vector2( 25, 21 )
+transform/scale = Vector2( 0.9375, 0.875 )
+script/script = ExtResource( 13 )
+
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -389,26 +418,93 @@ margin/bottom = 60.0
 popup/exclusive = true
 window/title = "Controls"
 dialog/hide_on_ok = true
-script/script = ExtResource( 11 )
-
-[node name="destinationObj" type="Node2D" parent="."]
-
-transform/pos = Vector2( -56, 338 )
-transform/scale = Vector2( 0.28125, 0.265625 )
-script/script = ExtResource( 12 )
-
-[node name="compassBG" type="Sprite" parent="."]
-
-visibility/visible = false
-transform/pos = Vector2( 25, 21 )
-transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 13 )
-
-[node name="direction_arrow" type="Node2D" parent="."]
-
-transform/pos = Vector2( 25, 21 )
-transform/scale = Vector2( 0.9375, 0.875 )
 script/script = ExtResource( 14 )
+
+[node name="Label1" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 8.0
+margin/right = 274.0
+margin/bottom = 22.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 26.0
+margin/right = 274.0
+margin/bottom = 40.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 44.0
+margin/right = 274.0
+margin/bottom = 58.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="dialogue_textbox" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -46.0
+margin/top = 38.0
+margin/right = 238.0
+margin/bottom = 112.0
+popup/exclusive = false
+script/script = ExtResource( 15 )
+
+[node name="TextInterfaceEngine" type="ReferenceFrame" parent="dialogue_textbox"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 10.0
+margin/right = 540.0
+margin/bottom = 118.0
+script/script = ExtResource( 16 )
+__meta__ = {
+"_editor_icon": ExtResource( 17 )
+}
+SCROLL_ON_MAX_LINES = true
+BREAK_ON_MAX_LINES = true
+AUTO_SKIP_WORDS = true
+LOG_SKIPPED_LINES = true
+SCROLL_SKIPPED_LINES = false
+FONT = ExtResource( 18 )
+PRINT_INPUT = true
+BLINKING_INPUT = true
+INPUT_CHARACTERS_LIMIT = -1
 
 [connection signal="body_enter" from="Area2D1" to="Area2D1" method="_on_Area2D1_body_enter"]
 
