@@ -1,35 +1,27 @@
-[gd_scene load_steps=36 format=1]
+[gd_scene load_steps=26 format=1]
 
-[ext_resource path="res://chapters/chapter_01/outside_scn_1.gd" type="Script" id=1]
+[ext_resource path="res://chapters/chapter_04/outside_world_prepositions.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/outside_tilesets/outside_map.res" type="TileSet" id=2]
-[ext_resource path="res://chapters/chapter_01/area_interaction.gd" type="Script" id=3]
-[ext_resource path="res://actors/neighbor2/Townfolk-Adult-F.png" type="Texture" id=4]
-[ext_resource path="res://chapters/chapter_01/area_interaction_school.gd" type="Script" id=5]
-[ext_resource path="res://chapters/chapter_01/area_transition_to_schooll.gd" type="Script" id=6]
-[ext_resource path="res://actors/neighbor1/actor_walk_to_school.gd" type="Script" id=7]
-[ext_resource path="res://chapters/chapter_01/area_interaction2.gd" type="Script" id=8]
-[ext_resource path="res://actors/neighbor1/Townfolk-Child-F.png" type="Texture" id=9]
-[ext_resource path="res://actors/actor_hero/actor_hero.gd" type="Script" id=10]
-[ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=11]
-[ext_resource path="res://utilities/dialogue_box/dialogue_box.tscn" type="PackedScene" id=12]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=13]
-[ext_resource path="res://utilities/menu/menu.tscn" type="PackedScene" id=14]
-[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=15]
-[ext_resource path="res://utilities/dialogue_box/interact_script.gd" type="Script" id=16]
-[ext_resource path="res://chapters/chapter_01/happyEmote.png" type="Texture" id=17]
-[ext_resource path="res://chapters/chapter_01/sadEmote.png" type="Texture" id=18]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=19]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=20]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=21]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=22]
-[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=23]
-[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=24]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=25]
+[ext_resource path="res://chapters/chapter_04/area_neighbor_dialogue.gd" type="Script" id=3]
+[ext_resource path="res://actors/neighbor1/Townfolk-Child-F.png" type="Texture" id=4]
+[ext_resource path="res://chapters/chapter_01/area_transition_to_schooll.gd" type="Script" id=5]
+[ext_resource path="res://actors/actor_hero/actor_hero.gd" type="Script" id=6]
+[ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=7]
+[ext_resource path="res://utilities/dialogue_box/dialogue_box.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=9]
+[ext_resource path="res://utilities/menu/menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=11]
+[ext_resource path="res://utilities/dialogue_box/interact_script.gd" type="Script" id=12]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=13]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=14]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=15]
+[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=16]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.24274, 9.01256 )
+extents = Vector2( 15, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -44,14 +36,9 @@ extents = Vector2( 7.40247, 9.50586 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7.44185, 7.20719 )
+extents = Vector2( 20, 12 )
 
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 length = 0.3
 loop = false
@@ -67,7 +54,7 @@ tracks/0/keys = {
 "values": [ 2, 1, 0, 1 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 length = 1.0
 loop = false
@@ -83,7 +70,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5, 4 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 1.0
 loop = false
@@ -99,7 +86,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 7 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 
 length = 0.3
 loop = false
@@ -115,17 +102,9 @@ tracks/0/keys = {
 "values": [ 11, 10, 9, 10 ]
 }
 
-[sub_resource type="RectangleShape2D" id=10]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20, 12 )
-
 [node name="world" type="Node2D"]
 
 script/script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="bottom" type="TileMap" parent="."]
 
@@ -165,13 +144,12 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 131087, 481, 131088, 482, 131105, 481, 131106, 482, 196616, 481, 196617, 482, 196623, 533, 196624, 534, 196641, 533, 196642, 534, 262152, 533, 262153, 534, 262159, 585, 262160, 586, 262177, 585, 262178, 586, 327688, 585, 327689, 586, 327698, 481, 327699, 482, 327710, 481, 327711, 482, 393234, 533, 393235, 534, 393246, 533, 393247, 534, 393260, 481, 393261, 482, 458770, 585, 458771, 586, 458782, 585, 458783, 586, 458796, 533, 458797, 534, 524289, 481, 524290, 482, 524293, 2928, 524294, 2924, 524295, 2924, 524296, 2924, 524297, 2924, 524298, 2924, 524299, 2924, 524300, 2924, 524301, 2924, 524302, 2924, 524303, 2924, 524304, 2924, 524305, 2924, 524306, 2924, 524307, 2924, 524308, 2924, 524309, 2924, 524310, 2924, 524311, 2924, 524312, 2924, 524313, 2924, 524314, 2924, 524315, 2924, 524316, 2924, 524317, 2924, 524318, 2924, 524319, 2924, 524320, 2924, 524321, 131, 524332, 585, 524333, 586, 589825, 533, 589826, 534, 589829, 2926, 589857, 183, 655361, 585, 655362, 586, 655365, 2926, 655374, 604, 655375, 605, 655393, 183, 655396, 107, 720901, 2926, 720929, 183, 786437, 2926, 786454, 604, 786455, 605, 786465, 183, 851973, 2926, 851975, 3046, 851976, 1934, 851977, 1935, 851978, 1936, 851979, 1937, 851980, 604, 851981, 605, 851983, 3016, 851984, 2342, 851985, 2343, 851986, 2344, 851987, 2345, 851991, 3029, 851992, 1930, 851993, 1931, 851994, 1932, 851995, 1933, 851996, 604, 851997, 605, 852001, 183, 917507, 481, 917508, 482, 917509, 2926, 917537, 183, 917542, 481, 917543, 482, 983043, 533, 983044, 534, 983045, 2926, 983078, 533, 983079, 534, 1048579, 585, 1048580, 586, 1048614, 585, 1048615, 586, 1114123, 533, 1114124, 534, 1114133, 481, 1114134, 482, 1114139, 533, 1114140, 534, 1114145, 2922, 1114146, 2924, 1114147, 2924, 1114148, 2924, 1114149, 2924, 1114150, 2924, 1114151, 2924, 1114152, 2924, 1114153, 2924, 1114154, 2924, 1114155, 2924, 1179656, 481, 1179657, 482, 1179659, 585, 1179660, 586, 1179663, 481, 1179664, 482, 1179669, 533, 1179670, 534, 1179675, 585, 1179676, 586, 1245192, 533, 1245193, 534, 1245199, 533, 1245200, 534, 1245205, 585, 1245206, 586, 1245230, 481, 1245231, 482, 1310728, 585, 1310729, 586, 1310735, 585, 1310736, 586, 1310743, 481, 1310744, 482, 1310766, 533, 1310767, 534, 1376279, 533, 1376280, 534, 1376288, 604, 1376289, 605, 1376295, 604, 1376296, 605, 1376302, 585, 1376303, 586, 1441815, 585, 1441816, 586, 1638433, 3092, 1638434, 2003, 1638435, 2004, 1638436, 2005, 1638437, 2006, 1638438, 2007, 1638439, 2008, 1638440, 2009, 1638442, 3271, 1638443, 3272, 1769494, 481, 1769495, 482, 1835030, 533, 1835031, 534, 1900566, 585, 1900567, 586, 1900572, 533, 1900573, 534, 1900583, 533, 1900584, 534, 1900588, 481, 1900589, 482, 1966108, 585, 1966109, 586, 1966119, 585, 1966120, 586, 1966124, 533, 1966125, 534, 2031648, 481, 2031649, 482, 2031660, 585, 2031661, 586, 2097184, 533, 2097185, 534, 2162720, 585, 2162721, 586 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="area_neighbor" type="Area2D" parent="."]
 
-transform/pos = Vector2( 140, 14 )
-transform/scale = Vector2( 2.01563, 1.73438 )
+transform/pos = Vector2( 328, 8 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -3.75436, -6.66949 )
+shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -179,39 +157,37 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 3 )
 
-[node name="neighbor1" type="Sprite" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_neighbor"]
 
-transform/pos = Vector2( -2.48061, -9.2252 )
-transform/scale = Vector2( 0.586335, 0.586335 )
-texture = ExtResource( 4 )
-vframes = 4
-hframes = 3
-frame = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-transform/pos = Vector2( -3.75436, -6.66949 )
+transform/scale = Vector2( 0.8, 0.8 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="area_neighbor3" type="Area2D" parent="."]
+[node name="neighbor_body" type="StaticBody2D" parent="."]
 
-transform/pos = Vector2( 362.688, 204.126 )
-transform/scale = Vector2( 2.01563, 1.73438 )
-input/pickable = true
+transform/pos = Vector2( 329, -1 )
+input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, 62.9621, -3.33622 )
+shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, -1, 9 )
 shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-script/script = ExtResource( 5 )
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area_neighbor3"]
+[node name="Sprite" type="Sprite" parent="neighbor_body"]
 
-transform/pos = Vector2( 62.9621, -3.33622 )
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="neighbor_body"]
+
+transform/pos = Vector2( -1, 9 )
 transform/scale = Vector2( 0.8, 0.8 )
 shape = SubResource( 2 )
 trigger = false
@@ -228,7 +204,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 6 )
+script/script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_transition_to_class"]
 
@@ -238,92 +214,19 @@ shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="neightbor2" type="KinematicBody2D" parent="."]
-
-transform/pos = Vector2( 264.785, -1.02208 )
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-script/script = ExtResource( 7 )
-
-[node name="area_neighbor2" type="Area2D" parent="neightbor2"]
-
-transform/pos = Vector2( -125.143, 14.3051 )
-transform/scale = Vector2( 2.01563, 1.73438 )
-input/pickable = true
-shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, 61.201, -2.46949 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-script/script = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="neightbor2/area_neighbor2"]
-
-transform/pos = Vector2( 61.201, -2.46949 )
-transform/scale = Vector2( 0.8, 0.8 )
-shape = SubResource( 4 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="neightbor2"]
-
-texture = ExtResource( 9 )
-vframes = 4
-hframes = 3
-frame = 10
-
-[node name="StaticBody2D" type="StaticBody2D" parent="neightbor2/Sprite"]
-
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 0.8, 0, 0, 0.8, -0.473328, 8.67787 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="neightbor2/Sprite/StaticBody2D"]
-
-transform/pos = Vector2( -0.473328, 8.67787 )
-transform/scale = Vector2( 0.8, 0.8 )
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="neightbor2"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/walk_down = SubResource( 6 )
-anims/walk_left = SubResource( 7 )
-anims/walk_right = SubResource( 8 )
-anims/walk_up = SubResource( 9 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
 [node name="Player" type="KinematicBody2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 10 )
+script/script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -332,7 +235,7 @@ __meta__ = {
 
 transform/pos = Vector2( -0.424341, -23.9151 )
 transform/scale = Vector2( 2.05163, 2.33149 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 vframes = 4
 hframes = 3
 frame = 1
@@ -342,10 +245,10 @@ frame = 1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/walk_down = SubResource( 6 )
-anims/walk_left = SubResource( 7 )
-anims/walk_right = SubResource( 8 )
-anims/walk_up = SubResource( 9 )
+anims/walk_down = SubResource( 5 )
+anims/walk_left = SubResource( 6 )
+anims/walk_right = SubResource( 7 )
+anims/walk_up = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -353,7 +256,7 @@ autoplay = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
-shape = SubResource( 10 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -377,7 +280,7 @@ drag_margin/top = 0.0
 drag_margin/right = 0.0
 drag_margin/bottom = 0.0
 
-[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 12 )]
+[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 8 )]
 
 visibility/visible = false
 margin/left = -78.0
@@ -396,17 +299,17 @@ margin/left = 13.0
 margin/top = 7.0
 margin/right = 429.0
 margin/bottom = 76.0
-custom_fonts/mono_font = ExtResource( 13 )
-custom_fonts/bold_italics_font = ExtResource( 13 )
-custom_fonts/italics_font = ExtResource( 13 )
-custom_fonts/bold_font = ExtResource( 13 )
-custom_fonts/normal_font = ExtResource( 13 )
+custom_fonts/mono_font = ExtResource( 9 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 9 )
+custom_fonts/bold_font = ExtResource( 9 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
 
-[node name="menu" parent="Player/Camera2D" instance=ExtResource( 14 )]
+[node name="menu" parent="Player/Camera2D" instance=ExtResource( 10 )]
 
 process/pause_mode = 2
 visibility/visible = false
@@ -457,7 +360,7 @@ tile_data = IntArray( 196640, 479, 196641, 480, 262159, 479, 262160, 480, 262176
 
 visibility/visible = false
 mode = 0
-tile_set = ExtResource( 15 )
+tile_set = ExtResource( 11 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -470,11 +373,10 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -393222, 0, -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0, -393205, 0, -393204, 0, -393203, 0, -393202, 0, -393201, 0, -393200, 0, -393199, 0, -393198, 0, -393197, 0, -393196, 0, -393195, 0, -393194, 0, -393193, 0, -393192, 0, -393191, 0, -262147, 0, -327655, 0, -196611, 0, -262138, 0, -262137, 0, -262119, 0, -131075, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196600, 0, -196599, 0, -196598, 0, -196597, 0, -196592, 1, -196591, 1, -196590, 1, -196589, 1, -196583, 0, -65539, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131064, 0, -131063, 0, -131062, 0, -131061, 0, -131058, 0, -131057, 0, -131056, 0, -131055, 0, -131054, 0, -131053, 0, -131047, 0, -3, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65511, 0, 65533, 0, 8, 0, 25, 0, 131069, 0, 65561, 0, 196605, 0, 131097, 0, 262141, 0, 262142, 0, 262143, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 196627, 0, 196628, 0, 196629, 0, 196633, 0, 196634, 0, 196635, 0, 196636, 0, 196637, 0, 196638, 0, 196639, 0, 196640, 0, 196641, 0, 196642, 0, 196643, 0, 196644, 0, 262165, 0, 262180, 0, 327701, 0, 327707, 1, 327708, 1, 327716, 0, 393237, 0, 393252, 0, 458773, 0, 458776, 0, 458777, 0, 458783, 0, 458784, 0, 458788, 0, 524309, 0, 524324, 0, 589845, 0, 589850, 0, 589851, 0, 589852, 0, 589853, 0, 589854, 0, 589855, 0, 589856, 0, 589860, 0, 655381, 0, 655386, 0, 655387, 0, 655388, 0, 655389, 0, 655390, 0, 655391, 0, 655392, 0, 655396, 0, 720917, 0, 720921, 0, 720922, 0, 720923, 0, 720924, 0, 720926, 0, 720927, 0, 720928, 0, 720930, 0, 720931, 0, 720932, 0, 786453, 0, 786468, 0, 851989, 0, 852004, 0, 917525, 0, 917540, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0, 983074, 0, 983075, 0, 983076, 0 )
+tile_data = IntArray( -393222, 0, -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0, -393205, 0, -393204, 0, -393203, 0, -393202, 0, -393201, 0, -393200, 0, -393199, 0, -393198, 0, -393197, 0, -393196, 0, -393195, 0, -393194, 0, -393193, 0, -393192, 0, -393191, 0, -262147, 0, -327655, 0, -196611, 0, -262138, 0, -262137, 0, -262119, 0, -131075, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196600, 0, -196599, 0, -196598, 0, -196597, 0, -196592, 1, -196591, 1, -196590, 1, -196589, 1, -196583, 0, -65539, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131064, 0, -131063, 0, -131062, 0, -131061, 0, -131058, 0, -131057, 0, -131056, 0, -131055, 0, -131054, 0, -131053, 0, -131047, 0, -3, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65511, 0, 65533, 0, 25, 0, 131069, 0, 65561, 0, 196605, 0, 131097, 0, 262141, 0, 262142, 0, 262143, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 196627, 0, 196628, 0, 196629, 0, 196633, 0, 196634, 0, 196635, 0, 196636, 0, 196637, 0, 196638, 0, 196639, 0, 196640, 0, 196641, 0, 196642, 0, 196643, 0, 196644, 0, 262165, 0, 262180, 0, 327701, 0, 327707, 1, 327708, 1, 327716, 0, 393237, 0, 393252, 0, 458773, 0, 458776, 0, 458777, 0, 458783, 0, 458784, 0, 458788, 0, 524309, 0, 524324, 0, 589845, 0, 589850, 0, 589851, 0, 589852, 0, 589853, 0, 589854, 0, 589855, 0, 589856, 0, 589860, 0, 655381, 0, 655386, 0, 655387, 0, 655388, 0, 655389, 0, 655390, 0, 655391, 0, 655392, 0, 655396, 0, 720917, 0, 720921, 0, 720922, 0, 720923, 0, 720924, 0, 720926, 0, 720927, 0, 720928, 0, 720930, 0, 720931, 0, 720932, 0, 786453, 0, 786468, 0, 851989, 0, 852004, 0, 917525, 0, 917540, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0, 983074, 0, 983075, 0, 983076, 0 )
 
 [node name="dialogeObj1" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
 vframes = 50
@@ -493,98 +395,10 @@ bounce = 0.0
 
 [node name="dialogue" type="Node2D" parent="dialogeObj1/StaticBody2D"]
 
-script/script = ExtResource( 16 )
-text = [ "Marie-Thérèse: Salut, Hello, Rosemond!", "Rosemond: Hello Marie-Thérèse", "Marie-Thérèse: How are you?", "Rosemond: Bien, I am well, how are you?", "Marie-Thérèse: I am well.", "Rosemond: Goodbye!", "Marie-Thérèse: Goodbye." ]
+script/script = ExtResource( 12 )
+text = [ "MT: Today, Aujourd’hui, I will practice math, Sidney!", "Sidney: Moi aussi, I will practice with you", "MT: I want to be good at math", "Sidney: We will be good at math ensemble, together" ]
 
-[node name="dialogeObj2" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 25, 23 )
-transform/scale = Vector2( 0.9375, 0.875 )
-vframes = 50
-hframes = 64
-frame = 181
-
-[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj2"]
-
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="dialogue" type="Node2D" parent="dialogeObj2/StaticBody2D"]
-
-script/script = ExtResource( 16 )
-text = [ "Marie-Thérèse: Bonjour, Good morning, Sidney", "Sidney: Good morning Marie-Thérèse", "Marie-Thérèse: How are you?", "Sidney: I am well, how are you?", "Marie-Thérèse: I am well. Let us walk to school. On y va.", "Sidney: Yes, Let us walk to school." ]
-
-[node name="dialogeObj3" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 25, 23 )
-transform/scale = Vector2( 0.9375, 0.875 )
-vframes = 50
-hframes = 64
-frame = 181
-
-[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj3"]
-
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="dialogue" type="Node2D" parent="dialogeObj3/StaticBody2D"]
-
-script/script = ExtResource( 16 )
-text = [ "Sidney: I am excited for school today.", "Marie-Thérèse: I am not excited for school today." ]
-
-[node name="happy_emote" type="Sprite" parent="dialogeObj3"]
-
-visibility/visible = false
-transform/pos = Vector2( 510.933, 168 )
-transform/scale = Vector2( 2.01932, 2.16355 )
-texture = ExtResource( 17 )
-flip_h = true
-
-[node name="sad_emote" type="Sprite" parent="dialogeObj3"]
-
-visibility/visible = false
-transform/pos = Vector2( 464, 168 )
-transform/scale = Vector2( 2.01932, 2.16355 )
-texture = ExtResource( 18 )
-flip_h = true
-
-[node name="dialogeObj4" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 25, 23 )
-transform/scale = Vector2( 0.9375, 0.875 )
-vframes = 50
-hframes = 64
-frame = 181
-
-[node name="StaticBody2D" type="StaticBody2D" parent="dialogeObj4"]
-
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="dialogue" type="Node2D" parent="dialogeObj4/StaticBody2D"]
-
-script/script = ExtResource( 16 )
-text = [ "Sidney: Pourquoi? Why are you not excited for school?", "Marie-Thérèse: I do not like mathematics" ]
-
-[node name="dialogue_box" parent="." instance=ExtResource( 12 )]
+[node name="dialogue_box" parent="." instance=ExtResource( 8 )]
 
 editor/display_folded = true
 visibility/visible = false
@@ -600,7 +414,7 @@ margin/right = 425.0
 
 [node name="destinationObj" type="Node2D" parent="."]
 
-transform/pos = Vector2( 135, 8 )
+transform/pos = Vector2( 328, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 
 [node name="compassBG" type="Sprite" parent="."]
@@ -608,133 +422,14 @@ transform/scale = Vector2( 0.25, 0.25 )
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 19 )
+texture = ExtResource( 13 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 20 )
-
-[node name="PopupDialog" type="PopupDialog" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -49.0
-margin/top = -30.0
-margin/right = 241.0
-margin/bottom = 150.0
-popup/exclusive = false
-
-[node name="TextInterfaceEngine" type="ReferenceFrame" parent="PopupDialog"]
-
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 12.0
-margin/top = 14.0
-margin/right = 536.0
-margin/bottom = 326.0
-script/script = ExtResource( 21 )
-__meta__ = {
-"_editor_icon": ExtResource( 22 )
-}
-SCROLL_ON_MAX_LINES = true
-BREAK_ON_MAX_LINES = true
-AUTO_SKIP_WORDS = true
-LOG_SKIPPED_LINES = true
-SCROLL_SKIPPED_LINES = false
-FONT = ExtResource( 13 )
-PRINT_INPUT = true
-BLINKING_INPUT = true
-INPUT_CHARACTERS_LIMIT = -1
-
-[node name="emotion_challenge" type="PopupDialog" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -53.0
-margin/top = -24.0
-margin/right = 255.0
-margin/bottom = 40.0
-popup/exclusive = false
-
-[node name="TextInterfaceEngine" type="ReferenceFrame" parent="emotion_challenge"]
-
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 12.0
-margin/top = 14.0
-margin/right = 580.0
-margin/bottom = 90.0
-script/script = ExtResource( 21 )
-__meta__ = {
-"_editor_icon": ExtResource( 22 )
-}
-SCROLL_ON_MAX_LINES = true
-BREAK_ON_MAX_LINES = true
-AUTO_SKIP_WORDS = true
-LOG_SKIPPED_LINES = true
-SCROLL_SKIPPED_LINES = false
-FONT = ExtResource( 13 )
-PRINT_INPUT = true
-BLINKING_INPUT = true
-INPUT_CHARACTERS_LIMIT = -1
-
-[node name="sentance_info" type="PopupDialog" parent="."]
-
-visibility/visible = false
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -53.0
-margin/top = -24.0
-margin/right = 255.0
-margin/bottom = 94.0
-popup/exclusive = false
-
-[node name="TextInterfaceEngine" type="ReferenceFrame" parent="sentance_info"]
-
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 12.0
-margin/top = 14.0
-margin/right = 580.0
-margin/bottom = 198.0
-script/script = ExtResource( 21 )
-__meta__ = {
-"_editor_icon": ExtResource( 22 )
-}
-SCROLL_ON_MAX_LINES = true
-BREAK_ON_MAX_LINES = true
-AUTO_SKIP_WORDS = true
-LOG_SKIPPED_LINES = true
-SCROLL_SKIPPED_LINES = false
-FONT = ExtResource( 13 )
-PRINT_INPUT = true
-BLINKING_INPUT = true
-INPUT_CHARACTERS_LIMIT = -1
+script/script = ExtResource( 14 )
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
@@ -750,7 +445,7 @@ margin/top = -9.0
 margin/right = 255.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 23 )
+script/script = ExtResource( 15 )
 
 [node name="school" type="Label" parent="multiple_choice"]
 
@@ -759,13 +454,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 34.0
+margin/left = 24.0
 margin/top = 72.0
-margin/right = 508.0
+margin/right = 498.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "a. elle n'aime pas les mathématiques"
+text = "a. déjeuner avec Marie-Thérèse"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -777,13 +472,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 34.0
+margin/left = 24.0
 margin/top = 96.0
-margin/right = 508.0
+margin/right = 498.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "b. elle n'aime pas son institutrice"
+text = "b. se promener avec Marie-Thérèse"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -795,22 +490,22 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 34.0
+margin/left = 24.0
 margin/top = 122.0
-margin/right = 508.0
+margin/right = 568.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "c. elle n'a pas d’amis"
+text = "c. pratiquer les maths avec Marie-Thérèse"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="pointer" type="Sprite" parent="multiple_choice"]
 
-transform/pos = Vector2( 23.5, 80 )
+transform/pos = Vector2( 15.5, 80 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 24 )
+texture = ExtResource( 16 )
 hframes = 14
 
 [node name="RichTextLabel" type="RichTextLabel" parent="multiple_choice"]
@@ -820,19 +515,20 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 14.0
-margin/top = 24.0
-margin/right = 562.0
-margin/bottom = 96.0
-custom_fonts/bold_font = ExtResource( 13 )
-custom_fonts/normal_font = ExtResource( 13 )
+margin/left = 22.0
+margin/top = 34.0
+margin/right = 554.0
+margin/bottom = 86.0
+custom_fonts/bold_font = ExtResource( 9 )
+custom_fonts/normal_font = ExtResource( 9 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
-bbcode/bbcode = "Pourquoi est-ce que MT n'est pas ravie d’aller à l'école?"
+bbcode/bbcode = "Qu’est-ce que Sidney va faire ?"
 visible_characters = -1
 
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -844,17 +540,61 @@ margin/top = -30.0
 margin/right = 240.0
 margin/bottom = 60.0
 popup/exclusive = true
-window/title = "Alerte"
+window/title = "Controls"
 dialog/hide_on_ok = true
-script/script = ExtResource( 25 )
+script/script = ExtResource( 17 )
 
-[connection signal="body_enter" from="Area2D" to="Area2D" method="_on_Area2D_body_enter"]
+[node name="Label1" type="Label" parent="control_alerts"]
 
-[connection signal="body_enter" from="area_neighbor3" to="area_neighbor3" method="_on_area_neighbor3_body_enter"]
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 8.0
+margin/right = 274.0
+margin/bottom = 22.0
+text = "helllllooo world"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 26.0
+margin/right = 274.0
+margin/bottom = 40.0
+text = "helllllooo world"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 44.0
+margin/right = 274.0
+margin/bottom = 58.0
+text = "helllllooo world"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="body_enter" from="area_neighbor" to="area_neighbor" method="_on_area_neighbor_body_enter"]
 
 [connection signal="body_enter" from="area_transition_to_class" to="area_transition_to_class" method="_on_area_transition_to_class_body_enter"]
-
-[connection signal="body_enter" from="neightbor2/area_neighbor2" to="neightbor2/area_neighbor2" method="_on_area_neighbor2_body_enter"]
 
 
 [editable path="Player/Camera2D/dialogue_box"]

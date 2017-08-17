@@ -8,8 +8,14 @@ var pressed = false
 var timer = 0
 var textToPrint = []
 
+var colorChangeStart = -1
+var colorChangeEnd = -1
+var colorChangeLine = -1
+var has_color_change = false
+
 var currentChar = 0
 var currentText = 0
+var line_count = 0
 
 const SPEED = 0.007 #Lower prints words faster
 
@@ -29,6 +35,10 @@ func _fixed_process(delta):
 			timer += delta
 			if timer > SPEED:
 				timer = 0
+				if has_color_change and colorChangeLine == currentText and (currentChar > colorChangeStart) and (currentChar < colorChangeEnd):
+					get_node("RichTextLabel").add_color_override("default_color", Color(1,0,0))
+				else:
+					get_node("RichTextLabel").add_color_override("default_color", Color(0,0,0))
 				get_node("RichTextLabel").set_bbcode(get_node("RichTextLabel").get_bbcode() + textToPrint[currentText][currentChar])
 				currentChar += 1
 			if currentChar >= textToPrint[currentText].length():

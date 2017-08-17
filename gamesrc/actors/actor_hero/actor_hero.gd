@@ -4,7 +4,7 @@ var direction3 = Vector2(0,0)
 var startPos = Vector2(0,0)
 var moving = false
 
-var canMove = true
+var canMove = false
 var interact = false
 var menu = false
 
@@ -12,7 +12,7 @@ var world
 var sprite
 var animationPlayer
 
-const SPEED = 2 #change speed for testing
+const SPEED = 1 #change speed for testing
 const GRID = 16
 
 var angle = 0

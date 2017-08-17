@@ -4,11 +4,6 @@
 [ext_resource path="res://utilities/dialogue_box/dialogue_box.gd" type="Script" id=2]
 [ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=3]
 
-
-
-
-
-
 [node name="dialogue_box" type="Patch9Frame"]
 
 focus/ignore_mouse = true
@@ -33,9 +28,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
+margin/left = 12.0
 margin/top = 6.0
-margin/right = 53.0
+margin/right = 359.0
 margin/bottom = 73.0
 custom_fonts/mono_font = ExtResource( 3 )
 custom_fonts/bold_italics_font = ExtResource( 3 )
