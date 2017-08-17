@@ -14,3 +14,5 @@ func _on_area_teacher_body_enter( body ):
 	if area_count > 1:
 		worldNode.get_node("Player").canMove = false
 		worldNode.teacher_dialogue()
+		worldNode.destinationNode.set_pos(Vector2(-152,-56))
+		self.queue_free()

@@ -6,7 +6,7 @@ onready var compassNode = get_node("compassBG")
 onready var playerNode = get_node("Player")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("startup_dialoge")
-onready var alert_box = get_node("control_alerts")
+
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -64,14 +64,14 @@ func _fixed_process(delta):
 		if singleton.wrong_choice:
 			disable_movements()
 			print("wrong choice")
-			alert_box.hide()
+			alertNode.hide()
 			multiple_choice_challenge()
 		if singleton.multiple_choice_complete: # SCENE DONE: DO STUFF HERE
 			disable_movements()
 			print("right choice")
 			scene_complete = true
 			multipleChoiceBox.hide()
-			alert_box.hide()
+			alertNode.hide()
 		if final_challenge_start:
 			print("start challenge")
 			delete_alert_box_text()
@@ -79,7 +79,7 @@ func _fixed_process(delta):
 			multiple_choice_challenge()
 			final_challenge_start = false
 	
-	if alert_box.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
+	if alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
 		disable_movements()
 
 func disable_movements():

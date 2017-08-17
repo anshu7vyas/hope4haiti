@@ -4,6 +4,9 @@ extends Node2D
 onready var alert_box = get_node("control_alerts")
 onready var directionNode = get_node("direction_arrow")
 onready var compassNode = get_node("compassBG")
+onready var playerNode = get_node("Player")
+onready var dialogueBox = get_node("startup_dialoge")
+onready var playerDialogueBox = get_node("Player/Camera2D/dialogue_box")
 
 var time_seconds = 0 #skip for now
 var dialogue_wait_secs = 1
@@ -33,7 +36,7 @@ func _input(event):
 		interact = false
 
 func _fixed_process(delta): #running process
-	time_seconds += delta	#count how long the scene has been running
+	time_seconds += delta #count how long the scene has been running
 	if interact and alert_box.is_visible(): #dismiss alertbox
 		alert_box.hide()
 		if alert2_done:
@@ -55,6 +58,13 @@ func _fixed_process(delta): #running process
 		alert2_done = true 
 	if !singleton.message_done: #dont allopw walking during dialogue or alerts
 		get_node("Player").canMove = false
+	
+	if dialogueBox.is_visible() or alert_box.is_visible() or playerDialogueBox.is_visible():
+		disable_movements()
+	else:
+		enable_movements()
+	
+	
 
 func intro_dialogue():
 	var player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
@@ -69,4 +79,14 @@ func skip_intro():
 	timer_done = true
 	alert_done = true
 	alert2_done = true
+
+func disable_movements():
+	directionNode.hide()
+	compassNode.hide()
+	playerNode.canMove = false
+
+func enable_movements():
+	directionNode.show()
+	compassNode.show()
+	playerNode.canMove = true
 

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/world_classroom.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/classroom_tilesets/classroom_map.res" type="TileSet" id=2]
-[ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_teacher_interaction.gd" type="Script" id=3]
-[ext_resource path="res://actors/teacher1/Fighter-F-01.png" type="Texture" id=4]
+[ext_resource path="res://actors/teacher1/Fighter-F-01.png" type="Texture" id=3]
+[ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_teacher_interaction.gd" type="Script" id=4]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_seat.gd" type="Script" id=5]
 [ext_resource path="res://chapters/chapter_01/area_transition.gd" type="Script" id=6]
 [ext_resource path="res://actors/neighbor1/hero_follow.gd" type="Script" id=7]
@@ -195,6 +195,15 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 1048598, 1332, 1048599, 1332, 1048600, 1332, 1048601, 1332, 1048602, 1332, 1048603, 1332, 1114129, 387, 1114130, 388, 1114131, 387, 1114132, 388, 1114134, 1329, 1114135, 1329, 1114136, 1329, 1114137, 1329, 1114138, 1329, 1114139, 1329, 1114141, 399, 1114142, 400, 1114143, 387, 1114144, 388, 1179665, 419, 1179666, 420, 1179667, 419, 1179668, 420, 1179670, 1449, 1179671, 1449, 1179672, 1449, 1179673, 1449, 1179674, 1449, 1179675, 1449, 1179677, 431, 1179678, 432, 1179679, 419, 1179680, 420, 1245201, 451, 1245202, 452, 1245203, 451, 1245204, 452, 1245213, 459, 1245214, 460, 1245215, 451, 1245216, 452, 1310737, 483, 1310738, 484, 1310739, 483, 1310740, 484, 1310749, 491, 1310750, 492, 1310751, 483, 1310752, 484, 1376280, 231, 1376281, 232, 1441816, 263, 1441817, 264, 1507352, 295, 1507353, 296, 1638417, 235, 1638418, 236, 1703953, 235, 1703954, 236, 1703971, 1582, 1769489, 267, 1769490, 268, 1769507, 1646, 1835025, 299, 1835026, 300, 1900561, 331, 1900562, 332, 1966097, 363, 1966098, 364 )
 
+[node name="teacher" type="Sprite" parent="."]
+
+transform/pos = Vector2( -118, -113 )
+transform/scale = Vector2( 1.18183, 1.01693 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 3
+frame = 7
+
 [node name="area_teacher" type="Area2D" parent="."]
 
 transform/pos = Vector2( -243, -99 )
@@ -207,16 +216,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 3 )
-
-[node name="teacher" type="Sprite" parent="area_teacher"]
-
-transform/pos = Vector2( 62.0154, -8.07205 )
-transform/scale = Vector2( 0.586335, 0.586335 )
-texture = ExtResource( 4 )
-vframes = 4
-hframes = 3
-frame = 7
+script/script = ExtResource( 4 )
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="area_teacher"]
 
@@ -272,6 +272,7 @@ _update_shape_index = 0
 
 [node name="neighbor" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 18, 12 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -327,6 +328,7 @@ autoplay = ""
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 24 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -507,7 +509,6 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="teacher_obj" type="Sprite" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
@@ -593,8 +594,7 @@ script/script = ExtResource( 17 )
 
 [node name="destinationObj" type="Node2D" parent="."]
 
-visibility/visible = false
-transform/pos = Vector2( -56, 338 )
+transform/pos = Vector2( -118, -101 )
 transform/scale = Vector2( 0.28125, 0.265625 )
 script/script = ExtResource( 18 )
 

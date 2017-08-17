@@ -1,8 +1,8 @@
 extends AcceptDialog
 
 var interact = false
-var alerts = ["\nPress Space to continue reading dialogue",
-"\nUse the Arrow keys to direct the character",
+var alerts = ["\nAppuyez sur ESPACE\npour continuer à lire le dialogue",
+"\nUtilisez les TOUCHES DE FLECHE\npour diriger le personnage",
 "\nMaintenant, on va intégrer un nom important.\nRegardez attentivement.",
 "\nNon, ce n'est pas le cas. Réessayer!",
 "\nTrès bien! A est correct",

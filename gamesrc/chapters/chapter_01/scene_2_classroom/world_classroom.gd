@@ -1,7 +1,11 @@
 extends Node2D
+#classroom scene
 
 onready var playerNode = get_node("Player")
 onready var dialogueBox = get_node("dialogue_box")
+onready var directionNode = get_node("direction_arrow")
+onready var compassNode = get_node("compassBG")
+onready var destinationNode = get_node("destinationObj")
 onready var tie = get_node("teacher_dialogue/TextInterfaceEngine")
 var interact
 var player_pos
@@ -12,6 +16,9 @@ var time_delta = 0
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
+	destinationNode.set_pos(Vector2(-120,-88))
+	directionNode.show()
+	compassNode.show()
 
 
 func _input(event):
@@ -55,11 +62,11 @@ func seat_dialogue():
 	time_delta = 0
 
 func disable_movements():
-	#directionNode.hide()
-	#compassNode.hide()
+	directionNode.hide()
+	compassNode.hide()
 	playerNode.canMove = false
 
 func enable_movements():
-	#directionNode.show()
-	#compassNode.show()
+	directionNode.show()
+	compassNode.show()
 	playerNode.canMove = true
