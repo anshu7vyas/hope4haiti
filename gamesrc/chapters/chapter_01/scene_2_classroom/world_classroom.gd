@@ -7,6 +7,8 @@ onready var directionNode = get_node("direction_arrow")
 onready var compassNode = get_node("compassBG")
 onready var destinationNode = get_node("destinationObj")
 onready var tie = get_node("teacher_dialogue/TextInterfaceEngine")
+onready var endPopupNode = get_node("end_chapter_challenge")
+var do_once = false
 var interact
 var player_pos
 var seat_diag_done = false
@@ -19,6 +21,7 @@ func _ready():
 	destinationNode.set_pos(Vector2(-120,-88))
 	directionNode.show()
 	compassNode.show()
+	#endPopupNode.set_hidden(false)
 
 
 func _input(event):
@@ -36,10 +39,15 @@ func _fixed_process(delta):
 			get_node("seat_obj/sadEmote").show()
 			get_node("neighbor/Sprite").set_frame(10) # turn left
 			get_node("Player/Sprite").set_frame(7) # turn right
-	if seat_diag_done and singleton.message_done:
+	if seat_diag_done and singleton.message_done and !do_once:
 		get_node("seat_obj/sadEmote").hide()
+		do_once = true
+		OS.delay_msec(100)
+		player_pos = playerNode.get_pos()
+		endPopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
+		endPopupNode.set_hidden(false)
 	
-	if dialogueBox.is_visible():
+	if dialogueBox.is_visible() or endPopupNode.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
