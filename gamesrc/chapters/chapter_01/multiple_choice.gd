@@ -2,6 +2,7 @@ extends PopupDialog
 
 onready var pointerNode = get_node("pointer")
 onready var worldNode = get_parent()
+onready var alert_box = get_parent().get_node("control_alerts")
 
 var correct_selected = false
 var index = 0
@@ -30,24 +31,40 @@ func _input(event):
 				pointerNode.set_pos(Vector2(x,y))
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			player_pos = worldNode.get_node("Player").get_pos()
-			worldNode.get_node("control_alerts").set_pos(Vector2(player_pos.x-76, player_pos.y-20))
+			alert_box.set_pos(Vector2(player_pos.x-76, player_pos.y-20))
 			if (index == correctIndex):
-				worldNode.get_node("control_alerts")._print_alert(4)
-				worldNode.get_node("control_alerts").show()
+				correct_popup()
+				#alert_box._print_alert(4)
+				#alert_box.show()
 				self.hide()
 				singleton.multiple_choice_complete = true
 			else:
-				worldNode.get_node("control_alerts")._print_alert(3)
-				worldNode.get_node("control_alerts").show()
+				incorrect_popup()
+				#alert_box._print_alert(3)
+				#alert_box.show()
 				self.hide()
 				singleton.wrong_choice = true
-			#if (index == 1):
-			#	worldNode.get_node("control_alerts")._print_alert(3)
-			#	worldNode.get_node("control_alerts").show()
-			#	self.hide()
-			#	singleton.wrong_choice = true
-			#if (index == 2):
-			#	worldNode.get_node("control_alerts")._print_alert(3)
-			#	worldNode.get_node("control_alerts").show()
-			#	self.hide()
-			#	singleton.wrong_choice = true
+
+func correct_popup():
+	delete_alert_box_text() #reset alert
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("Très bien! A est correct")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
+
+func incorrect_popup():
+	delete_alert_box_text() #reset alert
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("Non, ce n'est pas le cas. Réessayer!")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
+
+func delete_alert_box_text():
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("")
+	alert_box.get_node("Label3").set_text("")

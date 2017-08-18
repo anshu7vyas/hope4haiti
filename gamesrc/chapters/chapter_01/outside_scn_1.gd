@@ -13,6 +13,7 @@ onready var emotionChallengeBox = get_node("emotion_challenge")
 onready var sentenceInfoBox = get_node("sentance_info")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var playerNode = get_node("Player")
+onready var nounsScreenNode = get_node("about_nouns")
 
 var alert_done = false
 var neighbor1_alerted = false
@@ -39,6 +40,7 @@ func _ready():
 	destinationNode.set_pos(Vector2(136,8))
 	directionNode.show()
 	compassNode.show()
+	nounsScreenNode.set_hidden(false)
 	get_node("multiple_choice").correctIndex = 0
 	singleton.message_done = true
 	singleton.wrong_choice = false
@@ -65,6 +67,8 @@ func _input(event):
 func _fixed_process(delta):
 	time_delta += delta
 	if interact: # space bar pressed
+		if nounsScreenNode.is_visible():
+			nounsScreenNode.set_hidden(true)
 		if singleton.wrong_choice:
 			alert_box.hide()
 			multiple_choice_challenge()
@@ -86,6 +90,7 @@ func _fixed_process(delta):
 			get_node("dialogeObj3/happy_emote").hide()
 			get_node("dialogeObj3/sad_emote").hide()
 			if !final_convo_started:
+				delete_alert_box_text()
 				school_dialogue_part2()
 		
 	if final_convo_started and singleton.message_done and !final_alert_done:
@@ -112,9 +117,10 @@ func _fixed_process(delta):
 	if neighbor2_alerted:
 		if !alert_done:
 			player_pos = playerNode.get_pos()
-			alert_box._print_alert(2) #alert text stored at index 2 in control_alert.gd-> alerts[]
+			neighbor2_popup_alert()
+			#alert_box._print_alert(2) #alert text stored at index 2 in control_alert.gd-> alerts[]
 			alert_box.set_pos(Vector2(player_pos.x-76, player_pos.y-20))
-			alert_box.show()
+			#alert_box.show()
 			alert_done = true
 		if !alert_box.is_visible() and !neighbor2_done:
 			neighbor2_dialogue()
@@ -123,7 +129,7 @@ func _fixed_process(delta):
 	
 	# Block movements when an popup/dialogue box is open
 	if singleton.message_done:
-		if alert_box.is_visible() or nameChallengeBox.is_visible() or emotionChallengeBox.is_visible() or sentenceInfoBox.is_visible() or multipleChoiceBox.is_visible():
+		if alert_box.is_visible() or nameChallengeBox.is_visible() or emotionChallengeBox.is_visible() or sentenceInfoBox.is_visible() or multipleChoiceBox.is_visible() or nounsScreenNode.is_visible():
 			disable_movements()
 		else:
 			enable_movements()
@@ -141,6 +147,21 @@ func _fixed_process(delta):
 			name_challenge_start = true
 			
 	
+func delete_alert_box_text():
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box.get_node("Label2").set_text("")
+	alert_box.get_node("Label3").set_text("")
+
+func neighbor2_popup_alert():
+	delete_alert_box_text() #reset alert
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n\n\n")
+	alert_box.get_node("Label1").set_text("Maintenant, on va intégrer")
+	alert_box.get_node("Label2").set_text("un nom important.\nRegardez attentivement.")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
+
 
 func disable_movements():
 	directionNode.hide()
