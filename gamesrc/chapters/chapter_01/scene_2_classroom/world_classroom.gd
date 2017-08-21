@@ -15,6 +15,11 @@ var seat_diag_done = false
 var teacher_dialogue_done = false
 var time_delta = 0
 
+
+
+var lesson_plan_toptext = singleton.nounsLessonPlanTop
+var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
@@ -22,6 +27,7 @@ func _ready():
 	directionNode.show()
 	compassNode.show()
 	#endPopupNode.set_hidden(false)
+	get_node("end_chapter_challenge").questions = singleton.nounsQuestions
 
 
 func _input(event):

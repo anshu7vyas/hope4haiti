@@ -21,6 +21,10 @@ var timer_done = false
 var alert_done = false
 var alert2_done = false
 
+
+var lesson_plan_toptext = singleton.nounsLessonPlanTop
+var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
@@ -47,10 +51,10 @@ func _fixed_process(delta): #running process
 		if alert2_done:
 			directionNode.show()
 			compassNode.show()
-	if time_seconds > dialogue_wait_secs and !timer_done: #pause for 1s then start intro dialogue
+	if time_seconds > 0.1 and !timer_done: #pause for 1s then start intro dialogue
 		intro_dialogue()
 		timer_done = true #dont run this block again
-	if time_seconds > alert_wait_secs and !alert_done: #show 1st alert box after 2s
+	if time_seconds > 1 and !alert_done: #show 1st alert box after 2s
 		intro_popup_spacebar()
 		alert_done = true #dont run this block again
 	if singleton.message_done and !alert2_done: #show 2nd alert box after dialoge is complete

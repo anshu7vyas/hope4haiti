@@ -338,7 +338,6 @@ autoplay = ""
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -438,7 +437,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = 4.0
+margin/bottom = -8.0
 
 [node name="mid2" type="TileMap" parent="."]
 
@@ -629,7 +628,6 @@ text = [ "Sidney: Pourquoi? Why are you not excited for school?", "Marie-Thérè
 
 [node name="dialogue_box" parent="." instance=ExtResource( 12 )]
 
-editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -941,7 +939,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="about_nouns" type="PopupDialog" parent="."]
+[node name="lesson_plan" type="PopupDialog" parent="."]
 
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
@@ -955,7 +953,7 @@ margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
 
-[node name="title1" type="Label" parent="about_nouns"]
+[node name="title1" type="Label" parent="lesson_plan"]
 
 rect/scale = Vector2( 0.8, 0.8 )
 focus/ignore_mouse = true
@@ -974,7 +972,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="intro_text" type="RichTextLabel" parent="about_nouns"]
+[node name="intro_text" type="RichTextLabel" parent="lesson_plan"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -988,7 +986,7 @@ bbcode/enabled = false
 bbcode/bbcode = "Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples."
 visible_characters = -1
 
-[node name="describing_nouns" type="RichTextLabel" parent="about_nouns"]
+[node name="describing_text" type="RichTextLabel" parent="lesson_plan"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1002,7 +1000,7 @@ bbcode/enabled = false
 bbcode/bbcode = "Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus."
 visible_characters = -1
 
-[node name="left_button" type="Button" parent="about_nouns"]
+[node name="left_button" type="Button" parent="lesson_plan"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1018,7 +1016,7 @@ shortcut = null
 icon = ExtResource( 27 )
 flat = false
 
-[node name="right_button" type="Button" parent="about_nouns"]
+[node name="right_button" type="Button" parent="lesson_plan"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true

@@ -9,8 +9,8 @@ func _ready():
 	pass
 
 
-func _on_area_seat_body_enter( body ):
+func _on_area_interact_body_enter( body ):
 	area_count += 1
-	if area_count > 1 and worldNode.teacher_dialogue_done:
-		worldNode.get_node("Player").canMove = false
-		worldNode.seat_dialogue()
+	if area_count > 1:
+		worldNode.familyDialogueStarted = true
+		worldNode.family_dialgogue_pronouns()
