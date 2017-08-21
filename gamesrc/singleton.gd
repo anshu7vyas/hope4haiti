@@ -12,6 +12,7 @@ var index_selected = -1
 var wrong_choice = false
 var multiple_choice_complete = false
 var multiple_choice_retry = false
+var logged_in = false
 
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}

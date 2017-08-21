@@ -268,7 +268,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = 4.0
+margin/bottom = -8.0
 
 [node name="top" type="TileMap" parent="."]
 

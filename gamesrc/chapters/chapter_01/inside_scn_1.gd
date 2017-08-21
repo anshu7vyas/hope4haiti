@@ -21,6 +21,17 @@ var timer_done = false
 var alert_done = false
 var alert2_done = false
 
+var lesson_plan_toptext = [
+"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
+"Next pages of lessons top section..",
+"Another page of lesson stuff.."
+]
+var lesson_plan_bottomtext = [
+"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
+"maybe have examples here",
+"Maybe add some more examples here..."
+]
+
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
@@ -47,10 +58,10 @@ func _fixed_process(delta): #running process
 		if alert2_done:
 			directionNode.show()
 			compassNode.show()
-	if time_seconds > dialogue_wait_secs and !timer_done: #pause for 1s then start intro dialogue
+	if time_seconds > 0.1 and !timer_done: #pause for 1s then start intro dialogue
 		intro_dialogue()
 		timer_done = true #dont run this block again
-	if time_seconds > alert_wait_secs and !alert_done: #show 1st alert box after 2s
+	if time_seconds > 1 and !alert_done: #show 1st alert box after 2s
 		intro_popup_spacebar()
 		alert_done = true #dont run this block again
 	if singleton.message_done and !alert2_done: #show 2nd alert box after dialoge is complete

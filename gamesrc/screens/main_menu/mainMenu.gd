@@ -17,9 +17,18 @@ func _ready():
 	#Play the sound this also can be replaced by simply setting the autoplay property to true.
 	#get_node("StreamPlayer").play()
 	#Set window title
+	get_node("multiple_choice").set_hidden(true)
+	
+	#SKIP LOGIN
+	singleton.logged_in = true
+	
+	
 	OS.set_window_title("Hope4Haiti")
 	leaderBoardNode.set_hidden(true)
-	loginNode.set_hidden(false)
+	if singleton.logged_in:
+		loginNode.set_hidden(true)
+	else:
+		loginNode.set_hidden(false)
 	newUserNode.set_hidden(true)
 	#newUserNode.get_node("usernameEdit").set_cursor_pos(0)
 	chapter_select_start = get_node("multiple_choice/chapter_select").get_pos()
@@ -34,13 +43,16 @@ func _ready():
 	#Hide mouse.
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+
 func _input(event):
-	if loginNode.get_node("button_enter").is_pressed():
-		if loginNode.get_node("usernameEdit").get_text() != "" and loginNode.get_node("passwordedit").get_text() != "":
+	if loginNode.is_visible():
+		if loginNode.get_node("button_enter").is_pressed():
+			if loginNode.get_node("usernameEdit").get_text() != "" and loginNode.get_node("passwordedit").get_text() != "":
+				loginNode.set_hidden(true)
+				singleton.logged_in = true
+		if loginNode.get_node("create_new_account").is_pressed():
 			loginNode.set_hidden(true)
-	if loginNode.get_node("create_new_account").is_pressed():
-		loginNode.set_hidden(true)
-		newUserNode.set_hidden(false)
+			newUserNode.set_hidden(false)
 		
 	if newUserNode.is_visible():
 		if newUserNode.get_node("button_enter").is_pressed():
@@ -51,9 +63,6 @@ func _input(event):
 		elif newUserNode.get_node("return").is_pressed():
 			loginNode.set_hidden(false)
 			newUserNode.set_hidden(true)
-				
-	if (event.type==InputEvent.MOUSE_BUTTON):
-		print("Mouse Click/Unclick at: ",event.pos)
 		
 	if !get_node("multiple_choice").is_visible() and !leaderBoardNode.is_visible() and !loginNode.is_visible() and !newUserNode.is_visible():
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=1]
+[gd_scene load_steps=40 format=1]
 
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/world_classroom.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/classroom_tilesets/classroom_map.res" type="TileSet" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=24]
 [ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=25]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=26]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=27]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -219,6 +221,7 @@ frame = 7
 
 [node name="area_teacher" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -243, -99 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
@@ -421,10 +424,10 @@ margin/bottom = 76.0
 
 process/pause_mode = 2
 visibility/visible = false
-margin/left = 24.0
-margin/top = -52.0
-margin/right = 79.0
-margin/bottom = 4.0
+margin/left = -26.0
+margin/top = 7.0
+margin/right = 29.0
+margin/bottom = 50.0
 
 [node name="top" type="TileMap" parent="."]
 
@@ -522,6 +525,7 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="teacher_obj" type="Sprite" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
@@ -546,6 +550,7 @@ text = [ "Teacher: Good morning, Marie-Thérèse and Sidney", "Marie-Thérèse: 
 
 [node name="seat_obj" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
 vframes = 50
@@ -627,6 +632,7 @@ script/script = ExtResource( 20 )
 
 [node name="dialogue_box" parent="." instance=ExtResource( 11 )]
 
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -679,6 +685,8 @@ INPUT_CHARACTERS_LIMIT = -1
 
 [node name="end_chapter_challenge" type="PopupDialog" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -710,6 +718,45 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="end_score_text" type="Label" parent="end_chapter_challenge"]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 92.0
+margin/right = 565.0
+margin/bottom = 191.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Vous avez terminé 
+ce chapitre avec un
+score total de"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score_label" type="Label" parent="end_chapter_challenge"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 170.0
+margin/right = 398.0
+margin/bottom = 230.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "95 points!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="intro_text" type="RichTextLabel" parent="end_chapter_challenge"]
 
 visibility/visible = false
@@ -727,20 +774,22 @@ visible_characters = -1
 
 [node name="fill_in_the_blank" type="RichTextLabel" parent="end_chapter_challenge"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 28.0
-margin/top = 48.0
+margin/top = 44.0
 margin/right = 372.0
-margin/bottom = 100.0
+margin/bottom = 90.0
 bbcode/enabled = false
 bbcode/bbcode = "Dans cette section, vous choisirez le bon mot à utiliser dans chaque phrase. Cliquez sur le bouton pour choisir le mot que vous souhaitez choisir."
 visible_characters = -1
 
 [node name="fill_in_words" type="RichTextLabel" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -752,7 +801,7 @@ margin/right = 772.0
 margin/bottom = 456.0
 custom_fonts/normal_font = ExtResource( 25 )
 bbcode/enabled = false
-bbcode/bbcode = "Lorem ipsum dolor sit amet  __________                                 , vis regione omnesque et, vel sonet definitionem ad, nihil saepe ea mel. Eam utamur meliore te, ex option omittam ius __________                                 , et sed soleat aeterno detracto. Vis te cibo aeque facilisis. Purto appetere oportere pro ad. Pri dictas fuisset in, propriae theophrastus __________                                 eum te, eam et graece altera patrioque.  Ne sumo ornatus persecuti pro __________                                  his te vocibus perfecto. Vel ei nobis tincidunt, et vero aperiri deseruisse eam. Modus civibus quo ei. 
+bbcode/bbcode = "Lorem ipsum dolor sit amet  __________                                 , vis regione omnesque et, vel sonet definitionem ad, nihil saepe ea mel. Eam utamur meliore te, ex option omittam ius __________                                 , et sed soleat aeterno detracto. Vis te cibo aeque facilisis. Purto appetere oportere pro ad. Pri dictas fuisset in, propriae theophrastus __________                                 eum te, eam et graece altera patrioque.  Ne sumo ornatus persecuti pro __________                                  his te vocibus perfecto. Vel ei nobis tincidunt, et vero aperiri deseruisse eam. 
 "
 visible_characters = -1
 
@@ -840,8 +889,9 @@ bbcode/enabled = false
 bbcode/bbcode = "Question 1: Quel est l'exemple d'un nom? (Il y aura cinq questions à choix multiples à la fin de chaque chapitre)"
 visible_characters = -1
 
-[node name="Button" type="Button" parent="end_chapter_challenge"]
+[node name="button_1" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -857,8 +907,9 @@ shortcut = null
 text = "word1"
 flat = false
 
-[node name="Button1" type="Button" parent="end_chapter_challenge"]
+[node name="button_2" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -874,8 +925,9 @@ shortcut = null
 text = "word2"
 flat = false
 
-[node name="Button2" type="Button" parent="end_chapter_challenge"]
+[node name="button_3" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -891,8 +943,9 @@ shortcut = null
 text = "word3"
 flat = false
 
-[node name="Button3" type="Button" parent="end_chapter_challenge"]
+[node name="button_4" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -908,8 +961,9 @@ shortcut = null
 text = "word4"
 flat = false
 
-[node name="Button4" type="Button" parent="end_chapter_challenge"]
+[node name="button_5" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -925,8 +979,9 @@ shortcut = null
 text = "word5"
 flat = false
 
-[node name="Button5" type="Button" parent="end_chapter_challenge"]
+[node name="button_6" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -942,8 +997,9 @@ shortcut = null
 text = "word6"
 flat = false
 
-[node name="Button6" type="Button" parent="end_chapter_challenge"]
+[node name="button_7" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -959,8 +1015,9 @@ shortcut = null
 text = "word7"
 flat = false
 
-[node name="Button7" type="Button" parent="end_chapter_challenge"]
+[node name="button_8" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -976,8 +1033,9 @@ shortcut = null
 text = "wprd8"
 flat = false
 
-[node name="Button8" type="Button" parent="end_chapter_challenge"]
+[node name="done_button" type="Button" parent="end_chapter_challenge"]
 
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1064,9 +1122,103 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_teacher_body_enter"]
+[node name="lesson_plan" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -76.0
+margin/top = -67.0
+margin/right = 324.0
+margin/bottom = 233.0
+popup/exclusive = false
+
+[node name="title1" type="Label" parent="lesson_plan"]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 18.0
+margin/right = 497.0
+margin/bottom = 78.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Les noms"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="intro_text" type="RichTextLabel" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 28.0
+margin/top = 66.0
+margin/right = 372.0
+margin/bottom = 144.0
+bbcode/enabled = false
+bbcode/bbcode = "Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples."
+visible_characters = -1
+
+[node name="describing_nouns" type="RichTextLabel" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 28.0
+margin/top = 154.0
+margin/right = 372.0
+margin/bottom = 260.0
+bbcode/enabled = false
+bbcode/bbcode = "Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus."
+visible_characters = -1
+
+[node name="left_button" type="Button" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 262.0
+margin/right = 345.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 27 )
+flat = false
+
+[node name="right_button" type="Button" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 344.0
+margin/top = 262.0
+margin/right = 376.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 28 )
+flat = false
 
 [connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_neighbor2_body_enter"]
+
+[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_teacher_body_enter"]
 
 [connection signal="body_enter" from="area_seat" to="area_seat" method="_on_area_seat_body_enter"]
 
