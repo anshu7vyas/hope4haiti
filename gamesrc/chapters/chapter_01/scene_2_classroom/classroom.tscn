@@ -1170,7 +1170,7 @@ bbcode/enabled = false
 bbcode/bbcode = "Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples."
 visible_characters = -1
 
-[node name="describing_nouns" type="RichTextLabel" parent="lesson_plan"]
+[node name="describing_text" type="RichTextLabel" parent="lesson_plan"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true

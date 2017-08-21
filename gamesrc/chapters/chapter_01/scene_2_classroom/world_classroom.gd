@@ -15,16 +15,10 @@ var seat_diag_done = false
 var teacher_dialogue_done = false
 var time_delta = 0
 
-var lesson_plan_toptext = [
-"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
-"Next pages of lessons top section..",
-"Another page of lesson stuff.."
-]
-var lesson_plan_bottomtext = [
-"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
-"maybe have examples here",
-"Maybe add some more examples here..."
-]
+
+
+var lesson_plan_toptext = singleton.nounsLessonPlanTop
+var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
 
 func _ready():
 	set_process_input(true)
@@ -33,6 +27,7 @@ func _ready():
 	directionNode.show()
 	compassNode.show()
 	#endPopupNode.set_hidden(false)
+	get_node("end_chapter_challenge").questions = singleton.nounsQuestions
 
 
 func _input(event):

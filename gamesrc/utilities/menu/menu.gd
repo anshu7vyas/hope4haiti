@@ -38,8 +38,9 @@ func _ready():
 	chapLabels = get_node("chapter_menu").get_children()
 	pointer_update()
 	set_as_toplevel(true)
-	lesson_plan_toptext = get_tree().get_current_scene().lesson_plan_toptext
-	lesson_plan_bottomtext = get_tree().get_current_scene().lesson_plan_bottomtext
+	if get_tree().get_current_scene().has_node("lesson_plan"):
+		lesson_plan_toptext = get_tree().get_current_scene().lesson_plan_toptext
+		lesson_plan_bottomtext = get_tree().get_current_scene().lesson_plan_bottomtext
 	
 
 func _handle_interaction():
@@ -100,26 +101,27 @@ func hide_chapter_window():
 		
 		
 func _fixed_process(delta):
-	if lessonPlanNode.is_visible(): # navigate the lesson plan
-		if right or lessonPlanNode.get_node("right_button").is_pressed():
-			if lessonPlanPage < lesson_plan_toptext.size()-1: 
-				lessonPlanPage += 1
-				lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
-				lessonPlanNode.get_node("describing_nouns").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
-				OS.delay_msec(150) #pause so it doesnt skip to the next screen
-			right = false
-		elif left or lessonPlanNode.get_node("left_button").is_pressed():
-			if lessonPlanPage > 0:
-				lessonPlanPage -= 1
-				lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
-				lessonPlanNode.get_node("describing_nouns").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
-				OS.delay_msec(150)
-			left = false 
-		if spacePressed or menu:
-			lessonPlanNode.set_hidden(true)
-			#currentLabel = 0
-			menu = false
-			spacePressed = false
+	if get_tree().get_current_scene().has_node("lesson_plan"):
+		if lessonPlanNode.is_visible(): # navigate the lesson plan
+			if right or lessonPlanNode.get_node("right_button").is_pressed():
+				if lessonPlanPage < lesson_plan_toptext.size()-1: 
+					lessonPlanPage += 1
+					lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
+					lessonPlanNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
+					OS.delay_msec(150) #pause so it doesnt skip to the next screen
+				right = false
+			elif left or lessonPlanNode.get_node("left_button").is_pressed():
+				if lessonPlanPage > 0:
+					lessonPlanPage -= 1
+					lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
+					lessonPlanNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
+					OS.delay_msec(150)
+				left = false 
+			if spacePressed or menu:
+				lessonPlanNode.set_hidden(true)
+				#currentLabel = 0
+				menu = false
+				spacePressed = false
 
 	if chapterNode.is_visible():
 		if up:

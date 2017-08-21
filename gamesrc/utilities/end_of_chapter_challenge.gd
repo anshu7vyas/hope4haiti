@@ -7,10 +7,7 @@ onready var questionNode = get_node("question")
 onready var labelsNode = get_node("Control")
 #onready var alert_box = get_parent().get_node("control_alerts")
 
-var questions = ["Question 2: Il s'agit d'une autre question sur les noms qui se trouvaient dans le plan de cours",
-"Question 3: Quelle sentance utilise les noms en anglais sous la forme appropriée ci-dessous",
-"Question 4: Je ne peux plus penser à d'autres questions à utiliser comme texte de remplissage, donc je pose ça?",
-"Question 5: C'est la dernière question à choix multiple. Quel est l'exemple d'un nom?" ]
+var questions 
 
 var answers = ["A. Le choix du nom correct est celui-ci",
 "B. Ou est la bonne réponse à celle-ci",
@@ -35,6 +32,11 @@ var answerCount = 0
 var fill_in_the_blank_started = false
 var chapter_score = 92    #INITIALLY SET FOR DEBUGGING - REMOVE LINE WHEN SCORING ADDED
 var chapter_complete = false
+var multipleChoiceIndexSelected = 0
+
+
+var correctIndices = [1,1,1,1,1]
+
 
 func _ready():
 	set_process_input(true)
@@ -46,6 +48,7 @@ func _ready():
 	get_node("ans3").set_hidden(false)
 	get_node("pointer").set_hidden(false)
 	get_node("fill_in_the_blank").set_hidden(true)
+	#correctIndices = get_tree().get_current_scene().correctIndices
 	
 	get_node("end_score_text").set_hidden(true)
 	get_node("score_label").set_hidden(true)
@@ -59,14 +62,16 @@ func _input(event):
 				index -= 1
 				get_node("pointer")
 				var x = pointerNode.get_pos().x
-				var y = pointerNode.get_pos().y - 32 #69 is hard coded distance between labels
+				var y = pointerNode.get_pos().y - 32 #32 is hard coded distance between labels
 				pointerNode.set_pos(Vector2(x,y))
+				multipleChoiceIndexSelected -= 1
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
 			if(index != 2):
 				index += 1
 				var x = pointerNode.get_pos().x
 				var y = pointerNode.get_pos().y + 32
 				pointerNode.set_pos(Vector2(x,y))
+				multipleChoiceIndexSelected += 1
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if !fill_in_the_blank_started:
 				next_question()
@@ -75,8 +80,6 @@ func _input(event):
 		if fill_in_the_blank_started:
 			if get_node("button_1").is_pressed():
 				get_node("Control/Label1").set_text(get_node("button_1").get_text())
-				get_node("Control/Label1").set_hidden(false)
-				print("b1 pressed")
 			if get_node("button_2").is_pressed():
 				get_node("Control/Label1").set_text(get_node("button_2").get_text())
 			if get_node("button_3").is_pressed():

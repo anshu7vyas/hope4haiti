@@ -37,16 +37,8 @@ var lesson_plan_page = 0
 var player_pos
 var name_challenge_text
 
-var lesson_plan_toptext = [
-"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
-"Next pages of lessons top section..",
-"Another page of lesson stuff.."
-]
-var lesson_plan_bottomtext = [
-"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
-"maybe have examples here",
-"Maybe add some more examples here..."
-]
+var lesson_plan_toptext = singleton.nounsLessonPlanTop
+var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
 
 func _ready():
 	set_process_input(true)
@@ -120,14 +112,14 @@ func _fixed_process(delta):
 			if lesson_plan_page < lesson_plan_toptext.size()-1: 
 				lesson_plan_page += 1
 				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
-				nounsScreenNode.get_node("describing_nouns").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
 				OS.delay_msec(150) #pause so it doesnt skip to the next screen
 			right_trigger = false
 		elif left_trigger or nounsScreenNode.get_node("left_button").is_pressed():
 			if lesson_plan_page > 0:
 				lesson_plan_page -= 1
 				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
-				nounsScreenNode.get_node("describing_nouns").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
 				OS.delay_msec(150)
 			left_trigger = false 
 
