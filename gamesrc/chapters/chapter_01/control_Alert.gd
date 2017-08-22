@@ -20,9 +20,11 @@ func _input(event):
 
 func _fixed_process(delta):
 	if self.is_visible():
-		get_tree().get_root().get_node("./world/Player").canMove = false
+		if get_tree().get_root().has_node("./world/Player"):
+			get_tree().get_root().get_node("./world/Player").canMove = false
 	else:
-		get_tree().get_root().get_node("./world/Player").canMove = true
+		if get_tree().get_root().has_node("./world/Player"):
+			get_tree().get_root().get_node("./world/Player").canMove = true
 
 func _print_alert(alert_index):
 	self.set_text(alerts[alert_index])
