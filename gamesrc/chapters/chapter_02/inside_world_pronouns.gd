@@ -18,6 +18,12 @@ var multipleChoiceSelected = false
 var correctMultipleChoice = false
 var multipleChoiceDone = false
 var endOfChapterStart = false
+var endPersonSelect = false
+var startFinalMultipleChoice = false
+var lastQuestionStarted = false
+var chapterChallegeBegin = false
+var finalQuestionStart = false
+var endChapterChallenge = false
 var multipleChoiceSprite = 0
 var multipleChoiceCorrectIndex = [4, 0, 2, 1, 3] #correct multiple choice answers
 
@@ -125,7 +131,7 @@ func _fixed_process(delta):
 			
 	# Block movements when an popup/dialogue box is open
 	if singleton.message_done:
-		if alertNode.is_visible() or multipleChoiceBox.is_visible() or pronounsScreenNode.is_visible() or dialogueBox.is_visible() or endPopupNode.is_visible():
+		if alertNode.is_visible() or get_node("multiple_choice2").is_visible() or get_node("multiple_choice3").is_visible() or multipleChoiceBox.is_visible() or pronounsScreenNode.is_visible() or dialogueBox.is_visible() or endPopupNode.is_visible() or get_node("pronouns_alert").is_visible():
 			disable_movements()
 		else:
 			enable_movements()
@@ -145,13 +151,69 @@ func _fixed_process(delta):
 	interact = false
 	
 	if !alertNode.is_visible() and endOfChapterStart:
+		player_pos = playerNode.get_pos()
+		get_node("pronouns_alert").set_title("Alerte")
+		get_node("pronouns_alert").set_pos(Vector2(player_pos.x-76, player_pos.y-58))
+		get_node("pronouns_alert").set_hidden(false)
 		endOfChapterStart = false
+
+	if get_node("pronouns_alert").is_visible() and !endPersonSelect:
+		endPersonSelect = true
+		startFinalMultipleChoice = true
+	
+	if startFinalMultipleChoice and !get_node("pronouns_alert").is_visible():
+		startFinalMultipleChoice = false
+		player_pos = playerNode.get_pos()
+		get_node("multiple_choice2").correctIndex = 1
+		get_node("multiple_choice2").set_pos(Vector2(player_pos.x-76, player_pos.y-45))
+		get_node("multiple_choice2").set_hidden(false)
+		lastQuestionStarted = true
+	
+	if !get_node("multiple_choice2").is_visible() and lastQuestionStarted:
+		lastQuestionStarted = false
+		if singleton.multiple_choice_complete:
+			correct_popup()
+			chapterChallegeBegin = true
+			singleton.multiple_choice_complete = false
+		else:
+			#incorrect_popup()
+			get_node("multiple_choice2").set_hidden(false)
+			lastQuestionStarted = true
+		
+			
+	if !alertNode.is_visible() and chapterChallegeBegin:
+		chapterChallegeBegin = false
+		get_node("multiple_choice3").correctIndex = 0
+		get_node("multiple_choice3").set_pos(Vector2(player_pos.x-76, player_pos.y-45))
+		get_node("multiple_choice3").set_hidden(false)
+		finalQuestionStart = true
+		print("here")
+		
+	
+	if !get_node("multiple_choice3").is_visible() and finalQuestionStart:
+		print("here2")
+		finalQuestionStart = false
+		player_pos = playerNode.get_pos()
 		endPopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
 		endPopupNode.set_hidden(false)
-
+		#if singleton.multiple_choice_complete:
+		#	correct_popup()
+		#	singleton.multiple_choice_complete = false
+		#	endChapterChallenge = true
+		#else:
+		#	get_node("multiple_choice3").set_hidden(false)
+		#	finalQuestionStart = true
+		
+		
+	#if !alertNode.is_visible() and endChapterChallenge:
+		#endChapterChallenge = false
+		player_pos = playerNode.get_pos()
+		endPopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
+		endPopupNode.set_hidden(false)
+	
+		
 
 func _handle_next_question():
-	print(multipleChoiceSprite)
 	if multipleChoiceSprite == 0:
 		multipleChoiceBox.get_node("grandma").hide()
 		multipleChoiceBox.get_node("mother").show()
@@ -183,6 +245,17 @@ func correct_popup():
 	alertNode.get_node("Label3").set_text("")
 	alertNode.show()
 
+func incorrect_popup():
+	delete_alert_box_text() #reset alert
+	player_pos = playerNode.get_pos()
+	alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-20))
+	alertNode.set_title("Alerte")
+	alertNode._print_alert_string("\n")
+	alertNode.get_node("Label1").set_text("")
+	alertNode.get_node("Label2").set_text("Non, ce n'est pas le cas. Réessayer!")
+	alertNode.get_node("Label3").set_text("")
+	alertNode.show()
+	
 func delete_alert_box_text():
 	alertNode._print_alert_string("\n")
 	alertNode.get_node("Label1").set_text("")
