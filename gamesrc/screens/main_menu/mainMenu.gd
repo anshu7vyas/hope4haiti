@@ -6,10 +6,18 @@ onready var selectedNode = get_node("multiple_choice/chapter_select")
 onready var leaderBoardNode = get_node("leaderboard")
 onready var loginNode = get_node("login")
 onready var newUserNode = get_node("create_new_user")
-var chapter_select_start
+onready var passwordNode = get_node("chapter_password")
+onready var chapterNode =  get_node("multiple_choice")
+onready var alertNode = get_node("control_alerts")
+var chapterSelectStartPos 
+var chapterSelected = 0
+var passwordEntered = false
+var incorrectPassword = false
+var passwordArray = [0,0,"hello",2,3,4,5,6,7,8,9] # passwords start at index 2
 
 var time_delta = 0
-
+var up = false
+var down = false
 
 func _ready():
 	set_process_input(true)
@@ -18,6 +26,7 @@ func _ready():
 	#get_node("StreamPlayer").play()
 	#Set window title
 	get_node("multiple_choice").set_hidden(true)
+
 	
 	#SKIP LOGIN
 	singleton.logged_in = true
@@ -31,99 +40,146 @@ func _ready():
 		loginNode.set_hidden(false)
 	newUserNode.set_hidden(true)
 	#newUserNode.get_node("usernameEdit").set_cursor_pos(0)
-	chapter_select_start = get_node("multiple_choice/chapter_select").get_pos()
-	get_node("multiple_choice/chapter2").set_opacity(0.2)
-	get_node("multiple_choice/chapter3").set_opacity(0.2)
-	get_node("multiple_choice/chapter4").set_opacity(0.2)
-	get_node("multiple_choice/chapter5").set_opacity(0.2)
-	get_node("multiple_choice/chapter6").set_opacity(0.2)
-	get_node("multiple_choice/chapter7").set_opacity(0.2)
-	get_node("multiple_choice/chapter8").set_opacity(0.2)
+	chapterSelectStartPos = get_node("multiple_choice/chapter_select").get_pos()
+	#get_node("multiple_choice/chapter2").set_opacity(0.2)
+	#get_node("multiple_choice/chapter3").set_opacity(0.2)
+	#get_node("multiple_choice/chapter4").set_opacity(0.2)
+	#get_node("multiple_choice/chapter5").set_opacity(0.2)
+	#get_node("multiple_choice/chapter6").set_opacity(0.2)
+	#get_node("multiple_choice/chapter7").set_opacity(0.2)
+	#get_node("multiple_choice/chapter8").set_opacity(0.2)
 	#get_node("multiple_choice/RichTextLabel").append_bbcode("[center]Les chapitres sont divisés par les parties du discours[/center]")
 	#Hide mouse.
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func _unhandled_key_input(key_event):
+	if key_event.is_action_pressed("ui_down"):
+		down = true
+	elif key_event.is_action_released("ui_down"):
+		down = false
+	if key_event.is_action_pressed("ui_up"):
+		up = true
+	elif key_event.is_action_released("ui_up"):
+		up = false
 
 func _input(event):
-	if loginNode.is_visible():
-		if loginNode.get_node("button_enter").is_pressed():
-			if loginNode.get_node("usernameEdit").get_text() != "" and loginNode.get_node("passwordedit").get_text() != "":
-				loginNode.set_hidden(true)
-				singleton.logged_in = true
-		if loginNode.get_node("create_new_account").is_pressed():
-			loginNode.set_hidden(true)
-			newUserNode.set_hidden(false)
+	#Login info probably not using anymore
+#	if loginNode.is_visible():
+#		if loginNode.get_node("button_enter").is_pressed():
+#			if loginNode.get_node("usernameEdit").get_text() != "" and loginNode.get_node("passwordedit").get_text() != "":
+#				loginNode.set_hidden(true)
+#				singleton.logged_in = true
+#		if loginNode.get_node("create_new_account").is_pressed():
+#			loginNode.set_hidden(true)
+#			newUserNode.set_hidden(false)
+#		
+#	if newUserNode.is_visible():
+#		if newUserNode.get_node("button_enter").is_pressed():
+#			if newUserNode.get_node("usernameEdit").get_text() != "" and newUserNode.get_node("passwordedit1").get_text() == newUserNode.get_node("passwordedit").get_text():
+#				leaderBoardNode.get_node("player3").set_text(newUserNode.get_node("usernameEdit").get_text())
+#				leaderBoardNode.get_node("score_label3").set_text("0")
+#				newUserNode.set_hidden(true)
+#		elif newUserNode.get_node("return").is_pressed():
+#			loginNode.set_hidden(false)
+#			newUserNode.set_hidden(true)
 		
-	if newUserNode.is_visible():
-		if newUserNode.get_node("button_enter").is_pressed():
-			if newUserNode.get_node("usernameEdit").get_text() != "" and newUserNode.get_node("passwordedit1").get_text() == newUserNode.get_node("passwordedit").get_text():
-				leaderBoardNode.get_node("player3").set_text(newUserNode.get_node("usernameEdit").get_text())
-				leaderBoardNode.get_node("score_label3").set_text("0")
-				newUserNode.set_hidden(true)
-		elif newUserNode.get_node("return").is_pressed():
-			loginNode.set_hidden(false)
-			newUserNode.set_hidden(true)
-		
-	if !get_node("multiple_choice").is_visible() and !leaderBoardNode.is_visible() and !loginNode.is_visible() and !newUserNode.is_visible():
+	if !chapterNode.is_visible() and !passwordNode.is_visible():
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
 			if(index != 0):
 				index -= 1
 				var x = get_node("Selected").get_pos().x
-				var y = get_node("Selected").get_pos().y - 69 #75 is hard coded distance between labels
+				var y = get_node("Selected").get_pos().y - 78 #75 is hard coded distance between labels
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if(index != 3):
+			if(index != 2):
 				index += 1
 				var x = get_node("Selected").get_pos().x
-				var y = get_node("Selected").get_pos().y + 69
+				var y = get_node("Selected").get_pos().y + 78
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if (index == 0): #chapters
-				get_node("multiple_choice").show()
+				chapterNode.show()
 			if (index == 1): # leaderboard
-				leaderBoardNode.set_hidden(false)
-				print("leaderboard")
-			if (index == 2):
 				print("Options")
-			if(index == 3):
+			if (index == 2):
 				OS.get_main_loop().quit()
-	elif get_node("multiple_choice").is_visible():
+				
+	elif chapterNode.is_visible():
+		if passwordNode.is_visible():
+			chapterNode.set_hidden(true)
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
-			if(chapter_index != 0):
+			if chapter_index == 0:
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (96 * 10)))
+				chapter_index = 10
+			else:
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y - 96))
 				chapter_index -= 1
-				var x = selectedNode.get_pos().x
-				var y = selectedNode.get_pos().y - 96 #69 is hard coded distance between labels
-				selectedNode.set_pos(Vector2(x,y))
+
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if(chapter_index != 8):
+			if chapter_index == 10:
+				chapter_index = 0
+				selectedNode.set_pos(chapterSelectStartPos)
+			else:
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + 96))
 				chapter_index += 1
-				var x = selectedNode.get_pos().x
-				var y = selectedNode.get_pos().y + 96
-				selectedNode.set_pos(Vector2(x,y))
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if (chapter_index == 0):
+				chapterSelected = 1
 				get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
-				print("option1")
 			if (chapter_index == 1):
-				print("option2")
+				chapterSelected = 2
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 			if (chapter_index == 2):
+				chapterSelected = 3
 				print("option3")
 			if(chapter_index == 3):
+				chapterSelected = 4
 				print("option4")
 			if(chapter_index== 4):
+				chapterSelected = 5
 				print("option5")
 			if(chapter_index== 5):
+				chapterSelected = 6
 				print("option6")
 			if(chapter_index== 6):
+				chapterSelected = 7
 				print("option7")
 			if(chapter_index== 7):
+				chapterSelected = 8
 				print("option8")
 			if(chapter_index== 8):
-				get_node("multiple_choice/chapter_select").set_pos(chapter_select_start)
+				chapterSelected = 9
+				print("option9")
+			if(chapter_index == 9):
+				chapterSelected = 10
+				print("option10")
+			if (chapter_index == 10):
+				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
 				chapter_index = 0
 				get_node("multiple_choice").hide()
-				print("option9 back")
-	elif leaderBoardNode.is_visible():
-		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
-			leaderBoardNode.set_hidden(true)
-
+				print("option11 back")
+	elif passwordNode.is_visible():
+		if passwordNode.get_node("back").is_pressed():
+			passwordNode.set_hidden(true)
+			chapterNode.set_hidden(false)
+		if passwordNode.get_node("passwordedit").get_text() != "" and passwordNode.get_node("button_enter").is_pressed() and !passwordEntered:
+			passwordEntered = true
+			_handle_password_input(passwordNode.get_node("passwordedit").get_text())
+	
+	if incorrectPassword and !alertNode.is_visible():
+		incorrectPassword = false
+		passwordNode.set_hidden(false)
+		
+#	elif leaderBoardNode.is_visible():
+#		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
+#			leaderBoardNode.set_hidden(true)
+func _handle_password_input(password):
+	if password == str(passwordArray[chapterSelected]):
+		get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
+	else:
+		alertNode.set_hidden(false)
+		passwordNode.get_node("passwordedit").set_text("")
+		incorrectPassword = true
+		passwordEntered = false
+		

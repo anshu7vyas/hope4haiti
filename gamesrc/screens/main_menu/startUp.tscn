@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://screens/main_menu/mainMenu.gd" type="Script" id=1]
 [ext_resource path="res://screens/main_menu/whiteBG.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=6]
 [ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=7]
 [ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -57,52 +58,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 1.0
-margin/top = 287.0
-margin/right = 799.0
-margin/bottom = 353.0
+margin/left = 0.0
+margin/top = 304.0
+margin/right = 798.0
+margin/bottom = 370.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Chapitres"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="leaderbaord" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 2.0
-margin/top = 355.0
-margin/right = 801.0
-margin/bottom = 415.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Tableau de classement"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="leaderbaord1" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 2.0
-margin/top = 355.0
-margin/right = 801.0
-margin/bottom = 415.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Tableau de classement"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -114,10 +76,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 1.0
-margin/top = 423.0
-margin/right = 800.0
-margin/bottom = 483.0
+margin/left = 0.0
+margin/top = 384.0
+margin/right = 799.0
+margin/bottom = 444.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Options"
@@ -133,9 +95,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 494.0
+margin/top = 464.0
 margin/right = 800.0
-margin/bottom = 554.0
+margin/bottom = 524.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sortie"
@@ -146,7 +108,7 @@ max_lines_visible = -1
 
 [node name="Selected" type="Sprite" parent="."]
 
-transform/pos = Vector2( 384, 324.691 )
+transform/pos = Vector2( 383, 341.691 )
 transform/scale = Vector2( 0.849558, 0.655187 )
 texture = ExtResource( 5 )
 
@@ -159,10 +121,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 127.0
-margin/top = 78.0
-margin/right = 1222.0
-margin/bottom = 1035.0
+margin/left = 112.0
+margin/top = 16.0
+margin/right = 1264.0
+margin/bottom = 1136.0
 popup/exclusive = false
 
 [node name="chapter1" type="Label" parent="multiple_choice"]
@@ -171,13 +133,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 68.0
-margin/right = 1092.0
-margin/bottom = 132.0
+margin/left = 4.0
+margin/top = 64.0
+margin/right = 1156.0
+margin/bottom = 128.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 1: Noms"
+text = "Chapitre 1: Les Salutations"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -189,13 +151,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 165.0
-margin/right = 1092.0
-margin/bottom = 229.0
+margin/left = 4.0
+margin/top = 161.0
+margin/right = 1156.0
+margin/bottom = 225.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 2: Pronoms"
+text = "Chapitre 2: Les Noms"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -207,13 +169,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 259.0
-margin/right = 1094.0
-margin/bottom = 323.0
+margin/left = 4.0
+margin/top = 255.0
+margin/right = 1156.0
+margin/bottom = 319.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 3:  Verbes"
+text = "Chapitre 3:  Les Noms Possessifs"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -225,13 +187,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 356.0
-margin/right = 1092.0
-margin/bottom = 420.0
+margin/left = 4.0
+margin/top = 352.0
+margin/right = 1156.0
+margin/bottom = 416.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 4:  Adverbes"
+text = "Chapitre 4:  Les Pronoms "
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -243,13 +205,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 451.0
-margin/right = 1094.0
-margin/bottom = 515.0
+margin/left = 4.0
+margin/top = 447.0
+margin/right = 1156.0
+margin/bottom = 511.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 5: Adjectifs"
+text = "Chapitre 5: Les Pronoms Possessifs"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -261,13 +223,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 547.0
-margin/right = 1092.0
-margin/bottom = 611.0
+margin/left = 4.0
+margin/top = 543.0
+margin/right = 1156.0
+margin/bottom = 607.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 6: Prépositions"
+text = "Chapitre 6: Les Adjectifs"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -279,13 +241,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 643.0
-margin/right = 1092.0
-margin/bottom = 707.0
+margin/left = 4.0
+margin/top = 639.0
+margin/right = 1156.0
+margin/bottom = 703.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 7:  Conjonctions"
+text = "Chapitre 7:  Les Verbes"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -297,13 +259,49 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -4.0
-margin/top = 738.0
-margin/right = 1092.0
-margin/bottom = 802.0
+margin/left = 0.0
+margin/top = 734.0
+margin/right = 1156.0
+margin/bottom = 798.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 8: Articles"
+text = "Chapitre 8: Les Prépositions"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="chapter9" type="Label" parent="multiple_choice"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 832.0
+margin/right = 1150.0
+margin/bottom = 896.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Chapitre 9: Les Adverbes"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="chapter10" type="Label" parent="multiple_choice"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 928.0
+margin/right = 1150.0
+margin/bottom = 992.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Chapitre 10: Les Conjonctions"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -315,10 +313,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -4.0
-margin/top = 836.0
-margin/right = 1092.0
-margin/bottom = 900.0
+margin/left = 0.0
+margin/top = 1024.0
+margin/right = 1150.0
+margin/bottom = 1088.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Retourner"
@@ -329,8 +327,8 @@ max_lines_visible = -1
 
 [node name="chapter_select" type="Sprite" parent="multiple_choice"]
 
-transform/pos = Vector2( 505.422, 112.849 )
-transform/scale = Vector2( 2.38585, 0.720802 )
+transform/pos = Vector2( 543.11, 102.849 )
+transform/scale = Vector2( 2.55261, 0.720802 )
 texture = ExtResource( 5 )
 
 [node name="pointer" type="Sprite" parent="multiple_choice"]
@@ -907,6 +905,154 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="chapter_password" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 127.0
+margin/top = 96.0
+margin/right = 1222.0
+margin/bottom = 960.0
+popup/exclusive = false
+
+[node name="title1" type="Label" parent="chapter_password"]
+
+rect/scale = Vector2( 1.3, 1.3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 33.0
+margin/right = 840.0
+margin/bottom = 127.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Chapitre Mot de Passe"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="info_text1" type="Label" parent="chapter_password"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 192.0
+margin/right = 546.0
+margin/bottom = 223.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Obtenez le mot de passe de ce "
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="info_text2" type="Label" parent="chapter_password"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 256.0
+margin/right = 546.0
+margin/bottom = 287.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "chapitre auprès de votre professeur"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="password" type="Label" parent="chapter_password"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 384.0
+margin/right = 1815.0
+margin/bottom = 491.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Mot de passe"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="passwordedit" type="LineEdit" parent="chapter_password"]
+
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 258.0
+margin/top = 448.0
+margin/right = 642.0
+margin/bottom = 491.0
+custom_fonts/font = ExtResource( 7 )
+placeholder/text = "Password"
+placeholder/alpha = 0.6
+secret = true
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="button_enter" type="Button" parent="chapter_password"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 322.0
+margin/top = 544.0
+margin/right = 770.0
+margin/bottom = 640.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_disabled = Color( 0.578125, 0.578125, 0.578125, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Entrer"
+flat = false
+
+[node name="back" type="Button" parent="chapter_password"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 322.0
+margin/top = 672.0
+margin/right = 770.0
+margin/bottom = 768.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_disabled = Color( 0.578125, 0.578125, 0.578125, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Retourner"
+flat = false
+
 [node name="login" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -1056,6 +1202,7 @@ flat = false
 
 [node name="create_new_user" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -1237,5 +1384,67 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Revenir"
 flat = false
+
+[node name="control_alerts" type="AcceptDialog" parent="."]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 160.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 320.0
+popup/exclusive = true
+window/title = "Alerte"
+dialog/hide_on_ok = true
+script/script = ExtResource( 9 )
+
+[node name="Label1" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 8.0
+margin/right = 274.0
+margin/bottom = 22.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 26.0
+margin/right = 240.0
+margin/bottom = 40.0
+text = "Mot de passe incorrect"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 44.0
+margin/right = 274.0
+margin/bottom = 58.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
