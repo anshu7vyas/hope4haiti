@@ -1387,6 +1387,7 @@ flat = false
 
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
+visibility/visible = false
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
 focus/stop_mouse = false

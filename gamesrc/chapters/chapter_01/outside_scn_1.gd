@@ -107,21 +107,22 @@ func _fixed_process(delta):
 				delete_alert_box_text()
 				school_dialogue_part2()
 	
-	if nounsScreenNode.is_visible(): # navigate the lesson plan
-		if right_trigger or nounsScreenNode.get_node("right_button").is_pressed():
-			if lesson_plan_page < lesson_plan_toptext.size()-1: 
-				lesson_plan_page += 1
-				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
-				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
-				OS.delay_msec(150) #pause so it doesnt skip to the next screen
-			right_trigger = false
-		elif left_trigger or nounsScreenNode.get_node("left_button").is_pressed():
-			if lesson_plan_page > 0:
-				lesson_plan_page -= 1
-				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
-				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
-				OS.delay_msec(150)
-			left_trigger = false 
+	# Moved to lesson_plan.gd script
+#	if nounsScreenNode.is_visible(): # navigate the lesson plan
+#		if right_trigger or nounsScreenNode.get_node("right_button").is_pressed():
+#			if lesson_plan_page < lesson_plan_toptext.size()-1: 
+#				lesson_plan_page += 1
+#				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
+#				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+#				OS.delay_msec(150) #pause so it doesnt skip to the next screen
+#			right_trigger = false
+#		elif left_trigger or nounsScreenNode.get_node("left_button").is_pressed():
+#			if lesson_plan_page > 0:
+#				lesson_plan_page -= 1
+#				nounsScreenNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lesson_plan_page])
+#				nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+#				OS.delay_msec(150)
+#			left_trigger = false 
 
 		
 	if final_convo_started and singleton.message_done and !final_alert_done:

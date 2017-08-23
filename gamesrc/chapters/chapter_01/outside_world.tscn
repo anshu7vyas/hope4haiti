@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=1]
+[gd_scene load_steps=40 format=1]
 
 [ext_resource path="res://chapters/chapter_01/outside_scn_1.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/outside_tilesets/outside_map.res" type="TileSet" id=2]
@@ -25,9 +25,10 @@
 [ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=23]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=24]
 [ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=25]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=26]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=27]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=28]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=26]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=27]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=28]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -268,9 +269,6 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 7 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="area_neighbor2" type="Area2D" parent="neightbor2"]
 
@@ -953,6 +951,7 @@ margin/top = -67.0
 margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
+script/script = ExtResource( 26 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
@@ -965,7 +964,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 497.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 26 )
+custom_fonts/font = ExtResource( 27 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les noms"
 align = 1
@@ -1014,7 +1013,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 27 )
+icon = ExtResource( 28 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
@@ -1030,7 +1029,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 28 )
+icon = ExtResource( 29 )
 flat = false
 
 [connection signal="body_enter" from="Area2D" to="Area2D" method="_on_Area2D_body_enter"]

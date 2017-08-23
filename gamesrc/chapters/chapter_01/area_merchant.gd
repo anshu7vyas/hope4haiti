@@ -9,8 +9,9 @@ func _ready():
 	pass
 
 
-func _on_Area2D1_body_enter( body ):
+func _on_merchant_body_enter( body ):
 	area_count += 1
 	if area_count > 1:
-		print("herrrr")
-		get_tree().change_scene("res://chapters/chapter_01/ch1_outside_world.tscn")
+		worldNode.get_node("Player").canMove = false
+		worldNode.merchant_dialogue()
+
