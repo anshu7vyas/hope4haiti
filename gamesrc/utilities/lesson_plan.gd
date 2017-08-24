@@ -3,6 +3,7 @@ extends PopupDialog
 var interact = false
 var right_trigger = false
 var left_trigger = false
+var singlePage = false
 var lesson_plan_page = 0
 var lesson_plan_top_size 
 var lesson_plan_bottom_size 
@@ -19,6 +20,14 @@ func _ready():
 	lesson_plan_bottomtext = get_parent().lesson_plan_bottomtext
 	#lesson_plan_top_size = lesson_plan_toptext.size()
 	lesson_plan_bottom_size =  lesson_plan_bottomtext.size()
+	if lesson_plan_bottomtext[1] == "":
+		self.get_node("left_button").set_hidden(true)
+		self.get_node("right_button").set_hidden(true)
+		singlePage = true
+	else:
+		self.get_node("left_button").set_hidden(false)
+		self.get_node("right_button").set_hidden(false)
+		singlePage = false
 
 
 func _input(event):
@@ -36,7 +45,7 @@ func _input(event):
 		left_trigger = false
 
 func _fixed_process(delta):
-	if self.is_visible(): # navigate the lesson plan
+	if self.is_visible() and !singlePage: # navigate the lesson plan
 		if right_trigger or self.get_node("right_button").is_pressed():
 			if lesson_plan_page < lesson_plan_size-1: 
 				lesson_plan_page += 1

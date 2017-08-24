@@ -58,8 +58,8 @@ var nounsLessonPlanTop = [
 "Another page of lesson stuff.."
 ]
 var nounsLessonPlanBottom = [
-"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
-"maybe have examples here",
+"Les noms, aussi connu comme le substantif, ou nouns en anglais, sont des mots qui fonctionnent comme la désignation par une personne, un animal, une chose, une idée, une catégorie.\n \nIl est très important de savoir que bien que les noms en français varient du genre, en anglais il n'y a jamais une change du genre des noms.\n \nRegardez Marie-Thérèse attentivement pour apprendre plus. Bonne chance !",
+"",
 "Maybe add some more examples here..."
 ]
 var nounsQuestions = [
