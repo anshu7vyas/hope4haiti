@@ -28,7 +28,7 @@ var left_trigger = false
 var right_trigger = false
 var time_delta = 0
 var lesson_plan_page = 0
-var chapter_score = 60
+var chapter_score = 100
 var chapter_done = false
 
 var playerPos
@@ -91,6 +91,7 @@ func _fixed_process(delta):
 	# if question answered wrong and alert bubble has been dismissed -> retry same question
 	if in_multiple_choice and singleton.wrong_choice and !alertBox.is_visible(): 
 		singleton.wrong_choice = false
+		chapter_score -=3
 		multiple_choice_question_setup()
 		multiple_choice_challenge()
 	# if question is correct and alert bubble dismissed -> go to next question
@@ -131,6 +132,7 @@ func _fixed_process(delta):
 	# Same style as first questions -> if wrong -> dismiss popup and try again
 	if in_multiple_choice2 and singleton.wrong_choice and !alertBox.is_visible():
 		singleton.wrong_choice = false
+		chapter_score -= 3
 		multiple_choice_question_setup()
 		multiple_choice_challenge()
 	# if correct -> next question
