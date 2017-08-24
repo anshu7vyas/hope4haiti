@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=30 format=1]
 
 [ext_resource path="res://chapters/chapter_01/inside_scn_1.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
@@ -7,17 +7,21 @@
 [ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=5]
 [ext_resource path="res://utilities/dialogue_box/dialogue_box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://utilities/menu/menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=8]
-[ext_resource path="res://chapters/chapter_01/objectstSprite-0.png" type="Texture" id=9]
-[ext_resource path="res://utilities/interaction/interact_script.gd" type="Script" id=10]
-[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=11]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=12]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=13]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=14]
-[ext_resource path="res://utilities/dialogue_box/dialogue_textbox.gd" type="Script" id=15]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=16]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=17]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=18]
+[ext_resource path="res://utilities/menu/white.png" type="Texture" id=8]
+[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=9]
+[ext_resource path="res://chapters/chapter_01/objectstSprite-0.png" type="Texture" id=10]
+[ext_resource path="res://utilities/interaction/interact_script.gd" type="Script" id=11]
+[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=12]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=13]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=14]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=15]
+[ext_resource path="res://utilities/dialogue_box/dialogue_textbox.gd" type="Script" id=16]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=17]
+[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=18]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=19]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=20]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=21]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -141,7 +145,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 1245206, 1093, 1245207, 1094, 1245208, 1095, 1245209, 1096, 1245210, 1097, 1245211, 1098, 1245212, 1117, 1245213, 1118, 1310742, 1127, 1310743, 1128, 1310744, 1129, 1310745, 1131, 1310746, 1132, 1310747, 1129, 1310748, 1131, 1310749, 1152, 1376278, 1161, 1376279, 1162, 1376280, 1163, 1376281, 1162, 1376282, 1163, 1376283, 1162, 1376284, 1163, 1376285, 1186, 1441799, 1093, 1441800, 1094, 1441801, 1095, 1441802, 1096, 1441803, 1097, 1441804, 1098, 1441805, 1099, 1441806, 1114, 1441807, 1115, 1441808, 1116, 1441809, 1117, 1441810, 1118, 1441814, 1195, 1441815, 1196, 1441816, 1197, 1441817, 1198, 1441818, 1201, 1441819, 1219, 1441820, 1223, 1441821, 1220, 1507335, 1127, 1507336, 1128, 1507337, 1129, 1507338, 1131, 1507339, 1132, 1507340, 1134, 1507341, 1132, 1507342, 1134, 1507343, 1132, 1507344, 1134, 1507345, 1134, 1507346, 1152, 1507350, 259, 1507351, 260, 1507352, 259, 1507353, 260, 1507354, 259, 1507355, 260, 1572871, 1161, 1572872, 1162, 1572873, 1163, 1572874, 1162, 1572875, 1163, 1572876, 1162, 1572877, 1163, 1572878, 1162, 1572879, 1163, 1572880, 1162, 1572881, 1163, 1572882, 1186, 1572886, 291, 1572887, 292, 1572888, 291, 1572889, 292, 1572890, 291, 1572891, 292, 1572892, 259, 1572893, 260, 1638407, 1195, 1638408, 1196, 1638409, 1197, 1638410, 1198, 1638411, 1201, 1638412, 1219, 1638413, 1223, 1638414, 1223, 1638415, 1223, 1638416, 1223, 1638417, 1223, 1638418, 1220, 1638422, 259, 1638423, 260, 1638424, 259, 1638425, 260, 1638426, 259, 1638427, 260, 1638428, 291, 1638429, 292, 1703945, 225, 1703946, 226, 1703947, 1225, 1703948, 1225, 1703949, 1225, 1703950, 1225, 1703951, 1225, 1703952, 1225, 1703953, 1225, 1703958, 291, 1703959, 292, 1703960, 291, 1703961, 292, 1703962, 291, 1703963, 292, 1703964, 259, 1703965, 260, 1769479, 193, 1769480, 193, 1769481, 194, 1769482, 193, 1769483, 194, 1769484, 193, 1769485, 194, 1769486, 193, 1769487, 194, 1769488, 193, 1769489, 194, 1769490, 194, 1769491, 1093, 1769492, 1095, 1769493, 1118, 1769494, 259, 1769495, 260, 1769496, 259, 1769497, 260, 1769498, 259, 1769499, 260, 1769500, 259, 1769501, 260, 1835015, 225, 1835016, 225, 1835017, 226, 1835018, 225, 1835019, 226, 1835020, 225, 1835021, 226, 1835022, 225, 1835023, 226, 1835024, 225, 1835025, 226, 1835026, 226, 1835027, 1127, 1835028, 1128, 1835029, 1152, 1835030, 291, 1835031, 292, 1835032, 291, 1835033, 292, 1835034, 259, 1835035, 260, 1835036, 291, 1835037, 292, 1900551, 193, 1900552, 193, 1900553, 194, 1900554, 193, 1900555, 194, 1900556, 193, 1900557, 194, 1900558, 193, 1900559, 194, 1900560, 193, 1900561, 194, 1900562, 194, 1900563, 1161, 1900564, 1162, 1900565, 1186, 1900566, 259, 1900567, 259, 1900568, 259, 1900569, 260, 1900570, 259, 1900571, 260, 1900572, 259, 1900573, 260, 1966087, 225, 1966088, 225, 1966089, 226, 1966090, 225, 1966091, 226, 1966092, 225, 1966093, 226, 1966094, 225, 1966095, 226, 1966096, 225, 1966097, 226, 1966098, 226, 1966099, 1195, 1966100, 1219, 1966101, 1220, 1966102, 291, 1966103, 291, 1966104, 291, 1966105, 292, 1966106, 291, 1966107, 292, 1966108, 291, 1966109, 292, 2031632, 258, 2031633, 257, 2031634, 258, 2031635, 257, 2031636, 258, 2031637, 257, 2031638, 258, 2031639, 257, 2031640, 258, 2097168, 290, 2097169, 289, 2097170, 290, 2097171, 289, 2097172, 290, 2097173, 289, 2097174, 290, 2097175, 289, 2097176, 290, 2162704, 258, 2162705, 257, 2162706, 258, 2162707, 257, 2162708, 258, 2162709, 257, 2162710, 258, 2162711, 257, 2162712, 258, 2228240, 290, 2228241, 289, 2228242, 290, 2228243, 289, 2228244, 290, 2228245, 289, 2228246, 290, 2228247, 289, 2228248, 290, 2293779, 259, 2293780, 260, 2293781, 259, 2359315, 291, 2359316, 292, 2359317, 291, 2424851, 259, 2424852, 260, 2424853, 259, 2490387, 291, 2490388, 292, 2490389, 291, 2490390, 1093, 2490391, 1094, 2490392, 1095, 2490393, 1096, 2490394, 1097, 2490395, 1098, 2490396, 1096, 2490397, 1099, 2490398, 1115, 2490399, 1116, 2490400, 1117, 2490401, 1118, 2555923, 259, 2555924, 260, 2555925, 259, 2555926, 1127, 2555927, 1128, 2555928, 1129, 2555929, 1131, 2555930, 1132, 2555931, 1129, 2555932, 1131, 2555933, 1131, 2555934, 1129, 2555935, 1132, 2555936, 1151, 2555937, 1152, 2621459, 291, 2621460, 292, 2621461, 291, 2621462, 1161, 2621463, 1162, 2621464, 1163, 2621465, 1162, 2621466, 1163, 2621467, 1162, 2621468, 1163, 2621469, 1162, 2621470, 1163, 2621471, 1162, 2621472, 1163, 2621473, 1186, 2686995, 259, 2686996, 260, 2686997, 259, 2686998, 1195, 2686999, 1196, 2687000, 1197, 2687001, 1198, 2687002, 1201, 2687003, 1219, 2687004, 1223, 2687005, 1223, 2687006, 1219, 2687007, 1223, 2687008, 1219, 2687009, 1220, 2752531, 291, 2752532, 292, 2752533, 291, 2752534, 1229, 2752535, 1230, 2752536, 1231, 2752537, 1232, 2752538, 1235, 2752539, 1247, 2752540, 1235, 2752541, 1247, 2752542, 1235, 2752543, 1247, 2752544, 1235, 2752545, 1254, 2818067, 259, 2818068, 260, 2818069, 259, 2818070, 259, 2818071, 260, 2818072, 259, 2818073, 259, 2818074, 260, 2818075, 259, 2818076, 259, 2818077, 260, 2818078, 259, 2818079, 259, 2818080, 260, 2818081, 259, 2883603, 291, 2883604, 292, 2883605, 291, 2883606, 291, 2883607, 292, 2883608, 291, 2883609, 291, 2883610, 292, 2883611, 291, 2883612, 291, 2883613, 292, 2883614, 291, 2883615, 291, 2883616, 292, 2883617, 291, 2949139, 259, 2949140, 260, 2949141, 259, 2949145, 259, 2949146, 260, 2949147, 259, 2949148, 259, 2949149, 260, 2949150, 259, 2949151, 259, 2949152, 260, 2949153, 259, 3014675, 2920, 3014676, 2921, 3014677, 2922, 3014681, 291, 3014682, 292, 3014683, 291, 3014684, 291, 3014685, 292, 3014686, 291, 3014687, 291, 3014688, 292, 3014689, 291, 3080217, 259, 3080218, 260, 3080219, 259, 3080220, 259, 3080221, 260, 3080222, 259, 3080223, 259, 3080224, 260, 3080225, 259, 3145753, 291, 3145754, 292, 3145755, 291, 3145756, 291, 3145757, 292, 3145758, 291, 3145759, 291, 3145760, 292, 3145761, 291, 3211289, 259, 3211290, 260, 3211291, 259, 3211292, 260, 3211293, 259, 3211294, 260, 3211295, 259, 3211296, 259, 3211297, 260, 3276825, 259, 3276826, 260, 3276827, 259, 3276828, 260, 3276829, 259, 3276830, 260, 3276831, 259, 3276832, 260, 3276833, 260 )
+tile_data = IntArray( 1245206, 1093, 1245207, 1094, 1245208, 1095, 1245209, 1096, 1245210, 1097, 1245211, 1098, 1245212, 1117, 1245213, 1118, 1310742, 1127, 1310743, 1128, 1310744, 1129, 1310745, 1131, 1310746, 1132, 1310747, 1129, 1310748, 1131, 1310749, 1152, 1376278, 1161, 1376279, 1162, 1376280, 1163, 1376281, 1162, 1376282, 1163, 1376283, 1162, 1376284, 1163, 1376285, 1186, 1441799, 1093, 1441800, 1094, 1441801, 1095, 1441802, 1096, 1441803, 1097, 1441804, 1098, 1441805, 1099, 1441806, 1114, 1441807, 1115, 1441808, 1116, 1441809, 1117, 1441810, 1118, 1441814, 1195, 1441815, 1196, 1441816, 1197, 1441817, 1198, 1441818, 1201, 1441819, 1219, 1441820, 1223, 1441821, 1220, 1507335, 1127, 1507336, 1128, 1507337, 1129, 1507338, 1131, 1507339, 1132, 1507340, 1134, 1507341, 1132, 1507342, 1134, 1507343, 1132, 1507344, 1134, 1507345, 1134, 1507346, 1152, 1507350, 259, 1507351, 260, 1507352, 259, 1507353, 260, 1507354, 259, 1507355, 260, 1572871, 1161, 1572872, 1162, 1572873, 1163, 1572874, 1162, 1572875, 1163, 1572876, 1162, 1572877, 1163, 1572878, 1162, 1572879, 1163, 1572880, 1162, 1572881, 1163, 1572882, 1186, 1572886, 291, 1572887, 292, 1572888, 291, 1572889, 292, 1572890, 291, 1572891, 292, 1572892, 259, 1572893, 260, 1638407, 1195, 1638408, 1196, 1638409, 1197, 1638410, 1198, 1638411, 1201, 1638412, 1219, 1638413, 1223, 1638414, 1223, 1638415, 1223, 1638416, 1223, 1638417, 1223, 1638418, 1220, 1638422, 259, 1638423, 260, 1638424, 259, 1638425, 260, 1638426, 259, 1638427, 260, 1638428, 291, 1638429, 292, 1703945, 225, 1703946, 226, 1703947, 1225, 1703948, 1225, 1703949, 1225, 1703950, 1225, 1703951, 1225, 1703952, 1225, 1703953, 1225, 1703958, 291, 1703959, 292, 1703960, 291, 1703961, 292, 1703962, 291, 1703963, 292, 1703964, 259, 1703965, 260, 1769479, 193, 1769480, 193, 1769481, 194, 1769482, 193, 1769483, 194, 1769484, 193, 1769485, 194, 1769486, 193, 1769487, 194, 1769488, 193, 1769489, 194, 1769490, 194, 1769491, 1093, 1769492, 1095, 1769493, 1118, 1769494, 259, 1769495, 260, 1769496, 259, 1769497, 260, 1769498, 259, 1769499, 260, 1769500, 259, 1769501, 260, 1835015, 225, 1835016, 225, 1835017, 226, 1835018, 225, 1835019, 226, 1835020, 225, 1835021, 226, 1835022, 225, 1835023, 226, 1835024, 225, 1835025, 226, 1835026, 226, 1835027, 1127, 1835028, 1128, 1835029, 1152, 1835030, 291, 1835031, 292, 1835032, 291, 1835033, 292, 1835034, 259, 1835035, 260, 1835036, 291, 1835037, 292, 1900551, 193, 1900552, 193, 1900553, 194, 1900554, 193, 1900555, 194, 1900556, 193, 1900557, 194, 1900558, 193, 1900559, 194, 1900560, 193, 1900561, 194, 1900562, 194, 1900563, 1161, 1900564, 1162, 1900565, 1186, 1900566, 259, 1900567, 259, 1900568, 259, 1900569, 260, 1900570, 259, 1900571, 260, 1900572, 259, 1900573, 260, 1966087, 225, 1966088, 225, 1966089, 226, 1966090, 225, 1966091, 226, 1966092, 225, 1966093, 226, 1966094, 225, 1966095, 226, 1966096, 225, 1966097, 226, 1966098, 226, 1966099, 1195, 1966100, 1219, 1966101, 1220, 1966102, 291, 1966103, 291, 1966104, 291, 1966105, 292, 1966106, 291, 1966107, 292, 1966108, 291, 1966109, 292, 2031632, 258, 2031633, 257, 2031634, 258, 2031635, 257, 2031636, 258, 2031637, 257, 2031638, 258, 2031639, 257, 2031640, 258, 2097168, 290, 2097169, 289, 2097170, 290, 2097171, 289, 2097172, 290, 2097173, 289, 2097174, 290, 2097175, 289, 2097176, 290, 2162704, 258, 2162705, 257, 2162706, 258, 2162707, 257, 2162708, 258, 2162709, 257, 2162710, 258, 2162711, 257, 2162712, 258, 2228240, 290, 2228241, 289, 2228242, 290, 2228243, 289, 2228244, 290, 2228245, 289, 2228246, 290, 2228247, 289, 2228248, 290, 2293779, 259, 2293780, 260, 2293781, 259, 2359315, 291, 2359316, 292, 2359317, 291, 2424851, 259, 2424852, 260, 2424853, 259, 2490387, 291, 2490388, 292, 2490389, 291, 2490390, 1093, 2490391, 1094, 2490392, 1095, 2490393, 1096, 2490394, 1097, 2490395, 1098, 2490396, 1096, 2490397, 1099, 2490398, 1115, 2490399, 1116, 2490400, 1117, 2490401, 1118, 2555923, 259, 2555924, 260, 2555925, 259, 2555926, 1127, 2555927, 1128, 2555928, 1129, 2555929, 1131, 2555930, 1132, 2555931, 1129, 2555932, 1131, 2555933, 1131, 2555934, 1129, 2555935, 1132, 2555936, 1151, 2555937, 1152, 2621459, 291, 2621460, 292, 2621461, 291, 2621462, 1161, 2621463, 1162, 2621464, 1163, 2621465, 1162, 2621466, 1163, 2621467, 1162, 2621468, 1163, 2621469, 1162, 2621470, 1163, 2621471, 1162, 2621472, 1163, 2621473, 1186, 2686995, 259, 2686996, 260, 2686997, 259, 2686998, 1195, 2686999, 1196, 2687000, 1197, 2687001, 1198, 2687002, 1201, 2687003, 1219, 2687004, 1223, 2687005, 1223, 2687006, 1219, 2687007, 1223, 2687008, 1219, 2687009, 1220, 2752531, 291, 2752532, 292, 2752533, 291, 2752534, 1229, 2752535, 1230, 2752536, 1231, 2752537, 1232, 2752538, 1235, 2752539, 1247, 2752540, 1235, 2752541, 1247, 2752542, 1235, 2752543, 1247, 2752544, 1235, 2752545, 1254, 2818067, 259, 2818068, 260, 2818069, 259, 2818070, 259, 2818071, 260, 2818072, 259, 2818073, 259, 2818074, 260, 2818075, 259, 2818076, 259, 2818077, 260, 2818078, 259, 2818079, 259, 2818080, 260, 2818081, 259, 2883603, 291, 2883604, 292, 2883605, 291, 2883606, 291, 2883607, 292, 2883608, 291, 2883609, 291, 2883610, 292, 2883611, 291, 2883612, 291, 2883613, 292, 2883614, 291, 2883615, 291, 2883616, 292, 2883617, 291, 2949139, 259, 2949140, 260, 2949141, 259, 2949145, 259, 2949146, 260, 2949147, 259, 2949148, 259, 2949149, 260, 2949150, 259, 2949151, 259, 2949152, 260, 2949153, 259, 3014675, 291, 3014676, 292, 3014677, 291, 3014681, 291, 3014682, 292, 3014683, 291, 3014684, 291, 3014685, 292, 3014686, 291, 3014687, 291, 3014688, 292, 3014689, 291, 3080211, 1328, 3080212, 1328, 3080213, 1328, 3080217, 259, 3080218, 260, 3080219, 259, 3080220, 259, 3080221, 260, 3080222, 259, 3080223, 259, 3080224, 260, 3080225, 259, 3145753, 291, 3145754, 292, 3145755, 291, 3145756, 291, 3145757, 292, 3145758, 291, 3145759, 291, 3145760, 292, 3145761, 291, 3211289, 259, 3211290, 260, 3211291, 259, 3211292, 260, 3211293, 259, 3211294, 260, 3211295, 259, 3211296, 259, 3211297, 260, 3276825, 259, 3276826, 260, 3276827, 259, 3276828, 260, 3276829, 259, 3276830, 260, 3276831, 259, 3276832, 260, 3276833, 260 )
 
 [node name="mid2" type="TileMap" parent="."]
 
@@ -289,11 +293,18 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 1638422, 203, 1638423, 204, 1638428, 29, 1638429, 30, 1835019, 155, 1835020, 156, 2097168, 25, 2097169, 26, 2949145, 203, 2949146, 204, 3014685, 155, 3014686, 156, 3080224, 27, 3080225, 28 )
 
+[node name="doorcover" type="Sprite" parent="."]
+
+transform/pos = Vector2( -60, 326 )
+transform/scale = Vector2( 0.204762, 0.0566667 )
+texture = ExtResource( 8 )
+modulate = Color( 0, 0, 0, 1 )
+
 [node name="collision" type="TileMap" parent="."]
 
 visibility/visible = false
 mode = 0
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 9 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -314,7 +325,7 @@ editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( -8.5, -9 )
 transform/scale = Vector2( 0.9375, 0.875 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 vframes = 50
 hframes = 64
 frame = 181
@@ -342,7 +353,7 @@ _update_shape_index = 0
 
 [node name="Interact" type="Node2D" parent="interactObj/StaticBody2D"]
 
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !" ]
 
 [node name="intoObj" type="Sprite" parent="."]
@@ -367,7 +378,7 @@ bounce = 0.0
 [node name="introduction_dialogue" type="Node2D" parent="intoObj/StaticBody2D"]
 
 visibility/visible = false
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider à apprendre l’anglais ! On y va, suivez-moi !", "Passons à l'école. Suivez la flèche!" ]
 
 [node name="startup_dialoge" parent="." instance=ExtResource( 6 )]
@@ -387,20 +398,20 @@ margin/right = 438.0
 
 transform/pos = Vector2( -56, 338 )
 transform/scale = Vector2( 0.28125, 0.265625 )
-script/script = ExtResource( 11 )
+script/script = ExtResource( 12 )
 
 [node name="compassBG" type="Sprite" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 13 )
+script/script = ExtResource( 14 )
 
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
@@ -418,7 +429,7 @@ margin/bottom = 60.0
 popup/exclusive = true
 window/title = "Controls"
 dialog/hide_on_ok = true
-script/script = ExtResource( 14 )
+script/script = ExtResource( 15 )
 
 [node name="Label1" type="Label" parent="control_alerts"]
 
@@ -479,7 +490,7 @@ margin/top = 38.0
 margin/right = 238.0
 margin/bottom = 112.0
 popup/exclusive = false
-script/script = ExtResource( 15 )
+script/script = ExtResource( 16 )
 
 [node name="TextInterfaceEngine" type="ReferenceFrame" parent="dialogue_textbox"]
 
@@ -492,19 +503,113 @@ margin/left = 8.0
 margin/top = 10.0
 margin/right = 540.0
 margin/bottom = 118.0
-script/script = ExtResource( 16 )
+script/script = ExtResource( 17 )
 __meta__ = {
-"_editor_icon": ExtResource( 17 )
+"_editor_icon": ExtResource( 18 )
 }
 SCROLL_ON_MAX_LINES = true
 BREAK_ON_MAX_LINES = true
 AUTO_SKIP_WORDS = true
 LOG_SKIPPED_LINES = true
 SCROLL_SKIPPED_LINES = false
-FONT = ExtResource( 18 )
+FONT = ExtResource( 19 )
 PRINT_INPUT = true
 BLINKING_INPUT = true
 INPUT_CHARACTERS_LIMIT = -1
+
+[node name="lesson_plan" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -76.0
+margin/top = -67.0
+margin/right = 324.0
+margin/bottom = 233.0
+popup/exclusive = false
+
+[node name="title1" type="Label" parent="lesson_plan"]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 18.0
+margin/right = 497.0
+margin/bottom = 78.0
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Les noms"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="intro_text" type="RichTextLabel" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 28.0
+margin/top = 66.0
+margin/right = 372.0
+margin/bottom = 144.0
+bbcode/enabled = false
+bbcode/bbcode = "Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples."
+visible_characters = -1
+
+[node name="describing_text" type="RichTextLabel" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 28.0
+margin/top = 154.0
+margin/right = 372.0
+margin/bottom = 260.0
+bbcode/enabled = false
+bbcode/bbcode = "Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus."
+visible_characters = -1
+
+[node name="left_button" type="Button" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 262.0
+margin/right = 345.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 21 )
+flat = false
+
+[node name="right_button" type="Button" parent="lesson_plan"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 344.0
+margin/top = 262.0
+margin/right = 376.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 22 )
+flat = false
 
 [connection signal="body_enter" from="Area2D1" to="Area2D1" method="_on_Area2D1_body_enter"]
 

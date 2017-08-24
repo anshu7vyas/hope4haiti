@@ -37,6 +37,13 @@ func _input(event):
 		interact = false
 
 func _fixed_process(delta):
+#	if time_delta > 0.2:
+#		print(singleton.changingScene)
+#		time_delta = 0
+#	if singleton.changingScene:
+#		singleton.changingScene = false
+#		print("changing scene")
+#		get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
 	time_delta += delta
 	if seat_diag_done and !singleton.message_done:
 		if time_delta > 2:

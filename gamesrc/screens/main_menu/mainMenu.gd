@@ -26,11 +26,9 @@ func _ready():
 	#get_node("StreamPlayer").play()
 	#Set window title
 	get_node("multiple_choice").set_hidden(true)
-
 	
 	#SKIP LOGIN
 	singleton.logged_in = true
-	
 	
 	OS.set_window_title("Hope4Haiti")
 	leaderBoardNode.set_hidden(true)
@@ -42,13 +40,6 @@ func _ready():
 	#newUserNode.get_node("usernameEdit").set_cursor_pos(0)
 	chapterSelectStartPos = get_node("multiple_choice/chapter_select").get_pos()
 	#get_node("multiple_choice/chapter2").set_opacity(0.2)
-	#get_node("multiple_choice/chapter3").set_opacity(0.2)
-	#get_node("multiple_choice/chapter4").set_opacity(0.2)
-	#get_node("multiple_choice/chapter5").set_opacity(0.2)
-	#get_node("multiple_choice/chapter6").set_opacity(0.2)
-	#get_node("multiple_choice/chapter7").set_opacity(0.2)
-	#get_node("multiple_choice/chapter8").set_opacity(0.2)
-	#get_node("multiple_choice/RichTextLabel").append_bbcode("[center]Les chapitres sont divisés par les parties du discours[/center]")
 	#Hide mouse.
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

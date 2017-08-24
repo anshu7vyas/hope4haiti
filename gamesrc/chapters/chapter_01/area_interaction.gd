@@ -10,7 +10,7 @@ func _ready():
 
 func _on_Area2D_body_enter( body ):
 	area_count += 1
-	if area_count > 1:
+	if area_count > 1 and !worldNode.first_multiple_choice_section_done:
 		worldNode.get_node("Player").canMove = false
 		worldNode.neighbor1_dialogue()
 		#self.queue_free() #deletes the Sprite

@@ -9,6 +9,7 @@ var left = false
 var right = false
 var spacePressed = false
 var chaptersOpen = true
+var chapterIsChanging = false
 
 var in_chapter_box = false
 
@@ -24,8 +25,10 @@ var chapSelect
 var player_pos
 var lesson_plan_toptext
 var lesson_plan_bottomtext
+var lesson_plan_bottom_size
 
 onready var chapterNode = get_node("chapter_menu")
+onready var confirmationNode = get_node("confirmation")
 onready var lessonPlanNode = get_tree().get_current_scene().get_node("lesson_plan")
 
 func _ready():
@@ -39,15 +42,17 @@ func _ready():
 	pointer_update()
 	set_as_toplevel(true)
 	if get_tree().get_current_scene().has_node("lesson_plan"):
-		lesson_plan_toptext = get_tree().get_current_scene().lesson_plan_toptext
+		#lesson_plan_toptext = get_tree().get_current_scene().lesson_plan_toptext
 		lesson_plan_bottomtext = get_tree().get_current_scene().lesson_plan_bottomtext
+		lesson_plan_bottom_size = lesson_plan_bottomtext.size()
+
 	
 
 func _handle_interaction():
 	if currentLabel == 0: #chapters label
 		player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 		chapterNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
-		chapSelect.set_pos(Vector2(player_pos.x-5, player_pos.y-63))
+		chapSelect.set_pos(Vector2(player_pos.x-5, player_pos.y-66))
 		start_pos_select = chapSelect.get_pos()
 		chapterNode.set_hidden(false)
 		chapSelect.set_hidden(false)
@@ -70,26 +75,35 @@ func _handle_interaction():
 		OS.get_main_loop().quit()
 
 func _handle_chap_select():
-	if currentChapLabel == 0:
+	player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
+	confirmationNode.set_pos(Vector2(player_pos.x-85, player_pos.y-50))
+	if currentChapLabel >= 0 and currentChapLabel < 10:
+		confirmationNode.set_hidden(false)
+	elif currentChapLabel == 10:
 		pass
-	elif currentChapLabel == 1:
-		pass
-	elif currentChapLabel == 2:
-		pass
-	elif currentChapLabel == 3:
-		pass
-	elif currentChapLabel == 4:
-		pass
-	elif currentChapLabel == 5:
-		pass
-	elif currentChapLabel == 6:
-		pass
-	elif currentChapLabel == 7:
-		pass
-	elif currentChapLabel == 8:
 		hide_chapter_window()
 		
-
+func _handle_chapter_change():
+	if currentChapLabel == 0:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 1:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 2:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 3:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 4:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 5:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 6:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 7:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 8:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 9:
+		print("change to chapter: " + str(currentLabel))
 
 func hide_chapter_window():
 	chapSelect.set_hidden(true)
@@ -101,19 +115,25 @@ func hide_chapter_window():
 		
 		
 func _fixed_process(delta):
+	if confirmationNode.is_visible():
+		if confirmationNode.get_node("back").is_pressed():
+			confirmationNode.set_hidden(true)
+		elif confirmationNode.get_node("button_enter").is_pressed() and !chapterIsChanging:
+			chapterIsChanging = true
+			_handle_chapter_change()
 	if get_tree().get_current_scene().has_node("lesson_plan"):
 		if lessonPlanNode.is_visible(): # navigate the lesson plan
 			if right or lessonPlanNode.get_node("right_button").is_pressed():
-				if lessonPlanPage < lesson_plan_toptext.size()-1: 
+				if lessonPlanPage < lesson_plan_bottom_size-1: 
 					lessonPlanPage += 1
-					lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
+					#lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
 					lessonPlanNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
 					OS.delay_msec(150) #pause so it doesnt skip to the next screen
 				right = false
 			elif left or lessonPlanNode.get_node("left_button").is_pressed():
 				if lessonPlanPage > 0:
 					lessonPlanPage -= 1
-					lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
+					#lessonPlanNode.get_node("intro_text").set_bbcode(lesson_plan_toptext[lessonPlanPage])
 					lessonPlanNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lessonPlanPage])
 					OS.delay_msec(150)
 				left = false 
@@ -123,13 +143,13 @@ func _fixed_process(delta):
 				menu = false
 				spacePressed = false
 
-	if chapterNode.is_visible():
+	if chapterNode.is_visible() and !confirmationNode.is_visible():
 		if up:
 			if currentChapLabel == 0:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (16 * (chapLabels.size()-1))))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (13 * (chapLabels.size()-1))))
 				currentChapLabel = chapLabels.size()-1
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 16))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 13))
 				currentChapLabel -= 1
 
 		if down:
@@ -137,7 +157,7 @@ func _fixed_process(delta):
 				currentChapLabel = 0
 				chapSelect.set_pos(start_pos_select)
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 16))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 13))
 				currentChapLabel += 1
 		if spacePressed:
 			_handle_chap_select()
