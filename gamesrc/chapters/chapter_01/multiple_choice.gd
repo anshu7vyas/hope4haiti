@@ -49,7 +49,7 @@ func correct_popup():
 	alert_box.set_title("Alerte")
 	alert_box._print_alert_string("\n")
 	alert_box.get_node("Label1").set_text("")
-	alert_box.get_node("Label2").set_text("Très bien! A est correct")
+	alert_box.get_node("Label2").set_text("Très bien! C'est exact!")
 	alert_box.get_node("Label3").set_text("")
 	alert_box.show()
 	singleton.correct_answer_chosen = true
