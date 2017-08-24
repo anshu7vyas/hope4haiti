@@ -31,7 +31,7 @@ func _ready():
 func _fixed_process(delta):
 	time_delta += delta
 
-	if time_delta > 0.3 and worldNode.name_challenge_done and !worldNode.get_node("PopupDialog").is_visible() and !walk_done:
+	if time_delta > 0.3 and worldNode.name_challenge_done and !worldNode.get_node("PopupDialog").is_visible() and !walk_done and !worldNode.get_node("control_alerts").is_visible():
 		count += 1
 		if count < 8:
 			walk_right()
