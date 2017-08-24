@@ -31,6 +31,7 @@ func _ready():
 	directionNode.hide()
 	compassNode.hide()
 	dialogueBoxNode.hide()
+	time_seconds = 0
 
 	dialogueText.connect("input_enter", self, "_on_input_enter")
 	dialogueText.connect("buff_end", self, "_on_buff_end")
@@ -54,10 +55,10 @@ func _fixed_process(delta): #running process
 	if time_seconds > 0.1 and !timer_done: #pause for 1s then start intro dialogue
 		intro_dialogue()
 		timer_done = true #dont run this block again
-	if time_seconds > 1 and !alert_done: #show 1st alert box after 2s
+	if time_seconds > 1 and !alert_done and !singleton.scene_1_restart: #show 1st alert box after 2s
 		intro_popup_spacebar()
 		alert_done = true #dont run this block again
-	if singleton.message_done and !alert2_done: #show 2nd alert box after dialoge is complete
+	if singleton.message_done and !alert2_done and !singleton.scene_1_restart: #show 2nd alert box after dialoge is complete
 		intro_popup_arrowkeys()
 		interact = false #bug fix so alert box is not immediatly dismssed
 		OS.delay_msec(50) #allow "interact = false" to register

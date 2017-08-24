@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://chapters/chapter_01/ch1_outside_world.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/outside_tilesets2/outside_map2.res" type="TileSet" id=2]
@@ -6,28 +6,29 @@
 [ext_resource path="res://actors/merchant/Fighter-F-01.png" type="Texture" id=4]
 [ext_resource path="res://chapters/chapter_01/area_interaction.gd" type="Script" id=5]
 [ext_resource path="res://actors/neighbor2/Townfolk-Adult-F.png" type="Texture" id=6]
-[ext_resource path="res://actors/actor_hero/actor_hero.gd" type="Script" id=7]
-[ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=8]
-[ext_resource path="res://utilities/dialogue_box/dialogue_box.tscn" type="PackedScene" id=9]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=10]
-[ext_resource path="res://utilities/menu/menu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=12]
-[ext_resource path="res://utilities/dialogue_box/interact_script.gd" type="Script" id=13]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=14]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=15]
-[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=16]
-[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=17]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=18]
-[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=19]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=20]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=21]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=22]
-[ext_resource path="res://chapters/chapter_01/banana.png" type="Texture" id=23]
+[ext_resource path="res://chapters/chapter_01/banana.png" type="Texture" id=7]
+[ext_resource path="res://actors/actor_hero/actor_hero.gd" type="Script" id=8]
+[ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=9]
+[ext_resource path="res://utilities/dialogue_box/dialogue_box.tscn" type="PackedScene" id=10]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://utilities/menu/menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=13]
+[ext_resource path="res://utilities/dialogue_box/interact_script.gd" type="Script" id=14]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=15]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=16]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=17]
+[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=18]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=19]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=20]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=21]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=22]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=23]
+[ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.95348, 10 )
+extents = Vector2( 5.95348, 7.49548 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -134,6 +135,7 @@ __meta__ = {
 
 [node name="merchant" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 464, -161 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
@@ -186,6 +188,7 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 140, 14 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
@@ -217,6 +220,12 @@ shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
+[node name="banana" type="Sprite" parent="."]
+
+transform/pos = Vector2( 423, -159 )
+texture = ExtResource( 7 )
+modulate = Color( 0.759675, 0.894531, 0.667404, 1 )
+
 [node name="Player" type="KinematicBody2D" parent="."]
 
 editor/display_folded = true
@@ -229,7 +238,7 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 7 )
+script/script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -238,7 +247,7 @@ __meta__ = {
 
 transform/pos = Vector2( -0.424341, -23.9151 )
 transform/scale = Vector2( 2.05163, 2.33149 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 vframes = 4
 hframes = 3
 frame = 1
@@ -283,7 +292,7 @@ drag_margin/top = 0.0
 drag_margin/right = 0.0
 drag_margin/bottom = 0.0
 
-[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 9 )]
+[node name="dialogue_box" parent="Player/Camera2D" instance=ExtResource( 10 )]
 
 visibility/visible = false
 margin/left = -78.0
@@ -302,17 +311,17 @@ margin/left = 13.0
 margin/top = 7.0
 margin/right = 429.0
 margin/bottom = 76.0
-custom_fonts/mono_font = ExtResource( 10 )
-custom_fonts/bold_italics_font = ExtResource( 10 )
-custom_fonts/italics_font = ExtResource( 10 )
-custom_fonts/bold_font = ExtResource( 10 )
-custom_fonts/normal_font = ExtResource( 10 )
+custom_fonts/mono_font = ExtResource( 11 )
+custom_fonts/bold_italics_font = ExtResource( 11 )
+custom_fonts/italics_font = ExtResource( 11 )
+custom_fonts/bold_font = ExtResource( 11 )
+custom_fonts/normal_font = ExtResource( 11 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
 
-[node name="menu" parent="Player/Camera2D" instance=ExtResource( 11 )]
+[node name="menu" parent="Player/Camera2D" instance=ExtResource( 12 )]
 
 process/pause_mode = 2
 visibility/visible = false
@@ -369,7 +378,7 @@ __meta__ = {
 
 visibility/visible = false
 mode = 0
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 13 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -408,11 +417,12 @@ bounce = 0.0
 
 [node name="dialogue" type="Node2D" parent="dialogeObj1/StaticBody2D"]
 
-script/script = ExtResource( 13 )
+script/script = ExtResource( 14 )
 text = [ "Marie-Thérèse: Salut, Hello, Rosemond!", "Rosemond: Hello Marie-Thérèse", "Marie-Thérèse: How are you?", "Rosemond: Bien, I am well, how are you?", "Marie-Thérèse: I am well.", "Rosemond: Goodbye!", "Marie-Thérèse: Goodbye." ]
 
 [node name="dialogeObj2" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
 vframes = 50
@@ -434,11 +444,12 @@ bounce = 0.0
 
 [node name="dialogue" type="Node2D" parent="dialogeObj2/StaticBody2D"]
 
-script/script = ExtResource( 13 )
+script/script = ExtResource( 14 )
 text = [ "Marchand: Hello! Comment t'appelles-tu?.. ", "MT: Hello, my name is Marie-Thérèse.", "Marchand: Quel âge as-tu? How old are you?", "MT: I am 12 years old.", "Marchand: Do you like plantains?", "MT: Oui, yes, I like plantains.", "MT: Thank you!", "Marchand: You are welcome, goodbye!" ]
 
-[node name="dialogue_box" parent="." instance=ExtResource( 9 )]
+[node name="dialogue_box" parent="." instance=ExtResource( 10 )]
 
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -463,18 +474,17 @@ __meta__ = {
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 15 )
+script/script = ExtResource( 16 )
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -486,9 +496,9 @@ margin/top = -9.0
 margin/right = 255.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 16 )
+script/script = ExtResource( 17 )
 
-[node name="school" type="Label" parent="multiple_choice"]
+[node name="Label1" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -499,14 +509,14 @@ margin/left = 34.0
 margin/top = 72.0
 margin/right = 508.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "a. elle n'aime pas les mathématiques"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="school1" type="Label" parent="multiple_choice"]
+[node name="Label2" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -517,14 +527,14 @@ margin/left = 34.0
 margin/top = 96.0
 margin/right = 508.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "b. elle n'aime pas son institutrice"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="school2" type="Label" parent="multiple_choice"]
+[node name="Label3" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -535,7 +545,7 @@ margin/left = 34.0
 margin/top = 122.0
 margin/right = 508.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "c. elle n'a pas d’amis"
 percent_visible = 1.0
@@ -546,7 +556,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( 23.5, 80 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 hframes = 14
 
 [node name="RichTextLabel" type="RichTextLabel" parent="multiple_choice"]
@@ -557,11 +567,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 14.0
-margin/top = 24.0
+margin/top = 22.0
 margin/right = 562.0
-margin/bottom = 96.0
-custom_fonts/bold_font = ExtResource( 10 )
-custom_fonts/normal_font = ExtResource( 10 )
+margin/bottom = 122.0
+custom_fonts/bold_font = ExtResource( 11 )
+custom_fonts/normal_font = ExtResource( 11 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Pourquoi est-ce que MT n'est pas ravie d’aller à l'école?"
@@ -583,7 +593,7 @@ margin/bottom = 60.0
 popup/exclusive = true
 window/title = "Alerte"
 dialog/hide_on_ok = true
-script/script = ExtResource( 18 )
+script/script = ExtResource( 19 )
 
 [node name="Label1" type="Label" parent="control_alerts"]
 
@@ -630,6 +640,38 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="end_alert" type="AcceptDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -48.0
+margin/top = -41.0
+margin/right = 240.0
+margin/bottom = 121.0
+popup/exclusive = true
+window/title = "Alerte"
+dialog/hide_on_ok = true
+script/script = ExtResource( 19 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="end_alert"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 18.0
+margin/top = 18.0
+margin/right = 274.0
+margin/bottom = 132.0
+bbcode/enabled = false
+bbcode/bbcode = "Bon ! C'était beaucoup ! Si vous n'avez pas tout suivi, ne vous inquiétez pas ! Ces scènes vont devenir de plus en plus difficile comme vous avancez, mais vous avez toujours l'option de retourner et revoir ce que vous avez fait. Maintenant, l'extrême challenge:"
+visible_characters = -1
+
 [node name="lesson_plan" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -644,7 +686,7 @@ margin/top = -67.0
 margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
-script/script = ExtResource( 19 )
+script/script = ExtResource( 20 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
@@ -657,7 +699,7 @@ margin/left = 2.0
 margin/top = 6.0
 margin/right = 565.0
 margin/bottom = 66.0
-custom_fonts/font = ExtResource( 20 )
+custom_fonts/font = ExtResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les noms"
 align = 1
@@ -709,7 +751,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 21 )
+icon = ExtResource( 22 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
@@ -725,14 +767,189 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 22 )
+icon = ExtResource( 23 )
 flat = false
 
-[node name="banana" type="Sprite" parent="."]
+[node name="chapter_score" type="PopupDialog" parent="."]
 
-transform/pos = Vector2( 423, -159 )
-texture = ExtResource( 23 )
-modulate = Color( 0.759675, 0.894531, 0.667404, 1 )
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -73.0
+margin/top = -68.0
+margin/right = 327.0
+margin/bottom = 232.0
+popup/exclusive = false
+
+[node name="title1" type="Label" parent="chapter_score"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 18.0
+margin/right = 790.0
+margin/bottom = 78.0
+custom_fonts/font = ExtResource( 21 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Score de fin de chapitre"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="end_score_text" type="Label" parent="chapter_score"]
+
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 56.0
+margin/right = 565.0
+margin/bottom = 155.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Vous avez terminé 
+ce chapitre avec un
+score total de"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score_label" type="Label" parent="chapter_score"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 122.0
+margin/right = 398.0
+margin/bottom = 182.0
+custom_fonts/font = ExtResource( 21 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "95 points!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="failed_notes" type="Label" parent="chapter_score"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 186.0
+margin/right = 565.0
+margin/bottom = 285.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Un score total d'au moins 
+80 points est nécessaire pour passer 
+au chapitre suivant"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pass_chapter_notes" type="Label" parent="chapter_score"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 180.0
+margin/right = 565.0
+margin/bottom = 246.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bon travail! Le mot de passe pour
+le prochain chapitre est:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="next_chapter_pw" type="Label" parent="chapter_score"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 230.0
+margin/right = 565.0
+margin/bottom = 264.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "xSd3fg"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="restart_chapter_level" type="Button" parent="chapter_score"]
+
+visibility/visible = false
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 76.0
+margin/top = -112.0
+margin/right = -227.0
+margin/bottom = -144.0
+custom_fonts/font = ExtResource( 24 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Réessayer le chapitre"
+flat = false
+
+[node name="next_chapter_button" type="Button" parent="chapter_score"]
+
+visibility/visible = false
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 76.0
+margin/top = -112.0
+margin/right = -227.0
+margin/bottom = -144.0
+custom_fonts/font = ExtResource( 24 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Chapitre suivant"
+flat = false
 
 [connection signal="body_enter" from="merchant" to="merchant" method="_on_merchant_body_enter"]
 

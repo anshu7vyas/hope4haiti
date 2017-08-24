@@ -5,6 +5,45 @@ extends Node
 
 var item = [createItemData("Push", "Verb"), createItemData("Brick", "Noun"), createItemData("Beautiful", "Adjective"), createItemData("Wall", "Noun")]
 
+# MULTIPLE CHOICE QUESTIONS
+# Chapter 1 Questions
+var greetingsMultipleChoiceQuestions = [
+"Question: Selon le contexte, que veut dire 'How are you?'",
+"Question: Quand vous retrouvez quelqu'un(e), qu'est-ce que vous dites",
+"Question: Laquelle est la traduction de Je vais bien ?",
+"Traduisez: Bonjour, comment allez-vous ?",
+"Question 1: Comment dit-on «oui» en anglais ?",
+"Question 2: Comment dit-on «je m'appelle» ?",
+"Question 3: Que veut dire «Thank you» ?",
+"Choisissez la bonne traduction pour la réponse que le marchand a dit à Marie-Thérèse à la fin de la scène."
+]
+var greetingsMultipleChoiceAnswers = [
+"a. Comment allez-vous?",
+"b. Bonjour",
+"c. Comment vous appelez-vous?",
+"a. Goodbye!",
+"b. Hello!",
+"c. How are you?",
+"a. I like math",
+"b. I am sad",
+"c. I am well",
+"a. Goodbye!",
+"b. Hello, how are you?",
+"c. Hi, Marie-Thérèse", #sttart end
+"a.  yes",
+"b. soccer",
+"c. no",
+"a. hello",
+"b. thank you",
+"c. my name is",
+"a. j'ai faim",
+"b. merci",
+"c. au revoir",
+"a. merci, au revoir !",
+"b. de rien, merci !",
+"c. de rien, au revoir !"
+]
+var greetingsMultipleChoiceCorrectIndices = [0, 1, 2, 1, 0, 2, 1, 2]
 
 # greetings support text
 var grettingsLessonPlanText = [
@@ -56,6 +95,8 @@ var wrong_choice = false
 var multiple_choice_complete = false
 var multiple_choice_retry = false
 var logged_in = false
+var correct_answer_chosen = false
+var scene_1_restart = false
 
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}
