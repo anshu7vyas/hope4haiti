@@ -54,15 +54,31 @@ var grettingsLessonPlanText = [
 ]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
-"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
-"Next pages of lessons top section..",
-"Another page of lesson stuff.."
+"",
+"",
+""
 ]
 var nounsLessonPlanBottom = [
 "Les noms, aussi connu comme le substantif, ou nouns en anglais, sont des mots qui fonctionnent comme la désignation par une personne, un animal, une chose, une idée, une catégorie.\n \nIl est très important de savoir que bien que les noms en français varient du genre, en anglais il n'y a jamais une change du genre des noms.\n \nRegardez Marie-Thérèse attentivement pour apprendre plus. Bonne chance !",
 "",
-"Maybe add some more examples here..."
+""
 ]
+# Nouns multiple choice questions
+var nounsMultipleChoiceQuestions = [
+"Question: Selon le contexte, quel mot est quelque chose que MT n'aime pas ?",
+"Question finale: Choisissez le nom et sa traduction correcte dans la liste suivante:"
+]
+var nounsMultipleChoiceAnswers = [
+"a. math",
+"b. morning",
+"c. school",
+"a. school / l'église",
+"b. like / aimer",
+"c. school / l'école"
+]
+var nounsMultipleChoiceCorrectIndices = [0, 2] # a, c
+
+# not currently used
 var nounsQuestions = [
 "Question 2: Il s'agit d'une autre question sur les noms qui se trouvaient dans le plan de cours",
 "Question 3: Quelle sentance utilise les noms en anglais sous la forme appropriée ci-dessous",

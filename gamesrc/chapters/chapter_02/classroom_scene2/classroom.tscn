@@ -1,10 +1,10 @@
-[gd_scene load_steps=40 format=1]
+[gd_scene load_steps=43 format=1]
 
-[ext_resource path="res://chapters/chapter_01/scene_2_classroom/world_classroom.gd" type="Script" id=1]
+[ext_resource path="res://chapters/chapter_02/classroom_scene2/ch2_classroom_world.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/scene_2_classroom/classroom_tilesets/classroom_map.res" type="TileSet" id=2]
 [ext_resource path="res://actors/teacher1/Fighter-F-01.png" type="Texture" id=3]
-[ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_teacher_interaction.gd" type="Script" id=4]
-[ext_resource path="res://chapters/chapter_01/scene_2_classroom/area_seat.gd" type="Script" id=5]
+[ext_resource path="res://chapters/chapter_02/classroom_scene2/area_teacher_interaction.gd" type="Script" id=4]
+[ext_resource path="res://chapters/chapter_02/classroom_scene2/area_seat.gd" type="Script" id=5]
 [ext_resource path="res://chapters/chapter_01/area_transition.gd" type="Script" id=6]
 [ext_resource path="res://actors/neighbor1/hero_follow.gd" type="Script" id=7]
 [ext_resource path="res://actors/neighbor1/Townfolk-Child-F.png" type="Texture" id=8]
@@ -16,18 +16,19 @@
 [ext_resource path="res://chapters/chapter_01/objectstSprite-0.png" type="Texture" id=14]
 [ext_resource path="res://utilities/interaction/interact_script.gd" type="Script" id=15]
 [ext_resource path="res://chapters/chapter_01/sadEmote.png" type="Texture" id=16]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=17]
-[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=18]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=19]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=20]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=21]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=22]
-[ext_resource path="res://utilities/end_of_chapter_challenge.gd" type="Script" id=23]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=24]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=25]
-[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=26]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=27]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=28]
+[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=17]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=18]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=19]
+[ext_resource path="res://utilities/end_of_chapter_challenge.gd" type="Script" id=20]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=21]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=22]
+[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=23]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=24]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=25]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=26]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=27]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=28]
+[ext_resource path="res://screens/main_menu/whiteBG.jpg" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -139,6 +140,40 @@ extents = Vector2( 20, 20 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 26.5439, 10 )
+
+[sub_resource type="Animation" id=12]
+
+resource/name = "move_in_right"
+length = 0.8
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.8 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -912, -272 ), Vector2( -704, -272 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource/name = "move_in_left"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.8 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 48, -304 ), Vector2( -160, -304 ) ]
+}
 
 [node name="world" type="Node2D"]
 
@@ -431,6 +466,7 @@ margin/bottom = 50.0
 
 [node name="top" type="TileMap" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( -544, -448 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -450,6 +486,7 @@ tile_data = IntArray( 1310744, 199, 1310745, 200, 1572881, 203, 1572882, 204 )
 
 [node name="smallObjs" type="TileMap" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( -544, -448 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -490,7 +527,7 @@ tile_data = IntArray( -786433, 0, -720897, 0, -655361, 0, -589825, 0, -524306, 0
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( -8.5, -9 )
+transform/pos = Vector2( 64, -80 )
 transform/scale = Vector2( 0.9375, 0.875 )
 texture = ExtResource( 14 )
 vframes = 50
@@ -593,42 +630,25 @@ margin/bottom = 74.0
 
 margin/right = 438.0
 
-[node name="control_alerts" type="AcceptDialog" parent="."]
-
-visibility/visible = false
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = true
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -48.0
-margin/top = -30.0
-margin/right = 240.0
-margin/bottom = 60.0
-popup/exclusive = true
-window/title = "Controls"
-dialog/hide_on_ok = true
-script/script = ExtResource( 17 )
-
 [node name="destinationObj" type="Node2D" parent="."]
 
 transform/pos = Vector2( -118, -101 )
 transform/scale = Vector2( 0.28125, 0.265625 )
-script/script = ExtResource( 18 )
+script/script = ExtResource( 17 )
 
 [node name="compassBG" type="Sprite" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 20 )
+script/script = ExtResource( 19 )
 
 [node name="dialogue_box" parent="." instance=ExtResource( 11 )]
 
@@ -644,47 +664,10 @@ margin/bottom = 74.0
 margin/right = 435.0
 margin/bottom = 81.0
 
-[node name="teacher_dialogue" type="PopupDialog" parent="."]
+[node name="end_chapter_challenge" type="PopupDialog" parent="."]
 
 editor/display_folded = true
 visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -46.0
-margin/top = 25.0
-margin/right = 105.0
-margin/bottom = 65.0
-popup/exclusive = false
-
-[node name="TextInterfaceEngine" type="ReferenceFrame" parent="teacher_dialogue"]
-
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 6.0
-margin/top = 6.0
-margin/right = 280.0
-margin/bottom = 60.0
-script/script = ExtResource( 21 )
-__meta__ = {
-"_editor_icon": ExtResource( 22 )
-}
-SCROLL_ON_MAX_LINES = true
-BREAK_ON_MAX_LINES = true
-AUTO_SKIP_WORDS = true
-LOG_SKIPPED_LINES = true
-SCROLL_SKIPPED_LINES = false
-FONT = null
-PRINT_INPUT = true
-BLINKING_INPUT = true
-INPUT_CHARACTERS_LIMIT = -1
-
-[node name="end_chapter_challenge" type="PopupDialog" parent="."]
-
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -695,7 +678,7 @@ margin/top = -51.0
 margin/right = 324.0
 margin/bottom = 249.0
 popup/exclusive = false
-script/script = ExtResource( 23 )
+script/script = ExtResource( 20 )
 
 [node name="title1" type="Label" parent="end_chapter_challenge"]
 
@@ -708,7 +691,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 1128.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Défi de chapitre des substantifs"
 align = 1
@@ -727,7 +710,7 @@ margin/left = 2.0
 margin/top = 92.0
 margin/right = 565.0
 margin/bottom = 191.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Vous avez terminé 
 ce chapitre avec un
@@ -747,7 +730,7 @@ margin/left = 2.0
 margin/top = 170.0
 margin/right = 398.0
 margin/bottom = 230.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "95 points!"
 align = 1
@@ -797,7 +780,7 @@ margin/left = 12.0
 margin/top = 100.0
 margin/right = 772.0
 margin/bottom = 456.0
-custom_fonts/normal_font = ExtResource( 25 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode/enabled = false
 bbcode/bbcode = "Lorem ipsum dolor sit amet  __________                                 , vis regione omnesque et, vel sonet definitionem ad, nihil saepe ea mel. Eam utamur meliore te, ex option omittam ius __________                                 , et sed soleat aeterno detracto. Vis te cibo aeque facilisis. Purto appetere oportere pro ad. Pri dictas fuisset in, propriae theophrastus __________                                 eum te, eam et graece altera patrioque.  Ne sumo ornatus persecuti pro __________                                  his te vocibus perfecto. Vel ei nobis tincidunt, et vero aperiri deseruisse eam. 
 "
@@ -815,7 +798,7 @@ margin/left = 40.0
 margin/top = 194.0
 margin/right = 680.0
 margin/bottom = 226.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "A. Ceci est une réponse Un texte de remplissage"
 percent_visible = 1.0
@@ -834,7 +817,7 @@ margin/left = 40.0
 margin/top = 226.0
 margin/right = 680.0
 margin/bottom = 257.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "B. Ceci est la réponse B texte de remplissage"
 percent_visible = 1.0
@@ -853,7 +836,7 @@ margin/left = 40.0
 margin/top = 258.0
 margin/right = 680.0
 margin/bottom = 289.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "C. Ceci est la réponse C texte de remplissage"
 percent_visible = 1.0
@@ -865,7 +848,7 @@ max_lines_visible = -1
 visibility/visible = false
 transform/pos = Vector2( 29.5, 202 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 26 )
+texture = ExtResource( 23 )
 hframes = 14
 
 [node name="question" type="RichTextLabel" parent="end_chapter_challenge"]
@@ -880,8 +863,8 @@ margin/left = 24.0
 margin/top = 130.0
 margin/right = 696.0
 margin/bottom = 234.0
-custom_fonts/bold_font = ExtResource( 25 )
-custom_fonts/normal_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 22 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Question 1: Quel est l'exemple d'un nom? (Il y aura cinq questions à choix multiples à la fin de chaque chapitre)"
@@ -1120,6 +1103,101 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="multiple_choice" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -53.0
+margin/top = -9.0
+margin/right = 255.0
+margin/bottom = 151.0
+popup/exclusive = false
+script/script = ExtResource( 24 )
+
+[node name="Label1" type="Label" parent="multiple_choice"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 34.0
+margin/top = 72.0
+margin/right = 508.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "a. elle n'aime pas les mathématiques"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="multiple_choice"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 34.0
+margin/top = 96.0
+margin/right = 508.0
+margin/bottom = 127.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "b. elle n'aime pas son institutrice"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="multiple_choice"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 34.0
+margin/top = 122.0
+margin/right = 508.0
+margin/bottom = 153.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "c. elle n'a pas d’amis"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="pointer" type="Sprite" parent="multiple_choice"]
+
+transform/pos = Vector2( 23.5, 80 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+hframes = 14
+
+[node name="RichTextLabel" type="RichTextLabel" parent="multiple_choice"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 14.0
+margin/top = 22.0
+margin/right = 562.0
+margin/bottom = 122.0
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 22 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "Pourquoi est-ce que MT n'est pas ravie d’aller à l'école?"
+visible_characters = -1
+
 [node name="lesson_plan" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -1134,6 +1212,7 @@ margin/top = -67.0
 margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
+script/script = ExtResource( 25 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
@@ -1146,7 +1225,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 497.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les noms"
 align = 1
@@ -1156,6 +1235,7 @@ max_lines_visible = -1
 
 [node name="intro_text" type="RichTextLabel" parent="lesson_plan"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1175,11 +1255,15 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 28.0
-margin/top = 154.0
+margin/top = 70.0
 margin/right = 372.0
 margin/bottom = 260.0
 bbcode/enabled = false
-bbcode/bbcode = "Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus."
+bbcode/bbcode = "Les noms, aussi connu comme le substantif, ou nouns en anglais, sont des mots qui fonctionnent comme la désignation par une personne, un animal, une chose, une idée, une catégorie.
+
+Il est très important de savoir que bien que les noms en français varient du genre, en anglais il n'y a jamais une change du genre des noms. 
+
+Regardez Marie-Thérèse attentivement pour apprendre plus. Bonne chance !"
 visible_characters = -1
 
 [node name="left_button" type="Button" parent="lesson_plan"]
@@ -1195,7 +1279,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 27 )
+icon = ExtResource( 26 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
@@ -1211,8 +1295,125 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 28 )
+icon = ExtResource( 27 )
 flat = false
+
+[node name="control_alerts" type="AcceptDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -48.0
+margin/top = -30.0
+margin/right = 240.0
+margin/bottom = 60.0
+popup/exclusive = true
+window/title = "Alerte"
+dialog/hide_on_ok = true
+script/script = ExtResource( 28 )
+
+[node name="Label1" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 8.0
+margin/right = 274.0
+margin/bottom = 22.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 26.0
+margin/right = 274.0
+margin/bottom = 40.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="control_alerts"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 44.0
+margin/right = 274.0
+margin/bottom = 58.0
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="left_side" type="TextureFrame" parent="."]
+
+rect/scale = Vector2( 0.2, 0.2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -912.0
+margin/top = -272.0
+margin/right = 1888.0
+margin/bottom = 2128.0
+texture = ExtResource( 29 )
+modulate = Color( 0, 0, 0, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="left_side"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/move_in_right = SubResource( 12 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="right_side" type="TextureFrame" parent="."]
+
+rect/scale = Vector2( 0.2, 0.2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 48.0
+margin/top = -304.0
+margin/right = 2928.0
+margin/bottom = 2096.0
+texture = ExtResource( 29 )
+modulate = Color( 0, 0, 0, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="right_side"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/move_in_left = SubResource( 13 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_neighbor2_body_enter"]
 
