@@ -30,9 +30,6 @@
 [ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=28]
 [ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=29]
 
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0

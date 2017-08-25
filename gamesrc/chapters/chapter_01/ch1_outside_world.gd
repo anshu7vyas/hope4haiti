@@ -164,7 +164,8 @@ func _fixed_process(delta):
 		if scorePopupNode.get_node("next_chapter_button").is_pressed() and !chapter_done:
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
-			get_tree().change_scene("res://chapters/chapter_02/inside_world_verbs.tscn")
+			
+			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
 			
 
 	# Block movements when an popup/dialogue box is open
