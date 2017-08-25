@@ -1363,6 +1363,7 @@ max_lines_visible = -1
 
 [node name="left_side" type="TextureFrame" parent="."]
 
+editor/display_folded = true
 rect/scale = Vector2( 0.2, 0.2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -1390,6 +1391,7 @@ autoplay = ""
 
 [node name="right_side" type="TextureFrame" parent="."]
 
+editor/display_folded = true
 rect/scale = Vector2( 0.2, 0.2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true

@@ -13,7 +13,7 @@ func _on_area_transition_to_class_body_enter( body ):
 	area_count += 1
 	if area_count > 1:
 		if worldNode.scene_complete:
-			get_tree().change_scene("res://chapters/chapter_01/scene_2_classroom/classroom.tscn")
-			worldNode.queue_free()
+			print("here")
+			get_tree().change_scene("res://chapters/chapter_02/classroom_scene2/classroom.tscn")
 			OS.delay_msec(50)
 			

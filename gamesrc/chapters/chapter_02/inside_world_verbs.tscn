@@ -316,6 +316,7 @@ tile_data = IntArray( -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0
 
 [node name="sad_emote" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( -138, -30 )
 transform/scale = Vector2( 1.60714, 1.5 )
 texture = ExtResource( 10 )
