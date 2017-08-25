@@ -450,6 +450,7 @@ text = [ "Marie-Thérèse: Bonjour, Good morning, Sidney", "Sidney: Good morning
 
 [node name="dialogue_box" parent="." instance=ExtResource( 9 )]
 
+editor/display_folded = true
 visibility/visible = false
 margin/left = -52.0
 margin/top = 39.0
@@ -625,6 +626,7 @@ max_lines_visible = -1
 
 [node name="lesson_plan" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false

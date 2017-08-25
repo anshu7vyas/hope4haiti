@@ -34,7 +34,7 @@ var lesson_plan_page = 0
 var player_pos
 var old_layer_mask = 0
 var old_collision_mask = 0
-var chapter_score = 60
+#var chapter_score = 100
 var chapter_done = false
 
 
@@ -105,6 +105,7 @@ func _fixed_process(delta):
 		alert_box.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
 			singleton.wrong_choice = false
+			singleton.chapter_2_score -= 4
 			alert_box.set_hidden(false)
 			multipleChoiceBox.set_hidden(true)
 			wrong_answer = true
@@ -161,9 +162,10 @@ func score_popup():
 	player_pos = playerNode.get_pos()
 	scorePopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
 	scorePopupNode.set_hidden(false)
-	scorePopupNode.get_node("score_label").set_text(str(chapter_score) + " points!")
+	scorePopupNode.get_node("score_label").set_text(str(singleton.chapter_2_score) + " points!")
 	# Display the correct options if they passed or not
-	if chapter_score < 80:
+	if singleton.chapter_2_score < 80:
+		singleton.reset_score()
 		scorePopupNode.get_node("failed_notes").set_hidden(false)
 		scorePopupNode.get_node("restart_chapter_level").set_hidden(false)
 		scorePopupNode.get_node("pass_chapter_notes").set_hidden(true)

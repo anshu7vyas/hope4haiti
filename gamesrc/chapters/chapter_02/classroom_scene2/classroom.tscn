@@ -1417,9 +1417,9 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_neighbor2_body_enter"]
-
 [connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_teacher_body_enter"]
+
+[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_neighbor2_body_enter"]
 
 [connection signal="body_enter" from="area_seat" to="area_seat" method="_on_area_seat_body_enter"]
 

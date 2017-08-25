@@ -254,6 +254,7 @@ autoplay = ""
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -403,6 +404,7 @@ frame = 10
 
 [node name="area_neighbor2" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 123, 14 )
 input/pickable = true
 shapes/0/shape = SubResource( 11 )
@@ -771,7 +773,6 @@ flat = false
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -866,7 +867,6 @@ visible_characters = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false

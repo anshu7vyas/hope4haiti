@@ -3,6 +3,8 @@ extends Node
 # useful for transfering data between scenes
 #var foo = 3
 
+var chapter_2_score = 100
+
 var item = [createItemData("Push", "Verb"), createItemData("Brick", "Noun"), createItemData("Beautiful", "Adjective"), createItemData("Wall", "Noun")]
 
 # MULTIPLE CHOICE QUESTIONS
@@ -114,6 +116,10 @@ var multiple_choice_retry = false
 var logged_in = false
 var correct_answer_chosen = false
 var scene_1_restart = false
+
+func reset_score():
+	chapter_2_score = 100
+	return chapter_2_score
 
 func createItemData(_Name, _Type):
 	return {Name = _Name, Type = _Type}

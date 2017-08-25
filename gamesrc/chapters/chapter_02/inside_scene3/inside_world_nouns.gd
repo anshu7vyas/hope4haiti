@@ -87,6 +87,7 @@ func _fixed_process(delta):
 		alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
 			singleton.wrong_choice = false
+			singleton.chapter_2_score -= 4
 			alertNode.set_hidden(false)
 			multipleChoiceBox.set_hidden(true)
 			wrong_answer = true
@@ -112,6 +113,7 @@ func _fixed_process(delta):
 		alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
 			singleton.wrong_choice = false
+			singleton.chapter_2_score -= 4
 			alertNode.set_hidden(false)
 			get_node("multiple_choice2").set_hidden(true)
 			wrong_answer = true
