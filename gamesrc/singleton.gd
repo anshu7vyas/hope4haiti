@@ -19,6 +19,22 @@ var greetingsMultipleChoiceQuestions = [
 "Question 3: Que veut dire «Thank you» ?",
 "Choisissez la bonne traduction pour la réponse que le marchand a dit à Marie-Thérèse à la fin de la scène."
 ]
+var possNounsMultipleChoiceQuestions = [
+"Regardez encore une fois: << Marie-Thérèse's cat >>. Quel mot ici est le nom?",
+"Révisons ! Quel est l'ordre pour former un nom possessif en anglais ?",
+"Une question de plus ! Comment dirait-on l'amie de Sidney ?"
+]
+var possNounsMultipleChoiceAnswers = [
+"a. cat",
+"b. Marie-Thérèse's",
+"c. Étranger",
+"a. sujet + objet + 's",
+"b. objet + sujet + 's",
+"c. sujet + 's + objet",
+"a. The friend of Sidney",
+"b. Sidney's friend",
+"c. Sidney friend's"
+]
 var greetingsMultipleChoiceAnswers = [
 "a. Comment allez-vous?",
 "b. Bonjour",
@@ -47,12 +63,17 @@ var greetingsMultipleChoiceAnswers = [
 ]
 
 var greetingsMultipleChoiceCorrectIndices = [0, 1, 2, 1, 0, 2, 1, 2]
-
+var possNounsMultipleChoiceCorrectIndices = [0, 2, 1]
 # greetings support text
 var grettingsLessonPlanText = [
 "Les salutations sont des phrases très important dan chaque langue parce qu'il représente la politesse. Si vous vouliez apprendre l'anglais, vous devriez apprendre les salutations. Bonne chance!\n \nSALUTATIONS FORMELLES: ARRIVÉE\nGood morning / Good evening-> Bonjour / Bonsoir\nHello Esther, how are you?->Bonjour Esther, comment vas-tu?\nGood day Sir / Madam (très formelle)\n->Bonne journée Monsieur / Madame\nRépondez à un accueil formel avec un autre accueil formel.\nGood morning Mr. Pierre->Bonjour monsieur Pierre.\nHello Ms. Louis. How are you today?\n->Bonjour, Madame Louis. Comment vas-tu aujourd'hui?",
 "\nSALUTATION INFORMELLE: ARRIVÉE\nHi / Hello -> Salut / Bonjour\nHow are you? -> Comment allez-vous?\nWhat's up? (Très informel) -> Quoi de neuf?\n \nIl est important de noter que la question How are you? Ou What's up?  N'a pas besoin d'une réponse. Si vous répondez, ces phrases sont généralement attendues:\n \nHow are you? / How are you doing? -> Comment allez-vous?\nVery well, thank you. And you? (formel) -> Très bien merci. Et toi\nFine / Great (informel)  -> Je vais bien/ Je suis génial",
 "SALUTATIONS FORMELLES: DÉPARTE\nUtilisez ces salutations quand vous dites au revoir en fin de journée. Ces salutations sont appropriées pour le travail et d'autres situations formelles.\nIt was a pleasure seeing you->C'était un plaisir de vous voir\nGoodbye. -> Au Revoir.\nRemarque: après 8 heures - Bonne nuit.\n \nSALUTATION INFORMELLE: DÉPARTE\nUtilisez ces salutations en vous disant au revoir dans une situation informelle.\nNice seeing you! -> C'est bien de te voir!\nGoodbye / Bye - > Au Revoir\nSee you later -> À plus tard\nLater (très informel) -> Plus tard"
+]
+var possesiveNounLessonPlanText = [
+"\nLes noms possessifs, ou possessive nouns en anglais, expriment une relation entre une chose et l'autre. Regardez attentivement.\n\n\nPosséder quelque chose signifie avoir ou posséder quelque chose. Les noms possesseurs montrent qu'une personne, un animal, un lieu, une chose ou une idée a ou possède quelque chose. Dans ce film, vous découvrirez différentes façons de rendre les noms singuliers et pluriels possessifs. Vous pouvez ajouter une apostrophe et un 's' à la fin d'un mot, ou simplement une apostrophe.",
+"\nLes règles suivantes s'appliquent:\n\n1. Si le nom possessif est singulier, ajoutez toujours une apostrophe + s.\n2. Si le nom possessif ne se termine pas par -s (sous sa forme écrite), ajoutez toujours une apostrophe + s.\n3. Si le nom possessif est au pluriel et se termine en -s (et c'est une caractéristique de la grande majorité des noms de plural), ajoutez simplement une apostrophe.",
+"\nC'est pourquoi vous dites 'James's books', 'the children's books', et même 'the boss's books'. C'est aussi pourquoi vous ne savez pas si quelque chose appartient à un ou plusieurs garçons jusqu'à ce que vous voyiez la phrase par écrit.\n \nPour simplifier les choses, tout ce que vous devez vraiment retenir est la règle 3. Si la règle 3 ne s'applique pas, ajoutez toujours une apostrophe + s.\n \nAussi, notez que l'anglais américain ne suit pas toujours ces règles."
 ]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [

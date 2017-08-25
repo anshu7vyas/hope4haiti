@@ -5,6 +5,7 @@ onready var worldNode = get_parent()
 onready var alert_box = get_parent().get_node("control_alerts")
 
 var correct_selected = false
+var special_correct_popup = false
 var index = 0
 var interact
 var player_pos
@@ -49,7 +50,11 @@ func correct_popup():
 	alert_box.set_title("Alerte")
 	alert_box._print_alert_string("\n")
 	alert_box.get_node("Label1").set_text("")
-	alert_box.get_node("Label2").set_text("Très bien! C'est exact!")
+	if special_correct_popup:
+		alert_box._print_alert_string("\n\n\n")
+		alert_box.get_node("Label2").set_text("Très bien! C'est exact!\nQue veut dire Marie-Thérèse's, alors ?")
+	else:
+		alert_box.get_node("Label2").set_text("Très bien! C'est exact!")
 	alert_box.get_node("Label3").set_text("")
 	alert_box.show()
 	singleton.correct_answer_chosen = true

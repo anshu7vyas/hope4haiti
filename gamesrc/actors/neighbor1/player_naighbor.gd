@@ -64,43 +64,44 @@ func _fixed_process(delta):
 		var resultDown = world.intersect_point(get_pos() + Vector2(0, GRID))
 		var resultLeft = world.intersect_point(get_pos() + Vector2(-GRID, 0))
 		var resultRight = world.intersect_point(get_pos() + Vector2(GRID, 0))
+		# Animations are different for this sprite so they are kind of mixed around
 		if Input.is_action_pressed("ui_up"):
-			sprite.set_frame(10) #sprite facing up
+			sprite.set_frame(1) #sprite facing up
 			if resultUp.empty():
 				moving = true
 				direction3 = Vector2(0, -1)
 				startPos = get_pos()
-				animationPlayer.play("walk_up")
+				animationPlayer.play("walk_down")
 		elif Input.is_action_pressed("ui_down"):
-			sprite.set_frame(1) #sprite facing down
+			sprite.set_frame(7) #sprite facing down
 			if resultDown.empty():
 				moving = true
 				direction3 = Vector2(0, 1)
 				startPos = get_pos()
-				animationPlayer.play("walk_down")
+				animationPlayer.play("walk_right")
 		elif Input.is_action_pressed("ui_left"):
-			sprite.set_frame(4) #sprite facing left
+			sprite.set_frame(10) #sprite facing left
 			if resultLeft.empty():
 				moving = true
 				direction3 = Vector2(-1, 0)
 				startPos = get_pos()
-				animationPlayer.play("walk_left")
+				animationPlayer.play("walk_up")
 		elif Input.is_action_pressed("ui_right"):
-			sprite.set_frame(7) #sprite facing right
+			sprite.set_frame(4) #sprite facing right
 			if resultRight.empty():
 				moving = true
 				direction3 = Vector2(1, 0)
 				startPos = get_pos()
-				animationPlayer.play("walk_right")
+				animationPlayer.play("walk_left")
 		
 		if interact:
-			if sprite.get_frame() == 10: #character is facing up
+			if sprite.get_frame() == 1: #character is facing up
 				interact(resultUp)
-			elif sprite.get_frame() == 1: #character is facing down
+			elif sprite.get_frame() == 7: #character is facing down
 				interact(resultDown)
-			elif sprite.get_frame() == 4: #character is facing left
+			elif sprite.get_frame() == 10: #character is facing left
 				interact(resultLeft)
-			elif sprite.get_frame() == 7: #character is facing right
+			elif sprite.get_frame() == 4: #character is facing right
 				interact(resultRight)
 		if menu and !interact:
 			get_node("Camera2D/menu")._open_menu()
