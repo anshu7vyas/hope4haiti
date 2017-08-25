@@ -13,7 +13,7 @@ var chapterSelectStartPos
 var chapterSelected = 0
 var passwordEntered = false
 var incorrectPassword = false
-var passwordArray = [0,0,"hello",2,3,4,5,6,7,8,9] # passwords start at index 2
+var passwordArray = [0,0,"hello",2,3,4,5,6,7,8,9,10,11] # passwords start at index 2
 
 var time_delta = 0
 var up = false
@@ -79,13 +79,13 @@ func _input(event):
 			if(index != 0):
 				index -= 1
 				var x = get_node("Selected").get_pos().x
-				var y = get_node("Selected").get_pos().y - 78 #75 is hard coded distance between labels
+				var y = get_node("Selected").get_pos().y - 75 #75 is hard coded distance between labels
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
 			if(index != 2):
 				index += 1
 				var x = get_node("Selected").get_pos().x
-				var y = get_node("Selected").get_pos().y + 78
+				var y = get_node("Selected").get_pos().y + 75
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if (index == 0): #chapters
@@ -100,18 +100,18 @@ func _input(event):
 			chapterNode.set_hidden(true)
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
 			if chapter_index == 0:
-				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (96 * 10)))
-				chapter_index = 10
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (84 * 12)))
+				chapter_index = 12
 			else:
-				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y - 96))
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y - 84))
 				chapter_index -= 1
 
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if chapter_index == 10:
+			if chapter_index == 12:
 				chapter_index = 0
 				selectedNode.set_pos(chapterSelectStartPos)
 			else:
-				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + 96))
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + 84))
 				chapter_index += 1
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if (chapter_index == 0):
@@ -145,11 +145,17 @@ func _input(event):
 			if(chapter_index == 9):
 				chapterSelected = 10
 				print("option10")
-			if (chapter_index == 10):
+			if(chapter_index == 10):
+				chapterSelected = 11
+				print("option11")
+			if(chapter_index == 11):
+				chapterSelected = 12
+				print("option12")
+			if (chapter_index == 12):
 				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
 				chapter_index = 0
 				get_node("multiple_choice").hide()
-				print("option11 back")
+				print("option12 back")
 	elif passwordNode.is_visible():
 		if passwordNode.get_node("back").is_pressed():
 			passwordNode.set_hidden(true)
