@@ -115,9 +115,9 @@ func _fixed_process(delta):
 		changin_scene = true
 		time_delta = 0
 	
-	if time_delta > 1 and changin_scene: # Just goes to home screen for now
+	if time_delta > 1 and changin_scene: # 
 		get_tree().change_scene("res://chapters/chapter_02/inside_scene3/inside_world_nouns.tscn")
-		#setScene("res://chapters/chapter_02/inside_scene3/inside_world_nouns.tscn")
+
 	
 	if dialogueBox.is_visible() or multipleChoiceBox.is_visible() or endPopupNode.is_visible() or changin_scene or animationStarted:
 		disable_movements()

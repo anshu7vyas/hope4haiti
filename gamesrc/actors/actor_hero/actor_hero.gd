@@ -7,15 +7,19 @@ var moving = false
 var canMove = false
 var interact = false
 var menu = false
+var trigger = false
+var run = false
+var canRun = true
 
 var world
 var sprite
 var animationPlayer
 
-const SPEED = 2 #change speed for testing
+var SPEED = 2 #change speed for testing
 const GRID = 16
 
 var angle = 0
+
 var direction = Vector2()
 onready var directionNode = get_tree().get_root().get_node("./world/destinationObj")
 
@@ -36,6 +40,15 @@ func _input(event):
 		menu = true
 	elif event.is_action_released("ui_menu"):
 		menu = false
+	if event.is_action_pressed("ui_run"):
+		run = true
+	elif event.is_action_released("ui_run"):
+		run = false
+	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
+		trigger = true
+	elif event.is_action_released("ui_up") or event.is_action_released("ui_down") or event.is_action_released("ui_left") or event.is_action_released("ui_right"):
+		trigger = false
+
 
 var hasCollided = false
 
@@ -98,6 +111,7 @@ func _fixed_process(delta):
 			moving = false
 	interact = false
 	menu = false
+	#run = false
 
 func interact(result):
 	for dictionary in result:

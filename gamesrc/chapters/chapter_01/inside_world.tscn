@@ -429,7 +429,7 @@ margin/top = -30.0
 margin/right = 240.0
 margin/bottom = 60.0
 popup/exclusive = true
-window/title = "Controls"
+window/title = "Contrôles"
 dialog/hide_on_ok = true
 script/script = ExtResource( 15 )
 

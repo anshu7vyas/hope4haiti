@@ -55,7 +55,6 @@ func _input(event):
 		interact = false
 
 func _fixed_process(delta):
-	print(playerNode.get_pos())
 	time_delta += delta
 	if time_delta > 0.1 and !initial_popup_complete:
 		get_node("Player").canMove = false
@@ -78,7 +77,6 @@ func _fixed_process(delta):
 			conversation_complete = true
 			
 	if conversation_complete and singleton.message_done and !dialogueBox.is_visible() and !first_multiple_choice_done:
-		print("here1")
 		conversation_complete = false
 		multiple_choice_challenge()
 		multiple_choice_started = true

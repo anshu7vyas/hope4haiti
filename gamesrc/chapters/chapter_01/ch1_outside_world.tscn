@@ -188,7 +188,6 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 140, 14 )
 transform/scale = Vector2( 2.01563, 1.73438 )
 input/pickable = true
