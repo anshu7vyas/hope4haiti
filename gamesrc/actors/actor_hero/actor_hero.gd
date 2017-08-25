@@ -42,7 +42,6 @@ var hasCollided = false
 func _fixed_process(delta):
 	var pos = get_pos()
 	#use for debugging compass/direction arrow
-	#direction = (get_global_mouse_pos() - pos).normalized()
 	direction = (directionNode.get_pos() - pos).normalized()
 	angle = 90 - rad2deg(direction.angle())
 	update()

@@ -190,6 +190,7 @@ _update_shape_index = 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -358,6 +359,7 @@ text = [ "Bonjour ! Je m’appelle Marie-Thérèse, et je vais...", "vous aider 
 
 [node name="intoObj" type="Sprite" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 25, 23 )
 transform/scale = Vector2( 0.9375, 0.875 )
