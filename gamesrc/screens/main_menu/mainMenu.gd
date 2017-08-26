@@ -123,33 +123,53 @@ func _input(event):
 				chapterNode.set_hidden(true)
 			if (chapter_index == 2):
 				chapterSelected = 3
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option3")
 			if(chapter_index == 3):
 				chapterSelected = 4
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option4")
 			if(chapter_index== 4):
 				chapterSelected = 5
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option5")
 			if(chapter_index== 5):
 				chapterSelected = 6
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option6")
 			if(chapter_index== 6):
 				chapterSelected = 7
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option7")
 			if(chapter_index== 7):
 				chapterSelected = 8
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option8")
 			if(chapter_index== 8):
 				chapterSelected = 9
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option9")
 			if(chapter_index == 9):
 				chapterSelected = 10
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option10")
 			if(chapter_index == 10):
 				chapterSelected = 11
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option11")
 			if(chapter_index == 11):
 				chapterSelected = 12
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 				print("option12")
 			if (chapter_index == 12):
 				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
