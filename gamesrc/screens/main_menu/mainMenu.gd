@@ -175,7 +175,6 @@ func _input(event):
 				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
 				chapter_index = 0
 				get_node("multiple_choice").hide()
-				print("option12 back")
 	elif passwordNode.is_visible():
 		if passwordNode.get_node("back").is_pressed():
 			passwordNode.set_hidden(true)
@@ -193,7 +192,10 @@ func _input(event):
 #			leaderBoardNode.set_hidden(true)
 func _handle_password_input(password):
 	if password == str(passwordArray[chapterSelected]):
-		get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
+		if chapterSelected == 2:
+			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+		elif chapterSelected == 3:
+			get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
 	else:
 		alertNode.set_hidden(false)
 		passwordNode.get_node("passwordedit").set_text("")

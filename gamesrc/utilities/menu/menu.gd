@@ -3,6 +3,8 @@ extends Patch9Frame
 var menu = false
 var open = false
 
+var currentScene = null
+
 var up = false
 var down = false
 var left = false
@@ -31,7 +33,18 @@ onready var chapterNode = get_node("chapter_menu")
 onready var confirmationNode = get_node("confirmation")
 onready var lessonPlanNode = get_tree().get_current_scene().get_node("lesson_plan")
 
+func setScene(scene):
+	#clean up the current scene
+	currentScene.queue_free()
+	#load the file passed in as the param "scene"
+	var s = ResourceLoader.load(scene)
+	#create an instance of our scene
+	currentScene = s.instance()
+	# add scene to root
+	get_tree().get_root().add_child(currentScene)
+
 func _ready():
+	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_unhandled_key_input(true)
 	set_fixed_process(true)
 	labels = get_node("Labels").get_children()
@@ -70,7 +83,8 @@ func _handle_interaction():
 	if currentLabel == 2: # main menu - BROKEN - startup screen frozen
 		menu = false
 		open = false
-		get_tree().change_scene("res://screens/main_menu/startUp.tscn")
+		setScene("res://screens/main_menu/startUp.tscn")
+		#get_tree().change_scene("res://screens/main_menu/startUp.tscn")
 	elif currentLabel == 3: #Exit Label
 		OS.get_main_loop().quit()
 
@@ -146,10 +160,10 @@ func _fixed_process(delta):
 	if chapterNode.is_visible() and !confirmationNode.is_visible():
 		if up:
 			if currentChapLabel == 0:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (13 * (chapLabels.size()-1))))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (11 * (chapLabels.size()-1))))
 				currentChapLabel = chapLabels.size()-1
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 13))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 11))
 				currentChapLabel -= 1
 
 		if down:
@@ -157,7 +171,7 @@ func _fixed_process(delta):
 				currentChapLabel = 0
 				chapSelect.set_pos(start_pos_select)
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 13))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 11))
 				currentChapLabel += 1
 		if spacePressed:
 			_handle_chap_select()
