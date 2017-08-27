@@ -123,39 +123,30 @@ func _input(event):
 				chapterNode.set_hidden(true)
 			if (chapter_index == 2):
 				chapterSelected = 3
-				print("option3")
+				passwordNode.set_hidden(false)
+				chapterNode.set_hidden(true)
 			if(chapter_index == 3):
 				chapterSelected = 4
-				print("option4")
 			if(chapter_index== 4):
 				chapterSelected = 5
-				print("option5")
 			if(chapter_index== 5):
 				chapterSelected = 6
-				print("option6")
 			if(chapter_index== 6):
 				chapterSelected = 7
-				print("option7")
 			if(chapter_index== 7):
 				chapterSelected = 8
-				print("option8")
 			if(chapter_index== 8):
 				chapterSelected = 9
-				print("option9")
 			if(chapter_index == 9):
 				chapterSelected = 10
-				print("option10")
 			if(chapter_index == 10):
 				chapterSelected = 11
-				print("option11")
 			if(chapter_index == 11):
 				chapterSelected = 12
-				print("option12")
 			if (chapter_index == 12):
 				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
 				chapter_index = 0
 				get_node("multiple_choice").hide()
-				print("option12 back")
 	elif passwordNode.is_visible():
 		if passwordNode.get_node("back").is_pressed():
 			passwordNode.set_hidden(true)
@@ -173,7 +164,10 @@ func _input(event):
 #			leaderBoardNode.set_hidden(true)
 func _handle_password_input(password):
 	if password == str(passwordArray[chapterSelected]):
-		get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
+		if chapterSelected == 2:
+			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+		elif chapterSelected == 3:
+			get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
 	else:
 		alertNode.set_hidden(false)
 		passwordNode.get_node("passwordedit").set_text("")
