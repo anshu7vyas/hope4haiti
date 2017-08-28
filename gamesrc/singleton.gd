@@ -75,6 +75,11 @@ var possesiveNounLessonPlanText = [
 "\nLes règles suivantes s'appliquent:\n\n1. Si le nom possessif est singulier, ajoutez toujours une apostrophe + s.\n2. Si le nom possessif ne se termine pas par -s (sous sa forme écrite), ajoutez toujours une apostrophe + s.\n3. Si le nom possessif est au pluriel et se termine en -s (et c'est une caractéristique de la grande majorité des noms de plural), ajoutez simplement une apostrophe.",
 "\nC'est pourquoi vous dites 'James's books', 'the children's books', et même 'the boss's books'. C'est aussi pourquoi vous ne savez pas si quelque chose appartient à un ou plusieurs garçons jusqu'à ce que vous voyiez la phrase par écrit.\n \nPour simplifier les choses, tout ce que vous devez vraiment retenir est la règle 3. Si la règle 3 ne s'applique pas, ajoutez toujours une apostrophe + s.\n \nAussi, notez que l'anglais américain ne suit pas toujours ces règles."
 ]
+var pronounsLessonPlanText = [
+"Les pronoms, ou pronouns en anglais, sont des mots qui remplacent des noms. On va les explorer maintenant, mais pas avant qu'on ne fasse connaissance de la famille de Marie-Thérèse !\n \nLes pronoms changent en fonction de la personne, du nombre et de la fonction dans une phrase. Nous utilisons différents pronoms pour les personnes que nous connaissons et les personnes que nous ne faisons pas. Nous utilisons les pronoms pour poser des questions, attirer l'attention sur certains objets et montrer la propriété.",
+"Pour mieux comprendre moi et les membres de ma famille, il faudra qu’on les décrive ! Les pronoms en anglais sont:\n \n      I : je\n      You: tu/vous\n      We: nous\n      He/She: il/elle\n      They: ils/elles",
+"C'est pourquoi vous dites 'James's books', 'the children's books', et même 'the boss's books'. C'est aussi pourquoi vous ne savez pas si quelque chose appartient à un ou plusieurs garçons jusqu'à ce que vous voyiez la phrase par écrit.\n \nPour simplifier les choses, tout ce que vous devez vraiment retenir est la règle 3. Si la règle 3 ne s'applique pas, ajoutez toujours une apostrophe + s.\n \nAussi, notez que l'anglais américain ne suit pas toujours ces règles."
+]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
@@ -110,16 +115,16 @@ var nounsQuestions = [
 ]
 
 # Pronouns Support Text
-var pronounsLessonPlanTop = [
-"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
-"Next pages of lessons top section..",
-"Another page of lesson stuff.."
-]
-var pronounsLessonPlanBottom = [
-"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
-"maybe have examples here",
-"Maybe add some more examples here..."
-]
+#var pronounsLessonPlanTop = [
+#"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
+#"Next pages of lessons top section..",
+#"Another page of lesson stuff.."
+#]
+#var pronounsLessonPlanBottom = [
+#"Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus.",
+#"maybe have examples here",
+#"Maybe add some more examples here..."
+#]
 var pronounsQuestions = [
 "Question 2: Il s'agit d'une autre question sur les noms qui se trouvaient dans le plan de cours",
 "Question 3: Quelle sentance utilise les noms en anglais sous la forme appropriée ci-dessous",

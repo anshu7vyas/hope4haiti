@@ -15,7 +15,7 @@ var world
 var sprite
 var animationPlayer
 
-var SPEED = 1 #change speed for testing
+var SPEED = 2 #change speed for testing
 const GRID = 16
 
 var angle = 0

@@ -85,20 +85,17 @@ func multiple_choice_challenge():
 func _fixed_process(delta):
 	if first_multiple_choice_done and !alertBox.is_visible() and !showing_mp_1:
 		showing_mp_1 = true 
-		print("here1")
 		show_sentence_structure_info()
 		first_multiple_choice_done = false
 		interact = false
 	
 	if  sentenceInfoBox.is_visible() and interact and !info_label_done:
 		info_label_done = true
-		print("here2")
 		interact = false
 		sentenceInfoBox.set_hidden(true)
 		stranger_dialogue2()
 	
 	if question_3_started and first_multiple_choice_done and !alertBox.is_visible():
-		print("here9")
 		question_3_started = false
 		question_count += 1
 		question_answers += 3
@@ -111,7 +108,6 @@ func _fixed_process(delta):
 	
 		
 	if singleton.message_done and stranger_part1_done:
-		print("here3")
 		stranger_part1_done = false
 		multiple_choice_question_setup()
 		multiple_choice_challenge()
@@ -119,7 +115,6 @@ func _fixed_process(delta):
 		multiple_choice_started = true
 	
 	if singleton.message_done and stranger_alerted2:
-		print("hereeee")
 		stranger_alerted2 = false
 		question_count += 1
 		question_answers += 3
@@ -139,7 +134,6 @@ func _fixed_process(delta):
 			multipleChoiceBox.set_hidden(true)
 			wrong_answer = true
 		elif singleton.correct_answer_chosen:
-			print("here5")
 			singleton.correct_answer_chosen = false
 			alertBox.set_hidden(false)
 			multiple_choice_started = false
@@ -147,7 +141,6 @@ func _fixed_process(delta):
 			end_first_multiple_choice = true
 			#multipleChoiceBox.queue_free()
 	if wrong_answer and !alertBox.is_visible() and !end_first_multiple_choice:
-		print("here6")
 		multipleChoiceBox.set_hidden(false)
 		wrong_answer = false
 	
@@ -189,7 +182,7 @@ func _fixed_process(delta):
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
 			
-			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+			get_tree().change_scene("res://chapters/chapter_04/inside_world_pronouns.tscn")
 			
 
 	# Block movements when an popup/dialogue box is open
