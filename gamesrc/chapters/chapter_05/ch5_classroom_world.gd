@@ -61,7 +61,6 @@ func _ready():
 	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
-	destinationNode.set_pos(Vector2(-120,-88))
 	directionNode.show()
 	compassNode.show()
 	multipleChoiceQuestion = singleton.adjectivesMultipleChoiceQuestions
@@ -198,7 +197,7 @@ func _fixed_process(delta):
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
 			print("her4")
-			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+			get_tree().change_scene("res://chapters/chapter_06/ch6_inside_world.tscn")
 			
 	if multiple_choice_started:
 		player_pos = playerNode.get_pos()

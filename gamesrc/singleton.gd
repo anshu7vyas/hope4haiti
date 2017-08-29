@@ -106,6 +106,11 @@ var adjectivesLessonPlanText = [
 "Certains adjectifs nous donnent des informations factuelles sur le nom - âge, la taille de la couleur, etc. (adjectifs de faits - ne peuvent être discutés avec).\n \nCertains adjectifs montrent ce que quelqu'un pense à propos de quelque chose ou quelqu'un - gentil, horrible, beau etc. (les adjectifs d'opinion - tout le monde ne peut pas convenir).",
 "La plupart des adjectifs peuvent être utilisés devant un nom:\n    They have a «beautiful house».\n     Ils ont une «belle maison».\n \nOu après un lien, le verbe être, regarder ou ressentir:\n    Their house is «beautiful».\n    Leur maison est «belle»."
 ]
+var possAdjectivesLessonPlanText = [
+"\nLes adjectifs possessifs, ou possessive adjectives en anglais, expriment la possession de ou une relation entre un sujet et un ou des objets. \n \nBien que nous les utilisions lorsque nous nous référons aux personnes, c'est plus dans le sens de la relation que la propriété.",
+"My est un pronom possessif en anglais ! En français, les pronoms possessifs sont: mon, ma, mes, ton, ta, tes, son, sa, ses, votre, vos, notre, nos, leur, et leurs.\n \nRappelez-vous qu'en anglais, les noms n'ont pas de genre. Donc, les pronoms possessifs ne doivent pas faire un accord avec leurs objets, ils font un accord avec leurs sujets. À cause de cela, il y a moins de pronoms possessifs en anglais qu'en français.",
+"Voilà les pronoms possessifs en anglais:\n    My: mon/ma/mes\n    Your: ton/ta/tes/votre/vos\n    Her: son/sa/ses *pour une femme\n    His: son/sa/ses *pour un homme\n    Our: notre/nos\n    Their: leur/leurs"
+]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
