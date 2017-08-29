@@ -72,6 +72,10 @@ func _ready():
 	singleton.multiple_choice_complete = false
 	set_up_lesson_plan()
 	adjectivesScreenNode.set_hidden(false)
+	wrong_answer = false
+	adjective_box_shown = false
+	chapter_done = false
+	chapter_done_popup = false
 	
 	school_text.connect("input_enter", self, "_on_input_enter")
 	school_text.connect("buff_end", self, "_on_buff_end")
@@ -121,11 +125,14 @@ func _fixed_process(delta):
 		
 	if challenge_done or emotion_dialogue_done: 
 		if !assignment_alert and !emotionChallengeBox.is_visible() and !alertBox.is_visible():
+			print("here")
 			assignment_alert = true
 			assignment_popup()
 			mt_dialogue_started = true
 	
 	if mt_dialogue_started and !mt_dialogue_done and !alertBox.is_visible():
+		print("here2")
+		alertBox.set_hidden(true)
 		mt_dialogue()
 		mt_dialogue_done = true
 		
@@ -161,6 +168,7 @@ func _fixed_process(delta):
 		start_q3 = true
 		question_count += 1
 		question_answers += 3
+		alertBox.set_hidden(true)
 		multiple_choice_question_setup()
 		multiple_choice_challenge()
 		multipleChoiceBox.special_alert_text = special_alerts[question_count]
@@ -169,9 +177,11 @@ func _fixed_process(delta):
 		first_multiple_choice_done = false
 	
 	if start_q3 and first_multiple_choice_done and !alertBox.is_visible() and !start_q4:
+		interact = false
 		start_q4 = true
 		question_count += 1
 		question_answers += 3
+		alertBox.set_hidden(true)
 		multiple_choice_question_setup()
 		multiple_choice_challenge()
 		multipleChoiceBox.special_alert_text = special_alerts[question_count]
@@ -182,6 +192,9 @@ func _fixed_process(delta):
 	if start_q4 and !chapter_done_popup and !alertBox.is_visible() and first_multiple_choice_done:
 		score_popup()
 		chapter_done_popup = true
+	
+	if multipleChoiceBox.is_visible():
+		alertBox.set_hidden(true)
 		
 	if scorePopupNode.is_visible():
 		# score < 80 and resart chapter pressed
@@ -203,6 +216,7 @@ func _fixed_process(delta):
 		player_pos = playerNode.get_pos()
 		alertBox.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
+			print("her8")
 			chapter_score -= 4
 			singleton.wrong_choice = false
 			alertBox.set_hidden(false)
@@ -232,6 +246,7 @@ func mt_dialogue():
 	get_node("dialogue_box")._print_dialogue(get_node("dialogeObj4/StaticBody2D/dialogue").text) 
 
 func assignment_popup():
+	print("here3")
 	player_pos = playerNode.get_pos()
 	delete_alert_box_text()
 	alertBox.set_pos(Vector2(player_pos.x-76, player_pos.y-30))
