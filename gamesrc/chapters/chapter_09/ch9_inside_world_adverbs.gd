@@ -19,6 +19,7 @@ var multiple_choice_box = false
 var final_challenge_start = false
 var scene_complete = false
 var claudine_dialogue_started = false
+var sydney_dialogue_started = false
 var interacted = false
 var conversation_complete = false
 var multiple_choice_started = false
@@ -30,8 +31,6 @@ var end_second_multiple_choice = false
 var second_multiple_choice_done = false
 var lesson_plan_page = 0
 var chapter_score = 100
-
-
 
 var player_pos
 var interact = false
@@ -64,17 +63,13 @@ func _input(event):
 
 func _fixed_process(delta):
 	time_delta += delta
-	if interact: # space bar pressed
-		if adverbsScreenNode.is_visible():
-			adverbsScreenNode.set_hidden(true)
 	if time_delta > 0.1 and !initial_popup_complete:
 		get_node("Player").canMove = false
 		set_up_lesson_plan()
 		initial_popup_complete = true
 	
-			
-	if conversation_complete and singleton.message_done and !dialogueBox.is_visible() and !first_multiple_choice_done:
-		conversation_complete = false
+	if !conversation_complete and singleton.message_done and !dialogueBox.is_visible() and !first_multiple_choice_done:
+		conversation_complete = true
 		multiple_choice_challenge()
 		multiple_choice_started = true
 	
@@ -178,6 +173,21 @@ func claudine_dialogue():
 	get_node("startup_dialoge")._print_dialogue(get_node("dialogueObj/StaticBody2D/Interact").text) 
 	interacted = true
 	claudine_dialogue_started = true
+	
+func sydney_dialogue():
+	disable_movements()
+	if playerNode.get_pos().x < -184: # claudine x position
+		get_node("area_sydney/Sprite").set_frame(2)
+	else:
+		get_node("area_sydney/Sprite").set_frame(4)
+	directionNode.hide()
+	compassNode.hide()
+	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
+	get_node("startup_dialoge").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
+	get_node("startup_dialoge").set_hidden(false)
+	get_node("startup_dialoge")._print_dialogue(get_node("dialogueObj/StaticBody2D/Interact").text) 
+	interacted = true
+	sydney_dialogue_started = true
 
 func set_up_lesson_plan():
 	lesson_plan_bottomtext = singleton.adverbsLessonPlanBottom

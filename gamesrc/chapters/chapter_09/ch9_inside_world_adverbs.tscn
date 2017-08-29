@@ -4,7 +4,7 @@
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
 [ext_resource path="res://chapters/chapter_09/area_claudine_interaction.gd" type="Script" id=3]
 [ext_resource path="res://actors/neighbor3/Healer-F-01.png" type="Texture" id=4]
-[ext_resource path="res://chapters/chapter_02/inside_scene3/area_father_interaction.gd" type="Script" id=5]
+[ext_resource path="res://chapters/chapter_09/area_sydney_interaction.gd" type="Script" id=5]
 [ext_resource path="res://actors/neighbor1/Townfolk-Child-F.png" type="Texture" id=6]
 [ext_resource path="res://actors/actor_hero/actor_hero.gd" type="Script" id=7]
 [ext_resource path="res://actors/actor_hero/actor_hero.png" type="Texture" id=8]
@@ -14,28 +14,28 @@
 [ext_resource path="res://utilities/collisions/collision.xml" type="TileSet" id=12]
 [ext_resource path="res://chapters/chapter_01/objectstSprite-0.png" type="Texture" id=13]
 [ext_resource path="res://utilities/interaction/interact_script.gd" type="Script" id=14]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=15]
-[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=16]
-[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=17]
-[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=18]
-[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=19]
-[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=20]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=21]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=22]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=23]
-[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=24]
+[ext_resource path="res://chapters/chapter_01/destinationObject.gd" type="Script" id=15]
+[ext_resource path="res://utilities/compass/compass.png" type="Texture" id=16]
+[ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=17]
+[ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=18]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=19]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=20]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=21]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=22]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=23]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=24]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=25]
 [ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 18.75, 17.5344 )
+extents = Vector2( 15.225, 17.5344 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12, 20 )
+extents = Vector2( 12, 15.9286 )
 
 [sub_resource type="Animation" id=3]
 
@@ -181,7 +181,7 @@ __meta__ = {
 transform/pos = Vector2( 255, 321 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.298851, 0, 0, 0.627337, -184, -20 )
+shapes/0/transform = Matrix32( 0.298851, 0, 0, 0.779179, -184, -23 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -191,8 +191,8 @@ script/script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="area_claudine"]
 
-transform/pos = Vector2( -184, -20 )
-transform/scale = Vector2( 0.8, 0.8 )
+transform/pos = Vector2( -183, -23 )
+transform/scale = Vector2( 0.833333, 0.875 )
 texture = ExtResource( 4 )
 vframes = 4
 hframes = 3
@@ -200,8 +200,8 @@ frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_claudine"]
 
-transform/pos = Vector2( -184, -20 )
-transform/scale = Vector2( 0.298851, 0.627337 )
+transform/pos = Vector2( -184, -23 )
+transform/scale = Vector2( 0.298851, 0.779179 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -211,7 +211,7 @@ _update_shape_index = 0
 transform/pos = Vector2( 255, 321 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.298851, 0, 0, 0.627337, -134, -18 )
+shapes/0/transform = Matrix32( 0.449364, 0, 0, 0.776306, -132.81, -21.059 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -230,19 +230,20 @@ frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_sydney"]
 
-transform/pos = Vector2( -134, -18 )
-transform/scale = Vector2( 0.298851, 0.627337 )
+transform/pos = Vector2( -132.81, -21.059 )
+transform/scale = Vector2( 0.449364, 0.776306 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -56, 280 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1.73333, 0, 0, 0.991562, -2, -5.23111 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -274,6 +275,8 @@ autoplay = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
+transform/pos = Vector2( -2, -5.23111 )
+transform/scale = Vector2( 1.73333, 0.991562 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
@@ -373,7 +376,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393210, 0, -262147, 0, -262146, 1, -262145, 1, -327680, 1, -327679, 1, -327678, 1, -327677, 1, -327676, 0, -327675, 0, -327674, 0, -196611, 0, -262140, 1, -262139, 1, -262138, 0, -131086, 0, -131085, 0, -131084, 0, -131083, 0, -131075, 0, -196602, 0, -196601, 0, -65554, 0, -65553, 0, -65552, 0, -65551, 0, -65550, 0, -65549, 0, -65548, 0, -65547, 0, -65546, 0, -65545, 0, -65544, 0, -65543, 0, -65542, 0, -65541, 0, -65539, 0, -65538, 0, -65537, 0, -131068, 0, -131067, 0, -131066, 0, -131065, 0, -18, 0, -17, 1, -16, 1, -15, 1, -14, 1, -13, 1, -12, 0, -11, 1, -9, 1, -8, 1, -7, 1, -6, 1, -5, 0, -3, 0, -2, 0, -1, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, 65518, 0, 65524, 0, 65531, 0, 65533, 0, 4, 0, 5, 0, 6, 0, 131054, 0, 131059, 0, 131060, 0, 131067, 0, 131069, 0, 65540, 0, 65541, 0, 65542, 0, 196590, 0, 196591, 1, 196593, 1, 196594, 1, 196595, 1, 196596, 1, 196603, 0, 196604, 0, 196605, 0, 131076, 1, 131077, 1, 131078, 0, 262126, 0, 262127, 0, 262128, 0, 262129, 0, 262130, 0, 262131, 0, 262132, 0, 262133, 0, 262134, 0, 262135, 0, 262139, 1, 262140, 1, 262141, 1, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 327668, 1, 327669, 1, 327670, 1, 327671, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 393207, 0, 393208, 0, 393209, 0, 327681, 0, 458743, 0, 458744, 0, 458745, 0, 393217, 0, 524279, 0, 524280, 0, 524281, 0, 524282, 0, 524286, 0, 524287, 0, 458752, 0, 458753, 0, 589815, 1, 589816, 1, 589817, 1, 589818, 0, 589822, 0, 589823, 1, 524288, 1, 524289, 1, 655354, 0, 655358, 0, 720890, 0, 720894, 0, 786426, 0, 786430, 0, 851962, 0, 851966, 0, 917498, 0, 917502, 0, 983034, 0, 983038, 0, 983039, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 1048570, 0, 983050, 0, 1114106, 0, 1048586, 0, 1179642, 0, 1179646, 0, 1179647, 0, 1114112, 0, 1114122, 0, 1245178, 0, 1245179, 0, 1245180, 0, 1245181, 0, 1245182, 0, 1245183, 1, 1179648, 0, 1179649, 0, 1179650, 0, 1179658, 0, 1310714, 0, 1310718, 0, 1245184, 0, 1245185, 0, 1245186, 0, 1245189, 0, 1245190, 0, 1245194, 0, 1376250, 0, 1376251, 0, 1376252, 0, 1376253, 0, 1376254, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1441786, 0, 1441787, 0, 1441788, 0, 1441789, 0, 1441790, 0, 1376256, 0, 1376257, 0, 1376258, 0, 1376264, 0, 1376265, 0, 1376266, 0, 1441792, 0, 1441802, 0, 1507328, 0, 1507329, 0, 1507330, 0, 1507331, 0, 1507332, 0, 1507333, 0, 1507334, 0, 1507335, 0, 1507336, 0, 1507337, 0, 1507338, 0 )
+tile_data = IntArray( -327683, 0, -327682, 0, -327681, 0, -393216, 0, -393215, 0, -393214, 0, -393213, 0, -393212, 0, -393210, 0, -262147, 0, -262146, 1, -262145, 1, -327680, 1, -327679, 1, -327678, 1, -327677, 1, -327676, 0, -327675, 0, -327674, 0, -196611, 0, -262140, 1, -262139, 1, -262138, 0, -131086, 0, -131085, 0, -131084, 0, -131083, 0, -131075, 0, -196602, 0, -196601, 0, -65554, 0, -65553, 0, -65552, 0, -65551, 0, -65550, 0, -65549, 0, -65548, 0, -65547, 0, -65546, 0, -65545, 0, -65544, 0, -65543, 0, -65542, 0, -65541, 0, -65539, 0, -65538, 0, -65537, 0, -131068, 0, -131067, 0, -131066, 0, -131065, 0, -18, 0, -17, 1, -16, 1, -15, 1, -14, 1, -13, 1, -12, 0, -11, 1, -9, 1, -8, 1, -7, 1, -6, 1, -5, 0, -3, 0, -2, 0, -1, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, 65518, 0, 65524, 0, 65531, 0, 65533, 0, 4, 0, 5, 0, 6, 0, 131054, 0, 131059, 0, 131060, 0, 131067, 0, 131069, 0, 65540, 0, 65541, 0, 65542, 0, 196590, 0, 196591, 1, 196593, 1, 196594, 1, 196595, 1, 196596, 1, 196603, 0, 196604, 0, 196605, 0, 131076, 1, 131077, 1, 131078, 0, 262126, 0, 262127, 0, 262128, 0, 262129, 0, 262130, 0, 262131, 0, 262132, 0, 262133, 0, 262134, 0, 262135, 0, 262139, 1, 262140, 1, 262141, 1, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 327668, 1, 327669, 1, 327670, 1, 327671, 0, 262145, 0, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 393207, 0, 393208, 0, 393209, 0, 327681, 0, 458743, 0, 458744, 0, 458745, 0, 393217, 0, 524279, 0, 524280, 0, 524281, 0, 524282, 0, 524286, 0, 524287, 0, 458752, 0, 458753, 0, 589815, 1, 589816, 1, 589817, 1, 589818, 0, 589822, 0, 589823, 1, 524288, 1, 524289, 1, 655354, 0, 655358, 0, 720890, 0, 720894, 0, 786426, 0, 786430, 0, 851962, 0, 851966, 0, 917498, 0, 917502, 0, 983034, 0, 983038, 0, 983039, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 1048570, 0, 983050, 0, 1114106, 0, 1048586, 0, 1179642, 0, 1179646, 0, 1179647, 0, 1114112, 0, 1114122, 0, 1245178, 0, 1245179, 0, 1245180, 0, 1245181, 0, 1245182, 0, 1245183, 1, 1179648, 0, 1179649, 0, 1179650, 0, 1179652, 0, 1179655, 0, 1179658, 0, 1310714, 0, 1310718, 0, 1245184, 0, 1245185, 0, 1245186, 0, 1245189, 0, 1245190, 0, 1245194, 0, 1376250, 0, 1376251, 0, 1376252, 0, 1376253, 0, 1376254, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1441786, 0, 1441787, 0, 1441788, 0, 1441789, 0, 1441790, 0, 1376256, 0, 1376257, 0, 1376258, 0, 1376264, 0, 1376265, 0, 1376266, 0, 1441792, 0, 1441802, 0, 1507328, 0, 1507329, 0, 1507330, 0, 1507331, 0, 1507332, 0, 1507333, 0, 1507334, 0, 1507335, 0, 1507336, 0, 1507337, 0, 1507338, 0 )
 
 [node name="dialogueObj" type="Sprite" parent="."]
 
@@ -449,27 +452,6 @@ _update_shape_index = 0
 script/script = ExtResource( 14 )
 text = [ "Claudine:  “Pourquoi? Why are you happy?”", "MT: “Because, I practiced math with Sidney”", "Sidney: “Oui, yes, I practiced math with Marie-Thérèse”", "Claudine: “La prochaine fois, next time, I will practice with you!”", "All: “Yipee!”" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-
-rect/scale = Vector2( 0.32, 0.32 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -40.0
-margin/top = 45.0
-margin/right = 386.0
-margin/bottom = 112.0
-custom_fonts/mono_font = ExtResource( 15 )
-custom_fonts/bold_italics_font = ExtResource( 15 )
-custom_fonts/italics_font = ExtResource( 15 )
-custom_fonts/bold_font = ExtResource( 15 )
-custom_fonts/normal_font = ExtResource( 15 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-
 [node name="startup_dialoge" parent="." instance=ExtResource( 9 )]
 
 editor/display_folded = true
@@ -483,20 +465,21 @@ margin/bottom = 74.0
 
 transform/pos = Vector2( 95.9107, 297.269 )
 transform/scale = Vector2( 0.37221, 0.304088 )
-script/script = ExtResource( 16 )
+script/script = ExtResource( 15 )
 
 [node name="compassBG" type="Sprite" parent="."]
 
 visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.0375, 0.035 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 
 [node name="direction_arrow" type="Node2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 25, 21 )
 transform/scale = Vector2( 0.9375, 0.875 )
-script/script = ExtResource( 18 )
+script/script = ExtResource( 17 )
 
 [node name="control_alerts" type="AcceptDialog" parent="."]
 
@@ -514,7 +497,7 @@ margin/bottom = 363.0
 popup/exclusive = true
 window/title = "Alerte"
 dialog/hide_on_ok = true
-script/script = ExtResource( 19 )
+script/script = ExtResource( 18 )
 
 [node name="Label1" type="Label" parent="control_alerts"]
 
@@ -570,12 +553,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -76.0
-margin/top = -67.0
-margin/right = 324.0
-margin/bottom = 233.0
+margin/left = -155.0
+margin/top = 207.0
+margin/right = 245.0
+margin/bottom = 507.0
 popup/exclusive = false
-script/script = ExtResource( 20 )
+script/script = ExtResource( 19 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
@@ -588,7 +571,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 497.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les adverbes"
 align = 1
@@ -623,9 +606,7 @@ margin/right = 372.0
 margin/bottom = 260.0
 bbcode/enabled = false
 bbcode/bbcode = "Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe.
-
 Un verbe est un mot d'action (jump, run, swim, ski, fish, talk)
-
 Un adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)
 
 Il est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:
@@ -647,7 +628,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 22 )
+icon = ExtResource( 21 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
@@ -663,11 +644,12 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 23 )
+icon = ExtResource( 22 )
 flat = false
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -679,7 +661,7 @@ margin/top = -9.0
 margin/right = 255.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 24 )
+script/script = ExtResource( 23 )
 
 [node name="Label1" type="Label" parent="multiple_choice"]
 
@@ -692,7 +674,7 @@ margin/left = 34.0
 margin/top = 72.0
 margin/right = 508.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "a. happy"
 percent_visible = 1.0
@@ -710,7 +692,7 @@ margin/left = 34.0
 margin/top = 96.0
 margin/right = 508.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "b. sleepy"
 percent_visible = 1.0
@@ -728,7 +710,7 @@ margin/left = 34.0
 margin/top = 122.0
 margin/right = 508.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "c. angry"
 percent_visible = 1.0
@@ -753,8 +735,8 @@ margin/left = 14.0
 margin/top = 22.0
 margin/right = 562.0
 margin/bottom = 122.0
-custom_fonts/bold_font = ExtResource( 15 )
-custom_fonts/normal_font = ExtResource( 15 )
+custom_fonts/bold_font = ExtResource( 24 )
+custom_fonts/normal_font = ExtResource( 24 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Quel est un synonyme pour « excited » en anglais ?"
@@ -774,7 +756,7 @@ margin/top = -9.0
 margin/right = 255.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 24 )
+script/script = ExtResource( 23 )
 
 [node name="Label1" type="Label" parent="multiple_choice1"]
 
@@ -787,7 +769,7 @@ margin/left = 34.0
 margin/top = 72.0
 margin/right = 508.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "a. dormir"
 percent_visible = 1.0
@@ -805,7 +787,7 @@ margin/left = 34.0
 margin/top = 96.0
 margin/right = 508.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "b. manger"
 percent_visible = 1.0
@@ -823,7 +805,7 @@ margin/left = 34.0
 margin/top = 122.0
 margin/right = 508.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "c. pratiquer les maths avec MT et Sidney"
 percent_visible = 1.0
@@ -848,8 +830,8 @@ margin/left = 14.0
 margin/top = 22.0
 margin/right = 562.0
 margin/bottom = 122.0
-custom_fonts/bold_font = ExtResource( 15 )
-custom_fonts/normal_font = ExtResource( 15 )
+custom_fonts/bold_font = ExtResource( 24 )
+custom_fonts/normal_font = ExtResource( 24 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Maintenant, qu’est-ce que Claudine va faire?"
@@ -857,6 +839,7 @@ visible_characters = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -880,7 +863,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 790.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Score de fin de chapitre"
 align = 1
@@ -899,7 +882,7 @@ margin/left = 2.0
 margin/top = 56.0
 margin/right = 565.0
 margin/bottom = 155.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Vous avez terminé 
 ce chapitre avec un
@@ -919,7 +902,7 @@ margin/left = 2.0
 margin/top = 122.0
 margin/right = 398.0
 margin/bottom = 182.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "95 points!"
 align = 1
@@ -939,7 +922,7 @@ margin/left = 2.0
 margin/top = 186.0
 margin/right = 565.0
 margin/bottom = 285.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Un score total d'au moins 
 80 points est nécessaire pour passer 
@@ -961,7 +944,7 @@ margin/left = 2.0
 margin/top = 180.0
 margin/right = 565.0
 margin/bottom = 246.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Bon travail! Le mot de passe pour
 le prochain chapitre est:"
@@ -982,7 +965,7 @@ margin/left = 2.0
 margin/top = 230.0
 margin/right = 565.0
 margin/bottom = 264.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "f5hi2x"
 align = 1
@@ -1037,6 +1020,8 @@ text = "Chapitre suivant"
 flat = false
 
 [connection signal="body_enter" from="area_claudine" to="area_claudine" method="_on_area_claudine_body_enter"]
+
+[connection signal="body_enter" from="area_sydney" to="area_sydney" method="_on_area_sydney_body_enter"]
 
 
 [editable path="Player/Camera2D/dialogue_box"]

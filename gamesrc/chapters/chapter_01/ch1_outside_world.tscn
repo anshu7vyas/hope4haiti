@@ -227,7 +227,6 @@ modulate = Color( 0.759675, 0.894531, 0.667404, 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false

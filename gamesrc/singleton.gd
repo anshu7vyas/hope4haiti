@@ -135,7 +135,7 @@ var pronounsQuestions = [
 
 # Chapter 9 Adverbs
 var adverbsLessonPlanBottom = [
-"Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe. \n\nUn verbe est un mot d'action (jump, run, swim, ski, fish, talk) \n\n Un adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)\n\n Il est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:\n\nHe 'quickly' runs\n She 'slowly' walks \n He 'happily' chatters",
+"Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe. \nUn verbe est un mot d'action (jump, run, swim, ski, fish, talk) \nUn adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)\n\nIl est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:\nHe 'quickly' runs\nShe 'slowly' walks \nHe 'happily' chatters",
 ""
 ]
 
