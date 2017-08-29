@@ -80,11 +80,7 @@ var pronounsLessonPlanText = [
 "Pour mieux comprendre moi et les membres de ma famille, il faudra qu’on les décrive ! Les pronoms en anglais sont:\n \n      I : je\n      You: tu/vous\n      We: nous\n      He/She: il/elle\n      They: ils/elles",
 "C'est pourquoi vous dites 'James's books', 'the children's books', et même 'the boss's books'. C'est aussi pourquoi vous ne savez pas si quelque chose appartient à un ou plusieurs garçons jusqu'à ce que vous voyiez la phrase par écrit.\n \nPour simplifier les choses, tout ce que vous devez vraiment retenir est la règle 3. Si la règle 3 ne s'applique pas, ajoutez toujours une apostrophe + s.\n \nAussi, notez que l'anglais américain ne suit pas toujours ces règles."
 ]
-var adverbsLessonPlanText = [
-"",
-"",
-""
-]
+
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
