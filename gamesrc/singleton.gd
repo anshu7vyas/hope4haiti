@@ -24,6 +24,26 @@ var possNounsMultipleChoiceQuestions = [
 "Révisons ! Quel est l'ordre pour former un nom possessif en anglais ?",
 "Une question de plus ! Comment dirait-on l'amie de Sidney ?"
 ]
+var adjectivesMultipleChoiceQuestions = [
+"Patrick aime les sports. Selon ce fait, quel adjectif pourrait-on utiliser pour le décrire ?",
+"La grand-mère de MT est sage. Traduisez la phrase: elle est sage en anglais",
+"Question: Comment dit-on vieux/vieille en anglais ?",
+"Question: Si Sidney a passé une très bonne journée, qu'est-ce qu'on pourrait dire d'elle?",
+]
+var adjectivesMultipleChoiceAnswers = [
+"a. intelligent",
+"b. athletic",
+"c. happy",
+"a. She is athletic",
+"b. She is happy",
+"c. She is wise",
+"a. young",
+"b. old",
+"c. slow",
+"a. She is happy",
+"b. She is young",
+"c. She is fast"
+]
 var possNounsMultipleChoiceAnswers = [
 "a. cat",
 "b. Marie-Thérèse's",
@@ -64,6 +84,7 @@ var greetingsMultipleChoiceAnswers = [
 
 var greetingsMultipleChoiceCorrectIndices = [0, 1, 2, 1, 0, 2, 1, 2]
 var possNounsMultipleChoiceCorrectIndices = [0, 2, 1]
+var adjectivesMultipleChoiceCorrectIndices = [1, 2, 1, 0]
 # greetings support text
 var grettingsLessonPlanText = [
 "Les salutations sont des phrases très important dan chaque langue parce qu'il représente la politesse. Si vous vouliez apprendre l'anglais, vous devriez apprendre les salutations. Bonne chance!\n \nSALUTATIONS FORMELLES: ARRIVÉE\nGood morning / Good evening-> Bonjour / Bonsoir\nHello Esther, how are you?->Bonjour Esther, comment vas-tu?\nGood day Sir / Madam (très formelle)\n->Bonne journée Monsieur / Madame\nRépondez à un accueil formel avec un autre accueil formel.\nGood morning Mr. Pierre->Bonjour monsieur Pierre.\nHello Ms. Louis. How are you today?\n->Bonjour, Madame Louis. Comment vas-tu aujourd'hui?",
@@ -79,6 +100,11 @@ var pronounsLessonPlanText = [
 "Les pronoms, ou pronouns en anglais, sont des mots qui remplacent des noms. On va les explorer maintenant, mais pas avant qu'on ne fasse connaissance de la famille de Marie-Thérèse !\n \nLes pronoms changent en fonction de la personne, du nombre et de la fonction dans une phrase. Nous utilisons différents pronoms pour les personnes que nous connaissons et les personnes que nous ne faisons pas. Nous utilisons les pronoms pour poser des questions, attirer l'attention sur certains objets et montrer la propriété.",
 "Pour mieux comprendre moi et les membres de ma famille, il faudra qu’on les décrive ! Les pronoms en anglais sont:\n \n      I : je\n      You: tu/vous\n      We: nous\n      He/She: il/elle\n      They: ils/elles",
 "C'est pourquoi vous dites 'James's books', 'the children's books', et même 'the boss's books'. C'est aussi pourquoi vous ne savez pas si quelque chose appartient à un ou plusieurs garçons jusqu'à ce que vous voyiez la phrase par écrit.\n \nPour simplifier les choses, tout ce que vous devez vraiment retenir est la règle 3. Si la règle 3 ne s'applique pas, ajoutez toujours une apostrophe + s.\n \nAussi, notez que l'anglais américain ne suit pas toujours ces règles."
+]
+var adjectivesLessonPlanText = [
+"Maintenant, vous allez voir un adjectif, ou adjective en anglais. Les adjectifs en anglais sont utilisés avec les noms, pour les décrire. Il faut rappeler qu'en anglais, les noms ne sont ni masculins ni féminins, donc les adjectifs sont pareils pour les femmes et les hommes, et tous les objets !\n \nLes adjectifs sont des mots descriptifs. Les adjectifs sont utilisés pour décrire ou donner des informations sur les choses, les idées et les personnes: noms ou pronoms.",
+"Certains adjectifs nous donnent des informations factuelles sur le nom - âge, la taille de la couleur, etc. (adjectifs de faits - ne peuvent être discutés avec).\n \nCertains adjectifs montrent ce que quelqu'un pense à propos de quelque chose ou quelqu'un - gentil, horrible, beau etc. (les adjectifs d'opinion - tout le monde ne peut pas convenir).",
+"La plupart des adjectifs peuvent être utilisés devant un nom:\n    They have a «beautiful house».\n     Ils ont une «belle maison».\n \nOu après un lien, le verbe être, regarder ou ressentir:\n    Their house is «beautiful».\n    Leur maison est «belle»."
 ]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
