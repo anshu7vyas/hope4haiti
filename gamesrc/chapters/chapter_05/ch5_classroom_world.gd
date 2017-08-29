@@ -200,7 +200,6 @@ func _fixed_process(delta):
 		# score < 80 and resart chapter pressed
 		if scorePopupNode.get_node("restart_chapter_level").is_pressed() and !chapter_done:
 			chapter_done = true # do block once
-			print("her")
 			get_tree().change_scene("res://chapters/chapter_05/ch5_classroom_world.tscn")
 			#not sure if i need to free this scene
 			self.queue_free()
@@ -209,14 +208,12 @@ func _fixed_process(delta):
 			scorePopupNode.get_node("next_chapter_pw").set_text("f5hi2x")
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
-			print("her4")
 			get_tree().change_scene("res://chapters/chapter_06/ch6_inside_world.tscn")
 			
 	if multiple_choice_started:
 		player_pos = playerNode.get_pos()
 		alertBox.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
-			print("her8")
 			chapter_score -= 4
 			singleton.wrong_choice = false
 			alertBox.set_hidden(false)

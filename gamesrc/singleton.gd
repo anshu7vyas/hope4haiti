@@ -111,6 +111,11 @@ var possAdjectivesLessonPlanText = [
 "My est un pronom possessif en anglais ! En français, les pronoms possessifs sont: mon, ma, mes, ton, ta, tes, son, sa, ses, votre, vos, notre, nos, leur, et leurs.\n \nRappelez-vous qu'en anglais, les noms n'ont pas de genre. Donc, les pronoms possessifs ne doivent pas faire un accord avec leurs objets, ils font un accord avec leurs sujets. À cause de cela, il y a moins de pronoms possessifs en anglais qu'en français.",
 "Voilà les pronoms possessifs en anglais:\n    My: mon/ma/mes\n    Your: ton/ta/tes/votre/vos\n    Her: son/sa/ses *pour une femme\n    His: son/sa/ses *pour un homme\n    Our: notre/nos\n    Their: leur/leurs"
 ]
+var verbsLessonPlanText = [
+"Un verbe est un mot qui décrit une action, une occurrence, ou un état d’esprit.\n  1) Les verbes d’action sont\n  2) Les verbes auxiliaires sont « have » « be » et « do ». (avoir, être, et faire).\nLes verbes auxiliaires servent à exprimer le temps ou à formuler un négatif ou une interrogation.\n  3) Les verbes d’état sont les “non action” verbes.  Ils expriment l’émotion, la perception, la possession,  et la croyance.\n  4) Les verbes irréguliers- il y a certains verbes qui ne sont pas formés comme les autres au prétérit ou au participé passé.\n     a. Grow, grew, grown, go, went, gone",
+"",
+""
+]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
