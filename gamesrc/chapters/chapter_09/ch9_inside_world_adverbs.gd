@@ -40,13 +40,11 @@ func _ready():
 	get_node("Player").canMove = false
 	directionNode.hide()
 	compassNode.hide()
-	get_node("banana").set_hidden(true)
-	get_node("exclamation").set_hidden(true)
 	singleton.wrong_choice = false
 	singleton.correct_answer_chosen = false
 	singleton.multiple_choice_complete = false
 	get_node("multiple_choice").correctIndex = 2
-	get_node("multiple_choice2").correctIndex = 1
+
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -61,20 +59,6 @@ func _fixed_process(delta):
 		scene_intro_popup()
 		initial_popup_complete = true
 	
-	if father_dialogue_started and dialogueBox.is_visible():
-		player_pos = playerNode.get_pos()
-		if dialogueBox.currentText == 2:
-			get_node("banana").set_pos(player_pos)
-			get_node("banana").set_hidden(false)
-		elif dialogueBox.currentText == 4:
-			get_node("banana").set_pos(Vector2(-184,-48))
-			get_node("area_father/Sprite").set_frame(1)
-		elif dialogueBox.currentText == 6:
-			get_node("exclamation").set_hidden(false)
-		elif dialogueBox.currentText > 6:
-			get_node("exclamation").set_hidden(true)
-			father_dialogue_started = false #do once
-			conversation_complete = true
 			
 	if conversation_complete and singleton.message_done and !dialogueBox.is_visible() and !first_multiple_choice_done:
 		conversation_complete = false
@@ -102,46 +86,10 @@ func _fixed_process(delta):
 		multipleChoiceBox.set_hidden(false)
 		wrong_answer = false
 		
-	# second multiple choice
-	if first_multiple_choice_done and !alertNode.is_visible():
-		first_multiple_choice_done = false
-		get_node("destinationObj").set_pos(Vector2(-120,-24)) # move desination to the pot
-		multiple_choice_challenge2()
-		multiple_choice2_started = true
-	if multiple_choice2_started:
-		player_pos = playerNode.get_pos()
-		alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
-		if singleton.wrong_choice:
-			singleton.wrong_choice = false
-			singleton.chapter_2_score -= 4
-			alertNode.set_hidden(false)
-			get_node("multiple_choice2").set_hidden(true)
-			wrong_answer = true
-		elif singleton.correct_answer_chosen:
-			singleton.correct_answer_chosen = false
-			alertNode.set_hidden(false)
-			multiple_choice2_started = false
-			second_multiple_choice_done = true
-			end_second_multiple_choice = true
-	if wrong_answer and !alertNode.is_visible() and !end_second_multiple_choice:
-		get_node("multiple_choice2").set_hidden(false)
-		wrong_answer = false
 	
-	#carry the pot
-	if picked_up_pot:
-		set_pot_pos()
-	
-	if time_delta > 0.05 and !alertNode.is_visible() and !father_dialogue_started:
-		directionNode.show()
-		compassNode.show()
-	
-	if alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or get_node("multiple_choice2").is_visible():
+	if alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
 		disable_movements()
 
-func pick_up_pot():
-	set_pot_pos()
-	get_node("destinationObj").set_pos(Vector2(-56,296)) 
-	picked_up_pot = true
 
 func setScene(scene):
 	#clean up the current scene
@@ -153,10 +101,6 @@ func setScene(scene):
 	# add scene to root
 	get_tree().get_root().add_child(currentScene)
 
-func set_pot_pos():
-	player_pos = playerNode.get_pos()
-	get_node("pot_empty").set_pos(Vector2(player_pos.x, player_pos.y-12))
-	
 func multiple_choice_challenge():
 	disable_movements()
 	player_pos = playerNode.get_pos()
@@ -164,13 +108,6 @@ func multiple_choice_challenge():
 	multipleChoiceBox.show()
 	singleton.wrong_choice = false
 
-func multiple_choice_challenge2():
-	disable_movements()
-	#get_node("multiple_choice").correctIndex = 1
-	player_pos = playerNode.get_pos()
-	get_node("multiple_choice2").set_pos(Vector2(player_pos.x-76, player_pos.y-45))
-	get_node("multiple_choice2").show()
-	singleton.wrong_choice = false
 
 func delete_alert_box_text():
 	alertNode._print_alert_string("\n\n\n")
