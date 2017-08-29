@@ -117,7 +117,7 @@ func _fixed_process(delta):
 			scorePopupNode.get_node("next_chapter_pw").set_text("f5hi2x")
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
-			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+			get_tree().change_scene("res://chapters/chapter_07/ch7_inside_world_verbs.tscn")
 			
 	if multiple_choice_started:
 		player_pos = playerNode.get_pos()
@@ -178,6 +178,8 @@ func score_popup():
 	player_pos = playerNode.get_pos()
 	scorePopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
 	scorePopupNode.set_hidden(false)
+	if chapter_score < 1:
+		chapter_score = 0
 	scorePopupNode.get_node("score_label").set_text(str(chapter_score) + " points!")
 	# Display the correct options if they passed or not
 	if chapter_score < 80:

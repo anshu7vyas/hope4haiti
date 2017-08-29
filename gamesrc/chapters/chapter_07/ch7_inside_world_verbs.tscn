@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=1]
 
-[ext_resource path="res://chapters/chapter_02/inside_world_verbs.gd" type="Script" id=1]
+[ext_resource path="res://chapters/chapter_07/ch7_inside_world_verbs.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
 [ext_resource path="res://chapters/chapter_02/area_mother_dialogue.gd" type="Script" id=3]
 [ext_resource path="res://actors/mother/Fighter-F-02.png" type="Texture" id=4]

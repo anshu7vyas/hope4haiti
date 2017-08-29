@@ -59,7 +59,6 @@ func _input(event):
 		interact = false
 
 func _fixed_process(delta):
-	print(chapter_score)
 	time_delta += delta
 	if interact and verbsScreenNode.is_visible():
 		interact = false

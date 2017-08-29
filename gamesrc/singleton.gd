@@ -116,6 +116,11 @@ var verbsLessonPlanText = [
 "",
 ""
 ]
+var prepositionsLessonPlanText = [
+"\n \nLes prépositions, ou preposition en anglais, sont mots trop petits mais avec le pouvoir d'introduire les noms, et parfois d'indiquer un rapport entre les noms.",
+"",
+""
+]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
