@@ -80,7 +80,6 @@ func _input(event):
 
 func _fixed_process(delta):
 	time_delta += delta
-	print(chapter_score)
 	if interact: # space bar pressed
 		if pronounsScreenNode.is_visible():
 			pronounsScreenNode.set_hidden(true)
@@ -239,8 +238,7 @@ func _fixed_process(delta):
 		# score < 80 and resart chapter pressed
 		if scorePopupNode.get_node("restart_chapter_level").is_pressed() and !chapter_done:
 			chapter_done = true # do block once
-			print("her")
-			get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
+			get_tree().change_scene("res://chapters/chapter_04/inside_world_pronouns.tscn")
 			#not sure if i need to free this scene
 			self.queue_free()
 		# score >= 80 and next chapter button pressed
@@ -248,8 +246,7 @@ func _fixed_process(delta):
 			scorePopupNode.get_node("next_chapter_pw").set_text("f5hi2x")
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
-			print("her4")
-			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+			get_tree().change_scene("res://chapters/chapter_05/ch5_classroom_world.tscn")
 	#if !get_node("multiple_choice3").is_visible() and finalQuestionStart:
 		#finalQuestionStart = false
 		#if singleton.multiple_choice_complete:
