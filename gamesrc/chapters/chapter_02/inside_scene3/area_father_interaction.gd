@@ -13,5 +13,5 @@ func _on_area_claudine_body_enter( body ):
 	area_count += 1
 	if area_count > 1 and !worldNode.interacted:
 		worldNode.get_node("Player").canMove = false
-		worldNode.father_dialogue()
+		worldNode.claudine_dialogue()
 		#self.queue_free() #deletes the Sprite

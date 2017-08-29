@@ -8,7 +8,8 @@ onready var compassNode = get_node("compassBG")
 onready var playerNode = get_node("Player")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("startup_dialoge")
-onready var nounsScreenNode = get_node("lesson_plan")
+onready var adverbsScreenNode = get_node("lesson_plan")
+onready var scorePopupNode = get_node("chapter_score")
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -26,24 +27,27 @@ var first_multiple_choice_done = false
 var end_first_multiple_choice = false
 var end_second_multiple_choice = false
 var second_multiple_choice_done = false
-var picked_up_pot = false
+var old_layer_mask = 0
+var old_collision_mask = 0
 
 var player_pos
 var interact = false
 
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_bottomtext = singleton.adverbsLessonPlanBottom
 
 func _ready():
 	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	get_node("Player").canMove = false
-	directionNode.hide()
-	compassNode.hide()
+	directionNode.show()
+	compassNode.show()
+	adverbsScreenNode.set_hidden(true)
 	singleton.wrong_choice = false
 	singleton.correct_answer_chosen = false
 	singleton.multiple_choice_complete = false
-	get_node("multiple_choice").correctIndex = 2
+	get_node("multiple_choice").correctIndex = 0
+	playerNode.SPEED = 1
 
 
 func _input(event):
@@ -56,7 +60,7 @@ func _fixed_process(delta):
 	time_delta += delta
 	if time_delta > 0.1 and !initial_popup_complete:
 		get_node("Player").canMove = false
-		scene_intro_popup()
+		set_up_lesson_plan()
 		initial_popup_complete = true
 	
 			
@@ -124,7 +128,7 @@ func scene_intro_popup():
 	alertNode.get_node("Label3").set_text("")
 	alertNode.show()
 
-func father_dialogue():
+func claudine_dialogue():
 	disable_movements()
 	if playerNode.get_pos().x < -184: #father x position
 		get_node("area_claudine/Sprite").set_frame(10)
@@ -140,10 +144,10 @@ func father_dialogue():
 	claudine_dialogue_started = true
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
-	nounsScreenNode.get_node("title1").set_text("Les Noms")
-	nounsScreenNode.get_node("intro_text").set_hidden(true)
-	nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	lesson_plan_bottomtext = singleton.adverbsLessonPlanBottom
+	adverbsScreenNode.get_node("title1").set_text("Les Adverbes")
+	adverbsScreenNode.get_node("intro_text").set_hidden(true)
+	adverbsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
 
 
 func disable_movements():
@@ -155,3 +159,13 @@ func enable_movements():
 	directionNode.show()
 	compassNode.show()
 	playerNode.canMove = true
+	
+func enable_staticbody():
+	get_node("area_neighbor2/StaticBody2D").set_layer_mask(old_layer_mask)
+	get_node("area_neighbor2/StaticBody2D").set_collision_mask(old_collision_mask)
+
+func disable_staticbody():
+	old_layer_mask = get_node("area_neighbor2/StaticBody2D").get_layer_mask()
+	old_collision_mask = get_node("area_neighbor2/StaticBody2D").get_collision_mask()
+	get_node("area_neighbor2/StaticBody2D").set_layer_mask(0)
+	get_node("area_neighbor2/StaticBody2D").set_collision_mask(0)
