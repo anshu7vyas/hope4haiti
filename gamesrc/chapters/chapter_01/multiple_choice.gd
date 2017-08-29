@@ -11,6 +11,8 @@ var interact
 var player_pos
 var correctIndex = -1
 var startPos
+var special_alert = false
+var special_alert_text = ""
 
 func _ready():
 	set_process_input(true)
@@ -35,7 +37,10 @@ func _input(event):
 			player_pos = worldNode.get_node("Player").get_pos()
 			alert_box.set_pos(Vector2(player_pos.x-76, player_pos.y-20))
 			if (index == correctIndex):
-				correct_popup()
+				if !special_alert:
+					correct_popup()
+				else:
+					special_correct(special_alert_text)
 				pointerNode.set_pos(startPos)
 				index = 0
 				self.hide()
@@ -55,6 +60,17 @@ func correct_popup():
 		alert_box.get_node("Label2").set_text("Très bien! C'est exact!\nQue veut dire Marie-Thérèse's, alors ?")
 	else:
 		alert_box.get_node("Label2").set_text("Très bien! C'est exact!")
+	alert_box.get_node("Label3").set_text("")
+	alert_box.show()
+	singleton.correct_answer_chosen = true
+
+func special_correct(text):
+	delete_alert_box_text() #reset alert
+	alert_box.set_title("Alerte")
+	alert_box._print_alert_string("\n")
+	alert_box.get_node("Label1").set_text("")
+	alert_box._print_alert_string("\n\n\n")
+	alert_box.get_node("Label2").set_text("Très bien! C'est exact!\n" + text)
 	alert_box.get_node("Label3").set_text("")
 	alert_box.show()
 	singleton.correct_answer_chosen = true
