@@ -16,7 +16,7 @@ var mother_dialogue_done = false
 var multiple_choice_box = false
 var final_challenge_start = false
 var scene_complete = false
-var father_dialogue_started = false
+var claudine_dialogue_started = false
 var interacted = false
 var conversation_complete = false
 var multiple_choice_started = false
@@ -127,9 +127,9 @@ func scene_intro_popup():
 func father_dialogue():
 	disable_movements()
 	if playerNode.get_pos().x < -184: #father x position
-		get_node("area_father/Sprite").set_frame(10)
+		get_node("area_claudine/Sprite").set_frame(10)
 	else:
-		get_node("area_father/Sprite").set_frame(4)
+		get_node("area_claudine/Sprite").set_frame(4)
 	directionNode.hide()
 	compassNode.hide()
 	player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
@@ -137,7 +137,7 @@ func father_dialogue():
 	get_node("startup_dialoge").set_hidden(false)
 	get_node("startup_dialoge")._print_dialogue(get_node("dialogueObj/StaticBody2D/Interact").text) 
 	interacted = true
-	father_dialogue_started = true
+	claudine_dialogue_started = true
 
 func set_up_lesson_plan():
 	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom

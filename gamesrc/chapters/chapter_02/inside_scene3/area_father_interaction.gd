@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 
-func _on_area_father_body_enter( body ):
+func _on_area_claudine_body_enter( body ):
 	area_count += 1
 	if area_count > 1 and !worldNode.interacted:
 		worldNode.get_node("Player").canMove = false

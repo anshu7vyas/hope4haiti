@@ -136,6 +136,20 @@ var pronounsQuestions = [
 "Question 4: Je ne peux plus penser à d'autres questions à utiliser comme texte de remplissage, donc je pose ça?",
 "Question 5: C'est la dernière question à choix multiple. Quel est l'exemple d'un nom?" 
 ]
+
+# Chapter 9 Adverbs
+var adverbsLessonPlanBottom = [
+"Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe.",
+"Un verbe est un mot d'action (jump, run, swim, ski, fish, talk) \n\n Un adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)\n\n Il est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:\n\nHe 'quickly' runs\n She 'slowly' walks \n He 'happily' chatters",
+""
+]
+
+var adverbsQuestions = [
+"Question 2: Maintenant, qu’est-ce que Claudine va faire?"
+]
+
+
+
 var changingScene = false
 var isNewGame = true
 var message_done = false
