@@ -102,7 +102,7 @@ func _fixed_process(delta):
 			
 			
 	# Block movements when an popup/dialogue box is open
-	if alertNode.is_visible() or multipleChoiceBox.is_visible() or conjuctionScreenNode.is_visible() or dialogueBox.is_visible():
+	if scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or conjuctionScreenNode.is_visible() or dialogueBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
