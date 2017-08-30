@@ -177,6 +177,25 @@ var pronounsQuestions = [
 "Question 4: Je ne peux plus penser à d'autres questions à utiliser comme texte de remplissage, donc je pose ça?",
 "Question 5: C'est la dernière question à choix multiple. Quel est l'exemple d'un nom?" 
 ]
+
+
+
+
+var chapter_passwords = [
+"kNHzuS", #chapter2 index0
+"Ye53We", #chapter3 index1
+"Qba3yL", #chapter4 index2
+"WGYgFY", #chapter5 index3
+"meA2gR", #chapter6 index4
+"RdEJJM", #chapter7 index5
+"qQdgrj", #chapter8 index6
+"xhJdm6", #chapter9 index7
+"Rvu9m7", #chapter10 index8
+"NVYV5r", #chapter11 index9
+"t9z8bH"  #chapter12 index10
+]
+
+
 var changingScene = false
 var isNewGame = true
 var message_done = false

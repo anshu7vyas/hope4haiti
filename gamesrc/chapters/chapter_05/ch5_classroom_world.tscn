@@ -998,7 +998,6 @@ INPUT_CHARACTERS_LIMIT = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -1126,7 +1125,7 @@ margin/right = 565.0
 margin/bottom = 264.0
 custom_fonts/font = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "f5hi2x"
+text = "meA2gR"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
