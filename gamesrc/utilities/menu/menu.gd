@@ -93,8 +93,7 @@ func _handle_chap_select():
 	confirmationNode.set_pos(Vector2(player_pos.x-85, player_pos.y-50))
 	if currentChapLabel >= 0 and currentChapLabel < 10:
 		confirmationNode.set_hidden(false)
-	elif currentChapLabel == 10:
-		pass
+	elif currentChapLabel == 12:
 		hide_chapter_window()
 		
 func _handle_chapter_change():
