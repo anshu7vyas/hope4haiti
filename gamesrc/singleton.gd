@@ -121,6 +121,11 @@ var prepositionsLessonPlanText = [
 "",
 ""
 ]
+var conjunctionLessonPlanText = [
+"Ici nous allons avoir une idée qui est facile à comprendre, parce qu’il est très similar au français. Les conjonctions sont des petits mots qui ont beaucoup de pouvoir dans un sentence parce qu’ils relient des idées. Regardez ici.\n\nSi vous rappelez bien, les prépositions aussi sont petits les mots. Mais la différence entre les conjonctions et les prépositions est que les conjonctions relient les mots, quand les prépositions les introduisent. ",
+"",
+""
+]
 # Nouns Suppor Text
 var nounsLessonPlanTop = [
 "",
