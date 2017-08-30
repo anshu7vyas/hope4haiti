@@ -82,7 +82,7 @@ func _input(event):
 				var y = get_node("Selected").get_pos().y - 75 #75 is hard coded distance between labels
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if(index != 2):
+			if(index != 1):
 				index += 1
 				var x = get_node("Selected").get_pos().x
 				var y = get_node("Selected").get_pos().y + 75
@@ -90,9 +90,7 @@ func _input(event):
 		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
 			if (index == 0): #chapters
 				chapterNode.show()
-			if (index == 1): # leaderboard
-				print("Options")
-			if (index == 2):
+			if (index == 1):
 				OS.get_main_loop().quit()
 				
 	elif chapterNode.is_visible():

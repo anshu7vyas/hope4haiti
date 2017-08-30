@@ -121,6 +121,12 @@ var prepositionsLessonPlanText = [
 "",
 ""
 ]
+var adverbsLessonPlanBottom = [
+"Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe. \nUn verbe est un mot d'action (jump, run, swim, ski, fish, talk) \nUn adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)\n\nIl est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:\nHe 'quickly' runs\nShe 'slowly' walks \nHe 'happily' chatters",
+"",
+""
+]
+
 var conjunctionLessonPlanText = [
 "Ici nous allons avoir une idée qui est facile à comprendre, parce qu’il est très similar au français. Les conjonctions sont des petits mots qui ont beaucoup de pouvoir dans un sentence parce qu’ils relient des idées. Regardez ici.\n\nSi vous rappelez bien, les prépositions aussi sont petits les mots. Mais la différence entre les conjonctions et les prépositions est que les conjonctions relient les mots, quand les prépositions les introduisent. ",
 "",

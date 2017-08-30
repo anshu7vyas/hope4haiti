@@ -98,7 +98,7 @@ func _fixed_process(delta):
 			scorePopupNode.get_node("next_chapter_pw").set_text("f5hi2x")
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
-			get_tree().change_scene("res://chapters/chapter_06/ch6_inside_world.tscn")
+			get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
 
 	
 	if prepositrionScreenNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():

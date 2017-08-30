@@ -58,30 +58,12 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 304.0
+margin/top = 336.0
 margin/right = 798.0
-margin/bottom = 370.0
+margin/bottom = 402.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Chapitres"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Options" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 384.0
-margin/right = 799.0
-margin/bottom = 444.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Options"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -94,9 +76,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 464.0
-margin/right = 800.0
-margin/bottom = 524.0
+margin/top = 416.0
+margin/right = 799.0
+margin/bottom = 476.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sortie"
@@ -107,12 +89,13 @@ max_lines_visible = -1
 
 [node name="Selected" type="Sprite" parent="."]
 
-transform/pos = Vector2( 383, 341.691 )
+transform/pos = Vector2( 383, 373.691 )
 transform/scale = Vector2( 0.849558, 0.655187 )
 texture = ExtResource( 5 )
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
