@@ -209,6 +209,20 @@ func _handle_password_input(password):
 			get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
 		elif chapterSelected == 3:
 			get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
+		elif chapterSelected == 4:
+			get_tree().change_scene("res://chapters/chapter_04/inside_world_pronouns.tscn")
+		elif chapterSelected == 5:
+			get_tree().change_scene("res://chapters/chapter_05/ch5_classroom_world.tscn")
+		elif chapterSelected == 6:
+			get_tree().change_scene("res://chapters/chapter_06/ch6_inside_world.tscn")
+		elif chapterSelected == 7:
+			get_tree().change_scene("res://chapters/chapter_07/ch7_inside_world_verbs.tscn")
+		elif chapterSelected == 8:
+			get_tree().change_scene("res://chapters/chapter_08/ch_8outside_world_prepasitions.tscn")
+		elif chapterSelected == 9:
+			get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
+		elif chapterSelected == 10:
+			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
 	else:
 		alertNode.set_hidden(false)
 		passwordNode.get_node("passwordedit").set_text("")
