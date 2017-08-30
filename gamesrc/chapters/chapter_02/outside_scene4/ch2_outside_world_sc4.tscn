@@ -254,6 +254,7 @@ autoplay = ""
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -299,6 +300,7 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+editor/display_folded = true
 transform/scale = Vector2( 4, 4 )
 anchor_mode = 1
 rotating = false
@@ -324,7 +326,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -17.0
+margin/bottom = -8.0
 
 [node name="area_fill_water" type="Area2D" parent="."]
 

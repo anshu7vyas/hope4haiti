@@ -188,6 +188,7 @@ frame = 7
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 280, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -284,7 +285,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -16.0
+margin/bottom = -8.0
 
 [node name="mid2" type="TileMap" parent="."]
 

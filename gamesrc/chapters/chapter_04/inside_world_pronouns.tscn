@@ -230,6 +230,7 @@ tile_data = IntArray( 1310746, 399, 1310747, 400, 1310748, 385, 1310749, 386, 13
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -308,10 +309,11 @@ margin/bottom = 76.0
 [node name="menu" parent="Player/Camera2D" instance=ExtResource( 8 )]
 
 process/pause_mode = 2
+visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -16.0
+margin/bottom = -9.0
 
 [node name="area_mother" type="Area2D" parent="."]
 

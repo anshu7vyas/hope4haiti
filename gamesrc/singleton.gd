@@ -165,7 +165,7 @@ var nounsQuestions = [
 "Question 4: Je ne peux plus penser à d'autres questions à utiliser comme texte de remplissage, donc je pose ça?",
 "Question 5: C'est la dernière question à choix multiple. Quel est l'exemple d'un nom?" 
 ]
-var currentChapter = 0
+
 # Pronouns Support Text
 #var pronounsLessonPlanTop = [
 #"Ce chapitre vous présentera comment les noms sont utilisés en anglais. Vous pouvez vous référer à cet écran à tout moment en appuyant sur la touche TAB. Utilisez les touches fléchées pour faire défiler cet écran pour afficher des exemples.",
