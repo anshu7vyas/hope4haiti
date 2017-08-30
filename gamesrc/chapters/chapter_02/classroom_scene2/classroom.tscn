@@ -379,7 +379,6 @@ autoplay = ""
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 24 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -462,7 +461,7 @@ visibility/visible = false
 margin/left = -26.0
 margin/top = 7.0
 margin/right = 29.0
-margin/bottom = 50.0
+margin/bottom = 43.0
 
 [node name="top" type="TileMap" parent="."]
 
@@ -1417,9 +1416,9 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_teacher_body_enter"]
-
 [connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_neighbor2_body_enter"]
+
+[connection signal="body_enter" from="area_teacher" to="area_teacher" method="_on_area_teacher_body_enter"]
 
 [connection signal="body_enter" from="area_seat" to="area_seat" method="_on_area_seat_body_enter"]
 
