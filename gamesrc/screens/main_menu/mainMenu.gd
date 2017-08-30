@@ -13,7 +13,22 @@ var chapterSelectStartPos
 var chapterSelected = 0
 var passwordEntered = false
 var incorrectPassword = false
-var passwordArray = [0,0,"hello",2,3,4,5,6,7,8,9,10,11] # passwords start at index 2
+
+var passwordArray = [
+0, #index0
+0, #index1
+"kNHzuS", #chapter2 index2
+"Ye53We", #chapter3 index3
+"Qba3yL", #chapter4 index4
+"WGYgFY", #chapter5 index5
+"meA2gR", #chapter6 index6
+"RdEJJM", #chapter7 index7
+"qQdgrj", #chapter8 index8
+"xhJdm6", #chapter9 index9
+"Rvu9m7", #chapter10 index10
+"NVYV5r", #chapter11 index11
+"t9z8bH"  #chapter12 index10
+] # passwords start at index 2
 
 var time_delta = 0
 var up = false

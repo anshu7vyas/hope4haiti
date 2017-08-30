@@ -135,6 +135,7 @@ func _fixed_process(delta):
 			#self.queue_free()
 		# score >= 80 and next chapter button pressed
 		if scorePopupNode.get_node("next_chapter_button").is_pressed() and !chapter_done:
+			scorePopupNode.get_node("next_chapter_pw").set_text(singleton.chapter_passwords[1])
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
 			get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
