@@ -155,6 +155,11 @@ var multiple_choice_complete = false
 var multiple_choice_retry = false
 var logged_in = false
 var correct_answer_chosen = false
+
+var correct_answer_chosen1 = false
+var wrong_choice1 = false
+
+
 var scene_1_restart = false
 
 func reset_score():

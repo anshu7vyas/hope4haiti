@@ -12,6 +12,7 @@ onready var dialogueBox = get_node("startup_dialoge")
 onready var adverbsScreenNode = get_node("lesson_plan")
 onready var scorePopupNode = get_node("chapter_score")
 
+
 var time_delta = 0
 var initial_popup_complete = false
 var all_friends_dialogue_done = false
@@ -25,12 +26,17 @@ var conversation_complete = false
 var multiple_choice_started = false
 var multiple_choice1_started = false
 var wrong_answer = false
+var wrong_answer1 = false
 var first_multiple_choice_done = false
 var end_first_multiple_choice = false
 var end_second_multiple_choice = false
 var second_multiple_choice_done = false
 var lesson_plan_page = 0
 var chapter_score = 100
+var end_chapter_popup_visible = false
+var chapter_done = false
+
+
 
 var player_pos
 var interact = false
@@ -48,6 +54,7 @@ func _ready():
 	
 	singleton.wrong_choice = false
 	singleton.correct_answer_chosen = false
+	singleton.correct_answer_chosen1 = false
 	singleton.multiple_choice_complete = false
 	
 	get_node("multiple_choice").correctIndex = 0
@@ -93,30 +100,51 @@ func _fixed_process(delta):
 	if wrong_answer and !alertNode.is_visible() and !end_first_multiple_choice:
 		multipleChoiceBox.set_hidden(false)
 		wrong_answer = false
+	
+	if end_first_multiple_choice and first_multiple_choice_done:
+		multiple_choice_challenge1()
+		multiple_choice1_started = true
 		
 	if multiple_choice1_started:
 		player_pos = playerNode.get_pos()
 		alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
-		if singleton.wrong_choice:
-			singleton.wrong_choice = false
+		if singleton.wrong_choice1:
+			singleton.wrong_choice1 = false
 			chapter_score -= 10
 			alertNode.set_hidden(false)
-			multipleChoiceBox.set_hidden(true)
-			wrong_answer = true
-		elif singleton.correct_answer_chosen:
-			singleton.correct_answer_chosen = false
+			multipleChoiceBox1.set_hidden(true)
+			wrong_answer1 = true
+		elif singleton.correct_answer_chosen1:
+			singleton.correct_answer_chosen1 = false
 			alertNode.set_hidden(false)
 			multiple_choice1_started = false
 			second_multiple_choice_done = true
 			end_second_multiple_choice = true
-			#multipleChoiceBox.queue_free()
-	if wrong_answer and !alertNode.is_visible() and !end_second_multiple_choice:
+	if wrong_answer1 and !alertNode.is_visible() and !end_second_multiple_choice:
 		multipleChoiceBox1.set_hidden(false)
-		wrong_answer = false
+		wrong_answer1 = false
 		
-	
 	if alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
 		disable_movements()
+		
+	# When second multiple choice questions done -> show end of chapter score
+	if end_second_multiple_choice and !alertNode.is_visible() and !end_chapter_popup_visible:
+		end_chapter_popup_visible = true
+		playerNode.SPEED = 1
+		score_popup()
+	
+	if scorePopupNode.is_visible():
+		# score < 80 and resart chapter pressed
+		if scorePopupNode.get_node("restart_chapter_level").is_pressed() and !chapter_done:
+			chapter_done = true # do block once
+			get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
+			#not sure if i need to free this scene
+			#self.queue_free()
+		# score >= 80 and next chapter button pressed
+		if scorePopupNode.get_node("next_chapter_button").is_pressed() and !chapter_done:
+			chapter_done = true
+			#set to a random scene for now. This will be to chapter 2
+			get_tree().change_scene("res://chapters/chapter_10/ch10_outside_possesive_noun.tscn")
 
 
 func setScene(scene):
@@ -141,7 +169,7 @@ func multiple_choice_challenge1():
 	player_pos = playerNode.get_pos()
 	multipleChoiceBox1.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 	multipleChoiceBox1.show()
-	singleton.wrong_choice = false
+	singleton.wrong_choice1 = false
 
 
 func delete_alert_box_text():
@@ -176,7 +204,7 @@ func claudine_dialogue():
 	
 func sydney_dialogue():
 	disable_movements()
-	if playerNode.get_pos().x < -184: # claudine x position
+	if playerNode.get_pos().x < -134: # claudine x position
 		get_node("area_sydney/Sprite").set_frame(2)
 	else:
 		get_node("area_sydney/Sprite").set_frame(4)
@@ -206,3 +234,23 @@ func enable_movements():
 	directionNode.show()
 	compassNode.show()
 	playerNode.canMove = true
+	
+func score_popup():
+	player_pos = playerNode.get_pos()
+	scorePopupNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
+	scorePopupNode.set_hidden(false)
+	scorePopupNode.get_node("score_label").set_text(str(chapter_score) + " points!")
+	# Display the correct options if they passed or not
+	if chapter_score < 80:
+		singleton.reset_score()
+		scorePopupNode.get_node("failed_notes").set_hidden(false)
+		scorePopupNode.get_node("restart_chapter_level").set_hidden(false)
+		scorePopupNode.get_node("pass_chapter_notes").set_hidden(true)
+		scorePopupNode.get_node("next_chapter_pw").set_hidden(true)
+		scorePopupNode.get_node("next_chapter_button").set_hidden(true)
+	else:
+		scorePopupNode.get_node("failed_notes").set_hidden(true)
+		scorePopupNode.get_node("restart_chapter_level").set_hidden(true)
+		scorePopupNode.get_node("pass_chapter_notes").set_hidden(false)
+		scorePopupNode.get_node("next_chapter_pw").set_hidden(false)
+		scorePopupNode.get_node("next_chapter_button").set_hidden(false)
