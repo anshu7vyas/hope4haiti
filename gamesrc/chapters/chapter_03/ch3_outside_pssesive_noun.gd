@@ -48,7 +48,6 @@ var multipleChoiceCorrectIndex = singleton.possNounsMultipleChoiceCorrectIndices
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
-	singleton.currentChapter = 2
 	directionNode.show()
 	compassNode.show()
 	possesiveNounsScreenNode.set_hidden(false)

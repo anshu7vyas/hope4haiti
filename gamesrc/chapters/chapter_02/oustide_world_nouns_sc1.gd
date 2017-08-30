@@ -45,7 +45,6 @@ func _ready():
 	directionNode.show()
 	compassNode.show()
 	nounsScreenNode.set_hidden(false)
-	singleton.currentChapter = 1
 
 	singleton.message_done = true
 	singleton.wrong_choice = false

@@ -32,7 +32,6 @@ func _ready():
 	compassNode.hide()
 	dialogueBoxNode.hide()
 	time_seconds = 0
-	singleton.currentChapter = 0
 
 	dialogueText.connect("input_enter", self, "_on_input_enter")
 	dialogueText.connect("buff_end", self, "_on_buff_end")
