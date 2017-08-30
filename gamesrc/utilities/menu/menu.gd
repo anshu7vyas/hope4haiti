@@ -80,13 +80,9 @@ func _handle_interaction():
 			print("no lesson plan in this scene") #should not reach this
 		player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 		
-	if currentLabel == 2: # main menu - BROKEN - startup screen frozen
-		menu = false
-		open = false
-		setScene("res://screens/main_menu/startUp.tscn")
-		#get_tree().change_scene("res://screens/main_menu/startUp.tscn")
-	elif currentLabel == 3: #Exit Label
+	if currentLabel == 2: #Exit Label
 		OS.get_main_loop().quit()
+
 
 func _handle_chap_select():
 	player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
@@ -98,26 +94,36 @@ func _handle_chap_select():
 		hide_chapter_window()
 		
 func _handle_chapter_change():
-	if currentChapLabel == 0:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 1:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 2:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 3:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 4:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 5:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 6:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 7:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 8:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 9:
-		print("change to chapter: " + str(currentLabel))
+	if currentChapLabel == 0 and !singleton.currentChapter == 0:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_01/inside_world.tscn")
+	elif currentChapLabel == 1 and !singleton.currentChapter == 1:
+		pass
+		get_tree().change_scene("res://chapters/chapter_02/outside_world_nouns.tscn")
+	elif currentChapLabel == 2 and !singleton.currentChapter == 2:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_03/ch3_outside_possesive_noun.tscn")
+	elif currentChapLabel == 3 and !singleton.currentChapter == 3:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_04/inside_world_pronouns.tscn")
+	elif currentChapLabel == 4 and !singleton.currentChapter == 4:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_05/ch5_classroom_world.tscn")
+	elif currentChapLabel == 5 and !singleton.currentChapter == 5:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_06/ch6_inside_world.tscn")
+	elif currentChapLabel == 6 and !singleton.currentChapter == 6:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_07/ch7_inside_world_verbs.tscn")
+	elif currentChapLabel == 7 and !singleton.currentChapter == 7:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_08/ch_8outside_world_prepasitions.tscn")
+	elif currentChapLabel == 8 and !singleton.currentChapter == 8:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
+	elif currentChapLabel == 9 and !singleton.currentChapter == 9:
+		pass
+		#get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
 
 func hide_chapter_window():
 	chapSelect.set_hidden(true)
@@ -160,10 +166,10 @@ func _fixed_process(delta):
 	if chapterNode.is_visible() and !confirmationNode.is_visible():
 		if up:
 			if currentChapLabel == 0:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (11 * (chapLabels.size()-1))))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + (13 * (chapLabels.size()-1))))
 				currentChapLabel = chapLabels.size()-1
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 11))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y - 13))
 				currentChapLabel -= 1
 
 		if down:
@@ -171,7 +177,7 @@ func _fixed_process(delta):
 				currentChapLabel = 0
 				chapSelect.set_pos(start_pos_select)
 			else:
-				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 11))
+				chapSelect.set_pos(Vector2(chapSelect.get_pos().x, chapSelect.get_pos().y + 13))
 				currentChapLabel += 1
 		if spacePressed:
 			_handle_chap_select()
