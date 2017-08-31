@@ -23,8 +23,8 @@
 [ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=21]
 [ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=22]
 [ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=23]
-[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=24]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=25]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=24]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=25]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=26]
 [ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=27]
 
@@ -647,6 +647,96 @@ shortcut = null
 icon = ExtResource( 23 )
 flat = false
 
+[node name="fill_in" type="PopupDialog" parent="."]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -155.0
+margin/top = 205.0
+margin/right = 245.0
+margin/bottom = 505.0
+popup/exclusive = false
+script/script = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title1" type="Label" parent="fill_in"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = 14.0
+margin/right = 634.0
+margin/bottom = 79.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Distinguez entre un adverbe ou un adjectif en 
+sélectionnant à quel groupe chacun appartient."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="describing_text" type="RichTextLabel" parent="fill_in"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 60.0
+margin/right = 384.0
+margin/bottom = 265.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "Un adverbe [color=#FF0000]est[/color] un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe.
+Un verbe est un mot d'action (jump, run, swim, ski, fish, talk)
+Un adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)
+
+Il est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:
+He 'quickly' runs
+She 'slowly' walks
+He 'happily' chatters"
+visible_characters = -1
+
+[node name="left_button" type="Button" parent="fill_in"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 262.0
+margin/right = 345.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 22 )
+flat = false
+
+[node name="right_button" type="Button" parent="fill_in"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 344.0
+margin/top = 262.0
+margin/right = 376.0
+margin/bottom = 294.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 23 )
+flat = false
+
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -661,7 +751,7 @@ margin/top = -9.0
 margin/right = 305.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 24 )
+script/script = ExtResource( 25 )
 
 [node name="Label1" type="Label" parent="multiple_choice"]
 
@@ -674,7 +764,7 @@ margin/left = 34.0
 margin/top = 72.0
 margin/right = 508.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "a. happy"
 percent_visible = 1.0
@@ -692,7 +782,7 @@ margin/left = 34.0
 margin/top = 96.0
 margin/right = 508.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "b. sleepy"
 percent_visible = 1.0
@@ -710,7 +800,7 @@ margin/left = 34.0
 margin/top = 122.0
 margin/right = 696.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "c. angry"
 percent_visible = 1.0
@@ -735,8 +825,8 @@ margin/left = 14.0
 margin/top = 29.0
 margin/right = 706.0
 margin/bottom = 116.0
-custom_fonts/bold_font = ExtResource( 25 )
-custom_fonts/normal_font = ExtResource( 25 )
+custom_fonts/bold_font = ExtResource( 24 )
+custom_fonts/normal_font = ExtResource( 24 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Quel est un synonyme pour « excited » en anglais ?"
@@ -744,6 +834,7 @@ visible_characters = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -786,7 +877,7 @@ margin/left = 2.0
 margin/top = 56.0
 margin/right = 565.0
 margin/bottom = 155.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Vous avez terminé 
 ce chapitre avec un
@@ -826,7 +917,7 @@ margin/left = 2.0
 margin/top = 186.0
 margin/right = 565.0
 margin/bottom = 285.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Un score total d'au moins 
 80 points est nécessaire pour passer 
@@ -848,7 +939,7 @@ margin/left = 2.0
 margin/top = 180.0
 margin/right = 565.0
 margin/bottom = 246.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Bon travail! Le mot de passe pour
 le prochain chapitre est:"
@@ -869,7 +960,7 @@ margin/left = 2.0
 margin/top = 230.0
 margin/right = 565.0
 margin/bottom = 264.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Rvu9m7"
 align = 1

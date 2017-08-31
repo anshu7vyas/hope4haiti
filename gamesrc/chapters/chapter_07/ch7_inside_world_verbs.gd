@@ -132,7 +132,7 @@ func _fixed_process(delta):
 			#set to a random scene for now. This will be to chapter 2
 			get_tree().change_scene("res://chapters/chapter_08/ch_8outside_world_prepasitions.tscn")
 	
-	if spellingChallengeBox.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or verbsScreenNode.is_visible():
+	if scorePopupNode.is_visible() or spellingChallengeBox.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or verbsScreenNode.is_visible():
 		disable_movements()
 	else:
 		enable_movements()

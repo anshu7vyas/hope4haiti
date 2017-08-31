@@ -112,8 +112,8 @@ var possAdjectivesLessonPlanText = [
 "Voilà les pronoms possessifs en anglais:\n    My: mon/ma/mes\n    Your: ton/ta/tes/votre/vos\n    Her: son/sa/ses *pour une femme\n    His: son/sa/ses *pour un homme\n    Our: notre/nos\n    Their: leur/leurs"
 ]
 var verbsLessonPlanText = [
-"Un verbe est un mot qui décrit une action, une occurrence, ou un état d’esprit.\n  1) Les verbes d’action sont\n  2) Les verbes auxiliaires sont « have » « be » et « do ». (avoir, être, et faire).\nLes verbes auxiliaires servent à exprimer le temps ou à formuler un négatif ou une interrogation.\n  3) Les verbes d’état sont les “non action” verbes.  Ils expriment l’émotion, la perception, la possession,  et la croyance.\n  4) Les verbes irréguliers- il y a certains verbes qui ne sont pas formés comme les autres au prétérit ou au participé passé.\n     a. Grow, grew, grown, go, went, gone",
-"",
+"Un verbe est un mot qui décrit une action, une occurrence, ou un état d’esprit.\n  1) Les verbes d’action sont\n  2) Les verbes auxiliaires sont\n      « have » « be » et « do ». (avoir, être, et faire).\nLes verbes auxiliaires servent à exprimer le temps ou à formuler un négatif ou une interrogation.\n  3) Les verbes d’état sont les “non action” verbes.  Ils expriment l’émotion, la perception, la possession,  et la croyance.\n  4) Les verbes irréguliers- il y a certains verbes qui ne sont pas formés comme les autres au prétérit ou au participé passé.\n     a. Grow, grew, grown, go, went, gone",
+"Qu’est-ce que c’est le prédicat?\n \nLes parties principales de la phrase sont le sujet et le prédicat.  Le prédicat est composé du verbe et d’un groupe de mots qui contenant le verbe.  Il apporte une information sur le sujet.\n    Les parties d’une phrase :\n    Marie-Thérèse reads her book.\n    Le sujet est Marie-Thérèse.\n    Le verbe est reads\n    Le predicat est « reads her book »",
 ""
 ]
 var prepositionsLessonPlanText = [
@@ -122,8 +122,8 @@ var prepositionsLessonPlanText = [
 ""
 ]
 var adverbsLessonPlanBottom = [
+"Un adverbe est un mot qui modifie le sens d’un verbe, d’un adjectif, d’un autre adverbe ou une phrase entière.\nUn adverbe exprime « quand » « où » « comment » et a quelle mesure l’action indique par le verbe se passe.\nLes adverbes sont formés souvent en ajoutant –ly à la fin d’un adjectif.\n    When ?  Where ?  How? To what degree?\nIl y a certains adverbes irréguliers comme « bien » (bon) « pas bien » (pas bon) « un peu> et « beaucoup et  «mal   qui sont aussi utilisés pour modifier un verbe.\n    Ex : We slept well after working all day.\n    Ex. She explained very little about the events of the morning.",
 "Un adverbe est un mot qui décrit - ou modifie - un verbe, un adjectif ou un autre adverbe. \nUn verbe est un mot d'action (jump, run, swim, ski, fish, talk) \nUn adjectif est un mot descriptif qui décrit un nom (joli, heureux, idiot, ensoleillé)\n\nIl est facile de voir comment les adverbes décrivent, ou modifient, des verbes, puisqu'ils expliquent tout simplement l'action. Par exemple:\nHe 'quickly' runs\nShe 'slowly' walks \nHe 'happily' chatters",
-"",
 ""
 ]
 
