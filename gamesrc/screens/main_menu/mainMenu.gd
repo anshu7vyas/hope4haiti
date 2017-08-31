@@ -27,7 +27,7 @@ var passwordArray = [
 "xhJdm6", #chapter9 index9
 "Rvu9m7", #chapter10 index10
 "NVYV5r", #chapter11 index11
-"t9z8bH"  #chapter12 index10
+"t9z8bH"  #chapter12 index12
 ] # passwords start at index 2
 
 var time_delta = 0
@@ -69,25 +69,6 @@ func _unhandled_key_input(key_event):
 		up = false
 
 func _input(event):
-	#Login info probably not using anymore
-#	if loginNode.is_visible():
-#		if loginNode.get_node("button_enter").is_pressed():
-#			if loginNode.get_node("usernameEdit").get_text() != "" and loginNode.get_node("passwordedit").get_text() != "":
-#				loginNode.set_hidden(true)
-#				singleton.logged_in = true
-#		if loginNode.get_node("create_new_account").is_pressed():
-#			loginNode.set_hidden(true)
-#			newUserNode.set_hidden(false)
-#		
-#	if newUserNode.is_visible():
-#		if newUserNode.get_node("button_enter").is_pressed():
-#			if newUserNode.get_node("usernameEdit").get_text() != "" and newUserNode.get_node("passwordedit1").get_text() == newUserNode.get_node("passwordedit").get_text():
-#				leaderBoardNode.get_node("player3").set_text(newUserNode.get_node("usernameEdit").get_text())
-#				leaderBoardNode.get_node("score_label3").set_text("0")
-#				newUserNode.set_hidden(true)
-#		elif newUserNode.get_node("return").is_pressed():
-#			loginNode.set_hidden(false)
-#			newUserNode.set_hidden(true)
 		
 	if !chapterNode.is_visible() and !passwordNode.is_visible():
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
@@ -114,13 +95,13 @@ func _input(event):
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
 			if chapter_index == 0:
 				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (84 * 12)))
-				chapter_index = 12
+				chapter_index = 11
 			else:
 				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y - 84))
 				chapter_index -= 1
 
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if chapter_index == 12:
+			if chapter_index == 11:
 				chapter_index = 0
 				selectedNode.set_pos(chapterSelectStartPos)
 			else:
@@ -179,12 +160,7 @@ func _input(event):
 				passwordNode.set_hidden(false)
 				chapterNode.set_hidden(true)
 				print("option11")
-			if(chapter_index == 11):
-				chapterSelected = 12
-				passwordNode.set_hidden(false)
-				chapterNode.set_hidden(true)
-				print("option12")
-			if (chapter_index == 12):
+			if (chapter_index == 11):
 				get_node("multiple_choice/chapter_select").set_pos(chapterSelectStartPos)
 				chapter_index = 0
 				get_node("multiple_choice").hide()
@@ -223,6 +199,8 @@ func _handle_password_input(password):
 			get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
 		elif chapterSelected == 10:
 			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
+		elif chapterSelected == 11:
+			get_tree().change_scene("res://chapters/chapter_11/ch11_inside_world_tenses.tscn")
 	else:
 		alertNode.set_hidden(false)
 		passwordNode.get_node("passwordedit").set_text("")
