@@ -95,7 +95,6 @@ texture = ExtResource( 5 )
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -297,28 +296,11 @@ size_flags/vertical = 0
 margin/left = 2.0
 margin/top = 856.0
 margin/right = 1152.0
-margin/bottom = 920.0
+margin/bottom = 979.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 11: L'infinitif"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="chapter12" type="Label" parent="multiple_choice"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 2.0
-margin/top = 944.0
-margin/right = 1152.0
-margin/bottom = 1008.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Chapitre 12: Le temps"
+text = "Chapitre 11: Le Temps
+"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -330,10 +312,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 1024.0
-margin/right = 1150.0
-margin/bottom = 1088.0
+margin/left = 2.0
+margin/top = 944.0
+margin/right = 1152.0
+margin/bottom = 1008.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Retourner"
