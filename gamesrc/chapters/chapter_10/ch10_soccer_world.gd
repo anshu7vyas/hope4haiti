@@ -146,6 +146,7 @@ func _fixed_process(delta):
 			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
 		# score >= 80 and next chapter button pressed
 		if scorePopupNode.get_node("next_chapter_button").is_pressed() and !chapter_done:
+			scorePopupNode.get_node("next_chapter_pw").set_text("NVYV5r")
 			chapter_done = true
 			get_tree().change_scene("res://screens/main_menu/startUp.tscn")
 	
