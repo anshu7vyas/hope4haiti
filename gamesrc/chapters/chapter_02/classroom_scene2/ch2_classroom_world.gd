@@ -1,9 +1,6 @@
 extends Node2D
 #classroom scene
 
-#The currently active scene
-var currentScene = null
-
 onready var alertBox = get_node("control_alerts")
 onready var playerNode = get_node("Player")
 onready var dialogueBox = get_node("dialogue_box")
@@ -15,6 +12,7 @@ onready var nounsScreenNode = get_node("lesson_plan")
 onready var endPopupNode = get_node("end_chapter_challenge")
 onready var rightSideClose = get_node("right_side")
 onready var leftSideClose = get_node("left_side")
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var do_once = false
 var interact
@@ -31,7 +29,7 @@ var changin_scene = false
 
 var chapter_score = 100
 var lesson_plan_page = 0
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_text = singleton.nounsLessonPlanBottom
 var question_count = 0
 var question_answers = 0
 var multipleChoiceQuestion = singleton.nounsMultipleChoiceQuestions
@@ -40,7 +38,6 @@ var multipleChoiceCorrectIndex = singleton.nounsMultipleChoiceCorrectIndices
 
 func _ready():
 	#On load set the current scene to the last scene available
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	destinationNode.set_pos(Vector2(-120,-88))
@@ -49,6 +46,9 @@ func _ready():
 	multipleChoiceQuestion = singleton.nounsMultipleChoiceQuestions
 	multipleChoiceAnswers = singleton.nounsMultipleChoiceAnswers
 	multipleChoiceCorrectIndex = singleton.nounsMultipleChoiceCorrectIndices
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	get_node("multiple_choice").correctIndex = multipleChoiceCorrectIndex[0]
 	singleton.message_done = true
 	singleton.wrong_choice = false
@@ -119,20 +119,11 @@ func _fixed_process(delta):
 		get_tree().change_scene("res://chapters/chapter_02/inside_scene3/inside_world_nouns.tscn")
 
 	
-	if dialogueBox.is_visible() or multipleChoiceBox.is_visible() or endPopupNode.is_visible() or changin_scene or animationStarted:
+	if nounsScreenNode.is_visible() or menuNode.is_visible() or dialogueBox.is_visible() or multipleChoiceBox.is_visible() or endPopupNode.is_visible() or changin_scene or animationStarted:
 		disable_movements()
 	else:
 		enable_movements()
 
-func setScene(scene):
-	#clean up the current scene
-	currentScene.queue_free()
-	#load the file passed in as the param "scene"
-	var s = ResourceLoader.load(scene)
-	#create an instance of our scene
-	currentScene = s.instance()
-	# add scene to root
-	get_tree().get_root().add_child(currentScene)
 
 func multiple_choice_challenge():
 	disable_movements()
@@ -175,7 +166,7 @@ func enable_movements():
 	playerNode.canMove = true
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+	lesson_plan_text = singleton.nounsLessonPlanBottom
 	nounsScreenNode.get_node("title1").set_text("Les Noms")
 	nounsScreenNode.get_node("intro_text").set_hidden(true)
-	nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])

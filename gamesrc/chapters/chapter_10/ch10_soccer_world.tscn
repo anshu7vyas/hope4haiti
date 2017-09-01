@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=1]
+[gd_scene load_steps=34 format=1]
 
 [ext_resource path="res://chapters/chapter_10/ch10_soccer_world.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_10/soccer_map_tilesets/soccer_map.res" type="TileSet" id=2]
@@ -17,13 +17,14 @@
 [ext_resource path="res://utilities/compass/compass.png" type="Texture" id=15]
 [ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=16]
 [ext_resource path="res://chapters/chapter_01/happyEmote.png" type="Texture" id=17]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=18]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=19]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=20]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=21]
-[ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=22]
-[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=23]
-[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=24]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=18]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=19]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=20]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=21]
+[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=22]
+[ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=23]
+[ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=24]
+[ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -216,7 +217,6 @@ frame = 2
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -299,7 +299,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -9.0
+margin/bottom = -14.0
 
 [node name="mid2" type="TileMap" parent="."]
 
@@ -502,6 +502,7 @@ margin/top = -67.0
 margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
+script/script = ExtResource( 18 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
@@ -514,7 +515,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 568.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 18 )
+custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les noms"
 align = 1
@@ -564,7 +565,7 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 19 )
+icon = ExtResource( 20 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
@@ -580,11 +581,12 @@ margin/bottom = 294.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 20 )
+icon = ExtResource( 21 )
 flat = false
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -608,7 +610,7 @@ margin/left = 2.0
 margin/top = 18.0
 margin/right = 790.0
 margin/bottom = 78.0
-custom_fonts/font = ExtResource( 18 )
+custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Score de fin de chapitre"
 align = 1
@@ -627,7 +629,7 @@ margin/left = 2.0
 margin/top = 56.0
 margin/right = 565.0
 margin/bottom = 155.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Vous avez terminé 
 ce chapitre avec un
@@ -647,7 +649,7 @@ margin/left = 2.0
 margin/top = 122.0
 margin/right = 398.0
 margin/bottom = 182.0
-custom_fonts/font = ExtResource( 18 )
+custom_fonts/font = ExtResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "95 points!"
 align = 1
@@ -667,7 +669,7 @@ margin/left = 2.0
 margin/top = 186.0
 margin/right = 565.0
 margin/bottom = 285.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Un score total d'au moins 
 80 points est nécessaire pour passer 
@@ -689,7 +691,7 @@ margin/left = 2.0
 margin/top = 180.0
 margin/right = 565.0
 margin/bottom = 246.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Congraduations!
  Vous avez complété le jeu!"
@@ -730,7 +732,7 @@ margin/left = 76.0
 margin/top = -112.0
 margin/right = -227.0
 margin/bottom = -144.0
-custom_fonts/font = ExtResource( 22 )
+custom_fonts/font = ExtResource( 23 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -753,7 +755,7 @@ margin/left = 76.0
 margin/top = -112.0
 margin/right = -227.0
 margin/bottom = -144.0
-custom_fonts/font = ExtResource( 22 )
+custom_fonts/font = ExtResource( 23 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -762,6 +764,7 @@ flat = false
 
 [node name="multiple_choice" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -773,7 +776,7 @@ margin/top = -9.0
 margin/right = 255.0
 margin/bottom = 151.0
 popup/exclusive = false
-script/script = ExtResource( 23 )
+script/script = ExtResource( 24 )
 
 [node name="school" type="Label" parent="multiple_choice"]
 
@@ -786,7 +789,7 @@ margin/left = 24.0
 margin/top = 72.0
 margin/right = 498.0
 margin/bottom = 103.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "a.  and"
 percent_visible = 1.0
@@ -804,7 +807,7 @@ margin/left = 24.0
 margin/top = 96.0
 margin/right = 498.0
 margin/bottom = 127.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "b.  or"
 percent_visible = 1.0
@@ -822,7 +825,7 @@ margin/left = 24.0
 margin/top = 122.0
 margin/right = 568.0
 margin/bottom = 153.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "c.   it"
 percent_visible = 1.0
@@ -833,7 +836,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( 15.5, 80 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 hframes = 14
 
 [node name="RichTextLabel" type="RichTextLabel" parent="multiple_choice"]
@@ -847,8 +850,8 @@ margin/left = 22.0
 margin/top = 12.0
 margin/right = 550.0
 margin/bottom = 108.0
-custom_fonts/bold_font = ExtResource( 21 )
-custom_fonts/normal_font = ExtResource( 21 )
+custom_fonts/bold_font = ExtResource( 22 )
+custom_fonts/normal_font = ExtResource( 22 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode/enabled = false
 bbcode/bbcode = "Question: Selon la scène que vous venez de voir, que ce n'est pas un conjonction?"

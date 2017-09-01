@@ -11,6 +11,7 @@ onready var nounsScreenNode = get_node("lesson_plan")
 onready var animation = get_node("AnimationPlayer")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var scorePopupNode = get_node("chapter_score")
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var scene_complete = false
 var interact = false
@@ -37,11 +38,7 @@ var old_collision_mask = 0
 #var chapter_score = 100
 var chapter_done = false
 
-
-
-
-var lesson_plan_toptext = singleton.nounsLessonPlanTop
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_text = singleton.nounsLessonPlanBottom
 
 func _ready():
 	set_process_input(true)
@@ -53,12 +50,14 @@ func _ready():
 	singleton.message_done = true
 	singleton.wrong_choice = false
 	singleton.multiple_choice_complete = false
-	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+	lesson_plan_text = singleton.nounsLessonPlanBottom
 	animation.connect("finished", self, "playNextAnim")
 	get_node("happy_emote").set_hidden(true)
 	get_node("area_neighbor2").hide()
 	disable_staticbody()
-	playerNode.SPEED = 1
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	
 
 func _input(event):
@@ -150,7 +149,7 @@ func _fixed_process(delta):
 			get_node("area_neighbor").queue_free()
 	# Block movements when an popup/dialogue box is open
 	if singleton.message_done:
-		if alert_box.is_visible() or nounsScreenNode.is_visible() or animation.is_playing() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or scorePopupNode.is_visible():
+		if menuNode.is_visible() or alert_box.is_visible() or nounsScreenNode.is_visible() or animation.is_playing() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or scorePopupNode.is_visible():
 			disable_movements()
 		elif animation_complete and time_delta < 0.8:
 			disable_movements()

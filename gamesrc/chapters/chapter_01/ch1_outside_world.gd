@@ -11,6 +11,8 @@ onready var greetingsScreenNode = get_node("lesson_plan")
 onready var dialogueNode = get_node("dialogue_box")
 onready var endPopupNode = get_node("end_alert")
 onready var scorePopupNode = get_node("chapter_score")
+onready var menuNode = get_node("Player/Camera2D/menu")
+
 
 var alert_done = false
 var neighbor_1_alerted = false
@@ -33,7 +35,7 @@ var chapter_done = false
 
 var playerPos
 
-var lesson_plan_bottomtext = singleton.grettingsLessonPlanText
+var lesson_plan_text = singleton.grettingsLessonPlanText
 var question_count = 0
 var question_answers = 0
 var multipleChoiceQuestion = singleton.greetingsMultipleChoiceQuestions
@@ -50,6 +52,9 @@ func _ready():
 	multipleChoiceQuestion = singleton.greetingsMultipleChoiceQuestions
 	multipleChoiceAnswers = singleton.greetingsMultipleChoiceAnswers
 	multipleChoiceCorrectIndex = singleton.greetingsMultipleChoiceCorrectIndices
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	get_node("multiple_choice").correctIndex = multipleChoiceCorrectIndex[0]
 	singleton.message_done = true
 	singleton.wrong_choice = false
@@ -75,6 +80,7 @@ func _fixed_process(delta):
 	if interact: # space bar pressed
 		if greetingsScreenNode.is_visible():
 			greetingsScreenNode.set_hidden(true) #dismiss lesson plan shown at start of the scene
+			interact = false
 			
 	# Fix Neighbor facing direction
 	if singleton.message_done and neighbor_1_alerted:
@@ -170,20 +176,17 @@ func _fixed_process(delta):
 			
 
 	# Block movements when an popup/dialogue box is open
-	if singleton.message_done:
-		if alertBox.is_visible() or multipleChoiceBox.is_visible() or greetingsScreenNode.is_visible() or endPopupNode.is_visible() and !scorePopupNode.is_visible():
-			disable_movements()
-		else:
-			enable_movements()
-	else:
+	if menuNode.is_visible() or get_node("dialogue_box").is_visible() or alertBox.is_visible() or multipleChoiceBox.is_visible() or greetingsScreenNode.is_visible() or endPopupNode.is_visible() and !scorePopupNode.is_visible():
 		disable_movements()
+	else:
+		enable_movements()
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.grettingsLessonPlanText
+	lesson_plan_text = singleton.grettingsLessonPlanText
 	greetingsScreenNode.get_node("title1").set_text("Les Salutations")
 	greetingsScreenNode.get_node("intro_text").set_hidden(true)
-	greetingsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	greetingsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func score_popup():
 	playerPos = playerNode.get_pos()

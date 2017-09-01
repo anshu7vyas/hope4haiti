@@ -227,7 +227,6 @@ modulate = Color( 0.759675, 0.894531, 0.667404, 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -327,7 +326,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -8.0
+margin/bottom = -16.0
 
 [node name="mid2" type="TileMap" parent="."]
 
@@ -772,6 +771,7 @@ flat = false
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false

@@ -17,17 +17,18 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	#lesson_plan_toptext = get_parent().lesson_plan_toptext
-	lesson_plan_bottomtext = get_parent().lesson_plan_bottomtext
+	lesson_plan_bottomtext = get_parent().lesson_plan_text
 	#lesson_plan_top_size = lesson_plan_toptext.size()
 	lesson_plan_bottom_size =  lesson_plan_bottomtext.size()
-	if lesson_plan_bottomtext[1] == "":
-		self.get_node("left_button").set_hidden(true)
-		self.get_node("right_button").set_hidden(true)
-		singlePage = true
-	else:
+	if get_parent().lesson_plan_text.size() > 1:
 		self.get_node("left_button").set_hidden(false)
 		self.get_node("right_button").set_hidden(false)
 		singlePage = false
+	else:
+		self.get_node("left_button").set_hidden(true)
+		self.get_node("right_button").set_hidden(true)
+		singlePage = true
+
 
 
 func _input(event):
@@ -46,6 +47,7 @@ func _input(event):
 
 func _fixed_process(delta):
 	if self.is_visible() and !singlePage: # navigate the lesson plan
+		lesson_plan_size = get_parent().lesson_plan_text.size()
 		if right_trigger or self.get_node("right_button").is_pressed():
 			if lesson_plan_page < lesson_plan_size-1: 
 				lesson_plan_page += 1

@@ -10,6 +10,7 @@ onready var verbsScreenNode = get_node("lesson_plan")
 onready var spell_text = get_node("spelling_challenge/TextInterfaceEngine")
 onready var spellingChallengeBox = get_node("spelling_challenge")
 onready var scorePopupNode = get_node("chapter_score")
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var time_delta = 0
 var wrong_answer_count = 0
@@ -33,7 +34,7 @@ var interact = false
 
 var chapter_score = 100
 var lesson_plan_page = 0
-var lesson_plan_bottomtext = singleton.verbsLessonPlanText
+var lesson_plan_text = singleton.verbsLessonPlanText
 
 func _ready():
 	set_process_input(true)
@@ -47,10 +48,13 @@ func _ready():
 	get_node("multiple_choice").correctIndex = 1
 	set_up_lesson_plan()
 	verbsScreenNode.set_hidden(false)
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	
 	spell_text.connect("input_enter", self, "_on_input_enter")
 	spell_text.connect("buff_end", self, "_on_buff_end")
-	spell_text.connect("enter_break", self, "_on_enter_break")	
+	spell_text.connect("enter_break", self, "_on_enter_break")
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -132,7 +136,7 @@ func _fixed_process(delta):
 			#set to a random scene for now. This will be to chapter 2
 			get_tree().change_scene("res://chapters/chapter_08/ch_8outside_world_prepasitions.tscn")
 	
-	if spellingChallengeBox.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or verbsScreenNode.is_visible():
+	if menuNode.is_visible() or spellingChallengeBox.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or verbsScreenNode.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
@@ -177,10 +181,10 @@ func _on_input_enter(s):
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.verbsLessonPlanText
+	lesson_plan_text = singleton.verbsLessonPlanText
 	verbsScreenNode.get_node("title1").set_text("Les Verbes")
 	verbsScreenNode.get_node("intro_text").set_hidden(true)
-	verbsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	verbsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func disable_movements():
 	directionNode.hide()

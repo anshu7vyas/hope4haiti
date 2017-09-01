@@ -1,7 +1,7 @@
 extends Node2D
 # Pronouns inside world script - inside_world_pronouns.gd
 
-var lesson_plan_bottomtext = singleton.conjunctionLessonPlanText
+var lesson_plan_text = singleton.conjunctionLessonPlanText
 
 var interact = false
 var left_trigger = false
@@ -37,7 +37,6 @@ var chapter_done = false
 var multipleChoiceSprite = 0
 var multipleChoiceCorrectIndex = [4, 0, 2, 1, 3] #correct multiple choice answers
 
-
 onready var conjuctionScreenNode = get_node("lesson_plan")
 onready var playerNode = get_node("Player")
 onready var alertNode = get_node("control_alerts")
@@ -47,15 +46,16 @@ onready var compassNode = get_node("compassBG")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("dialogue_box")
 onready var scorePopupNode = get_node("chapter_score")
-
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
 	directionNode.show()
 	compassNode.show()
-
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	conjuctionScreenNode.set_hidden(false)
 	get_node("happy_pat").hide()
 	get_node("happy_mt").hide()
@@ -102,7 +102,7 @@ func _fixed_process(delta):
 			
 			
 	# Block movements when an popup/dialogue box is open
-	if scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or conjuctionScreenNode.is_visible() or dialogueBox.is_visible():
+	if menuNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or conjuctionScreenNode.is_visible() or dialogueBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
@@ -199,10 +199,10 @@ func delete_alert_box_text():
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.conjunctionLessonPlanText
+	lesson_plan_text = singleton.conjunctionLessonPlanText
 	conjuctionScreenNode.get_node("title1").set_text("Les conjonctions")
 	conjuctionScreenNode.get_node("intro_text").set_hidden(true)
-	conjuctionScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	conjuctionScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 	
 func disable_movements():
 	directionNode.hide()

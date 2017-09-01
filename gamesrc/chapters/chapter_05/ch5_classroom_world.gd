@@ -1,9 +1,6 @@
 extends Node2D
 #classroom scene
 
-#The currently active scene
-var currentScene = null
-
 onready var alertBox = get_node("control_alerts")
 onready var playerNode = get_node("Player")
 onready var dialogueBox = get_node("dialogue_box")
@@ -16,7 +13,7 @@ onready var school_text = get_node("emotion_challenge/TextInterfaceEngine")
 onready var emotionChallengeBox = get_node("emotion_challenge")
 onready var adjectivesBox = get_node("adjective_lesson")
 onready var scorePopupNode = get_node("chapter_score")
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var do_once = false
 var interact
@@ -49,7 +46,7 @@ var special_alerts = ["Athletic = sportif / sportive", "Wise = sage", "", "Happy
 
 var chapter_score = 100
 var lesson_plan_page = 0
-var lesson_plan_bottomtext = singleton.adjectivesLessonPlanText
+var lesson_plan_text = singleton.adjectivesLessonPlanText
 var question_count = 0
 var question_answers = 0
 var multipleChoiceQuestion = singleton.adjectivesMultipleChoiceQuestions
@@ -57,8 +54,6 @@ var multipleChoiceAnswers = singleton.adjectivesMultipleChoiceAnswers
 var multipleChoiceCorrectIndex = singleton.adjectivesMultipleChoiceCorrectIndices
 
 func _ready():
-	#On load set the current scene to the last scene available
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	directionNode.show()
@@ -76,6 +71,9 @@ func _ready():
 	adjective_box_shown = false
 	chapter_done = false
 	chapter_done_popup = false
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	
 	school_text.connect("input_enter", self, "_on_input_enter")
 	school_text.connect("buff_end", self, "_on_buff_end")
@@ -231,7 +229,7 @@ func _fixed_process(delta):
 		interact = false
 		wrong_answer = false
 
-	if scorePopupNode.is_visible() or dialogueBox.is_visible() or multipleChoiceBox.is_visible() or adjectivesScreenNode.is_visible() or emotionChallengeBox.is_visible() or alertBox.is_visible() or adjectivesBox.is_visible():
+	if menuNode.is_visible() or scorePopupNode.is_visible() or dialogueBox.is_visible() or multipleChoiceBox.is_visible() or adjectivesScreenNode.is_visible() or emotionChallengeBox.is_visible() or alertBox.is_visible() or adjectivesBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
@@ -253,16 +251,6 @@ func assignment_popup():
 	alertBox.get_node("Label2").set_text("Marie-Thérèse. Elle doit écrire quelques\n phrases en anglais qui décrivent des\n gens importants dans sa vie.")
 	alertBox.get_node("Label3").set_text("")
 	alertBox.show()
-
-func setScene(scene):
-	#clean up the current scene
-	currentScene.queue_free()
-	#load the file passed in as the param "scene"
-	var s = ResourceLoader.load(scene)
-	#create an instance of our scene
-	currentScene = s.instance()
-	# add scene to root
-	get_tree().get_root().add_child(currentScene)
 
 func multiple_choice_challenge():
 	disable_movements()
@@ -339,10 +327,10 @@ func enable_movements():
 	playerNode.canMove = true
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.adjectivesLessonPlanText
+	lesson_plan_text = singleton.adjectivesLessonPlanText
 	adjectivesScreenNode.get_node("title1").set_text("Les adjectifs")
 	adjectivesScreenNode.get_node("intro_text").set_hidden(true)
-	adjectivesScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	adjectivesScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func delete_alert_box_text():
 	alertBox._print_alert_string("\n")

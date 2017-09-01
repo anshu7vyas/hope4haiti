@@ -7,8 +7,8 @@ onready var compassNode = get_node("compassBG")
 onready var playerNode = get_node("Player")
 onready var dialogueBox = get_node("startup_dialoge")
 onready var playerDialogueBox = get_node("Player/Camera2D/dialogue_box")
-onready var dialogueBoxNode = get_node("dialogue_textbox")
-onready var dialogueText = get_node("dialogue_textbox/TextInterfaceEngine")
+onready var menuNode = get_node("Player/Camera2D/menu")
+onready var lessonPlanNode = get_node("lesson_plan")
 
 var time_seconds = 0 #skip for now
 var dialogue_wait_secs = 1
@@ -22,20 +22,18 @@ var alert_done = false
 var alert2_done = false
 
 
-var lesson_plan_toptext = singleton.nounsLessonPlanTop
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_text = singleton.grettingsLessonPlanText
 
 func _ready():
 	set_process_input(true)
 	set_fixed_process(true)
 	directionNode.hide()
 	compassNode.hide()
-	dialogueBoxNode.hide()
 	time_seconds = 0
+	set_up_lesson_plan()
 
-	dialogueText.connect("input_enter", self, "_on_input_enter")
-	dialogueText.connect("buff_end", self, "_on_buff_end")
-	dialogueText.connect("enter_break", self, "_on_enter_break")
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false	
 	#skip intro for debugging
 	#skip_intro()
 
@@ -49,9 +47,7 @@ func _fixed_process(delta): #running process
 	time_seconds += delta #count how long the scene has been running
 	if interact and alert_box.is_visible(): #dismiss alertbox
 		alert_box.hide()
-		if alert2_done:
-			directionNode.show()
-			compassNode.show()
+
 	if time_seconds > 0.1 and !timer_done: #pause for 1s then start intro dialogue
 		intro_dialogue()
 		timer_done = true #dont run this block again
@@ -66,32 +62,15 @@ func _fixed_process(delta): #running process
 	if !singleton.message_done: #dont allopw walking during dialogue or alerts
 		get_node("Player").canMove = false
 	
-	if dialogueBox.is_visible() or alert_box.is_visible() or playerDialogueBox.is_visible():
+	if menuNode.is_visible() or lessonPlanNode.is_visible() or dialogueBox.is_visible() or alert_box.is_visible() or playerDialogueBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
 	
 
 func intro_dialogue():
-	#dialogueBoxNode.show()	
-	#dialogueText.reset()
-	#dialogueText.set_color(Color(1,1,1))
-	#dialogueText.buff_text("Marie-Thérèse:\n", 0)
-	#dialogueText.buff_text("Bonjour ! Je m’appelle Marie-Thérèse, et je vais ", 0)
-	#OS.delay_msec(500)
-	#dialogueText.set_color(Color(1,1,0))
-	#dialogueText.buff_text("vous ", 0)
-	#OS.delay_msec(500)
-	#dialogueText.set_color(Color(1,1,1))
-	#dialogueText.buff_text("aider à apprendre l’anglais ! On y va, suivez-moi !", 0)
-	#tie.buff_silence(0.4)
-	#dialogueText.set_state(dialogueText.STATE_OUTPUT)
 	var player_pos = get_node("Player").get_pos() #get position of the player to place the dialogue box
 	get_node("startup_dialoge").set_pos(Vector2(player_pos.x-76, player_pos.y+31)) #hardcoded distance to position middle bottom
-	#get_node("startup_dialoge").has_color_change = true
-	#get_node("startup_dialoge").colorChangeStart = 12
-	#get_node("startup_dialoge").colorChangeEnd = 22
-	#get_node("startup_dialoge").colorChangeLine = 0
 	get_node("startup_dialoge").set_hidden(false)
 	get_node("startup_dialoge")._print_dialogue(get_node("intoObj/StaticBody2D/introduction_dialogue").text) 
 
@@ -136,3 +115,9 @@ func enable_movements():
 	compassNode.show()
 	playerNode.canMove = true
 
+func set_up_lesson_plan():
+	lesson_plan_text = singleton.grettingsLessonPlanText
+	lessonPlanNode.get_node("title1").set_text("Les Salutations")
+	lessonPlanNode.get_node("intro_text").set_hidden(true)
+	lessonPlanNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
+	#lessonPlanNode.show()

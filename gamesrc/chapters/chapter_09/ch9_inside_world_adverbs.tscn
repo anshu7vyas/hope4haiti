@@ -228,7 +228,6 @@ frame = 10
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -56, 280 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -273,7 +272,6 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-editor/display_folded = true
 transform/scale = Vector2( 4, 4 )
 anchor_mode = 1
 rotating = false
@@ -315,7 +313,7 @@ visibility/visible = false
 margin/left = 24.0
 margin/top = -52.0
 margin/right = 79.0
-margin/bottom = -9.0
+margin/bottom = -14.0
 
 [node name="doorcover" type="Sprite" parent="."]
 
@@ -744,6 +742,7 @@ visible_characters = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false

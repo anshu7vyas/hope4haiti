@@ -11,7 +11,7 @@ onready var dialogueNode = get_node("dialogue_box")
 onready var endPopupNode = get_node("end_alert")
 onready var scorePopupNode = get_node("chapter_score")
 onready var sentenceInfoBox = get_node("sentance_info")
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var alert_done = false
 var stranger_alerted = false
@@ -38,7 +38,7 @@ var chapter_done = false
 
 var playerPos
 
-var lesson_plan_bottomtext = singleton.possesiveNounLessonPlanText
+var lesson_plan_text = singleton.possesiveNounLessonPlanText
 var question_count = 0
 var question_answers = 0
 var multipleChoiceQuestion = singleton.possNounsMultipleChoiceQuestions
@@ -60,6 +60,9 @@ func _ready():
 	singleton.multiple_choice_complete = false
 	get_node("exclamation").set_hidden(true)
 	set_up_lesson_plan()
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -186,21 +189,19 @@ func _fixed_process(delta):
 			
 
 	# Block movements when an popup/dialogue box is open
-	if singleton.message_done:
-		if alertBox.is_visible() or multipleChoiceBox.is_visible() or possesiveNounsScreenNode.is_visible() or endPopupNode.is_visible() and scorePopupNode.is_visible() or sentenceInfoBox.is_visible():
+	if get_node("dialogue_box").is_visible() or menuNode.is_visible() or alertBox.is_visible() or multipleChoiceBox.is_visible() or possesiveNounsScreenNode.is_visible() or endPopupNode.is_visible() and scorePopupNode.is_visible() or sentenceInfoBox.is_visible():
 			disable_movements()
-		else:
-			enable_movements()
 	else:
-		disable_movements()
+		enable_movements()
+
 
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.possesiveNounLessonPlanText
+	lesson_plan_text = singleton.possesiveNounLessonPlanText
 	possesiveNounsScreenNode.get_node("title1").set_text("Les noms possessifs")
 	possesiveNounsScreenNode.get_node("intro_text").set_hidden(true)
-	possesiveNounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	possesiveNounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func score_popup():
 	playerPos = playerNode.get_pos()

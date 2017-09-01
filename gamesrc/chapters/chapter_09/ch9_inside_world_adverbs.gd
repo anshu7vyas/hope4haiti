@@ -1,7 +1,5 @@
 extends Node2D
 
-var currentScene = null
-
 onready var alertNode = get_node("control_alerts")
 onready var directionNode = get_node("direction_arrow")
 onready var compassNode = get_node("compassBG")
@@ -10,7 +8,7 @@ onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("startup_dialoge")
 onready var adverbsScreenNode = get_node("lesson_plan")
 onready var scorePopupNode = get_node("chapter_score")
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -35,22 +33,21 @@ var chapter_score = 100
 var end_chapter_popup_visible = false
 var chapter_done = false
 
-
-
 var player_pos
 var interact = false
 
-var lesson_plan_bottomtext = singleton.adverbsLessonPlanBottom
+var lesson_plan_text = singleton.adverbsLessonPlanBottom
 
 func _ready():
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	set_up_lesson_plan()
 	directionNode.show()
 	compassNode.show()
 	adverbsScreenNode.set_hidden(false)
-	
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	singleton.wrong_choice = false
 	singleton.correct_answer_chosen = false
 	#singleton.correct_answer_chosen1 = false
@@ -59,8 +56,6 @@ func _ready():
 	get_node("multiple_choice").correctIndex = 0
 	get_node("happy_mt").hide()
 	#get_node("multiple_choice1").correctIndex = 2
-
-
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -82,7 +77,6 @@ func _fixed_process(delta):
 		get_node("happy_mt").set_pos(Vector2(player_pos.x-10, player_pos.y-25))
 		get_node("happy_mt").show()
 
-	
 	#multiple choice script not working - doing manually in this scene
 	if multiple_choice_started:
 		player_pos = playerNode.get_pos()
@@ -125,14 +119,11 @@ func _fixed_process(delta):
 		end_chapter_popup_visible = true
 		score_popup()
 		
-
-		
-	if scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or adverbsScreenNode.is_visible():
+	if menuNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or adverbsScreenNode.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
-		
-	
+			
 	if scorePopupNode.is_visible():
 		# score < 80 and resart chapter pressed
 		if scorePopupNode.get_node("restart_chapter_level").is_pressed() and !chapter_done:
@@ -148,31 +139,12 @@ func _fixed_process(delta):
 			#set to a random scene for now. This will be to chapter 2
 			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
 
-
-func setScene(scene):
-	#clean up the current scene
-	currentScene.queue_free()
-	#load the file passed in as the param "scene"
-	var s = ResourceLoader.load(scene)
-	#create an instance of our scene
-	currentScene = s.instance()
-	# add scene to root
-	get_tree().get_root().add_child(currentScene)
-
 func multiple_choice_challenge():
 	disable_movements()
 	player_pos = playerNode.get_pos()
 	multipleChoiceBox.set_pos(Vector2(player_pos.x-94, player_pos.y-45))
 	multipleChoiceBox.show()
 	singleton.wrong_choice = false
-	
-#func multiple_choice_challenge1():
-#	disable_movements()
-#	player_pos = playerNode.get_pos()
-#	multipleChoiceBox1.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
-#	multipleChoiceBox1.show()
-#	singleton.wrong_choice1 = false
-
 
 func delete_alert_box_text():
 	alertNode._print_alert_string("\n\n\n")
@@ -207,10 +179,10 @@ func claudine_dialogue2():
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.adverbsLessonPlanBottom
+	lesson_plan_text = singleton.adverbsLessonPlanBottom
 	adverbsScreenNode.get_node("title1").set_text("Les Adverbes")
 	adverbsScreenNode.get_node("intro_text").set_hidden(true)
-	adverbsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	adverbsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 	adverbsScreenNode.show()
 
 

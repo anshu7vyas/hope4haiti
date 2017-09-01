@@ -1,8 +1,5 @@
 extends Node2D
-#classroom scene
-
-#The currently active scene
-var currentScene = null
+#classroom scene ch 6
 
 onready var alertBox = get_node("control_alerts")
 onready var playerNode = get_node("Player")
@@ -17,7 +14,7 @@ onready var emotionChallengeBox = get_node("emotion_challenge")
 onready var adjectivesBox = get_node("adjective_lesson")
 onready var scorePopupNode = get_node("chapter_score")
 onready var matchingBox = get_node("matching")
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var do_once = false
 var interact
@@ -39,11 +36,9 @@ var matching_box_shown = false
 
 var chapter_score = 100
 var lesson_plan_page = 0
-var lesson_plan_bottomtext = singleton.possAdjectivesLessonPlanText
+var lesson_plan_text = singleton.possAdjectivesLessonPlanText
 
 func _ready():
-	#On load set the current scene to the last scene available
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	directionNode.show()
@@ -54,7 +49,9 @@ func _ready():
 	singleton.multiple_choice_complete = false
 	set_up_lesson_plan()
 	adjectivesScreenNode.set_hidden(false)
-
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 
 			
 func _input(event):
@@ -140,7 +137,7 @@ func _fixed_process(delta):
 		interact = false
 		wrong_answer = false
 
-	if matchingBox.is_visible() or adjectivesBox.is_visible() or adjectivesScreenNode.is_visible() or scorePopupNode.is_visible() or dialogueBox.is_visible() or multipleChoiceBox.is_visible() or alertBox.is_visible():
+	if menuNode.is_visible() or matchingBox.is_visible() or adjectivesBox.is_visible() or adjectivesScreenNode.is_visible() or scorePopupNode.is_visible() or dialogueBox.is_visible() or multipleChoiceBox.is_visible() or alertBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
@@ -163,10 +160,10 @@ func multiple_choice_challenge():
 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.possAdjectivesLessonPlanText
+	lesson_plan_text = singleton.possAdjectivesLessonPlanText
 	adjectivesScreenNode.get_node("title1").set_text("Les adjectifs possessifs")
 	adjectivesScreenNode.get_node("intro_text").set_hidden(true)
-	adjectivesScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	adjectivesScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func delete_alert_box_text():
 	alertBox._print_alert_string("\n")
