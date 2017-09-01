@@ -103,6 +103,7 @@ func _fixed_process(delta):
 			elif sprite.get_frame() == 7: #character is facing right
 				interact(resultRight)
 		if menu and !interact:
+			#get_parent().get_node("menu")._open_menu()
 			get_node("Camera2D/menu")._open_menu()
 			#get_node("Camera2D/menu").set_as_toplevel(true) #keeps the menu in place
 	elif canMove:

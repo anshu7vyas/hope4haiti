@@ -3,8 +3,6 @@ extends Patch9Frame
 var menu = false
 var open = false
 
-var currentScene = null
-
 var up = false
 var down = false
 var left = false
@@ -12,8 +10,8 @@ var right = false
 var spacePressed = false
 var chaptersOpen = true
 var chapterIsChanging = false
-
 var in_chapter_box = false
+var time_delta = 0
 
 var currentLabel = 0
 var currentChapLabel = 0
@@ -28,23 +26,15 @@ var player_pos
 var lesson_plan_toptext
 var lesson_plan_bottomtext
 var lesson_plan_bottom_size
+var interact = false
+var lesson_plan_shown = false
 
 onready var chapterNode = get_node("chapter_menu")
 onready var confirmationNode = get_node("confirmation")
 onready var lessonPlanNode = get_tree().get_current_scene().get_node("lesson_plan")
 
-func setScene(scene):
-	#clean up the current scene
-	currentScene.queue_free()
-	#load the file passed in as the param "scene"
-	var s = ResourceLoader.load(scene)
-	#create an instance of our scene
-	currentScene = s.instance()
-	# add scene to root
-	get_tree().get_root().add_child(currentScene)
 
 func _ready():
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_unhandled_key_input(true)
 	set_fixed_process(true)
 	labels = get_node("Labels").get_children()
@@ -56,84 +46,69 @@ func _ready():
 	set_as_toplevel(true)
 	if get_tree().get_current_scene().has_node("lesson_plan"):
 		#lesson_plan_toptext = get_tree().get_current_scene().lesson_plan_toptext
-		lesson_plan_bottomtext = get_tree().get_current_scene().lesson_plan_bottomtext
+		lesson_plan_bottomtext = get_tree().get_current_scene().lesson_plan_text
 		lesson_plan_bottom_size = lesson_plan_bottomtext.size()
-
-	
-
+		
 func _handle_interaction():
 	if currentLabel == 0: #chapters label
 		player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
-		chapterNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
-		chapSelect.set_pos(Vector2(player_pos.x-5, player_pos.y-66))
+		chapterNode.set_pos(Vector2(player_pos.x-100, player_pos.y-70))
+		chapSelect.set_pos(Vector2(player_pos.x-5, player_pos.y-61))
 		start_pos_select = chapSelect.get_pos()
 		chapterNode.set_hidden(false)
 		chapSelect.set_hidden(false)
 		chapSelect.set_as_toplevel(true)
 		in_chapter_box = true
 	if currentLabel == 1: #lesson plan
-		if get_tree().get_current_scene().has_node("lesson_plan"):
+		if get_tree().get_current_scene().has_node("lesson_plan") and !lesson_plan_shown:
+			lesson_plan_shown = true
 			player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 			lessonPlanNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
 			lessonPlanNode.set_hidden(false)
+			self.set_hidden(true)
+			time_delta = 0
+			open = false
+			get_parent().get_parent().get_parent().interact = false
 		else:
 			print("no lesson plan in this scene") #should not reach this
-		player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 		
-	if currentLabel == 2: # main menu - BROKEN - startup screen frozen
-		menu = false
-		open = false
-		setScene("res://screens/main_menu/startUp.tscn")
-		#get_tree().change_scene("res://screens/main_menu/startUp.tscn")
-	elif currentLabel == 3: #Exit Label
+#	if currentLabel == 2: # main menu - BROKEN - startup screen frozen
+#		menu = false
+#		open = false
+#		setScene("res://screens/main_menu/startUp.tscn")
+#		#get_tree().change_scene("res://screens/main_menu/startUp.tscn")
+	elif currentLabel == 2: #Exit Label
 		OS.get_main_loop().quit()
 
 func _handle_chap_select():
 	player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 	confirmationNode.set_pos(Vector2(player_pos.x-85, player_pos.y-50))
-	if currentChapLabel >= 0 and currentChapLabel < 10:
+	if currentChapLabel >= 0 and currentChapLabel < 11:
 		confirmationNode.set_hidden(false)
-	elif currentChapLabel == 12:
+	elif currentChapLabel == 11:
 		hide_chapter_window()
 		
-func _handle_chapter_change():
-	if currentChapLabel == 0:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 1:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 2:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 3:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 4:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 5:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 6:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 7:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 8:
-		print("change to chapter: " + str(currentLabel))
-	elif currentChapLabel == 9:
-		print("change to chapter: " + str(currentLabel))
 
 func hide_chapter_window():
 	chapSelect.set_hidden(true)
 	chapterNode.set_hidden(true)
 	set_hidden(true)
-	get_tree().set_pause(false)
+	#get_tree().set_pause(false)
 	currentChapLabel = 0
 	open = false
 		
 		
 func _fixed_process(delta):
+	time_delta += delta
+	if time_delta > 0.5 and lesson_plan_shown:
+		lesson_plan_shown = false
+	
 	if confirmationNode.is_visible():
 		if confirmationNode.get_node("back").is_pressed():
 			confirmationNode.set_hidden(true)
 		elif confirmationNode.get_node("button_enter").is_pressed() and !chapterIsChanging:
 			chapterIsChanging = true
-			_handle_chapter_change()
+			singleton._goto_chapter(currentChapLabel)
 	if get_tree().get_current_scene().has_node("lesson_plan"):
 		if lessonPlanNode.is_visible(): # navigate the lesson plan
 			if right or lessonPlanNode.get_node("right_button").is_pressed():
@@ -187,7 +162,7 @@ func _fixed_process(delta):
 		
 		if menu:
 			set_hidden(true)
-			get_tree().set_pause(false)
+			#get_tree().set_pause(false)
 			open = false
 		if up:
 			if currentLabel == 0:
@@ -243,6 +218,6 @@ func _open_menu():
 	player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
 	set_pos(Vector2(player_pos.x-30, player_pos.y+5))
 	set_hidden(false)
-	get_tree().set_pause(true)
+	#get_tree().set_pause(true)
 	menu = false
 	open = true

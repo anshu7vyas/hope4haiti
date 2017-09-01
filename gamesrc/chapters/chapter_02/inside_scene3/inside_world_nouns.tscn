@@ -272,7 +272,6 @@ _update_shape_index = 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -56, 280 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -353,9 +352,9 @@ margin/bottom = 76.0
 process/pause_mode = 2
 visibility/visible = false
 margin/left = 24.0
-margin/top = -52.0
+margin/top = -56.0
 margin/right = 79.0
-margin/bottom = -9.0
+margin/bottom = -18.0
 
 [node name="banana" type="Sprite" parent="."]
 

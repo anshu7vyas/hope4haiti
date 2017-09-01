@@ -1,7 +1,5 @@
 extends Node2D
 
-var currentScene = null
-
 onready var alertNode = get_node("control_alerts")
 onready var directionNode = get_node("direction_arrow")
 onready var compassNode = get_node("compassBG")
@@ -9,6 +7,8 @@ onready var playerNode = get_node("Player")
 onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("startup_dialoge")
 onready var nounsScreenNode = get_node("lesson_plan")
+onready var menuNode = get_node("Player/Camera2D/menu")
+
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -31,10 +31,9 @@ var picked_up_pot = false
 var player_pos
 var interact = false
 
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_text = singleton.nounsLessonPlanBottom
 
 func _ready():
-	currentScene = get_tree().get_root().get_child(get_tree().get_root().get_child_count() -1)
 	set_process_input(true)
 	set_fixed_process(true)
 	get_node("Player").canMove = false
@@ -47,6 +46,9 @@ func _ready():
 	singleton.multiple_choice_complete = false
 	get_node("multiple_choice").correctIndex = 2
 	get_node("multiple_choice2").correctIndex = 1
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -135,23 +137,13 @@ func _fixed_process(delta):
 		directionNode.show()
 		compassNode.show()
 	
-	if alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or get_node("multiple_choice2").is_visible():
+	if nounsScreenNode.is_visible() or menuNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or get_node("multiple_choice2").is_visible():
 		disable_movements()
 
 func pick_up_pot():
 	set_pot_pos()
 	get_node("destinationObj").set_pos(Vector2(-56,296)) 
 	picked_up_pot = true
-
-func setScene(scene):
-	#clean up the current scene
-	currentScene.queue_free()
-	#load the file passed in as the param "scene"
-	var s = ResourceLoader.load(scene)
-	#create an instance of our scene
-	currentScene = s.instance()
-	# add scene to root
-	get_tree().get_root().add_child(currentScene)
 
 func set_pot_pos():
 	player_pos = playerNode.get_pos()
@@ -203,10 +195,10 @@ func father_dialogue():
 	father_dialogue_started = true
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+	lesson_plan_text = singleton.nounsLessonPlanBottom
 	nounsScreenNode.get_node("title1").set_text("Les Noms")
 	nounsScreenNode.get_node("intro_text").set_hidden(true)
-	nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	nounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 
 func disable_movements():

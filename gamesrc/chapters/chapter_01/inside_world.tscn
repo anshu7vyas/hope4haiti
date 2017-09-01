@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=1]
+[gd_scene load_steps=27 format=1]
 
 [ext_resource path="res://chapters/chapter_01/inside_scn_1.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
@@ -15,13 +15,10 @@
 [ext_resource path="res://utilities/compass/compass.png" type="Texture" id=13]
 [ext_resource path="res://utilities/compass/direction_arrow.gd" type="Script" id=14]
 [ext_resource path="res://chapters/chapter_01/control_Alert.gd" type="Script" id=15]
-[ext_resource path="res://utilities/dialogue_box/dialogue_textbox.gd" type="Script" id=16]
-[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=17]
-[ext_resource path="res://addons/GodotTIE/GodotTIE_icon.png" type="Texture" id=18]
-[ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=19]
-[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=20]
-[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=21]
-[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=22]
+[ext_resource path="res://utilities/lesson_plan.gd" type="Script" id=16]
+[ext_resource path="res://fonts/titleFont2large.fnt" type="BitmapFont" id=17]
+[ext_resource path="res://chapters/chapter_01/Pointer2.png" type="Texture" id=18]
+[ext_resource path="res://chapters/chapter_01/Pointer3.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -190,7 +187,6 @@ _update_shape_index = 0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 24, 8 )
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
@@ -268,12 +264,7 @@ margin/bottom = 76.0
 
 [node name="menu" parent="Player/Camera2D" instance=ExtResource( 7 )]
 
-process/pause_mode = 2
 visibility/visible = false
-margin/left = 24.0
-margin/top = -52.0
-margin/right = 79.0
-margin/bottom = -8.0
 
 [node name="top" type="TileMap" parent="."]
 
@@ -478,47 +469,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="dialogue_textbox" type="PopupDialog" parent="."]
-
-editor/display_folded = true
-visibility/visible = false
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -46.0
-margin/top = 38.0
-margin/right = 238.0
-margin/bottom = 112.0
-popup/exclusive = false
-script/script = ExtResource( 16 )
-
-[node name="TextInterfaceEngine" type="ReferenceFrame" parent="dialogue_textbox"]
-
-rect/scale = Vector2( 0.5, 0.5 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 8.0
-margin/top = 10.0
-margin/right = 540.0
-margin/bottom = 118.0
-script/script = ExtResource( 17 )
-__meta__ = {
-"_editor_icon": ExtResource( 18 )
-}
-SCROLL_ON_MAX_LINES = true
-BREAK_ON_MAX_LINES = true
-AUTO_SKIP_WORDS = true
-LOG_SKIPPED_LINES = true
-SCROLL_SKIPPED_LINES = false
-FONT = ExtResource( 19 )
-PRINT_INPUT = true
-BLINKING_INPUT = true
-INPUT_CHARACTERS_LIMIT = -1
-
 [node name="lesson_plan" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -533,19 +483,20 @@ margin/top = -67.0
 margin/right = 324.0
 margin/bottom = 233.0
 popup/exclusive = false
+script/script = ExtResource( 16 )
 
 [node name="title1" type="Label" parent="lesson_plan"]
 
-rect/scale = Vector2( 0.8, 0.8 )
+rect/scale = Vector2( 0.7, 0.7 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 2.0
-margin/top = 18.0
-margin/right = 497.0
-margin/bottom = 78.0
-custom_fonts/font = ExtResource( 20 )
+margin/top = 4.0
+margin/right = 568.0
+margin/bottom = 64.0
+custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Les noms"
 align = 1
@@ -555,6 +506,7 @@ max_lines_visible = -1
 
 [node name="intro_text" type="RichTextLabel" parent="lesson_plan"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -573,44 +525,46 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 28.0
-margin/top = 154.0
-margin/right = 372.0
-margin/bottom = 260.0
+margin/left = 12.0
+margin/top = 42.0
+margin/right = 394.0
+margin/bottom = 280.0
 bbcode/enabled = false
 bbcode/bbcode = "Le nom est la première des huit parties du discours. Les noms peuvent être utilisés de différentes manières. Ils peuvent être communs ou appropriés. Ils peuvent être des sujets de phrases ou d'objets directs, nominatifs prédicats, objets de prépositions et objets indirects. Il y a aussi des noms d'adresse, des objets d'infinitives et des noms de gerundus."
 visible_characters = -1
 
 [node name="left_button" type="Button" parent="lesson_plan"]
 
+rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 310.0
-margin/top = 262.0
-margin/right = 345.0
-margin/bottom = 294.0
+margin/left = 326.0
+margin/top = 278.0
+margin/right = 361.0
+margin/bottom = 310.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 21 )
+icon = ExtResource( 18 )
 flat = false
 
 [node name="right_button" type="Button" parent="lesson_plan"]
 
+rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 344.0
-margin/top = 262.0
-margin/right = 376.0
-margin/bottom = 294.0
+margin/top = 278.0
+margin/right = 379.0
+margin/bottom = 310.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-icon = ExtResource( 22 )
+icon = ExtResource( 19 )
 flat = false
 
 [connection signal="body_enter" from="Area2D1" to="Area2D1" method="_on_Area2D1_body_enter"]

@@ -94,7 +94,7 @@ func _input(event):
 			chapterNode.set_hidden(true)
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
 			if chapter_index == 0:
-				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (84 * 12)))
+				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y + (84 * 11)))
 				chapter_index = 11
 			else:
 				selectedNode.set_pos(Vector2(selectedNode.get_pos().x, selectedNode.get_pos().y - 84))

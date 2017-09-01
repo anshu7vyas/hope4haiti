@@ -1,7 +1,7 @@
 extends Node2D
 # Pronouns inside world script - inside_world_pronouns.gd
 
-var lesson_plan_bottomtext = singleton.pronounsLessonPlanText
+var lesson_plan_text = singleton.pronounsLessonPlanText
 
 var interact = false
 var left_trigger = false
@@ -32,7 +32,6 @@ var chapter_done = false
 var multipleChoiceSprite = 0
 var multipleChoiceCorrectIndex = [4, 0, 2, 1, 3] #correct multiple choice answers
 
-
 onready var pronounsScreenNode = get_node("lesson_plan")
 onready var playerNode = get_node("Player")
 onready var alertNode = get_node("control_alerts")
@@ -43,8 +42,7 @@ onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("dialogue_box")
 onready var matchingBox = get_node("matching")
 onready var scorePopupNode = get_node("chapter_score")
-
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 func _ready():
 	set_process_input(true)
@@ -53,12 +51,11 @@ func _ready():
 	compassNode.show()
 	pronounsScreenNode.get_node("title1").set_text("Les pronoms")
 	pronounsScreenNode.set_hidden(false)
-	
-
 	multipleChoiceBox.set_hidden(true)
 	set_up_lesson_plan()
-
-	
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	multipleChoiceBox.correctIndex = 0
 	singleton.message_done = true
 	singleton.wrong_choice = false
@@ -125,28 +122,24 @@ func _fixed_process(delta):
 	
 	if pronounsScreenNode.is_visible(): # navigate the lesson plan
 		if right_trigger or pronounsScreenNode.get_node("right_button").is_pressed():
-			if lesson_plan_page < lesson_plan_bottomtext.size()-1: 
+			if lesson_plan_page < lesson_plan_text.size()-1: 
 				lesson_plan_page += 1
-				pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+				pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[lesson_plan_page])
 				OS.delay_msec(150) #pause so it doesnt skip to the next screen
 			right_trigger = false
 		elif left_trigger or pronounsScreenNode.get_node("left_button").is_pressed():
 			if lesson_plan_page > 0:
 				lesson_plan_page -= 1
-				pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[lesson_plan_page])
+				pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[lesson_plan_page])
 				OS.delay_msec(150)
 			left_trigger = false 
 			
 			
 	# Block movements when an popup/dialogue box is open
-	if singleton.message_done:
-		if alertNode.is_visible() or matchingBox.is_visible() or get_node("multiple_choice2").is_visible() or get_node("multiple_choice3").is_visible() or multipleChoiceBox.is_visible() or pronounsScreenNode.is_visible() or dialogueBox.is_visible() or get_node("pronouns_alert").is_visible():
-			disable_movements()
-		else:
-			enable_movements()
-	else:
+	if get_node("dialogue_box").is_visible() or menuNode.is_visible() or alertNode.is_visible() or matchingBox.is_visible() or get_node("multiple_choice2").is_visible() or get_node("multiple_choice3").is_visible() or multipleChoiceBox.is_visible() or pronounsScreenNode.is_visible() or dialogueBox.is_visible() or get_node("pronouns_alert").is_visible():
 		disable_movements()
-		
+	else:
+		enable_movements()
 	
 	if multipleChoiceSelected:
 		if correctMultipleChoice:
@@ -342,10 +335,10 @@ func family_dialgogue_pronouns():
 	dialogueBox._print_dialogue(get_node("dialogueObj1/StaticBody2D/Interact").text) 
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.pronounsLessonPlanText
+	lesson_plan_text = singleton.pronounsLessonPlanText
 	pronounsScreenNode.get_node("title1").set_text("Les pronoms")
 	pronounsScreenNode.get_node("intro_text").set_hidden(true)
-	pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	pronounsScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 	
 func disable_movements():
 	directionNode.hide()

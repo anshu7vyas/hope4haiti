@@ -8,7 +8,7 @@ onready var multipleChoiceBox = get_node("multiple_choice")
 onready var dialogueBox = get_node("dialogue_box")
 onready var scorePopupNode = get_node("chapter_score")
 onready var prepositrionScreenNode = get_node("lesson_plan")
-
+onready var menuNode = get_node("Player/Camera2D/menu")
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -27,7 +27,7 @@ var interact = false
 
 var chapter_score = 100
 var lesson_plan_page = 0
-var lesson_plan_bottomtext = singleton.prepositionsLessonPlanText
+var lesson_plan_text = singleton.prepositionsLessonPlanText
 
 func _ready():
 	set_process_input(true)
@@ -41,6 +41,9 @@ func _ready():
 	get_node("multiple_choice").correctIndex = 2
 	set_up_lesson_plan()
 	prepositrionScreenNode.set_hidden(false)
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 
 func _input(event):
 	if event.is_action_pressed("ui_interact"): #tab press to dismiss alert boxes and progress dialogue
@@ -101,7 +104,7 @@ func _fixed_process(delta):
 			get_tree().change_scene("res://chapters/chapter_09/ch9_inside_world_adverbs.tscn")
 
 	
-	if prepositrionScreenNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
+	if menuNode.is_visible() or prepositrionScreenNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
@@ -136,10 +139,10 @@ func neighbor_dialogue_predicate():
 	neighbor_dialogue_done = true
 
 func set_up_lesson_plan():
-	lesson_plan_bottomtext = singleton.prepositionsLessonPlanText
+	lesson_plan_text = singleton.prepositionsLessonPlanText
 	prepositrionScreenNode.get_node("title1").set_text("Les prépositions")
 	prepositrionScreenNode.get_node("intro_text").set_hidden(true)
-	prepositrionScreenNode.get_node("describing_text").set_bbcode(lesson_plan_bottomtext[0])
+	prepositrionScreenNode.get_node("describing_text").set_bbcode(lesson_plan_text[0])
 
 func delete_alert_box_text():
 	alertNode._print_alert_string("\n")

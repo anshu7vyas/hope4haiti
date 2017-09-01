@@ -11,6 +11,8 @@ onready var nameChallengeBox = get_node("PopupDialog")
 onready var sentenceInfoBox = get_node("sentance_info")
 onready var playerNode = get_node("Player")
 onready var nounsScreenNode = get_node("lesson_plan")
+onready var menuNode = get_node("Player/Camera2D/menu")
+onready var dialogueNode = get_node("dialogue_box")
 
 var alert_done = false
 var neighbor1_alerted = false
@@ -36,8 +38,7 @@ var wrong_answer_count = 0
 var player_pos
 var name_challenge_text
 
-var lesson_plan_toptext = singleton.nounsLessonPlanTop
-var lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+var lesson_plan_text = singleton.nounsLessonPlanBottom
 
 func _ready():
 	set_process_input(true)
@@ -45,11 +46,13 @@ func _ready():
 	directionNode.show()
 	compassNode.show()
 	nounsScreenNode.set_hidden(false)
-
+	menuNode.set_hidden(true)
+	menuNode.lesson_plan_shown = false
+	menuNode.chapterIsChanging = false
 	singleton.message_done = true
 	singleton.wrong_choice = false
 	singleton.multiple_choice_complete = false
-	lesson_plan_bottomtext = singleton.nounsLessonPlanBottom
+	lesson_plan_text = singleton.nounsLessonPlanBottom
 	
 	tie.connect("input_enter", self, "_on_input_enter")
 	tie.connect("buff_end", self, "_on_buff_end")
@@ -75,7 +78,9 @@ func _fixed_process(delta):
 	time_delta += delta
 	if interact: # space bar pressed
 		if nounsScreenNode.is_visible():
+			menuNode.set_hidden(true)
 			nounsScreenNode.set_hidden(true)
+			
 		if singleton.wrong_choice:
 			alert_box.hide()
 			multiple_choice_challenge()
@@ -97,7 +102,7 @@ func _fixed_process(delta):
 			wrong_answer_popup_shown = false # do once
 			nameChallengeBox.set_hidden(false)
 			correct_answer("")
-			interact = false
+		interact = false
 
 				
 	# Handle neighbor dialogue
@@ -115,14 +120,11 @@ func _fixed_process(delta):
 			neighbor2_done = true
 	
 	# Block movements when an popup/dialogue box is open
-	if singleton.message_done:
-		if alert_box.is_visible() or nameChallengeBox.is_visible() or sentenceInfoBox.is_visible() or nounsScreenNode.is_visible():
-			disable_movements()
-		else:
-			enable_movements()
-	else:
+	if menuNode.is_visible() or dialogueNode.is_visible() or alert_box.is_visible() or nameChallengeBox.is_visible() or sentenceInfoBox.is_visible() or nounsScreenNode.is_visible():
 		disable_movements()
-	
+	else:
+		enable_movements()
+
 	# Handle input challenge popup
 	if neighbor2_done and !name_challenge_start:
 		if singleton.message_done:
