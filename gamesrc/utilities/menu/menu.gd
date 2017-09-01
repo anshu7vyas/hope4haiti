@@ -64,8 +64,8 @@ func _ready():
 func _handle_interaction():
 	if currentLabel == 0: #chapters label
 		player_pos = get_tree().get_current_scene().get_node("Player").get_pos()
-		chapterNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
-		chapSelect.set_pos(Vector2(player_pos.x-5, player_pos.y-66))
+		chapterNode.set_pos(Vector2(player_pos.x-100, player_pos.y-76))
+		chapSelect.set_pos(Vector2(player_pos.x-3, player_pos.y-60))
 		start_pos_select = chapSelect.get_pos()
 		chapterNode.set_hidden(false)
 		chapSelect.set_hidden(false)
@@ -93,7 +93,7 @@ func _handle_chap_select():
 	confirmationNode.set_pos(Vector2(player_pos.x-85, player_pos.y-50))
 	if currentChapLabel >= 0 and currentChapLabel < 10:
 		confirmationNode.set_hidden(false)
-	elif currentChapLabel == 12:
+	elif currentChapLabel == 11:
 		hide_chapter_window()
 		
 func _handle_chapter_change():
@@ -114,6 +114,8 @@ func _handle_chapter_change():
 	elif currentChapLabel == 7:
 		print("change to chapter: " + str(currentLabel))
 	elif currentChapLabel == 8:
+		print("change to chapter: " + str(currentLabel))
+	elif currentChapLabel == 9:
 		print("change to chapter: " + str(currentLabel))
 	elif currentChapLabel == 9:
 		print("change to chapter: " + str(currentLabel))
