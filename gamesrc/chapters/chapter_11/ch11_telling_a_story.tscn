@@ -15,7 +15,6 @@
 
 [node name="telling_a_story" type="PopupPanel" parent="."]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1113,8 +1112,6 @@ flat = false
 
 [node name="matching2" type="PopupDialog" parent="telling_a_story"]
 
-editor/display_folded = true
-visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1670,7 +1667,6 @@ flat = false
 
 [node name="buttons" type="Control" parent="telling_a_story/matching2"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -2112,7 +2108,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 154.0
 margin/top = 48.0
-margin/right = 243.0
+margin/right = 296.0
 margin/bottom = 103.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
@@ -2148,7 +2144,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 284.0
 margin/top = 48.0
-margin/right = 427.0
+margin/right = 458.0
 margin/bottom = 103.0
 custom_fonts/font = ExtResource( 3 )
 toggle_mode = false

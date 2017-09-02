@@ -15,6 +15,11 @@ const greetingsMultipleChoiceQuestions = [
 "Question 3: Que veut dire «Thank you» ?",
 "Choisissez la bonne traduction pour la réponse que le marchand a dit à Marie-Thérèse à la fin de la scène."
 ]
+const tensesMultipleChoiceQuestions = [
+"Indiquer pour l’infermière a quelle partie du corps ça se fait mal.",
+"Sélectionnez l'activité qui est également difficile à utiliser selon MT avec la même partie du corps",
+"Quelle groupe de noms sont y inclus ?"
+]
 const prepositionMultipleChoiceQuestions = [
 "\nQu’est-ce que Sidney va faire ?",
 "Identifiez la préposition dans la phrase suivante: 'I will practice with you'",
@@ -44,6 +49,17 @@ const adjectivesMultipleChoiceAnswers = [
 "a. She is happy",
 "b. She is young",
 "c. She is fast"
+]
+const tensesMultipleChoiceAnswers = [
+"a. Leg",
+"b. Throat",
+"c. Stomach",
+"a. Speaking loudly",
+"b. Listening to the radio",
+"c. Watching a football game",
+"a. Back, arm, leg, neck, thigh",
+"b. Sweater, dress, shoes, pants",
+"c. Sister, brother, aunt, uncle, grandmother"
 ]
 const prepositionMultipleChoiceAnswers = [
 "a. déjeuner avec Marie-Thérèse	",
@@ -98,6 +114,8 @@ const greetingsMultipleChoiceCorrectIndices   = [0, 1, 2, 1, 0, 2, 1, 2]
 const possNounsMultipleChoiceCorrectIndices   = [0, 2, 1]
 const adjectivesMultipleChoiceCorrectIndices  = [1, 2, 1, 0]
 const prepositionMultipleChoiceCorrectIndices = [2, 0, 1]
+const tensesMultipleChoiceCOrrectIndices      = [1, 0, 0]
+
 # greetings support text
 const grettingsLessonPlanText = [
 "Les salutations sont des phrases très important dan chaque langue parce qu'il représente la politesse. Si vous vouliez apprendre l'anglais, vous devriez apprendre les salutations. Bonne chance!\n \nSALUTATIONS FORMELLES: ARRIVÉE\nGood morning / Good evening-> Bonjour / Bonsoir\nHello Esther, how are you?->Bonjour Esther, comment vas-tu?\nGood day Sir / Madam (très formelle)\n->Bonne journée Monsieur / Madame\nRépondez à un accueil formel avec un autre accueil formel.\nGood morning Mr. Pierre->Bonjour monsieur Pierre.\nHello Ms. Louis. How are you today?\n->Bonjour, Madame Louis. Comment vas-tu aujourd'hui?",

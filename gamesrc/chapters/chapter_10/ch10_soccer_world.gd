@@ -144,11 +144,13 @@ func _fixed_process(delta):
 		if scorePopupNode.get_node("restart_chapter_level").is_pressed() and !chapter_done:
 			chapter_done = true # do block once
 			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
+			#not sure if i need to free this scene
+			self.queue_free()
 		# score >= 80 and next chapter button pressed
 		if scorePopupNode.get_node("next_chapter_button").is_pressed() and !chapter_done:
-			scorePopupNode.get_node("next_chapter_pw").set_text("NVYV5r")
 			chapter_done = true
-			get_tree().change_scene("res://screens/main_menu/startUp.tscn")
+			#set to a random scene for now. This will be to chapter 2
+			get_tree().change_scene("res://chapters/chapter_11/ch11_inside_world_tenses.tscn")
 	
 
 func multiple_choice_challenge():
@@ -232,3 +234,5 @@ func score_popup():
 		scorePopupNode.get_node("restart_chapter_level").set_hidden(true)
 		scorePopupNode.get_node("pass_chapter_notes").set_hidden(false)
 		scorePopupNode.get_node("next_chapter_button").set_hidden(false)
+		scorePopupNode.get_node("next_chapter_pw").set_hidden(false)
+		scorePopupNode.get_node("next_chapter_pw").set_text(singleton.chapter_passwords[9])
