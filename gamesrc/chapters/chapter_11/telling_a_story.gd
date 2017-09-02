@@ -1,10 +1,14 @@
-extends Node2D
+extends PopupPanel
 
 var first_multiple_choice_done = false
 var time_delta = 0
 var second_multiple_choice_done = false
 var third_multiple_choice_done = false
 var matching_done = false
+
+var interact = false
+var right_trigger = false
+var left_trigger = false
 
 onready var root_node_panel = get_node("telling_a_story")
 onready var matching = get_node("matching")

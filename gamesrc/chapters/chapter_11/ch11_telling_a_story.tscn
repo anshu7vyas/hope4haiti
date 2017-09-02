@@ -25,6 +25,7 @@ script/script = ExtResource( 1 )
 [node name="matching" type="PopupDialog" parent="telling_a_story"]
 
 editor/display_folded = true
+visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1087,6 +1088,2190 @@ text = "il/elle"
 flat = false
 
 [node name="Button_they" type="Button" parent="telling_a_story/matching/buttons/button_group5"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="matching1" type="PopupDialog" parent="telling_a_story"]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 93.0
+margin/top = 15.0
+margin/right = 769.0
+margin/bottom = 537.0
+popup/exclusive = false
+script/script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="telling_a_story/matching1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 34.0
+margin/top = 34.0
+margin/right = 1566.0
+margin/bottom = 358.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "Remplissez les phrases avec le temps du verbe qui fait le plus de sens selon le contexte de l’histoire.
+
+La prochaine journée à l’école, MT rencontre une amie qui lui a demandée ce qu’elle a fait ce weekend dernier. MT is eager to share the events of the weekend.
+
+On Sunday, my family celebrated my grandmother’s birthday.  It was hot and humid that day.  I (wake up, woke up, will wake up) early to make her a cake.  After that, mama, papa and"
+visible_characters = -1
+
+[node name="english" type="Control" parent="telling_a_story/matching1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 40.0
+margin/bottom = 104.0
+
+[node name="school" type="Label" parent="telling_a_story/matching1/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 42.0
+margin/top = 100.0
+margin/right = 150.0
+margin/bottom = 163.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "When I "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school1" type="Label" parent="telling_a_story/matching1/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 130.0
+margin/right = 560.0
+margin/bottom = 193.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "to see what was happening, M. Laroux "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school2" type="Label" parent="telling_a_story/matching1/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 194.0
+margin/right = 248.0
+margin/bottom = 258.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "me that there "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school3" type="Label" parent="telling_a_story/matching1/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 258.0
+margin/right = 451.0
+margin/bottom = 322.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "a burglary.  However, nobody "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school4" type="Label" parent="telling_a_story/matching1/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 36.0
+margin/top = 322.0
+margin/right = 604.0
+margin/bottom = 385.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "and nothing stolen except for one cake that "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="answers" type="Control" parent="telling_a_story/matching1"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 160.0
+margin/right = 42.0
+margin/bottom = 200.0
+
+[node name="fill_in" type="Label" parent="telling_a_story/matching1/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 10.0
+margin/right = 269.0
+margin/bottom = 50.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in1" type="Label" parent="telling_a_story/matching1/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 72.0
+margin/right = 269.0
+margin/bottom = 112.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in2" type="Label" parent="telling_a_story/matching1/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 106.0
+margin/top = 136.0
+margin/right = 271.0
+margin/bottom = 176.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in3" type="Label" parent="telling_a_story/matching1/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 110.0
+margin/top = 202.0
+margin/right = 275.0
+margin/bottom = 242.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in4" type="Label" parent="telling_a_story/matching1/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 108.0
+margin/top = 264.0
+margin/right = 273.0
+margin/bottom = 304.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underlines" type="Control" parent="telling_a_story/matching1"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 106.0
+margin/top = 162.0
+margin/right = 160.0
+margin/bottom = 226.0
+
+[node name="underline" type="Label" parent="telling_a_story/matching1/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 165.0
+margin/bottom = 63.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline1" type="Label" parent="telling_a_story/matching1/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 4.0
+margin/top = 64.0
+margin/right = 169.0
+margin/bottom = 127.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline2" type="Label" parent="telling_a_story/matching1/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 128.0
+margin/right = 167.0
+margin/bottom = 191.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline3" type="Label" parent="telling_a_story/matching1/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -2.0
+margin/top = 192.0
+margin/right = 163.0
+margin/bottom = 255.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline4" type="Label" parent="telling_a_story/matching1/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 256.0
+margin/right = 165.0
+margin/bottom = 319.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="correct_answers" type="Control" parent="telling_a_story/matching1"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 422.0
+margin/top = 126.0
+margin/right = 462.0
+margin/bottom = 166.0
+
+[node name="corrent_answer1" type="Label" parent="telling_a_story/matching1/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 36.0
+margin/right = 506.0
+margin/bottom = 116.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "woke up"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer2" type="Label" parent="telling_a_story/matching1/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 100.0
+margin/right = 506.0
+margin/bottom = 180.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "walked"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer3" type="Label" parent="telling_a_story/matching1/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 164.0
+margin/right = 506.0
+margin/bottom = 244.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "witnessed"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer4" type="Label" parent="telling_a_story/matching1/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 228.0
+margin/right = 506.0
+margin/bottom = 308.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "gathered"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer5" type="Label" parent="telling_a_story/matching1/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 292.0
+margin/right = 506.0
+margin/bottom = 372.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "spoke"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="marks" type="Control" parent="telling_a_story/matching1"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 130.0
+margin/right = 42.0
+margin/bottom = 170.0
+
+[node name="marker1" type="Sprite" parent="telling_a_story/matching1/marks"]
+
+transform/pos = Vector2( 494.286, 49 )
+transform/scale = Vector2( 1.42857, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker2" type="Sprite" parent="telling_a_story/matching1/marks"]
+
+transform/pos = Vector2( 494.381, 113 )
+transform/scale = Vector2( 1.23809, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker3" type="Sprite" parent="telling_a_story/matching1/marks"]
+
+transform/pos = Vector2( 495.333, 176 )
+transform/scale = Vector2( 1.33333, 1.6 )
+texture = ExtResource( 4 )
+
+[node name="marker4" type="Sprite" parent="telling_a_story/matching1/marks"]
+
+transform/pos = Vector2( 493.238, 241 )
+transform/scale = Vector2( 1.52381, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker5" type="Sprite" parent="telling_a_story/matching1/marks"]
+
+transform/pos = Vector2( 493.238, 304 )
+transform/scale = Vector2( 1.52381, 1.6 )
+texture = ExtResource( 4 )
+
+[node name="done_button" type="Button" parent="telling_a_story/matching1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 416.0
+margin/top = 482.0
+margin/right = 736.0
+margin/bottom = 589.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Entrer"
+flat = false
+
+[node name="OK" type="Button" parent="telling_a_story/matching1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 222.0
+margin/top = 482.0
+margin/right = 442.0
+margin/bottom = 589.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
+flat = false
+
+[node name="buttons" type="Control" parent="telling_a_story/matching1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 64.0
+margin/top = 122.0
+margin/right = 130.0
+margin/bottom = 192.0
+
+[node name="button_group1" type="Control" parent="telling_a_story/matching1/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching1/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 275.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "arrived"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching1/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 220.0
+margin/top = 48.0
+margin/right = 342.0
+margin/bottom = 110.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "arrive"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching1/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 280.0
+margin/top = 48.0
+margin/right = 520.0
+margin/bottom = 110.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will arrive"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching1/buttons/button_group1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching1/buttons/button_group1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group2" type="Control" parent="telling_a_story/matching1/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 40.0
+margin/bottom = 104.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching1/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 46.0
+margin/right = 298.0
+margin/bottom = 108.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "told"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching1/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 216.0
+margin/top = 46.0
+margin/right = 345.0
+margin/bottom = 107.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "tells"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching1/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 282.0
+margin/top = 48.0
+margin/right = 449.0
+margin/bottom = 97.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will tell"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching1/buttons/button_group2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching1/buttons/button_group2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group3" type="Control" parent="telling_a_story/matching1/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 130.0
+margin/right = 40.0
+margin/bottom = 170.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching1/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 298.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "is"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching1/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 218.0
+margin/top = 48.0
+margin/right = 333.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "was"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching1/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 282.0
+margin/top = 48.0
+margin/right = 449.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will be"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching1/buttons/button_group3"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching1/buttons/button_group3"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group4" type="Control" parent="telling_a_story/matching1/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 192.0
+margin/right = 38.0
+margin/bottom = 232.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching1/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 283.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will break in"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching1/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 222.0
+margin/top = 48.0
+margin/right = 337.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "breaks in"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching1/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 284.0
+margin/top = 48.0
+margin/right = 442.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "broke in"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching1/buttons/button_group4"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching1/buttons/button_group4"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group5" type="Control" parent="telling_a_story/matching1/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 258.0
+margin/right = 38.0
+margin/bottom = 298.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching1/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 243.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "disappear"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching1/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 218.0
+margin/top = 48.0
+margin/right = 415.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will disappear"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching1/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 284.0
+margin/top = 48.0
+margin/right = 427.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "disappeared"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching1/buttons/button_group5"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching1/buttons/button_group5"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="matching2" type="PopupDialog" parent="telling_a_story"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 93.0
+margin/top = 15.0
+margin/right = 769.0
+margin/bottom = 559.0
+popup/exclusive = false
+script/script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="telling_a_story/matching2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 34.0
+margin/top = 34.0
+margin/right = 1566.0
+margin/bottom = 358.0
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "Remplissez les phrases avec le temps du verbe qui fait le plus de sens selon le contexte de l’histoire.
+
+La prochaine journée à l’école, MT rencontre une amie qui lui a demandée ce qu’elle a fait ce weekend dernier. MT is eager to share the events of the weekend.
+
+On Sunday, my family celebrated my grandmother’s birthday.  It was hot and humid that day.  I (wake up, woke up, will wake up) early to make her a cake.  After that, mama, papa and"
+visible_characters = -1
+
+[node name="english" type="Control" parent="telling_a_story/matching2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 40.0
+margin/bottom = 104.0
+
+[node name="school" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 98.0
+margin/right = 184.0
+margin/bottom = 161.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "As the crowd "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school1" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 60.0
+margin/top = 162.0
+margin/right = 131.0
+margin/bottom = 227.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "what "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school2" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 62.0
+margin/top = 226.0
+margin/right = 130.0
+margin/bottom = 290.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ", I "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school3" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 258.0
+margin/right = 403.0
+margin/bottom = 322.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "a noise in the back alley. I "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school4" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 62.0
+margin/top = 324.0
+margin/right = 261.0
+margin/bottom = 387.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "the sound, and "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="school5" type="Label" parent="telling_a_story/matching2/english"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 388.0
+margin/right = 640.0
+margin/bottom = 451.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "a small dog with pink frosting on his snout. "
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="answers" type="Control" parent="telling_a_story/matching2"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 160.0
+margin/right = 42.0
+margin/bottom = 200.0
+
+[node name="fill_in" type="Label" parent="telling_a_story/matching2/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 10.0
+margin/right = 269.0
+margin/bottom = 50.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in1" type="Label" parent="telling_a_story/matching2/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 104.0
+margin/top = 72.0
+margin/right = 269.0
+margin/bottom = 112.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in2" type="Label" parent="telling_a_story/matching2/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 106.0
+margin/top = 136.0
+margin/right = 271.0
+margin/bottom = 176.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in3" type="Label" parent="telling_a_story/matching2/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 110.0
+margin/top = 202.0
+margin/right = 275.0
+margin/bottom = 242.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fill_in4" type="Label" parent="telling_a_story/matching2/answers"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 108.0
+margin/top = 264.0
+margin/right = 273.0
+margin/bottom = 304.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underlines" type="Control" parent="telling_a_story/matching2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 106.0
+margin/top = 162.0
+margin/right = 160.0
+margin/bottom = 226.0
+
+[node name="underline" type="Label" parent="telling_a_story/matching2/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 165.0
+margin/bottom = 63.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline1" type="Label" parent="telling_a_story/matching2/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 4.0
+margin/top = 64.0
+margin/right = 169.0
+margin/bottom = 127.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline2" type="Label" parent="telling_a_story/matching2/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 128.0
+margin/right = 167.0
+margin/bottom = 191.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline3" type="Label" parent="telling_a_story/matching2/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -2.0
+margin/top = 192.0
+margin/right = 163.0
+margin/bottom = 255.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="underline4" type="Label" parent="telling_a_story/matching2/underlines"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 256.0
+margin/right = 165.0
+margin/bottom = 319.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "___________"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="correct_answers" type="Control" parent="telling_a_story/matching2"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 422.0
+margin/top = 126.0
+margin/right = 462.0
+margin/bottom = 166.0
+
+[node name="corrent_answer1" type="Label" parent="telling_a_story/matching2/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 36.0
+margin/right = 506.0
+margin/bottom = 116.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "woke up"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer2" type="Label" parent="telling_a_story/matching2/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 100.0
+margin/right = 506.0
+margin/bottom = 180.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "walked"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer3" type="Label" parent="telling_a_story/matching2/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 164.0
+margin/right = 506.0
+margin/bottom = 244.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "witnessed"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer4" type="Label" parent="telling_a_story/matching2/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 228.0
+margin/right = 506.0
+margin/bottom = 308.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "gathered"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="corrent_answer5" type="Label" parent="telling_a_story/matching2/correct_answers"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 186.0
+margin/top = 292.0
+margin/right = 506.0
+margin/bottom = 372.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "spoke"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="marks" type="Control" parent="telling_a_story/matching2"]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 130.0
+margin/right = 42.0
+margin/bottom = 170.0
+
+[node name="marker1" type="Sprite" parent="telling_a_story/matching2/marks"]
+
+transform/pos = Vector2( 494.286, 49 )
+transform/scale = Vector2( 1.42857, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker2" type="Sprite" parent="telling_a_story/matching2/marks"]
+
+transform/pos = Vector2( 494.381, 113 )
+transform/scale = Vector2( 1.23809, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker3" type="Sprite" parent="telling_a_story/matching2/marks"]
+
+transform/pos = Vector2( 495.333, 176 )
+transform/scale = Vector2( 1.33333, 1.6 )
+texture = ExtResource( 4 )
+
+[node name="marker4" type="Sprite" parent="telling_a_story/matching2/marks"]
+
+transform/pos = Vector2( 493.238, 241 )
+transform/scale = Vector2( 1.52381, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="marker5" type="Sprite" parent="telling_a_story/matching2/marks"]
+
+transform/pos = Vector2( 493.238, 304 )
+transform/scale = Vector2( 1.52381, 1.6 )
+texture = ExtResource( 4 )
+
+[node name="done_button" type="Button" parent="telling_a_story/matching2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 418.0
+margin/top = 480.0
+margin/right = 738.0
+margin/bottom = 587.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Entrer"
+flat = false
+
+[node name="OK" type="Button" parent="telling_a_story/matching2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 222.0
+margin/top = 482.0
+margin/right = 442.0
+margin/bottom = 589.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
+flat = false
+
+[node name="buttons" type="Control" parent="telling_a_story/matching2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 64.0
+margin/top = 122.0
+margin/right = 130.0
+margin/bottom = 192.0
+
+[node name="button_group1" type="Control" parent="telling_a_story/matching2/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 32.0
+margin/bottom = 32.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching2/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 275.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will wonder"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching2/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 220.0
+margin/top = 48.0
+margin/right = 342.0
+margin/bottom = 110.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "wondered"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching2/buttons/button_group1"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 280.0
+margin/top = 48.0
+margin/right = 520.0
+margin/bottom = 110.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "wonder"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching2/buttons/button_group1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching2/buttons/button_group1"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group2" type="Control" parent="telling_a_story/matching2/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 40.0
+margin/bottom = 104.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching2/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 46.0
+margin/right = 298.0
+margin/bottom = 108.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "happens"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching2/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 216.0
+margin/top = 46.0
+margin/right = 345.0
+margin/bottom = 107.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "happened"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching2/buttons/button_group2"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 282.0
+margin/top = 48.0
+margin/right = 449.0
+margin/bottom = 97.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will happen"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching2/buttons/button_group2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching2/buttons/button_group2"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group3" type="Control" parent="telling_a_story/matching2/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 130.0
+margin/right = 40.0
+margin/bottom = 170.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching2/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 298.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "heard"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching2/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 218.0
+margin/top = 48.0
+margin/right = 333.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will hear"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching2/buttons/button_group3"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 282.0
+margin/top = 48.0
+margin/right = 449.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "hear"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching2/buttons/button_group3"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching2/buttons/button_group3"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group4" type="Control" parent="telling_a_story/matching2/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 192.0
+margin/right = 38.0
+margin/bottom = 232.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching2/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 283.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "follow"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching2/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 222.0
+margin/top = 48.0
+margin/right = 337.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "followed"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching2/buttons/button_group4"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 284.0
+margin/top = 48.0
+margin/right = 442.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will follow"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching2/buttons/button_group4"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching2/buttons/button_group4"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 262.0
+margin/top = 52.0
+margin/right = 379.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ils/elles"
+flat = false
+
+[node name="button_group5" type="Control" parent="telling_a_story/matching2/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -2.0
+margin/top = 258.0
+margin/right = 38.0
+margin/bottom = 298.0
+
+[node name="Button_je" type="Button" parent="telling_a_story/matching2/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 48.0
+margin/right = 243.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "will discover"
+flat = false
+
+[node name="Button_tu" type="Button" parent="telling_a_story/matching2/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 220.0
+margin/top = 46.0
+margin/right = 335.0
+margin/bottom = 101.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "discover"
+flat = false
+
+[node name="Button_nous" type="Button" parent="telling_a_story/matching2/buttons/button_group5"]
+
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 284.0
+margin/top = 48.0
+margin/right = 427.0
+margin/bottom = 103.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "discovered"
+flat = false
+
+[node name="Button_heshe" type="Button" parent="telling_a_story/matching2/buttons/button_group5"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.3, 0.3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 52.0
+margin/right = 323.0
+margin/bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "il/elle"
+flat = false
+
+[node name="Button_they" type="Button" parent="telling_a_story/matching2/buttons/button_group5"]
 
 visibility/visible = false
 rect/scale = Vector2( 0.3, 0.3 )
