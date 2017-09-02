@@ -1482,7 +1482,6 @@ max_lines_visible = -1
 
 [node name="correct_answers" type="Control" parent="telling_a_story/matching2"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
