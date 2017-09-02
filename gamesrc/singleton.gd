@@ -15,6 +15,11 @@ const greetingsMultipleChoiceQuestions = [
 "Question 3: Que veut dire «Thank you» ?",
 "Choisissez la bonne traduction pour la réponse que le marchand a dit à Marie-Thérèse à la fin de la scène."
 ]
+const prepositionMultipleChoiceQuestions = [
+"\nQu’est-ce que Sidney va faire ?",
+"Identifiez la préposition dans la phrase suivante: 'I will practice with you'",
+"Choisissez la bonne traduction de la phrase suivante: 'Je fais mes devoirs avant l'école'"
+]
 const possNounsMultipleChoiceQuestions = [
 "Regardez encore une fois: << Marie-Thérèse's cat >>. Quel mot ici est le nom?",
 "Révisons ! Quel est l'ordre pour former un nom possessif en anglais ?",
@@ -39,6 +44,17 @@ const adjectivesMultipleChoiceAnswers = [
 "a. She is happy",
 "b. She is young",
 "c. She is fast"
+]
+const prepositionMultipleChoiceAnswers = [
+"a. déjeuner avec Marie-Thérèse	",
+"b. se promener avec Marie-Thérèse",
+"c. pratiquer les maths avec Marie-Thérèse",
+"a. with",
+"b. practice",
+"c. you",
+"a. I do my homework after school",
+"b. I do my homework before school",
+"c. I do my homework with school"
 ]
 const possNounsMultipleChoiceAnswers = [
 "a. cat",
@@ -78,9 +94,10 @@ const greetingsMultipleChoiceAnswers = [
 "c. de rien, au revoir !"
 ]
 
-const greetingsMultipleChoiceCorrectIndices = [0, 1, 2, 1, 0, 2, 1, 2]
-const possNounsMultipleChoiceCorrectIndices = [0, 2, 1]
-const adjectivesMultipleChoiceCorrectIndices = [1, 2, 1, 0]
+const greetingsMultipleChoiceCorrectIndices   = [0, 1, 2, 1, 0, 2, 1, 2]
+const possNounsMultipleChoiceCorrectIndices   = [0, 2, 1]
+const adjectivesMultipleChoiceCorrectIndices  = [1, 2, 1, 0]
+const prepositionMultipleChoiceCorrectIndices = [2, 0, 1]
 # greetings support text
 const grettingsLessonPlanText = [
 "Les salutations sont des phrases très important dan chaque langue parce qu'il représente la politesse. Si vous vouliez apprendre l'anglais, vous devriez apprendre les salutations. Bonne chance!\n \nSALUTATIONS FORMELLES: ARRIVÉE\nGood morning / Good evening-> Bonjour / Bonsoir\nHello Esther, how are you?->Bonjour Esther, comment vas-tu?\nGood day Sir / Madam (très formelle)\n->Bonne journée Monsieur / Madame\nRépondez à un accueil formel avec un autre accueil formel.\nGood morning Mr. Pierre->Bonjour monsieur Pierre.\nHello Ms. Louis. How are you today?\n->Bonjour, Madame Louis. Comment vas-tu aujourd'hui?",
@@ -112,7 +129,9 @@ const verbsLessonPlanText = [
 "Qu’est-ce que c’est le prédicat?\n \nLes parties principales de la phrase sont le sujet et le prédicat.  Le prédicat est composé du verbe et d’un groupe de mots qui contenant le verbe.  Il apporte une information sur le sujet.\n    Les parties d’une phrase :\n    Marie-Thérèse reads her book.\n    Le sujet est Marie-Thérèse.\n    Le verbe est reads\n    Le predicat est « reads her book »"
 ]
 const prepositionsLessonPlanText = [
-"\n \nLes prépositions, ou preposition en anglais, sont mots trop petits mais avec le pouvoir d'introduire les noms, et parfois d'indiquer un rapport entre les noms."
+"\n \nLes prépositions, ou preposition en anglais, sont mots trop petits mais avec le pouvoir d'introduire les noms, et parfois d'indiquer un rapport entre les noms.",
+"\nVoilà une liste de prépositions communes en anglais, avec leurs traductions:\n      of / de (par exemple: a lot of / beaucoup de)\n     in / dans ou en\n     to / à (par exemple: I go to the store / Je vais au marché)\n     for / pour\n     with / avec\n     on / sur\n     at / à (par exemple: I am at the beach / Je suis à la plage)",
+"\nA continué:\n     from / de (par exemple: I come from Haiti / Je viens d'Haïti )\n     by / par\n     as / comme\n     between / entre\n     under / sous\n     before / avant\n     after / après\n     without / sans"
 ]
 const adverbsLessonPlanBottom = [
 "Un adverbe est un mot qui modifie le sens d’un verbe, d’un adjectif, d’un autre adverbe ou une phrase entière.\nUn adverbe exprime « quand » « où » « comment » et a quelle mesure l’action indique par le verbe se passe.\nLes adverbes sont formés souvent en ajoutant –ly à la fin d’un adjectif.\n    When ?  Where ?  How? To what degree?\nIl y a certains adverbes irréguliers comme « bien » (bon) « pas bien » (pas bon) « un peu> et « beaucoup et  «mal   qui sont aussi utilisés pour modifier un verbe.\n    Ex : We slept well after working all day.\n    Ex. She explained very little about the events of the morning.",

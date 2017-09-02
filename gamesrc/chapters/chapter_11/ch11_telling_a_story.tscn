@@ -15,6 +15,7 @@
 
 [node name="telling_a_story" type="PopupPanel" parent="."]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

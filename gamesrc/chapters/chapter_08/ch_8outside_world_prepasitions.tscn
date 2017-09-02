@@ -412,7 +412,7 @@ margin/bottom = 151.0
 popup/exclusive = false
 script/script = ExtResource( 14 )
 
-[node name="school" type="Label" parent="multiple_choice"]
+[node name="Label1" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -430,7 +430,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="school1" type="Label" parent="multiple_choice"]
+[node name="Label2" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -448,7 +448,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="school2" type="Label" parent="multiple_choice"]
+[node name="Label3" type="Label" parent="multiple_choice"]
 
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = true
@@ -480,10 +480,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 22.0
-margin/top = 34.0
-margin/right = 554.0
-margin/bottom = 86.0
+margin/left = 19.0
+margin/top = 18.0
+margin/right = 563.0
+margin/bottom = 121.0
 custom_fonts/bold_font = ExtResource( 8 )
 custom_fonts/normal_font = ExtResource( 8 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
@@ -559,6 +559,7 @@ max_lines_visible = -1
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
@@ -736,6 +737,96 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "Chapitre suivant"
+flat = false
+
+[node name="info_node" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -73.0
+margin/top = -68.0
+margin/right = 327.0
+margin/bottom = 232.0
+popup/exclusive = false
+
+[node name="title1" type="Label" parent="info_node"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 9.0
+margin/right = 659.0
+margin/bottom = 74.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Voilà une liste de prépositions communes 
+en anglais, avec leurs traductions:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="translations" type="Label" parent="info_node"]
+
+rect/scale = Vector2( 0.4, 0.4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 48.0
+margin/top = 60.0
+margin/right = 824.0
+margin/bottom = 601.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "of / de (par exemple: a lot of / beaucoup de)
+in / dans ou en
+to / à (par exemple: I go to the store / Je vais au marché)
+for / pour
+with / avec
+on / sur
+at / à (par exemple: I am at the beach / Je suis à la plage)
+from / de (par exemple: I come from Haiti / Je viens d'Haïti )
+by / par
+as / comme
+between / entre
+under / sous
+before / avant
+after / après
+without / sans
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OK" type="Button" parent="info_node"]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 29.0
+margin/top = -120.0
+margin/right = -71.0
+margin/bottom = -152.0
+custom_fonts/font = ExtResource( 18 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
 flat = false
 
 [node name="lesson_plan" type="PopupDialog" parent="."]
