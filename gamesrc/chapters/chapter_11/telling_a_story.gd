@@ -4,14 +4,18 @@ var first_multiple_choice_done = false
 var time_delta = 0
 var second_multiple_choice_done = false
 var third_multiple_choice_done = false
-var matching_done = false
+var matching1_done = false
+var matching2_done = false
+var matching3_done = false
 
 var interact = false
 var right_trigger = false
 var left_trigger = false
 
 onready var root_node_panel = get_node("telling_a_story")
-onready var matching = get_node("matching")
+onready var matching1 = get_node("matching1")
+onready var matching2 = get_node("matching2")
+onready var matching3 = get_node("matching3")
 onready var multiple_choice_1 = get_node("multiple_choice_1")
 onready var multiple_choice_2 = get_node("multiple_choice_2")
 onready var multiple_choice_3 = get_node("multiple_choice_3")
@@ -36,6 +40,8 @@ func _input(event):
 
 func _fixed_process(delta):
 	time_delta += delta
+	
+	
 
 
 
