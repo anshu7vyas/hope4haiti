@@ -45,7 +45,7 @@ func _ready():
 	#SKIP LOGIN
 	singleton.logged_in = true
 	
-	OS.set_window_title("Hope4Haiti")
+	OS.set_window_title("Les Aventures de Marie-Thérèse")
 	leaderBoardNode.set_hidden(true)
 	if singleton.logged_in:
 		loginNode.set_hidden(true)
