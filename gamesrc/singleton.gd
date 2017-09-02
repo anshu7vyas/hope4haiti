@@ -236,6 +236,7 @@ var multiple_choice_retry = false
 var logged_in = false
 var correct_answer_chosen = false
 var scene_1_restart = false
+var chapter_2_score = 100
 
 func _ready():
 	pass
