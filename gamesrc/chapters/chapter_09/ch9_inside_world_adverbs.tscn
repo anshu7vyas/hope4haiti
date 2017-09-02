@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=1]
+[gd_scene load_steps=36 format=1]
 
 [ext_resource path="res://chapters/chapter_09/ch9_inside_world_adverbs.gd" type="Script" id=1]
 [ext_resource path="res://chapters/chapter_01/inside_tilesets/inside_map.res" type="TileSet" id=2]
@@ -26,7 +26,8 @@
 [ext_resource path="res://chapters/chapter_01/multiple_choice.gd" type="Script" id=24]
 [ext_resource path="res://fonts/french_neat.fnt" type="BitmapFont" id=25]
 [ext_resource path="res://chapters/chapter_01/Pointer.png" type="Texture" id=26]
-[ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=27]
+[ext_resource path="res://chapters/chapter_09/ch9_fill_in_popup.gd" type="Script" id=27]
+[ext_resource path="res://fonts/titleFont2.fnt" type="BitmapFont" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -740,6 +741,545 @@ bbcode/enabled = false
 bbcode/bbcode = "Quel est un synonyme pour « excited » en anglais ?"
 visible_characters = -1
 
+[node name="fill_in" type="PopupDialog" parent="."]
+
+editor/display_folded = true
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -155.0
+margin/top = 205.0
+margin/right = 245.0
+margin/bottom = 505.0
+popup/exclusive = false
+script/script = ExtResource( 27 )
+
+[node name="title1" type="Label" parent="fill_in"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 4.0
+margin/top = 12.0
+margin/right = 650.0
+margin/bottom = 77.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Distinguez entre un adverbe ou un adjectif en 
+sélectionnant à quel groupe chacun appartient."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="describing_text" type="RichTextLabel" parent="fill_in"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 82.0
+margin/right = 761.0
+margin/bottom = 540.0
+custom_fonts/normal_font = ExtResource( 25 )
+custom_colors/default_color = Color( 0.968627, 0.964706, 0.976471, 1 )
+bbcode/enabled = true
+bbcode/bbcode = "When it rains [color=#FFFF00]hard[/color]                                 in the spring, I am [color=#FFFF00]always[/color]                                  extra [color=#FFFF00]careful[/color].                               
+I ride my bike [color=#FFFF00]slowly[/color] to school.                                         
+I am a [color=#FFFF00]quick[/color] learner.                                         
+If I lose my way, I make [color=#FFFF00]sure[/color]                                  to always ask for help.
+I am [color=#FFFF00]polite[/color]                                  when I address my elders.
+I wait [color=#FFFF00]quietly[/color]                                  until an adult is able to help me even if I become [color=#FFFF00]impatient[/color].                                         
+I am [color=#FFFF00]punctual[/color]                                  when I arrive and always [color=#FFFF00]respectful[/color]                                  of others.
+"
+visible_characters = -1
+
+[node name="adverb_button" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 136.0
+margin/top = 81.0
+margin/right = 258.0
+margin/bottom = 118.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button1" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 99.0
+margin/right = 182.0
+margin/bottom = 136.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button2" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 245.0
+margin/top = 97.0
+margin/right = 367.0
+margin/bottom = 134.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button3" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 214.0
+margin/top = 114.0
+margin/right = 336.0
+margin/bottom = 151.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button4" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 146.0
+margin/top = 130.0
+margin/right = 268.0
+margin/bottom = 167.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button5" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 196.0
+margin/top = 146.0
+margin/right = 318.0
+margin/bottom = 183.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button7" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 84.0
+margin/top = 177.0
+margin/right = 206.0
+margin/bottom = 214.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button8" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 195.0
+margin/right = 222.0
+margin/bottom = 232.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button9" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 212.0
+margin/top = 210.0
+margin/right = 334.0
+margin/bottom = 247.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button10" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 105.0
+margin/top = 225.0
+margin/right = 227.0
+margin/bottom = 262.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adverb_button11" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 81.0
+margin/top = 242.0
+margin/right = 203.0
+margin/bottom = 279.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adverbe"
+flat = false
+
+[node name="adjective_button" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 180.0
+margin/top = 81.0
+margin/right = 307.0
+margin/bottom = 118.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button1" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 104.0
+margin/top = 99.0
+margin/right = 231.0
+margin/bottom = 136.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button2" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 289.0
+margin/top = 97.0
+margin/right = 416.0
+margin/bottom = 134.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button3" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 258.0
+margin/top = 114.0
+margin/right = 385.0
+margin/bottom = 151.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button4" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 190.0
+margin/top = 130.0
+margin/right = 317.0
+margin/bottom = 167.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button5" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 240.0
+margin/top = 146.0
+margin/right = 367.0
+margin/bottom = 183.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button7" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 128.0
+margin/top = 177.0
+margin/right = 255.0
+margin/bottom = 214.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button8" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 144.0
+margin/top = 195.0
+margin/right = 271.0
+margin/bottom = 232.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button9" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 256.0
+margin/top = 210.0
+margin/right = 383.0
+margin/bottom = 247.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button10" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 149.0
+margin/top = 225.0
+margin/right = 276.0
+margin/bottom = 262.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="adjective_button11" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 125.0
+margin/top = 242.0
+margin/right = 252.0
+margin/bottom = 279.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Adjectifs"
+flat = false
+
+[node name="enter" type="Button" parent="fill_in"]
+
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 172.0
+margin/top = 267.0
+margin/right = 350.0
+margin/bottom = 336.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Entrer"
+flat = false
+
+[node name="OK" type="Button" parent="fill_in"]
+
+visibility/visible = false
+rect/scale = Vector2( 0.35, 0.35 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 189.0
+margin/top = 267.0
+margin/right = 275.0
+margin/bottom = 336.0
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.261475, 1, 0.0546875, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OK"
+flat = false
+
 [node name="chapter_score" type="PopupDialog" parent="."]
 
 editor/display_folded = true
@@ -892,7 +1432,7 @@ margin/left = 76.0
 margin/top = -112.0
 margin/right = -227.0
 margin/bottom = -144.0
-custom_fonts/font = ExtResource( 27 )
+custom_fonts/font = ExtResource( 28 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -915,7 +1455,7 @@ margin/left = 76.0
 margin/top = -112.0
 margin/right = -227.0
 margin/bottom = -144.0
-custom_fonts/font = ExtResource( 27 )
+custom_fonts/font = ExtResource( 28 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -925,6 +1465,50 @@ flat = false
 [connection signal="body_enter" from="area_claudine" to="area_claudine" method="_on_area_claudine_body_enter"]
 
 [connection signal="body_enter" from="area_sydney" to="area_sydney" method="_on_area_sydney_body_enter"]
+
+[connection signal="toggled" from="fill_in/adverb_button" to="fill_in" method="_on_adverb_button_toggled"]
+
+[connection signal="pressed" from="fill_in/adverb_button1" to="fill_in" method="_on_adverb_button1_pressed"]
+
+[connection signal="pressed" from="fill_in/adverb_button2" to="fill_in" method="_on_adverb_button2_pressed"]
+
+[connection signal="pressed" from="fill_in/adverb_button3" to="fill_in" method="_on_adverb_button3_pressed"]
+
+[connection signal="toggled" from="fill_in/adverb_button4" to="fill_in" method="_on_adverb_button4_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button5" to="fill_in" method="_on_adverb_button5_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button7" to="fill_in" method="_on_adverb_button7_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button8" to="fill_in" method="_on_adverb_button8_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button9" to="fill_in" method="_on_adverb_button9_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button10" to="fill_in" method="_on_adverb_button10_toggled"]
+
+[connection signal="toggled" from="fill_in/adverb_button11" to="fill_in" method="_on_adverb_button11_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button" to="fill_in" method="_on_adjective_button_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button1" to="fill_in" method="_on_adjective_button1_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button2" to="fill_in" method="_on_adjective_button2_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button3" to="fill_in" method="_on_adjective_button3_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button4" to="fill_in" method="_on_adjective_button4_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button5" to="fill_in" method="_on_adjective_button5_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button7" to="fill_in" method="_on_adjective_button7_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button8" to="fill_in" method="_on_adjective_button8_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button9" to="fill_in" method="_on_adjective_button9_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button10" to="fill_in" method="_on_adjective_button10_toggled"]
+
+[connection signal="toggled" from="fill_in/adjective_button11" to="fill_in" method="_on_adjective_button11_toggled"]
 
 
 [editable path="Player/Camera2D/dialogue_box"]

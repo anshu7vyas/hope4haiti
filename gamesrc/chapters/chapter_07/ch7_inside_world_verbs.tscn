@@ -661,6 +661,7 @@ flat = false
 
 [node name="chapter_score" type="PopupDialog" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
