@@ -9,6 +9,7 @@ onready var dialogueBox = get_node("startup_dialoge")
 onready var adverbsScreenNode = get_node("lesson_plan")
 onready var scorePopupNode = get_node("chapter_score")
 onready var menuNode = get_node("Player/Camera2D/menu")
+onready var fillinNode = get_node("fill_in")
 
 var time_delta = 0
 var initial_popup_complete = false
@@ -32,6 +33,7 @@ var lesson_plan_page = 0
 var chapter_score = 100
 var end_chapter_popup_visible = false
 var chapter_done = false
+var fill_in_visible = false
 
 var player_pos
 var interact = false
@@ -65,6 +67,10 @@ func _input(event):
 
 func _fixed_process(delta):
 	time_delta += delta
+	if interact and adverbsScreenNode.is_visible():
+		interact = false
+		adverbsScreenNode.set_hidden(true)
+		
 	if claudine_dialogue_started and !alertNode.is_visible() and !dialogueBox.is_visible():
 		claudine_dialogue_started = false
 		multiple_choice_challenge()
@@ -83,7 +89,7 @@ func _fixed_process(delta):
 		alertNode.set_pos(Vector2(player_pos.x-76, player_pos.y-45))
 		if singleton.wrong_choice:
 			singleton.wrong_choice = false
-			chapter_score -= 11
+			chapter_score -= 5
 			alertNode.set_hidden(false)
 			multipleChoiceBox.set_hidden(true)
 			wrong_answer = true
@@ -110,14 +116,19 @@ func _fixed_process(delta):
 		singleton.multiple_choice_complete = false
 		end_first_multiple_choice = false
 	
+	if fillinNode.get_node("OK").is_pressed() and !end_chapter_popup_visible:
+		end_chapter_popup_visible = true
+		score_popup()
+		
+	
 	if claudine_dialogue2_started and !dialogueBox.is_visible() and !dialogue_done:
 		multiple_choice_started = true
 		multiple_choice_challenge()
 		dialogue_done = true
 	
-	if claudine_dialogue2_started and first_multiple_choice_done and !end_chapter_popup_visible:
-		end_chapter_popup_visible = true
-		score_popup()
+	if claudine_dialogue2_started and first_multiple_choice_done and !fill_in_visible:
+		fill_in_visible = true
+		end_chapter_challege()
 		
 	if menuNode.is_visible() or scorePopupNode.is_visible() or alertNode.is_visible() or multipleChoiceBox.is_visible() or dialogueBox.is_visible() or adverbsScreenNode.is_visible():
 		disable_movements()
@@ -138,6 +149,11 @@ func _fixed_process(delta):
 			chapter_done = true
 			#set to a random scene for now. This will be to chapter 2
 			get_tree().change_scene("res://chapters/chapter_10/ch10_soccer_world.tscn")
+			
+func end_chapter_challege():
+	player_pos = playerNode.get_pos()
+	fillinNode.set_pos(Vector2(player_pos.x-100, player_pos.y-75))
+	fillinNode.set_hidden(false)
 
 func multiple_choice_challenge():
 	disable_movements()
@@ -205,7 +221,6 @@ func score_popup():
 	scorePopupNode.get_node("score_label").set_text(str(chapter_score) + " points!")
 	# Display the correct options if they passed or not
 	if chapter_score < 80:
-		singleton.reset_score()
 		scorePopupNode.get_node("failed_notes").set_hidden(false)
 		scorePopupNode.get_node("restart_chapter_level").set_hidden(false)
 		scorePopupNode.get_node("pass_chapter_notes").set_hidden(true)
