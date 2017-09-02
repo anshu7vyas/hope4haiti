@@ -207,6 +207,8 @@ func score_popup():
 	playerPos = playerNode.get_pos()
 	scorePopupNode.set_pos(Vector2(playerPos.x-100, playerPos.y-75))
 	scorePopupNode.set_hidden(false)
+	if chapter_score < 1:
+		chapter_score = 0
 	scorePopupNode.get_node("score_label").set_text(str(chapter_score) + " points!")
 	# Display the correct options if they passed or not
 	if chapter_score < 80:
@@ -220,6 +222,7 @@ func score_popup():
 		scorePopupNode.get_node("restart_chapter_level").set_hidden(true)
 		scorePopupNode.get_node("pass_chapter_notes").set_hidden(false)
 		scorePopupNode.get_node("next_chapter_pw").set_hidden(false)
+		scorePopupNode.get_node("next_chapter_pw").set_text(singleton.chapter_passwords[2])
 		scorePopupNode.get_node("next_chapter_button").set_hidden(false)
 		
 func initial_popup():
