@@ -123,13 +123,13 @@ func _fixed_process(delta):
 		
 	if challenge_done or emotion_dialogue_done: 
 		if !assignment_alert and !emotionChallengeBox.is_visible() and !alertBox.is_visible():
-			print("here")
+			interact = false
 			assignment_alert = true
 			assignment_popup()
 			mt_dialogue_started = true
 	
 	if mt_dialogue_started and !mt_dialogue_done and !alertBox.is_visible():
-		print("here2")
+		interact = false
 		alertBox.set_hidden(true)
 		mt_dialogue()
 		mt_dialogue_done = true

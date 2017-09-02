@@ -147,7 +147,6 @@ func _fixed_process(delta):
 		question_count += 1
 		question_answers += 3
 		if question_count < 8: 
-			print("hereee")
 			multiple_choice_question_setup()
 			multiple_choice_challenge()
 		elif !second_multiple_choice_done:

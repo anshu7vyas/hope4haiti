@@ -98,7 +98,6 @@ func _fixed_process(delta):
 			nameChallengeBox.hide()
 			enable_movements()
 		if wrong_answer_popup_shown and !alert_box.is_visible():
-			print("here")
 			wrong_answer_popup_shown = false # do once
 			nameChallengeBox.set_hidden(false)
 			correct_answer("")
