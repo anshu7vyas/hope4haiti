@@ -12,6 +12,7 @@ onready var dialogueNode = get_node("dialogue_box")
 onready var endPopupNode = get_node("end_alert")
 onready var scorePopupNode = get_node("chapter_score")
 onready var menuNode = get_node("Player/Camera2D/menu")
+onready var alertInfoNode = get_node("end_alert")
 
 
 var alert_done = false
@@ -175,7 +176,7 @@ func _fixed_process(delta):
 			
 
 	# Block movements when an popup/dialogue box is open
-	if menuNode.is_visible() or get_node("dialogue_box").is_visible() or alertBox.is_visible() or multipleChoiceBox.is_visible() or greetingsScreenNode.is_visible() or endPopupNode.is_visible() and !scorePopupNode.is_visible():
+	if alertInfoNode.is_visible() or menuNode.is_visible() or get_node("dialogue_box").is_visible() or alertBox.is_visible() or multipleChoiceBox.is_visible() or greetingsScreenNode.is_visible() or endPopupNode.is_visible() and scorePopupNode.is_visible():
 		disable_movements()
 	else:
 		enable_movements()
