@@ -9,6 +9,8 @@ onready var newUserNode = get_node("create_new_user")
 onready var passwordNode = get_node("chapter_password")
 onready var chapterNode =  get_node("multiple_choice")
 onready var alertNode = get_node("control_alerts")
+onready var controlsNode = get_node("control_layout")
+
 var chapterSelectStartPos 
 var chapterSelected = 0
 var passwordEntered = false
@@ -41,6 +43,7 @@ func _ready():
 	#get_node("StreamPlayer").play()
 	#Set window title
 	get_node("multiple_choice").set_hidden(true)
+	controlsNode.set_hidden(true)
 	
 	#SKIP LOGIN
 	singleton.logged_in = true
@@ -70,7 +73,7 @@ func _unhandled_key_input(key_event):
 
 func _input(event):
 		
-	if !chapterNode.is_visible() and !passwordNode.is_visible():
+	if !chapterNode.is_visible() and !passwordNode.is_visible() and !controlsNode.is_visible():
 		if event.is_action("ui_up") && event.is_pressed() && !event.is_echo():
 			if(index != 0):
 				index -= 1
@@ -78,7 +81,7 @@ func _input(event):
 				var y = get_node("Selected").get_pos().y - 75 #75 is hard coded distance between labels
 				get_node("Selected").set_pos(Vector2(x,y))
 		if event.is_action("ui_down") && event.is_pressed() && !event.is_echo():
-			if(index != 1):
+			if(index != 2):
 				index += 1
 				var x = get_node("Selected").get_pos().x
 				var y = get_node("Selected").get_pos().y + 75
@@ -87,6 +90,8 @@ func _input(event):
 			if (index == 0): #chapters
 				chapterNode.show()
 			if (index == 1):
+				controlsNode.set_hidden(false)
+			if (index == 2):
 				OS.get_main_loop().quit()
 				
 	elif chapterNode.is_visible():
@@ -171,6 +176,12 @@ func _input(event):
 		if passwordNode.get_node("passwordedit").get_text() != "" and passwordNode.get_node("button_enter").is_pressed() and !passwordEntered:
 			passwordEntered = true
 			_handle_password_input(passwordNode.get_node("passwordedit").get_text())
+	
+	elif controlsNode.is_visible():
+		if controlsNode.get_node("back1").is_pressed():
+			controlsNode.set_hidden(true)
+		if event.is_action("ui_accept") && event.is_pressed() && !event.is_echo():
+			controlsNode.set_hidden(true)
 	
 	if incorrectPassword and !alertNode.is_visible():
 		incorrectPassword = false

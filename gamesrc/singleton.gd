@@ -1,8 +1,5 @@
 extends Node
 
-# useful for transfering data between scenes
-#var foo = 3
-
 # MULTIPLE CHOICE QUESTIONS
 # Chapter 1 Questions
 const greetingsMultipleChoiceQuestions = [
