@@ -1,2 +1,4 @@
 *.gd	eol=lf
 *.cfg	eol=lf
+assets/* linguist-vendored
+fonts/* linguist-vendored
