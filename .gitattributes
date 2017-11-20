@@ -1,4 +1,8 @@
 *.gd	eol=lf
 *.cfg	eol=lf
 assets/* linguist-vendored
+assets/ linguist-vendored
 fonts/* linguist-vendored
+fonts/ linguist-vendored
+*.inc linguist-vendored
+*.fnt linguist-vendored
